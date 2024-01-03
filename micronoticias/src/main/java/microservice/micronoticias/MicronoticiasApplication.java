@@ -9,5 +9,5 @@ public class MicronoticiasApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(MicronoticiasApplication.class, args);
 	}
-
 }
+
