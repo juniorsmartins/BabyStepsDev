@@ -5,3 +5,5 @@ N
 src/main/java/br/com/Main.java,9/a/9ab1a4d8c231f921b5157f8a1b926d21a1169ecd
 E
 micronoticias/pom.xml,8/1/81a82d5500b7046dbc60106277f740ab1db74909
+„
+Tmicronoticias/src/main/java/microservice/micronoticias/MicronoticiasApplication.java,0/e/0e7412dea629473894d7278def1cbbdcb8d21b52
