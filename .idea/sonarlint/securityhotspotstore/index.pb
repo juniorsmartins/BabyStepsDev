@@ -9,3 +9,7 @@ E
 Tmicronoticias/src/main/java/microservice/micronoticias/MicronoticiasApplication.java,0/e/0e7412dea629473894d7278def1cbbdcb8d21b52
 H
 micronoticias/Dockerfile,f/2/f253ab5ef34b84b2509e06fc336340e1dc3f54f8
+E
+microusuarios/pom.xml,d/3/d3aaade5247c194d826623aa8d8c88aec4c1e37f
+H
+microusuarios/Dockerfile,e/7/e77d6eafc7b402405888dcb51d7954deb9e4e2f6
