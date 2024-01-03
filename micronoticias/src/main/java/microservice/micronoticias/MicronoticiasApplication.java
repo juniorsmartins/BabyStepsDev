@@ -1,13 +1,13 @@
-package microservice.micro_noticias;
+package microservice.micronoticias;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MicroNoticiasApplication {
+public class MicronoticiasApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MicroNoticiasApplication.class, args);
+		SpringApplication.run(MicronoticiasApplication.class, args);
 	}
 
 }

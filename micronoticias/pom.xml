@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>microservice</groupId>
-	<artifactId>micro_noticias</artifactId>
+	<artifactId>micronoticias</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>micro_noticias</name>
+	<name>micronoticias</name>
 	<description>Projeto para desenvolver site pessoal/profissional.</description>
 	<properties>
 		<java.version>21</java.version>
