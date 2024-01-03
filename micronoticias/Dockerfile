@@ -1,4 +1,4 @@
-FROM openjdk:21.0.1 AS builder
+FROM amazoncorretto:21.0.1-al2023-headful AS builder
 
 WORKDIR /app
 
