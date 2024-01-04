@@ -16,6 +16,16 @@ COPY ./microusuarios/src ./src
 
 RUN ./mvnw clean package -DskipTests
 
+
+FROM amazoncorretto:21.0.1-al2023-headful
+
+WORKDIR /app
+
+# add logging.file.path=/app/logs no application.properties
+RUN mkdir ./logs
+
+COPY --from=builder /app/microusuarios/target/microusuarios-0.0.1-SNAPSHOT.jar .
+
 EXPOSE 8002
 
-ENTRYPOINT ["java", "-jar", "./target/microusuarios-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java", "-jar", "microusuarios-0.0.1-SNAPSHOT.jar"]

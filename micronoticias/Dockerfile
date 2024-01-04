@@ -16,7 +16,17 @@ COPY ./micronoticias/src ./src
 
 RUN ./mvnw clean package -DskipTests
 
+
+FROM amazoncorretto:21.0.1-al2023-headful
+
+WORKDIR /app
+
+# add logging.file.path=/app/logs no application.properties
+RUN mkdir ./logs
+
+COPY --from=builder /app/micronoticias/target/micronoticias-0.0.1-SNAPSHOT.jar .
+
 EXPOSE 8001
 
-ENTRYPOINT ["java", "-jar", "./target/micronoticias-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java", "-jar", "micronoticias-0.0.1-SNAPSHOT.jar"]
 
