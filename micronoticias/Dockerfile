@@ -1,32 +1,40 @@
+ARG DIRETORIO_MICRO=micronoticias
+
 FROM amazoncorretto:21.0.1-al2023-headful AS builder
 
 LABEL authors="juniormartins"
 
-WORKDIR /app/micronoticias
+ARG DIRETORIO_MICRO
+WORKDIR /app/$DIRETORIO_MICRO
 
 COPY ./pom.xml /app
-COPY ./micronoticias/.mvn ./.mvn
-COPY ./micronoticias/mvnw .
-COPY ./micronoticias/pom.xml .
+COPY ./$DIRETORIO_MICRO/.mvn ./.mvn
+COPY ./$DIRETORIO_MICRO/mvnw .
+COPY ./$DIRETORIO_MICRO/pom.xml .
 
 RUN ./mvnw clean package -Dmaven.test.skip -Dmaven.main.skip -Dspring-boot.repackage.skip && rm -r ./target/
 # RUN ./mvnw dependency:go-offline
 
-COPY ./micronoticias/src ./src
+COPY ./$DIRETORIO_MICRO/src ./src
 
 RUN ./mvnw clean package -DskipTests
 
 
 FROM amazoncorretto:21.0.1-al2023-headful
 
+ARG DIRETORIO_MICRO
 WORKDIR /app
 
 # add logging.file.path=/app/logs no application.properties
 RUN mkdir ./logs
 
-COPY --from=builder /app/micronoticias/target/micronoticias-0.0.1-SNAPSHOT.jar .
+ARG DIRETORIO_TARGET=/app/$DIRETORIO_MICRO/target
 
-EXPOSE 8001
+COPY --from=builder $DIRETORIO_TARGET/micronoticias-0.0.1-SNAPSHOT.jar .
+
+ARG PORT_APP=8001
+ENV PORT $PORT_APP
+EXPOSE $PORT
 
 ENTRYPOINT ["java", "-jar", "micronoticias-0.0.1-SNAPSHOT.jar"]
 
