@@ -27,7 +27,7 @@ jobs:
       with:
         file: ./microusuarios/Dockerfile
         push: true
-        tags: 957817/microusuarios:${{github.run.number}}, 957817/microusuarios:latest
+        tags: 957817/microusuarios:v1, 957817/microusuarios:latest
         build-args: |
           DIRETORIO_MICRO=microusuarios
 
@@ -45,7 +45,7 @@ jobs:
       with:
         file: ./micronoticias/Dockerfile
         push: true
-        tags: 957817/micronoticias:${{github.run.number}}, 957817/micronoticias:latest
+        tags: 957817/micronoticias:v1, 957817/micronoticias:latest
         build-args: |
           DIRETORIO_MICRO=micronoticias
 
