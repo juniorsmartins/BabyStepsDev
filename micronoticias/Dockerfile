@@ -31,7 +31,6 @@ RUN mkdir ./logs
 ARG DIRETORIO_TARGET=/app/$DIRETORIO_MICRO/target
 
 COPY --from=builder $DIRETORIO_TARGET/micronoticias-0.0.1-SNAPSHOT.jar .
-COPY . main
 
 ARG PORT_APP=8001
 ENV PORT $PORT_APP
