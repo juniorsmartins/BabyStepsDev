@@ -15,3 +15,5 @@ H
 microusuarios/Dockerfile,e/7/e77d6eafc7b402405888dcb51d7954deb9e4e2f6
 B
 micronoticias/.env,9/e/9ef152560b269bb9b414cb54ee1566ce2d75ef56
+B
+microusuarios/.env,c/a/ca04359b703b59af60c905a8003d1e79249526da
