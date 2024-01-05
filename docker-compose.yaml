@@ -13,7 +13,7 @@ services:
       - data-mysql:/var/lib/mysql
     restart: always
     networks:
-      - netsite
+      - netesporte
 
   postgres16micronoticias:
     container_name: postgres16micronoticias
@@ -27,7 +27,7 @@ services:
       - data-postgres:/var/lib/postgresql/data
     restart: always
     networks:
-      - netsite
+      - netesporte
 
   microusuarios:
     container_name: microusuarios
@@ -38,7 +38,7 @@ services:
       - "8002:8002"
     env_file: ./microusuarios/.env
     networks:
-      - netsite
+      - netesporte
     depends_on:
       - mysql8microusuarios
     restart: always
@@ -52,7 +52,7 @@ services:
       - "8001:8001"
     env_file: ./micronoticias/.env
     networks:
-      - netsite
+      - netesporte
     depends_on:
       - postgres16micronoticias
       - microusuarios
@@ -61,8 +61,11 @@ services:
 
 volumes:
   data-mysql:
+    name: data-mysql
   data-postgres:
+    name: data-postgres
 
 networks:
-  netsite:
+  netesporte:
+    name: netesporte
 
