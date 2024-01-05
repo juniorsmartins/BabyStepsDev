@@ -24,7 +24,7 @@ jobs:
     - name: Construção da imagem Docker do Microusuarios
       uses: docker/build-push-action@v5.1.0
       with:
-        context: ./microusuarios
+        context: ./microusuarios/src
         file: ./microusuarios/Dockerfile
         push: true
         tags: 957817/microusuarios:v1, 957817/microusuarios:latest
@@ -41,7 +41,7 @@ jobs:
     - name: Construção da imagem Docker do Micronoticias
       uses: docker/build-push-action@v5.1.0
       with:
-        context: ./micronoticias
+        context: ./micronoticias/src
         file: ./micronoticias/Dockerfile
         push: true
         tags: 957817/micronoticias:v1, 957817/micronoticias:latest
