@@ -19,3 +19,7 @@ B
 microusuarios/.env,c/a/ca04359b703b59af60c905a8003d1e79249526da
 C
 docker-compose.yaml,e/f/ef8def03dc8f162799089e9b5f4321201c8810d5
+‹
+[micronoticias/src/main/java/microservice/micronoticias/application/core/domain/Noticia.java,f/1/f1d2f5afc10b5a89a47b257ef0e73cb22ce0350a
+Š
+Zmicrousuarios/src/main/java/microservice/microusuarios/application/core/domain/Pessoa.java,8/8/88cd4c8615681d21f9d0c6225d6b98d4c49a3202
