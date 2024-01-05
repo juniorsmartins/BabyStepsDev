@@ -4,7 +4,7 @@ FROM amazoncorretto:21.0.1-al2023-headful AS builder
 
 LABEL authors="juniormartins"
 
-ARG DIRETORIO_MICRO
+ARG DIRETORIO_MICRO=micronoticias
 WORKDIR /app/$DIRETORIO_MICRO
 
 COPY ./pom.xml /app
@@ -22,7 +22,7 @@ RUN ./mvnw clean package -DskipTests
 
 FROM amazoncorretto:21.0.1-al2023-headful
 
-ARG DIRETORIO_MICRO
+ARG DIRETORIO_MICRO=micronoticias
 WORKDIR /app
 
 # add logging.file.path=/app/logs no application.properties
