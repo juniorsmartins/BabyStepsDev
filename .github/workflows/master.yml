@@ -22,6 +22,10 @@ jobs:
       with:
         username: ${{secrets.DOCKERHUB_USER}}
         password: ${{secrets.DOCKERHUB_PWD}}
+    - name: Instalar dependências
+      run: mvn install 
+    - name: Executar testes
+      run: mvn test
     - name: Construção da imagem Docker do Microusuarios
       uses: docker/build-push-action@v5.1.0
       with:
@@ -40,6 +44,10 @@ jobs:
       with:
         username: ${{secrets.DOCKERHUB_USER}}
         password: ${{secrets.DOCKERHUB_PWD}}
+    - name: Instalar dependências
+      run: mvn install 
+    - name: Executar testes
+      run: mvn test
     - name: Construção da imagem Docker do Micronoticias
       uses: docker/build-push-action@v5.1.0
       with:
