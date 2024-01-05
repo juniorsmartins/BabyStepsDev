@@ -31,6 +31,7 @@ RUN mkdir ./logs
 ARG DIRETORIO_TARGET=/app/$DIRETORIO_MICRO/target
 
 COPY --from=builder $DIRETORIO_TARGET/microusuarios-0.0.1-SNAPSHOT.jar .
+COPY ./$DIRETORIO_MICRO/src ./src
 
 ARG PORT_APP=8002
 ENV PORT $PORT_APP
