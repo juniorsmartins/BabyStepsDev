@@ -1,0 +1,71 @@
+version: "3.9"
+
+services:
+  mysql8microusuarios:
+    container_name: mysql8microusuarios
+    image: mysql:8.0.17
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: mysql
+      MYSQL_DATABASE: microusuarios
+    volumes:
+      - data-mysql:/var/lib/mysql
+    restart: always
+    networks:
+      - netesporte
+
+  postgres16micronoticias:
+    container_name: postgres16micronoticias
+    image: postgres:16.0
+    ports:
+      - "5532:5432"
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: micronoticias
+    volumes:
+      - data-postgres:/var/lib/postgresql/data
+    restart: always
+    networks:
+      - netesporte
+
+  microusuarios:
+    container_name: microusuarios
+    build:
+      context: ./
+      dockerfile: ./microusuarios/Dockerfile
+    ports:
+      - "8002:8002"
+    env_file: ./microusuarios/.env
+    networks:
+      - netesporte
+    depends_on:
+      - mysql8microusuarios
+    restart: always
+
+  micronoticias:
+    container_name: micronoticias
+    build:
+      context: ./
+      dockerfile: ./micronoticias/Dockerfile
+    ports:
+      - "8001:8001"
+    env_file: ./micronoticias/.env
+    networks:
+      - netesporte
+    depends_on:
+      - postgres16micronoticias
+      - microusuarios
+    restart: always
+
+
+volumes:
+  data-mysql:
+    name: data-mysql
+  data-postgres:
+    name: data-postgres
+
+networks:
+  netesporte:
+    name: netesporte
+
