@@ -1,5 +1,6 @@
-# Site (nome ainda não definido)
+# Site (nome ainda indefinido)
 
+em construção.....
 
 ## ÍNDICE
 
@@ -14,21 +15,22 @@
 9. Como testar.
 
 
-### TECNOLOGIAS
+### 2 - TECNOLOGIAS
 
 1. Java (versão 21 LTS);
 2. Spring Boot (versão 3.0.12);
-3. Spring Web;
-4. Spring Data Envers;
-5. Spring Doc;
-6. Spring Data Jpa;
-7. Bean Validation;
-8. MapStruct (versão 1.5.5.Final);
-9. Jackson Dataformat XML;
-10. DevTools;
-11. Lombok;
-12. JavaFaker (versão 1.0.2);
-13. Teste Automatizados (JUnit, JUnit Params, Mockito);
-14. Banco de Dados (PostgreSQL e H2);
-15. Docker;
+3. Spring Security (JWT);
+4. Spring Web;
+5. Spring Data Envers;
+6. Spring Doc;
+7. Spring Data Jpa;
+8. Bean Validation;
+9. MapStruct (versão 1.5.5.Final);
+10. Jackson Dataformat XML;
+11. DevTools;
+12. Lombok;
+13. JavaFaker (versão 1.0.2);
+14. Teste Automatizados (JUnit, JUnit Params, Mockito);
+15. Banco de Dados (PostgreSQL e H2);
+16. Docker;
 
