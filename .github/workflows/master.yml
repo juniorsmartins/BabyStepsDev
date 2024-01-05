@@ -16,11 +16,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4.1.1
-    - name: Autenticação no DockerHub
+    - name: Autenticação no DockerHub para subir microusuarios
       uses: docker/login-action@v3.0.0
-        with:
-          username: ${{secrets.DOCKERHUB_USER}}
-          password: ${{secrets.DOCKERHUB_PWD}}
+      with:
+        username: ${{secrets.DOCKERHUB_USER}}
+        password: ${{secrets.DOCKERHUB_PWD}}
     - name: Construção da imagem Docker do Microusuarios
       uses: docker/build-push-action@v5.1.0
       with:
@@ -35,11 +35,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4.1.1
-    - name: Autenticação no DockerHub
+    - name: Autenticação no DockerHub para subir micronoticias
       uses: docker/login-action@v3.0.0
-        with:
-          username: ${{secrets.DOCKERHUB_USER}}
-          password: ${{secrets.DOCKERHUB_PWD}}
+      with:
+        username: ${{secrets.DOCKERHUB_USER}}
+        password: ${{secrets.DOCKERHUB_PWD}}
     - name: Construção da imagem Docker do Micronoticias
       uses: docker/build-push-action@v5.1.0
       with:
