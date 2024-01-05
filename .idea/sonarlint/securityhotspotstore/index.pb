@@ -17,3 +17,5 @@ B
 micronoticias/.env,9/e/9ef152560b269bb9b414cb54ee1566ce2d75ef56
 B
 microusuarios/.env,c/a/ca04359b703b59af60c905a8003d1e79249526da
+C
+docker-compose.yaml,e/f/ef8def03dc8f162799089e9b5f4321201c8810d5
