@@ -1,6 +1,7 @@
 package microservice.micronoticias.utility;
 
 import microservice.micronoticias.adapter.out.entity.NoticiaEntity;
+import net.datafaker.Faker;
 import org.apache.commons.lang3.RandomStringUtils;
 
 import java.util.ArrayList;
@@ -9,6 +10,8 @@ import java.util.List;
 public final class FactoryObjectMother {
 
     private static FactoryObjectMother singletonFactory;
+
+    private final Faker faker = new Faker();
 
     private FactoryObjectMother() { }
 
