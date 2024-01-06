@@ -23,3 +23,11 @@ C
 [micronoticias/src/main/java/microservice/micronoticias/application/core/domain/Noticia.java,f/1/f1d2f5afc10b5a89a47b257ef0e73cb22ce0350a
 Š
 Zmicrousuarios/src/main/java/microservice/microusuarios/application/core/domain/Pessoa.java,8/8/88cd4c8615681d21f9d0c6225d6b98d4c49a3202
+Œ
+\micronoticias/src/main/java/microservice/micronoticias/adapter/out/entity/NoticiaEntity.java,c/3/c32441789339a5834f8a984764a2601b6ff99dbb
+ˆ
+Xmicronoticias/src/main/java/microservice/micronoticias/adapter/NoticiaSalvarAdapter.java,6/a/6aa4551e0bcfdaa56c7179452930480797667dde
+—
+gmicronoticias/src/test/java/microservice/micronoticias/adapter/NoticiaSalvarAdapterIntegrationTest.java,e/7/e7d3802d13bcf3da628aa75fbb91a84caa7e333f
+”
+dmicronoticias/src/main/java/microservice/micronoticias/adapter/out/repository/NoticiaRepository.java,9/a/9a3d20fb41eaf2e1c35e12f040a71f683710dc8a
