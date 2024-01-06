@@ -8,33 +8,56 @@ on:
   pull_request:
     branches:
     - master
+    - release/*
   schedule:
   - cron: "0 8,13,18 * * *"
 
 jobs:
 
   CI-microusuarios:
+    name: teste
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4.1.1
-    - name: Autenticação no DockerHub para subir microusuarios
-      uses: docker/login-action@v3.0.0
-      with:
-        username: ${{secrets.DOCKERHUB_USER}}
-        password: ${{secrets.DOCKERHUB_PWD}}
-    - name: Construção da imagem Docker do Microusuarios
-      uses: docker/build-push-action@v5.1.0
-      with:
-        file: ./microusuarios/Dockerfile
-        push: true
-        tags: 957817/microusuarios:v1, 957817/microusuarios:latest
-        build-args: |
-          DIRETORIO_MICRO=microusuarios
+      - name: Checkout Code
+        uses: actions/checkout@v4.1.1
+      - name: Build com Maven
+        run: mvn clean install -B
+      - name: Cache Maven dependencies
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/*.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+      - name: Autenticação no DockerHub para subir microusuarios
+        uses: docker/login-action@v3.0.0
+        with:
+          username: ${{secrets.DOCKERHUB_USER}}
+          password: ${{secrets.DOCKERHUB_PWD}}
+      - name: Construção da imagem Docker do Microusuarios
+        uses: docker/build-push-action@v5.1.0
+        with:
+          context: ./microusuarios
+          file: ./microusuarios/Dockerfile
+          push: true
+          tags: 957817/microusuarios:v1, 957817/microusuarios:latest
 
   CI-micronoticias:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4.1.1
+    - name: Checkout Code
+      uses: actions/checkout@v4.1.1
+    - name: Build com Maven
+      run: mvn clean install -B
+    - name: Cache Maven dependencies
+      uses: actions/cache@v2
+      with:
+        path: |
+          ~/.m2/repository
+        key: ${{ runner.os }}-maven-${{ hashFiles('**/*.xml') }}
+        restore-keys: |
+          ${{ runner.os }}-maven-
     - name: Autenticação no DockerHub para subir micronoticias
       uses: docker/login-action@v3.0.0
       with:
@@ -43,11 +66,10 @@ jobs:
     - name: Construção da imagem Docker do Micronoticias
       uses: docker/build-push-action@v5.1.0
       with:
+        context: ./micronoticias
         file: ./micronoticias/Dockerfile
         push: true
         tags: 957817/micronoticias:v1, 957817/micronoticias:latest
-        build-args: |
-          DIRETORIO_MICRO=micronoticias
 
   CD:
     runs-on: ubuntu-latest
