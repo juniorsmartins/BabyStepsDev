@@ -31,3 +31,5 @@ Xmicronoticias/src/main/java/microservice/micronoticias/adapter/NoticiaSalvarAda
 gmicronoticias/src/test/java/microservice/micronoticias/adapter/NoticiaSalvarAdapterIntegrationTest.java,e/7/e7d3802d13bcf3da628aa75fbb91a84caa7e333f
 ”
 dmicronoticias/src/main/java/microservice/micronoticias/adapter/out/repository/NoticiaRepository.java,9/a/9a3d20fb41eaf2e1c35e12f040a71f683710dc8a
+L
+.github/workflows/master.yml,0/9/09f57d3ecc595c66500ce7764c10265fac3ad915
