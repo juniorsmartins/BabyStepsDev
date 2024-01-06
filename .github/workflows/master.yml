@@ -32,6 +32,8 @@ jobs:
           tags: 957817/microusuarios:v1, 957817/microusuarios:latest
           build-args: |
             DIRETORIO_MICRO=microusuarios
+      - name: Executar testes unitários
+        run: mvn test -Dtest=**/*Test
 
   CI-micronoticias:
     runs-on: ubuntu-latest
@@ -50,7 +52,9 @@ jobs:
         push: true
         tags: 957817/micronoticias:v1, 957817/micronoticias:latest
         build-args: |
-          DIRETORIO_MICRO=microunoticias
+          DIRETORIO_MICRO=micronoticias
+    - name: Executar testes unitários
+      run: mvn test -Dtest=**/*Test
 
   CD:
     runs-on: ubuntu-latest
