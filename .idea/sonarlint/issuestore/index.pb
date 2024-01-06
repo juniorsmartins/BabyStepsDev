@@ -33,3 +33,9 @@ gmicronoticias/src/test/java/microservice/micronoticias/adapter/NoticiaSalvarAda
 dmicronoticias/src/main/java/microservice/micronoticias/adapter/out/repository/NoticiaRepository.java,9/a/9a3d20fb41eaf2e1c35e12f040a71f683710dc8a
 L
 .github/workflows/master.yml,0/9/09f57d3ecc595c66500ce7764c10265fac3ad915
+‰
+Ymicronoticias/src/test/java/microservice/micronoticias/MicronoticiasApplicationTests.java,2/7/27de27d3f5602268de377af068152870adde3df5
+£
+smicronoticias/src/test/java/microservice/micronoticias/adapter/out/repository/NoticiaRepositoryIntegrationTest.java,6/9/69dd711c644424e24a8891f275b73aa308c82931
+‡
+Wmicronoticias/src/test/java/microservice/micronoticias/utility/FactoryObjectMother.java,4/2/42baedca597cde9deae41175b80aba44e41641d4
