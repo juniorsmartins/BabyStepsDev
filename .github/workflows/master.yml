@@ -22,8 +22,6 @@ jobs:
       with:
         username: ${{secrets.DOCKERHUB_USER}}
         password: ${{secrets.DOCKERHUB_PWD}}
-    - name: Instalar dependências
-      run: mvn install 
     - name: Executar testes
       run: mvn test
     - name: Atualizar Java SDK
@@ -49,8 +47,6 @@ jobs:
       with:
         username: ${{secrets.DOCKERHUB_USER}}
         password: ${{secrets.DOCKERHUB_PWD}}
-    - name: Instalar dependências
-      run: mvn install 
     - name: Executar testes
       run: mvn test
     - name: Atualizar Java SDK
