@@ -26,6 +26,11 @@ jobs:
       run: mvn install 
     - name: Executar testes
       run: mvn test
+    - name: Atualizar Java SDK
+      uses: actions/setup-java@v4
+      with:
+        java-version: '21'
+        distribution: 'temurin'
     - name: Construção da imagem Docker do Microusuarios
       uses: docker/build-push-action@v5.1.0
       with:
@@ -48,6 +53,11 @@ jobs:
       run: mvn install 
     - name: Executar testes
       run: mvn test
+    - name: Atualizar Java SDK
+      uses: actions/setup-java@v4
+      with:
+        java-version: '21'
+        distribution: 'temurin'
     - name: Construção da imagem Docker do Micronoticias
       uses: docker/build-push-action@v5.1.0
       with:
