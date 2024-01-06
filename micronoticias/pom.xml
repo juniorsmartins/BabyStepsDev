@@ -19,7 +19,7 @@
 	<properties>
 		<java.version>21</java.version>
 		<mapstruct.version>1.5.5.Final</mapstruct.version>
-		<javafaker.version>1.0.2</javafaker.version>
+		<commons.lang.version>3.14.0</commons.lang.version>
 	</properties>
 
 	<dependencies>
@@ -127,16 +127,16 @@
 
 		<!-- Gerar dados falsos para Testes -->
 		<dependency>
-			<groupId>com.github.javafaker</groupId>
-			<artifactId>javafaker</artifactId>
-			<version>${javafaker.version}</version>
-			<scope>test</scope>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>${commons.lang.version}</version>
 		</dependency>
 
 		<!-- Banco de dados para testes -->
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
+			<version>2.2.220</version>
 			<scope>test</scope>
 		</dependency>
 

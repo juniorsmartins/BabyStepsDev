@@ -5,6 +5,7 @@ import lombok.*;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "noticias")
@@ -22,5 +23,36 @@ public final class NoticiaEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "chapeu", length = 30)
+    private String chapeu;
+
+    @Column(name = "titulo", length = 150)
+    private String titulo;
+
+    @Column(name = "linha_fina", length = 250)
+    private String linhaFina;
+
+    @Lob
+    @Column(name = "lide", length = 400)
+    private String lide;
+
+    @Lob
+    @Column(name = "corpo", length = 5000)
+    private String corpo;
+
+    @ElementCollection(fetch = FetchType.EAGER, targetClass = String.class)
+    @CollectionTable(name = "noticia_autoria",
+        joinColumns = @JoinColumn(name = "noticia_id", referencedColumnName = "id",
+            foreignKey = @ForeignKey(name = "fk_noticia_autoria")))
+    @Column(name = "autoria")
+    private List<String> autorias;
+
+    @ElementCollection(fetch = FetchType.EAGER, targetClass = String.class)
+    @CollectionTable(name = "noticia_fonte",
+        joinColumns = @JoinColumn(name = "noticia_id", referencedColumnName = "id",
+            foreignKey = @ForeignKey(name = "fk_noticia_fonte")))
+    @Column(name = "fonte")
+    private List<String> fontes;
 }
 
