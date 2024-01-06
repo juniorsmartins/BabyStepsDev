@@ -24,8 +24,13 @@ jobs:
       - name: Setup Java
         uses: oracle-actions/setup-java@v1.3.2
       
-      - name: Build and Test with Maven
-        run: mvn --batch-mode package
+      - name: Testes unitários
+        run: mvn -B test --file pom.xml
+
+      - name: Build da aplicação
+        run: |
+          mvn clean
+          mvn -B package --file pom.xml
       
       - name: Autenticação no DockerHub para subir microusuarios
         uses: docker/login-action@v3.0.0
