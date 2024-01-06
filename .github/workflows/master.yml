@@ -17,17 +17,22 @@ jobs:
   CI-microusuarios:
     runs-on: ubuntu-latest
     steps:
+
       - name: Checkout Code
         uses: actions/checkout@v4.1.1
+      
       - name: Setup Java
         uses: oracle-actions/setup-java@v1.3.2
+      
       - name: Build projeto
         run: mvn clean install -DskipTests
+      
       - name: Autenticação no DockerHub para subir microusuarios
         uses: docker/login-action@v3.0.0
         with:
           username: ${{secrets.DOCKERHUB_USER}}
           password: ${{secrets.DOCKERHUB_PWD}}
+
       - name: Construção da imagem Docker do Microusuarios
         uses: docker/build-push-action@v5.1.0
         with:
@@ -40,13 +45,22 @@ jobs:
   CI-micronoticias:
     runs-on: ubuntu-latest
     steps:
+
     - name: Checkout Code
       uses: actions/checkout@v4.1.1
+
+    - name: Setup Java
+      uses: oracle-actions/setup-java@v1.3.2
+      
+    - name: Build projeto
+      run: mvn clean install -DskipTests
+
     - name: Autenticação no DockerHub para subir micronoticias
       uses: docker/login-action@v3.0.0
       with:
         username: ${{secrets.DOCKERHUB_USER}}
         password: ${{secrets.DOCKERHUB_PWD}}
+    
     - name: Construção da imagem Docker do Micronoticias
       uses: docker/build-push-action@v5.1.0
       with:
