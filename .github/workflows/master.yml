@@ -30,7 +30,7 @@ jobs:
       uses: actions/setup-java@v4
       with:
         java-version: '21'
-        distribution: 'temurin'
+        distribution: 'amazoncorretto'
     - name: Construção da imagem Docker do Microusuarios
       uses: docker/build-push-action@v5.1.0
       with:
@@ -57,7 +57,7 @@ jobs:
       uses: actions/setup-java@v4
       with:
         java-version: '21'
-        distribution: 'temurin'
+        distribution: 'amazoncorretto'
     - name: Construção da imagem Docker do Micronoticias
       uses: docker/build-push-action@v5.1.0
       with:
