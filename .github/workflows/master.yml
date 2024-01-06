@@ -19,14 +19,6 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4.1.1
-      - name: Cache Maven dependencies
-        uses: actions/cache@v2
-        with:
-          path: |
-            ~/.m2/repository
-          key: ${{ runner.os }}-maven-${{ hashFiles('**/*.xml') }}
-          restore-keys: |
-            ${{ runner.os }}-maven-
       - name: Autenticação no DockerHub para subir microusuarios
         uses: docker/login-action@v3.0.0
         with:
@@ -45,14 +37,6 @@ jobs:
     steps:
     - name: Checkout Code
       uses: actions/checkout@v4.1.1
-    - name: Cache Maven dependencies
-      uses: actions/cache@v2
-      with:
-        path: |
-          ~/.m2/repository
-        key: ${{ runner.os }}-maven-${{ hashFiles('**/*.xml') }}
-        restore-keys: |
-          ${{ runner.os }}-maven-
     - name: Autenticação no DockerHub para subir micronoticias
       uses: docker/login-action@v3.0.0
       with:
