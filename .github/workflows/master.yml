@@ -49,5 +49,9 @@ jobs:
         build-args: |
           DIRETORIO_MICRO=micronoticias
 
-
+  CD:
+    runs-on: ubuntu-latest
+    needs: [CI-microusuarios, CI-micronoticias]
+    steps:
+      - uses: actions/checkout@v4.1.1
 
