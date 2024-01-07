@@ -34,7 +34,7 @@ class NoticiaUnitTest {
 
         @Test
         @DisplayName("nulo")
-        void dadoChapeuNulo_QuandoSettarChapeu_EntaoLancarException() {
+        void dadoChapeuNulo_QuandoSettar_EntaoLancarException() {
             Executable acao = () -> noticia.setChapeu(null);
             Assertions.assertThrows(CampoNuloProibidoException.class, acao);
         }
@@ -42,7 +42,7 @@ class NoticiaUnitTest {
         @ParameterizedTest
         @ValueSource(strings = {"", "   "})
         @DisplayName("vazio ou em branco")
-        void dadoChapeuVazioOuEmBranco_QuandoSettarChapeu_EntaoLancarException(String valor) {
+        void dadoChapeuVazioOuEmBranco_QuandoSettar_EntaoLancarException(String valor) {
             Executable acao = () -> noticia.setChapeu(valor);
             Assertions.assertThrows(CampoVazioOuEmBrancoProibidoException.class, acao);
         }
@@ -50,8 +50,39 @@ class NoticiaUnitTest {
         @ParameterizedTest
         @ValueSource(strings = {"a", "abcde12345678901234567890qwerty"})
         @DisplayName("tamanho inválido")
-        void dadoChapeuMaiorOuMenorQueLimites_QuandoSettarChapeu_EntaoLancarException(String valor) {
+        void dadoChapeuMaiorOuMenorQueLimites_QuandoSettar_EntaoLancarException(String valor) {
             Executable acao = () -> noticia.setChapeu(valor);
+            Assertions.assertThrows(CampoComTamanhoInvalidoException.class, acao);
+        }
+    }
+
+    @Nested
+    @DisplayName("Título")
+    class Titulo {
+
+        @Test
+        @DisplayName("nulo")
+        void dadoTituloNulo_QuandoSettar_EntaoLancarException() {
+            Executable acao = () -> noticia.setTitulo(null);
+            Assertions.assertThrows(CampoNuloProibidoException.class, acao);
+        }
+
+        @ParameterizedTest
+        @ValueSource(strings = {"", "   "})
+        @DisplayName("vazio ou em branco")
+        void dadoTituloVazioOuEmBranco_QuandoSettar_EntaoLancarException(String valor) {
+            Executable acao = () -> noticia.setTitulo(valor);
+            Assertions.assertThrows(CampoVazioOuEmBrancoProibidoException.class, acao);
+        }
+
+        @ParameterizedTest
+        @ValueSource(strings = {
+                "a1b2c3d4e5f6g7h8i9j",
+                "TestarLimiteMaximoDeCaracteresParaTitulo TestarLimiteMaximoDeCaracteresParaTitulo TestarLimiteMaximoDeCaracteresParaTitulo TestarLimiteMaximoDeCaracteresParaTitulo"
+        })
+        @DisplayName("tamanho inválido")
+        void dadoTituloMaiorOuMenorQueLimites_QuandoSettar_EntaoLancarException(String valor) {
+            Executable acao = () -> noticia.setTitulo(valor);
             Assertions.assertThrows(CampoComTamanhoInvalidoException.class, acao);
         }
     }

@@ -13,6 +13,10 @@ public final class Noticia {
 
     public static final int CHAPEU_CARACTERES_MINIMO = 2;
 
+    public static final int TITULO_CARACTERES_MAXIMO = 150;
+
+    public static final int TITULO_CARACTERES_MINIMO = 20;
+
     private String chapeu;
 
     private String titulo;
@@ -36,10 +40,10 @@ public final class Noticia {
 
         Optional.ofNullable(valorCampo)
             .ifPresentOrElse(hat -> {
-                this.validarCampoNaoVazioOuEmBranco(nomeCampo, valorCampo);
+                this.validarCampoNaoVazioOuEmBranco(nomeCampo, hat);
                 this.validarCampoComTamanhoValido(nomeCampo, CHAPEU_CARACTERES_MINIMO,
-                    CHAPEU_CARACTERES_MAXIMO, valorCampo.length());
-                this.chapeu = valorCampo;
+                    CHAPEU_CARACTERES_MAXIMO, hat.length());
+                this.chapeu = hat;
             },
             () -> {throw new CampoNuloProibidoException(nomeCampo);}
         );
@@ -49,8 +53,18 @@ public final class Noticia {
         return titulo;
     }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
+    public void setTitulo(String valorCampo) {
+        var nomeCampo = "Título";
+
+        Optional.ofNullable(valorCampo)
+            .ifPresentOrElse(title -> {
+                this.validarCampoNaoVazioOuEmBranco(nomeCampo, title);
+                this.validarCampoComTamanhoValido(nomeCampo, TITULO_CARACTERES_MINIMO,
+                    TITULO_CARACTERES_MAXIMO, title.length());
+                this.titulo = title;
+            },
+            () -> {throw new CampoNuloProibidoException(nomeCampo);}
+        );
     }
 
     public String getLinhaFina() {

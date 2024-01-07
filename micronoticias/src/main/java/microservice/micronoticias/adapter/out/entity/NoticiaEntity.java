@@ -27,7 +27,7 @@ public final class NoticiaEntity implements Serializable {
     @Column(name = "chapeu", length = 30, nullable = false)
     private String chapeu;
 
-    @Column(name = "titulo", length = 150)
+    @Column(name = "titulo", length = 150, nullable = false)
     private String titulo;
 
     @Column(name = "linha_fina", length = 250)
