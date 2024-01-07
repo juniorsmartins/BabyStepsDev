@@ -1,5 +1,6 @@
 package microservice.micronoticias.application.core.domain;
 
+import microservice.micronoticias.application.core.useful.UtilityDomain;
 import microservice.micronoticias.config.exception.http_409.CampoComTamanhoInvalidoException;
 import microservice.micronoticias.config.exception.http_409.CampoNuloProibidoException;
 import microservice.micronoticias.config.exception.http_409.CampoVazioOuEmBrancoProibidoException;
@@ -40,8 +41,8 @@ public final class Noticia {
 
         Optional.ofNullable(valorCampo)
             .ifPresentOrElse(hat -> {
-                this.validarCampoNaoVazioOuEmBranco(nomeCampo, hat);
-                this.validarCampoComTamanhoValido(nomeCampo, CHAPEU_CARACTERES_MINIMO,
+                UtilityDomain.validarCampoNaoVazioOuEmBranco(nomeCampo, hat);
+                UtilityDomain.validarCampoComTamanhoValido(nomeCampo, CHAPEU_CARACTERES_MINIMO,
                     CHAPEU_CARACTERES_MAXIMO, hat.length());
                 this.chapeu = hat;
             },
@@ -58,8 +59,8 @@ public final class Noticia {
 
         Optional.ofNullable(valorCampo)
             .ifPresentOrElse(title -> {
-                this.validarCampoNaoVazioOuEmBranco(nomeCampo, title);
-                this.validarCampoComTamanhoValido(nomeCampo, TITULO_CARACTERES_MINIMO,
+                UtilityDomain.validarCampoNaoVazioOuEmBranco(nomeCampo, title);
+                UtilityDomain.validarCampoComTamanhoValido(nomeCampo, TITULO_CARACTERES_MINIMO,
                     TITULO_CARACTERES_MAXIMO, title.length());
                 this.titulo = title;
             },
@@ -105,16 +106,6 @@ public final class Noticia {
 
     public void setFontes(List<String> fontes) {
         this.fontes = fontes;
-    }
-
-    private void validarCampoNaoVazioOuEmBranco(String nomeCampo, String valorCampo) {
-        if(valorCampo.isBlank())
-            throw new CampoVazioOuEmBrancoProibidoException(nomeCampo);
-    }
-
-    private void validarCampoComTamanhoValido(String nomeCampo, int limiteMinino, int limiteMaximo, int caracteresEnviados) {
-        if(caracteresEnviados < limiteMinino || caracteresEnviados > limiteMaximo)
-            throw new CampoComTamanhoInvalidoException(nomeCampo, limiteMinino, limiteMaximo, caracteresEnviados);
     }
 }
 

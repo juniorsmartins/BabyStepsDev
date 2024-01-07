@@ -47,3 +47,5 @@ pmicronoticias/src/main/java/microservice/micronoticias/config/exception/http_40
 vmicronoticias/src/main/java/microservice/micronoticias/config/exception/http_409/CampoComTamanhoInvalidoException.java,a/5/a576075be1b87a197c5babcb3a280540bdf1aba4
 ¤
 tmicronoticias/src/main/java/microservice/micronoticias/config/exception/http_409/RegraDeNegocioVioladaException.java,f/7/f7e1eac7fe35ca7ec0788463afba076f68e55be9
+‘
+amicronoticias/src/main/java/microservice/micronoticias/application/core/useful/UtilityDomain.java,9/1/91792b895761e7d9b36ba0f2f42d4f72bad6f310
