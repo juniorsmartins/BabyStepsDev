@@ -166,12 +166,13 @@ class NoticiaUnitTest {
 
         @ParameterizedTest
         @ValueSource(strings = {
-                "2_",
-                "101 TestarLimiteMaximoDeCaracteresParaAutoria TestarLimiteMaximoDeCaracteresParaAutoria TestarLimiteM"
+            "2_",
+            "101 TestarLimiteMaximoDeCaracteresParaAutoria TestarLimiteMaximoDeCaracteresParaAutoria TestarLimiteM"
         })
         @DisplayName("tamanho inválido")
         void dadoAutoriasMaiorOuMenorQueLimites_QuandoSettar_EntaoLancarException(String valor) {
-            Executable acao = () -> noticia.setLide(valor);
+            var autorias = List.of(valor);
+            Executable acao = () -> noticia.setAutorias(autorias);
             Assertions.assertThrows(CampoComTamanhoInvalidoException.class, acao);
         }
     }

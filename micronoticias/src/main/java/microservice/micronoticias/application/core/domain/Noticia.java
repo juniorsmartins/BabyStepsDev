@@ -1,7 +1,9 @@
 package microservice.micronoticias.application.core.domain;
 
 import microservice.micronoticias.application.core.useful.UtilityDomain;
+import microservice.micronoticias.config.exception.http_409.CampoComTamanhoInvalidoException;
 import microservice.micronoticias.config.exception.http_409.CampoNuloProibidoException;
+import microservice.micronoticias.config.exception.http_409.CampoVazioOuEmBrancoProibidoException;
 
 import java.util.List;
 import java.util.Optional;
@@ -23,6 +25,10 @@ public final class Noticia {
     public static final int LIDE_CARACTERES_MAXIMO = 400;
 
     public static final int LIDE_CARACTERES_MINIMO = 80;
+
+    public static final int AUTORIA_CARACTERES_MAXIMO = 100;
+
+    public static final int AUTORIA_CARACTERES_MINIMO = 3;
 
     private String chapeu;
 
@@ -123,6 +129,18 @@ public final class Noticia {
     }
 
     public void setAutorias(List<String> autorias) {
+        var nomeCampo = "Autorias";
+
+        autorias.forEach(autor -> {
+            if (autor.isBlank())
+                throw new CampoVazioOuEmBrancoProibidoException(nomeCampo);
+        });
+
+        autorias.forEach(autor -> {
+            if (autor.length() < AUTORIA_CARACTERES_MINIMO || autor.length() > AUTORIA_CARACTERES_MAXIMO)
+                throw new CampoComTamanhoInvalidoException(nomeCampo, AUTORIA_CARACTERES_MINIMO, AUTORIA_CARACTERES_MAXIMO, autor.length());
+        });
+
         this.autorias = autorias;
     }
 
