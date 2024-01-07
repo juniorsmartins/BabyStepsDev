@@ -13,6 +13,8 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import java.util.List;
+
 @SpringBootTest
 @ExtendWith({SpringExtension.class, MockitoExtension.class})
 @DisplayName("Unit Domain - Noticia")
@@ -48,7 +50,7 @@ class NoticiaUnitTest {
         }
 
         @ParameterizedTest
-        @ValueSource(strings = {"a", "abcde12345678901234567890qwerty"})
+        @ValueSource(strings = {"a", "31 abcde12345678901234567890qwe"})
         @DisplayName("tamanho inválido")
         void dadoChapeuMaiorOuMenorQueLimites_QuandoSettar_EntaoLancarException(String valor) {
             Executable acao = () -> noticia.setChapeu(valor);
@@ -77,12 +79,100 @@ class NoticiaUnitTest {
 
         @ParameterizedTest
         @ValueSource(strings = {
-                "a1b2c3d4e5f6g7h8i9j",
-                "TestarLimiteMaximoDeCaracteresParaTitulo TestarLimiteMaximoDeCaracteresParaTitulo TestarLimiteMaximoDeCaracteresParaTitulo TestarLimiteMaximoDeCaracteresParaTitulo"
+                "19 a1b2c3d4e5f6g7h8",
+                "151 TestarLimiteMaximoDeCaracteresParaTitulo TestarLimiteMaximoDeCaracteresParaTitulo TestarLimiteMaximoDeCaracteresParaTitulo TestarLimiteMaximoDeCara"
         })
         @DisplayName("tamanho inválido")
         void dadoTituloMaiorOuMenorQueLimites_QuandoSettar_EntaoLancarException(String valor) {
             Executable acao = () -> noticia.setTitulo(valor);
+            Assertions.assertThrows(CampoComTamanhoInvalidoException.class, acao);
+        }
+    }
+
+    @Nested
+    @DisplayName("LinhaFina")
+    class LinhaFina {
+
+        @Test
+        @DisplayName("nulo")
+        void dadoLinhaFinaNulo_QuandoSettar_EntaoLancarException() {
+            Executable acao = () -> noticia.setLinhaFina(null);
+            Assertions.assertThrows(CampoNuloProibidoException.class, acao);
+        }
+
+        @ParameterizedTest
+        @ValueSource(strings = {"", "   "})
+        @DisplayName("vazio ou em branco")
+        void dadoLinhaFinaVazioOuEmBranco_QuandoSettar_EntaoLancarException(String valor) {
+            Executable acao = () -> noticia.setLinhaFina(valor);
+            Assertions.assertThrows(CampoVazioOuEmBrancoProibidoException.class, acao);
+        }
+
+        @ParameterizedTest
+        @ValueSource(strings = {
+            "79 TestarLimiteMaximoDeCaracteresParaLinhaFina TestarLimiteMaximoDeCaracteresPa",
+            "251 TestarLimiteMaximoDeCaracteresParaLinhaFina TestarLimiteMaximoDeCaracteresParaLinhaFina TestarLimiteMaximoDeCaracteresParaLinhaFina TestarLimiteMaximoDeCaracteresParaLinhaFina TestarLimiteMaximoDeCaracteresParaLinhaFina TestarLimiteMaximoDeCaracte"
+        })
+        @DisplayName("tamanho inválido")
+        void dadoLinhaFinaMaiorOuMenorQueLimites_QuandoSettar_EntaoLancarException(String valor) {
+            Executable acao = () -> noticia.setLinhaFina(valor);
+            Assertions.assertThrows(CampoComTamanhoInvalidoException.class, acao);
+        }
+    }
+
+    @Nested
+    @DisplayName("Lide")
+    class Lide {
+
+        @Test
+        @DisplayName("nulo")
+        void dadoLideNulo_QuandoSettar_EntaoLancarException() {
+            Executable acao = () -> noticia.setLide(null);
+            Assertions.assertThrows(CampoNuloProibidoException.class, acao);
+        }
+
+        @ParameterizedTest
+        @ValueSource(strings = {"", "   "})
+        @DisplayName("vazio ou em branco")
+        void dadoLideVazioOuEmBranco_QuandoSettar_EntaoLancarException(String valor) {
+            Executable acao = () -> noticia.setLide(valor);
+            Assertions.assertThrows(CampoVazioOuEmBrancoProibidoException.class, acao);
+        }
+
+        @ParameterizedTest
+        @ValueSource(strings = {
+                "79 TestarLimiteMaximoDeCaracteresParaLinhaFina TestarLimiteMaximoDeCaracteresPa",
+                "401 TestarLimiteMaximoDeCaracteresParaLinhaFina TestarLimiteMaximoDeCaracteresParaLinhaFina TestarLimiteMaximoDeCaracteresParaLinhaFina TestarLimiteMaximoDeCaracteresParaLinhaFina TestarLimiteMaximoDeCaracteresParaLinhaFina TestarLimiteMaximoDeCaracteresParaLinhaFina TestarLimiteMaximoDeCaracteresParaLinhaFina TestarLimiteMaximoDeCaracteresParaLinhaFina TestarLimiteMaximoDeCaracteresParaLinhaFina__"
+        })
+        @DisplayName("tamanho inválido")
+        void dadoLideMaiorOuMenorQueLimites_QuandoSettar_EntaoLancarException(String valor) {
+            Executable acao = () -> noticia.setLide(valor);
+            Assertions.assertThrows(CampoComTamanhoInvalidoException.class, acao);
+        }
+    }
+
+    @Nested
+    @DisplayName("Autorias")
+    class Autorias {
+
+        @ParameterizedTest
+        @ValueSource(strings = {"", "   "})
+        @DisplayName("vazio ou em branco")
+        void dadoAutoriasVazioOuEmBranco_QuandoSettar_EntaoLancarException(String valor) {
+            var autorias = List.of(valor);
+            Executable acao = () -> noticia.setAutorias(autorias);
+            Assertions.assertThrows(CampoVazioOuEmBrancoProibidoException.class, acao);
+        }
+
+        @ParameterizedTest
+        @ValueSource(strings = {
+            "2_",
+            "101 TestarLimiteMaximoDeCaracteresParaAutoria TestarLimiteMaximoDeCaracteresParaAutoria TestarLimiteM"
+        })
+        @DisplayName("tamanho inválido")
+        void dadoAutoriasMaiorOuMenorQueLimites_QuandoSettar_EntaoLancarException(String valor) {
+            var autorias = List.of(valor);
+            Executable acao = () -> noticia.setAutorias(autorias);
             Assertions.assertThrows(CampoComTamanhoInvalidoException.class, acao);
         }
     }
