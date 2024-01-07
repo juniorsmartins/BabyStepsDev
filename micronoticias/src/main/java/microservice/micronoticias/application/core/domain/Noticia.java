@@ -1,8 +1,17 @@
 package microservice.micronoticias.application.core.domain;
 
+import microservice.micronoticias.config.exception.http_409.CampoComTamanhoInvalidoException;
+import microservice.micronoticias.config.exception.http_409.CampoNuloProibidoException;
+import microservice.micronoticias.config.exception.http_409.CampoVazioOuEmBrancoProibidoException;
+
 import java.util.List;
+import java.util.Optional;
 
 public final class Noticia {
+
+    public static final int CHAPEU_CARACTERES_MAXIMO = 30;
+
+    public static final int CHAPEU_CARACTERES_MINIMO = 2;
 
     private String chapeu;
 
@@ -22,10 +31,18 @@ public final class Noticia {
         return chapeu;
     }
 
-    public void setChapeu(String chapeu) {
+    public void setChapeu(String valorCampo) {
+        var nomeCampo = "Chapéu";
 
-
-        this.chapeu = chapeu;
+        Optional.ofNullable(valorCampo)
+            .ifPresentOrElse(hat -> {
+                this.validarCampoNaoVazioOuEmBranco(nomeCampo, valorCampo);
+                this.validarCampoComTamanhoValido(nomeCampo, CHAPEU_CARACTERES_MINIMO,
+                    CHAPEU_CARACTERES_MAXIMO, valorCampo.length());
+                this.chapeu = valorCampo;
+            },
+            () -> {throw new CampoNuloProibidoException(nomeCampo);}
+        );
     }
 
     public String getTitulo() {
@@ -74,6 +91,16 @@ public final class Noticia {
 
     public void setFontes(List<String> fontes) {
         this.fontes = fontes;
+    }
+
+    private void validarCampoNaoVazioOuEmBranco(String nomeCampo, String valorCampo) {
+        if(valorCampo.isBlank())
+            throw new CampoVazioOuEmBrancoProibidoException(nomeCampo);
+    }
+
+    private void validarCampoComTamanhoValido(String nomeCampo, int limiteMinino, int limiteMaximo, int caracteresEnviados) {
+        if(caracteresEnviados < limiteMinino || caracteresEnviados > limiteMaximo)
+            throw new CampoComTamanhoInvalidoException(nomeCampo, limiteMinino, limiteMaximo, caracteresEnviados);
     }
 }
 

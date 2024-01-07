@@ -27,8 +27,6 @@ Zmicrousuarios/src/main/java/microservice/microusuarios/application/core/domain/
 \micronoticias/src/main/java/microservice/micronoticias/adapter/out/entity/NoticiaEntity.java,c/3/c32441789339a5834f8a984764a2601b6ff99dbb
 ˆ
 Xmicronoticias/src/main/java/microservice/micronoticias/adapter/NoticiaSalvarAdapter.java,6/a/6aa4551e0bcfdaa56c7179452930480797667dde
-—
-gmicronoticias/src/test/java/microservice/micronoticias/adapter/NoticiaSalvarAdapterIntegrationTest.java,e/7/e7d3802d13bcf3da628aa75fbb91a84caa7e333f
 ”
 dmicronoticias/src/main/java/microservice/micronoticias/adapter/out/repository/NoticiaRepository.java,9/a/9a3d20fb41eaf2e1c35e12f040a71f683710dc8a
 L
@@ -41,3 +39,11 @@ smicronoticias/src/test/java/microservice/micronoticias/adapter/out/repository/N
 Wmicronoticias/src/test/java/microservice/micronoticias/utility/FactoryObjectMother.java,4/2/42baedca597cde9deae41175b80aba44e41641d4
 “
 cmicronoticias/src/test/java/microservice/micronoticias/application/core/domain/NoticiaUnitTest.java,2/4/24e96a1fa016017a3cd3321620d1afd9c4d7cc21
+«
+{micronoticias/src/main/java/microservice/micronoticias/config/exception/http_409/CampoVazioOuEmBrancoProibidoException.java,c/f/cf407b187670e43235662381490a43e8b2b478e2
+ 
+pmicronoticias/src/main/java/microservice/micronoticias/config/exception/http_409/CampoNuloProibidoException.java,9/d/9d0c55a749cc12712e2c075b5469369b9355a79a
+¦
+vmicronoticias/src/main/java/microservice/micronoticias/config/exception/http_409/CampoComTamanhoInvalidoException.java,a/5/a576075be1b87a197c5babcb3a280540bdf1aba4
+¤
+tmicronoticias/src/main/java/microservice/micronoticias/config/exception/http_409/RegraDeNegocioVioladaException.java,f/7/f7e1eac7fe35ca7ec0788463afba076f68e55be9
