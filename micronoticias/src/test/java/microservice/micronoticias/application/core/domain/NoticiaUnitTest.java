@@ -4,6 +4,7 @@ import microservice.micronoticias.config.exception.http_409.CampoComTamanhoInval
 import microservice.micronoticias.config.exception.http_409.CampoNuloProibidoException;
 import microservice.micronoticias.config.exception.http_409.CampoVazioOuEmBrancoProibidoException;
 import microservice.micronoticias.utility.FactoryObjectMother;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.function.Executable;
@@ -114,6 +115,37 @@ class NoticiaUnitTest {
         @DisplayName("tamanho inválido")
         void dadoLinhaFinaMaiorOuMenorQueLimites_QuandoSettar_EntaoLancarException(String valor) {
             Executable acao = () -> noticia.setLinhaFina(valor);
+            Assertions.assertThrows(CampoComTamanhoInvalidoException.class, acao);
+        }
+    }
+
+    @Nested
+    @DisplayName("Lide")
+    class Lide {
+
+        @Test
+        @DisplayName("nulo")
+        void dadoLideNulo_QuandoSettar_EntaoLancarException() {
+            Executable acao = () -> noticia.setLide(null);
+            Assertions.assertThrows(CampoNuloProibidoException.class, acao);
+        }
+
+        @ParameterizedTest
+        @ValueSource(strings = {"", "   "})
+        @DisplayName("vazio ou em branco")
+        void dadoLideVazioOuEmBranco_QuandoSettar_EntaoLancarException(String valor) {
+            Executable acao = () -> noticia.setLide(valor);
+            Assertions.assertThrows(CampoVazioOuEmBrancoProibidoException.class, acao);
+        }
+
+        @ParameterizedTest
+        @ValueSource(strings = {
+                "79 TestarLimiteMaximoDeCaracteresParaLinhaFina TestarLimiteMaximoDeCaracteresPa",
+                "401 TestarLimiteMaximoDeCaracteresParaLinhaFina TestarLimiteMaximoDeCaracteresParaLinhaFina TestarLimiteMaximoDeCaracteresParaLinhaFina TestarLimiteMaximoDeCaracteresParaLinhaFina TestarLimiteMaximoDeCaracteresParaLinhaFina TestarLimiteMaximoDeCaracteresParaLinhaFina TestarLimiteMaximoDeCaracteresParaLinhaFina TestarLimiteMaximoDeCaracteresParaLinhaFina TestarLimiteMaximoDeCaracteresParaLinhaFina__"
+        })
+        @DisplayName("tamanho inválido")
+        void dadoLideMaiorOuMenorQueLimites_QuandoSettar_EntaoLancarException(String valor) {
+            Executable acao = () -> noticia.setLide(valor);
             Assertions.assertThrows(CampoComTamanhoInvalidoException.class, acao);
         }
     }

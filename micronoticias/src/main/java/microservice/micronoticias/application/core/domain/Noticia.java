@@ -22,6 +22,10 @@ public final class Noticia {
 
     public static final int LINHAFINA_CARACTERES_MINIMO = 80;
 
+    public static final int LIDE_CARACTERES_MAXIMO = 401;
+
+    public static final int LIDE_CARACTERES_MINIMO = 80;
+
     private String chapeu;
 
     private String titulo;
