@@ -18,6 +18,10 @@ public final class Noticia {
 
     public static final int TITULO_CARACTERES_MINIMO = 20;
 
+    public static final int LINHAFINA_CARACTERES_MAXIMO = 250;
+
+    public static final int LINHAFINA_CARACTERES_MINIMO = 80;
+
     private String chapeu;
 
     private String titulo;
@@ -72,8 +76,18 @@ public final class Noticia {
         return linhaFina;
     }
 
-    public void setLinhaFina(String linhaFina) {
-        this.linhaFina = linhaFina;
+    public void setLinhaFina(String valorCampo) {
+        var nomeCampo = "LinhaFina";
+
+        Optional.ofNullable(valorCampo)
+            .ifPresentOrElse(line -> {
+                UtilityDomain.validarCampoNaoVazioOuEmBranco(nomeCampo, line);
+                UtilityDomain.validarCampoComTamanhoValido(nomeCampo, LINHAFINA_CARACTERES_MINIMO,
+                    LINHAFINA_CARACTERES_MAXIMO, line.length());
+                this.linhaFina = line;
+            },
+            () -> {throw new CampoNuloProibidoException(nomeCampo);}
+        );
     }
 
     public String getLide() {

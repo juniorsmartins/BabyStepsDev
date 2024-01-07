@@ -108,7 +108,7 @@ class NoticiaUnitTest {
 
         @ParameterizedTest
         @ValueSource(strings = {
-            "101 TestarLimiteMaximoDeCaracteresParaLinhaFina TestarLimiteMaximoDeCaracteresParaLinhaFina TestarLim",
+            "79 TestarLimiteMaximoDeCaracteresParaLinhaFina TestarLimiteMaximoDeCaracteresPa",
             "251 TestarLimiteMaximoDeCaracteresParaLinhaFina TestarLimiteMaximoDeCaracteresParaLinhaFina TestarLimiteMaximoDeCaracteresParaLinhaFina TestarLimiteMaximoDeCaracteresParaLinhaFina TestarLimiteMaximoDeCaracteresParaLinhaFina TestarLimiteMaximoDeCaracte"
         })
         @DisplayName("tamanho inválido")
