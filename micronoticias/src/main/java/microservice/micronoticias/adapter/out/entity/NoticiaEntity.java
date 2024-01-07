@@ -24,10 +24,10 @@ public final class NoticiaEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "chapeu", length = 30)
+    @Column(name = "chapeu", length = 30, nullable = false)
     private String chapeu;
 
-    @Column(name = "titulo", length = 150)
+    @Column(name = "titulo", length = 150, nullable = false)
     private String titulo;
 
     @Column(name = "linha_fina", length = 250)
@@ -45,14 +45,14 @@ public final class NoticiaEntity implements Serializable {
     @CollectionTable(name = "noticia_autoria",
         joinColumns = @JoinColumn(name = "noticia_id", referencedColumnName = "id",
             foreignKey = @ForeignKey(name = "fk_noticia_autoria")))
-    @Column(name = "autoria")
+    @Column(name = "autoria", length = 100)
     private List<String> autorias;
 
     @ElementCollection(fetch = FetchType.EAGER, targetClass = String.class)
     @CollectionTable(name = "noticia_fonte",
         joinColumns = @JoinColumn(name = "noticia_id", referencedColumnName = "id",
             foreignKey = @ForeignKey(name = "fk_noticia_fonte")))
-    @Column(name = "fonte")
+    @Column(name = "fonte", length = 250)
     private List<String> fontes;
 }
 
