@@ -131,17 +131,15 @@ public final class Noticia {
     public void setAutorias(List<String> autorias) {
         var nomeCampo = "Autorias";
 
-        autorias.forEach(autor -> {
-            if (autor.isBlank())
-                throw new CampoVazioOuEmBrancoProibidoException(nomeCampo);
-        });
-
-        autorias.forEach(autor -> {
-            if (autor.length() < AUTORIA_CARACTERES_MINIMO || autor.length() > AUTORIA_CARACTERES_MAXIMO)
-                throw new CampoComTamanhoInvalidoException(nomeCampo, AUTORIA_CARACTERES_MINIMO, AUTORIA_CARACTERES_MAXIMO, autor.length());
-        });
-
-        this.autorias = autorias;
+        Optional.ofNullable(autorias)
+            .ifPresentOrElse(authors -> {
+                UtilityDomain.validarListaComValoresNaoVazioOuEmBranco(nomeCampo, authors);
+                UtilityDomain.validarListaComValoresEmTamanhoValido(nomeCampo, authors,
+                    AUTORIA_CARACTERES_MINIMO, AUTORIA_CARACTERES_MAXIMO);
+                this.autorias = authors;
+            },
+            () -> this.autorias = autorias
+        );
     }
 
     public List<String> getFontes() {
