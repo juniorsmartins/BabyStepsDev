@@ -4,7 +4,6 @@ import microservice.micronoticias.config.exception.http_409.CampoComTamanhoInval
 import microservice.micronoticias.config.exception.http_409.CampoNuloProibidoException;
 import microservice.micronoticias.config.exception.http_409.CampoVazioOuEmBrancoProibidoException;
 import microservice.micronoticias.utility.FactoryObjectMother;
-import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.function.Executable;
@@ -13,6 +12,8 @@ import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+
+import java.util.List;
 
 @SpringBootTest
 @ExtendWith({SpringExtension.class, MockitoExtension.class})
@@ -145,6 +146,31 @@ class NoticiaUnitTest {
         })
         @DisplayName("tamanho inválido")
         void dadoLideMaiorOuMenorQueLimites_QuandoSettar_EntaoLancarException(String valor) {
+            Executable acao = () -> noticia.setLide(valor);
+            Assertions.assertThrows(CampoComTamanhoInvalidoException.class, acao);
+        }
+    }
+
+    @Nested
+    @DisplayName("Autorias")
+    class Autorias {
+
+        @ParameterizedTest
+        @ValueSource(strings = {"", "   "})
+        @DisplayName("vazio ou em branco")
+        void dadoAutoriasVazioOuEmBranco_QuandoSettar_EntaoLancarException(String valor) {
+            var autorias = List.of(valor);
+            Executable acao = () -> noticia.setAutorias(autorias);
+            Assertions.assertThrows(CampoVazioOuEmBrancoProibidoException.class, acao);
+        }
+
+        @ParameterizedTest
+        @ValueSource(strings = {
+                "2_",
+                "101 TestarLimiteMaximoDeCaracteresParaAutoria TestarLimiteMaximoDeCaracteresParaAutoria TestarLimiteM"
+        })
+        @DisplayName("tamanho inválido")
+        void dadoAutoriasMaiorOuMenorQueLimites_QuandoSettar_EntaoLancarException(String valor) {
             Executable acao = () -> noticia.setLide(valor);
             Assertions.assertThrows(CampoComTamanhoInvalidoException.class, acao);
         }
