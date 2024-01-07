@@ -39,3 +39,5 @@ Ymicronoticias/src/test/java/microservice/micronoticias/MicronoticiasApplication
 smicronoticias/src/test/java/microservice/micronoticias/adapter/out/repository/NoticiaRepositoryIntegrationTest.java,6/9/69dd711c644424e24a8891f275b73aa308c82931
 ‡
 Wmicronoticias/src/test/java/microservice/micronoticias/utility/FactoryObjectMother.java,4/2/42baedca597cde9deae41175b80aba44e41641d4
+“
+cmicronoticias/src/test/java/microservice/micronoticias/application/core/domain/NoticiaUnitTest.java,2/4/24e96a1fa016017a3cd3321620d1afd9c4d7cc21

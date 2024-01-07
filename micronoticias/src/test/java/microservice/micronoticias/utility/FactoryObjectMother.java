@@ -1,6 +1,7 @@
 package microservice.micronoticias.utility;
 
 import microservice.micronoticias.adapter.out.entity.NoticiaEntity;
+import microservice.micronoticias.application.core.domain.Noticia;
 import net.datafaker.Faker;
 import org.apache.commons.lang3.RandomStringUtils;
 
@@ -44,6 +45,21 @@ public final class FactoryObjectMother {
             lista.add(RandomStringUtils.randomAlphabetic(numeroCaracteres));
         }
         return lista;
+    }
+
+    public Noticia gerarNoticia(int quantiaChapeu, int quantiaTitulo, int quantiaLinhaFina,
+                                int quantiaLide, int quantiaCorpo, int quantidadeAutoria,
+                                int numeroCaracterAutoria, int quantidadeFonte, int numeroCaracterFonte) {
+        var noticia = new Noticia();
+        noticia.setChapeu(gerarString(quantiaChapeu));
+        noticia.setTitulo(gerarString(quantiaTitulo));
+        noticia.setLinhaFina(gerarString(quantiaLinhaFina));
+        noticia.setLide(gerarString(quantiaLide));
+        noticia.setCorpo(gerarString(quantiaCorpo));
+        noticia.setAutorias(gerarListString(quantidadeAutoria, numeroCaracterAutoria));
+        noticia.setFontes(gerarListString(quantidadeFonte, numeroCaracterFonte));
+
+        return noticia;
     }
 }
 

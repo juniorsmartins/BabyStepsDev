@@ -24,7 +24,7 @@ public final class NoticiaEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "chapeu", length = 30)
+    @Column(name = "chapeu", length = 30, nullable = false)
     private String chapeu;
 
     @Column(name = "titulo", length = 150)
