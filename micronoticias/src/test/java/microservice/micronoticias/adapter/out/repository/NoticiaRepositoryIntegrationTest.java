@@ -23,8 +23,8 @@ class NoticiaRepositoryIntegrationTest {
 
         @BeforeEach
         void criarCenario() {
-            var autorias = factory.gerarListString(1, 50);
-            var fontes = factory.gerarListString(1, 100);
+            var autorias = factory.gerarListString(1, 100);
+            var fontes = factory.gerarListString(1, 250);
 
             noticiaEntity = factory.gerarNoticiaEntityBuilder(30, 150, 250, 400, 5000)
                 .autorias(autorias)
@@ -34,7 +34,7 @@ class NoticiaRepositoryIntegrationTest {
 
         @Test
         @DisplayName("dados completos")
-        void dadaNoticiaValida_QuandoSalvar_EntaoRetornarComId() {
+        void dadaNoticiaValida_QuandoSalvar_EntaoRetornarDadosCompletosSalvos() {
             var noticiaSalva = noticiaRepository.save(noticiaEntity);
             Assertions.assertTrue(noticiaSalva.getId() > 0);
             Assertions.assertEquals(30, noticiaSalva.getChapeu().length());
@@ -44,6 +44,19 @@ class NoticiaRepositoryIntegrationTest {
             Assertions.assertEquals(5000, noticiaSalva.getCorpo().length());
             Assertions.assertEquals(1, noticiaSalva.getAutorias().size());
             Assertions.assertEquals(1, noticiaSalva.getFontes().size());
+        }
+
+        @Test
+        @DisplayName("listas populadas")
+        void dadoNoticiaValidaComListasBemPopuladas_QuandoSalvar_EntaoRetornarListasSalvas() {
+            var autorias = factory.gerarListString(3, 100);
+            var fontes = factory.gerarListString(5, 250);
+            noticiaEntity.setAutorias(autorias);
+            noticiaEntity.setFontes(fontes);
+
+            var noticiaSalva = noticiaRepository.save(noticiaEntity);
+            Assertions.assertEquals(3, noticiaSalva.getAutorias().size());
+            Assertions.assertEquals(5, noticiaSalva.getFontes().size());
         }
     }
 }
