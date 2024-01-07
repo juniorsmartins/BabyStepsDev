@@ -18,6 +18,18 @@ public final class Noticia {
 
     public static final int TITULO_CARACTERES_MINIMO = 20;
 
+    public static final int LINHAFINA_CARACTERES_MAXIMO = 250;
+
+    public static final int LINHAFINA_CARACTERES_MINIMO = 80;
+
+    public static final int LIDE_CARACTERES_MAXIMO = 400;
+
+    public static final int LIDE_CARACTERES_MINIMO = 80;
+
+    public static final int AUTORIA_CARACTERES_MAXIMO = 100;
+
+    public static final int AUTORIA_CARACTERES_MINIMO = 3;
+
     private String chapeu;
 
     private String titulo;
@@ -72,16 +84,36 @@ public final class Noticia {
         return linhaFina;
     }
 
-    public void setLinhaFina(String linhaFina) {
-        this.linhaFina = linhaFina;
+    public void setLinhaFina(String valorCampo) {
+        var nomeCampo = "LinhaFina";
+
+        Optional.ofNullable(valorCampo)
+            .ifPresentOrElse(line -> {
+                UtilityDomain.validarCampoNaoVazioOuEmBranco(nomeCampo, line);
+                UtilityDomain.validarCampoComTamanhoValido(nomeCampo, LINHAFINA_CARACTERES_MINIMO,
+                    LINHAFINA_CARACTERES_MAXIMO, line.length());
+                this.linhaFina = line;
+            },
+            () -> {throw new CampoNuloProibidoException(nomeCampo);}
+        );
     }
 
     public String getLide() {
         return lide;
     }
 
-    public void setLide(String lide) {
-        this.lide = lide;
+    public void setLide(String valorCampo) {
+        var nomeCampo = "Lide";
+
+        Optional.ofNullable(valorCampo)
+            .ifPresentOrElse(lead -> {
+                UtilityDomain.validarCampoNaoVazioOuEmBranco(nomeCampo, lead);
+                UtilityDomain.validarCampoComTamanhoValido(nomeCampo, LIDE_CARACTERES_MINIMO,
+                    LIDE_CARACTERES_MAXIMO, lead.length());
+                this.lide = lead;
+            },
+            () -> {throw new CampoNuloProibidoException(nomeCampo);}
+        );
     }
 
     public String getCorpo() {
@@ -97,7 +129,17 @@ public final class Noticia {
     }
 
     public void setAutorias(List<String> autorias) {
-        this.autorias = autorias;
+        var nomeCampo = "Autorias";
+
+        Optional.ofNullable(autorias)
+            .ifPresentOrElse(authors -> {
+                UtilityDomain.validarListaComValoresNaoVazioOuEmBranco(nomeCampo, authors);
+                UtilityDomain.validarListaComValoresEmTamanhoValido(nomeCampo, authors,
+                    AUTORIA_CARACTERES_MINIMO, AUTORIA_CARACTERES_MAXIMO);
+                this.autorias = authors;
+            },
+            () -> this.autorias = autorias
+        );
     }
 
     public List<String> getFontes() {
