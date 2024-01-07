@@ -22,7 +22,7 @@ public final class Noticia {
 
     public static final int LINHAFINA_CARACTERES_MINIMO = 80;
 
-    public static final int LIDE_CARACTERES_MAXIMO = 401;
+    public static final int LIDE_CARACTERES_MAXIMO = 400;
 
     public static final int LIDE_CARACTERES_MINIMO = 80;
 
@@ -98,8 +98,18 @@ public final class Noticia {
         return lide;
     }
 
-    public void setLide(String lide) {
-        this.lide = lide;
+    public void setLide(String valorCampo) {
+        var nomeCampo = "Lide";
+
+        Optional.ofNullable(valorCampo)
+            .ifPresentOrElse(lead -> {
+                UtilityDomain.validarCampoNaoVazioOuEmBranco(nomeCampo, lead);
+                UtilityDomain.validarCampoComTamanhoValido(nomeCampo, LIDE_CARACTERES_MINIMO,
+                    LIDE_CARACTERES_MAXIMO, lead.length());
+                this.lide = lead;
+            },
+            () -> {throw new CampoNuloProibidoException(nomeCampo);}
+        );
     }
 
     public String getCorpo() {
