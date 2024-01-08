@@ -1,9 +1,7 @@
 package microservice.micronoticias.application.core.domain;
 
 import microservice.micronoticias.application.core.useful.UtilityDomain;
-import microservice.micronoticias.config.exception.http_409.CampoComTamanhoInvalidoException;
 import microservice.micronoticias.config.exception.http_409.CampoNuloProibidoException;
-import microservice.micronoticias.config.exception.http_409.CampoVazioOuEmBrancoProibidoException;
 
 import java.util.List;
 import java.util.Optional;

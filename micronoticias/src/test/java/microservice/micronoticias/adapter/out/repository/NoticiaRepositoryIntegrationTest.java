@@ -22,7 +22,7 @@ class NoticiaRepositoryIntegrationTest {
         NoticiaEntity noticiaEntity;
 
         @BeforeEach
-        void criarCenario() {
+        void setUp() {
             var autorias = factory.gerarListString(1, 100);
             var fontes = factory.gerarListString(1, 250);
 
