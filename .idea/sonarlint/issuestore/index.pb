@@ -61,3 +61,9 @@ jmicronoticias/src/main/java/microservice/micronoticias/adapter/in/dto/response/
 cmicronoticias/src/main/java/microservice/micronoticias/adapter/in/controller/NoticiaController.java,7/c/7c618cfe13f7b60ac7d01d675295ce0f5bea372a
 ¢
 rmicronoticias/src/test/java/microservice/micronoticias/adapter/in/controller/NoticiaControllerIntegrationTest.java,b/8/b8bf5c82c11897fce1b3cfec1e0064a61006e571
+ú
+lmicronoticias/src/main/java/microservice/micronoticias/application/port/input/NoticiaCadastrarInputPort.java,1/4/14e5e9698a885bacb1a6d65a13e3da964b6379f5
+ç
+]micronoticias/src/main/java/microservice/micronoticias/adapter/in/mapper/NoticiaMapperIn.java,2/8/28dcd554dfff9cb1486a694a24a1000a9f4e2725
+é
+^micronoticias/src/main/java/microservice/micronoticias/adapter/in/mapper/NoticiaMapperOut.java,b/4/b482cf7e78e2abff218cbe1c4dcc41b5f2fc5be3
