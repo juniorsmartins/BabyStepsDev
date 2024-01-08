@@ -57,3 +57,7 @@ H
 micronoticias/.gitignore,a/5/a56b815e3a607526838a428ec734c78a54a55fd8
 š
 jmicronoticias/src/main/java/microservice/micronoticias/adapter/in/dto/response/NoticiaCadastrarDtoOut.java,d/2/d28183d8afc1d0c87ba44bb98c2cbd72dfb82807
+“
+cmicronoticias/src/main/java/microservice/micronoticias/adapter/in/controller/NoticiaController.java,7/c/7c618cfe13f7b60ac7d01d675295ce0f5bea372a
+¢
+rmicronoticias/src/test/java/microservice/micronoticias/adapter/in/controller/NoticiaControllerIntegrationTest.java,b/8/b8bf5c82c11897fce1b3cfec1e0064a61006e571
