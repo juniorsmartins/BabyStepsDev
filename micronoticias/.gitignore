@@ -35,4 +35,5 @@ build/
 
 ### Sonarlint
 .sonarlint/
+.idea/sonarlint
 
