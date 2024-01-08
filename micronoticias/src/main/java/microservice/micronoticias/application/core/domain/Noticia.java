@@ -32,6 +32,10 @@ public final class Noticia {
 
     public static final int AUTORIA_CARACTERES_MINIMO = 3;
 
+    public static final int FONTE_CARACTERES_MAXIMO = 250;
+
+    public static final int FONTE_CARACTERES_MINIMO = 3;
+
     private String chapeu;
 
     private String titulo;
@@ -159,7 +163,17 @@ public final class Noticia {
     }
 
     public void setFontes(List<String> fontes) {
-        this.fontes = fontes;
+        var nomeCampo = "Fontes";
+
+        Optional.ofNullable(fontes)
+            .ifPresentOrElse(sources -> {
+                UtilityDomain.validarListaComValoresNaoVazioOuEmBranco(nomeCampo, sources);
+                UtilityDomain.validarListaComValoresEmTamanhoValido(nomeCampo, sources,
+                    FONTE_CARACTERES_MINIMO, FONTE_CARACTERES_MAXIMO);
+                this.fontes = sources;
+            },
+            () -> this.fontes = fontes
+        );
     }
 }
 
