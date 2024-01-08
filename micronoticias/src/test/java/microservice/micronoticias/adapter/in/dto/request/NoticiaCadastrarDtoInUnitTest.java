@@ -179,5 +179,41 @@ class NoticiaCadastrarDtoInUnitTest {
             Assertions.assertEquals(1, violations.size());
         }
     }
+
+    @Nested
+    @DisplayName("Corpo")
+    class Corpo {
+
+        @Test
+        @DisplayName("nulo")
+        void dadoCorpoNulo_QuandoInstanciar_EntaoLancarException() {
+            var dtoIn = noticiaCadastrarDtoInBuilder.corpo(null).build();
+            Set<ConstraintViolation<NoticiaCadastrarDtoIn>> violations = validator.validate(dtoIn);
+            Assertions.assertFalse(violations.isEmpty());
+            Assertions.assertEquals(1, violations.size());
+        }
+
+        @ParameterizedTest
+        @ValueSource(strings = {"", "   "})
+        @DisplayName("vazio ou em branco")
+        void dadoCorpoVazioOuEmBranco_QuandoInstanciar_EntaoLancarException(String valor) {
+            var dtoIn = noticiaCadastrarDtoInBuilder.corpo(valor).build();
+            Set<ConstraintViolation<NoticiaCadastrarDtoIn>> violations = validator.validate(dtoIn);
+            Assertions.assertFalse(violations.isEmpty());
+        }
+
+        @ParameterizedTest
+        @ValueSource(strings = {
+            "99 TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaxi",
+            "5001 TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo  TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaC"
+        })
+        @DisplayName("com tamanho inválido")
+        void dadoCorpoComTamanhoInvalido_QuandoInstanciar_EntaoLancarException(String valor) {
+            var dtoIn = noticiaCadastrarDtoInBuilder.corpo(valor).build();
+            Set<ConstraintViolation<NoticiaCadastrarDtoIn>> violations = validator.validate(dtoIn);
+            Assertions.assertFalse(violations.isEmpty());
+            Assertions.assertEquals(1, violations.size());
+        }
+    }
 }
 
