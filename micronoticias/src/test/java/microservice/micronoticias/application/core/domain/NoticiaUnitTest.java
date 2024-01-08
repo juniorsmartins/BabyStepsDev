@@ -26,8 +26,7 @@ class NoticiaUnitTest {
     private Noticia noticia;
 
     @BeforeEach
-    void criarCenario() {
-
+    void setUp() {
         noticia = factory.gerarNoticia(30, 150, 250, 400, 5000, 1, 100, 1, 250);
     }
 
