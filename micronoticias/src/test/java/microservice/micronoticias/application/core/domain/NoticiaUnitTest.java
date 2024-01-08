@@ -4,6 +4,7 @@ import microservice.micronoticias.config.exception.http_409.CampoComTamanhoInval
 import microservice.micronoticias.config.exception.http_409.CampoNuloProibidoException;
 import microservice.micronoticias.config.exception.http_409.CampoVazioOuEmBrancoProibidoException;
 import microservice.micronoticias.utility.FactoryObjectMother;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.function.Executable;
@@ -25,8 +26,7 @@ class NoticiaUnitTest {
     private Noticia noticia;
 
     @BeforeEach
-    void criarCenario() {
-
+    void setUp() {
         noticia = factory.gerarNoticia(30, 150, 250, 400, 5000, 1, 100, 1, 250);
     }
 
@@ -152,6 +152,37 @@ class NoticiaUnitTest {
     }
 
     @Nested
+    @DisplayName("Corpo")
+    class Corpo {
+
+        @Test
+        @DisplayName("nulo")
+        void dadoCorpoNulo_QuandoSettar_EntaoLancarException() {
+            Executable acao = () -> noticia.setCorpo(null);
+            Assertions.assertThrows(CampoNuloProibidoException.class, acao);
+        }
+
+        @ParameterizedTest
+        @ValueSource(strings = {"", "   "})
+        @DisplayName("vazio ou em branco")
+        void dadoCorpoVazioOuEmBranco_QuandoSettar_EntaoLancarException(String valor) {
+            Executable acao = () -> noticia.setCorpo(valor);
+            Assertions.assertThrows(CampoVazioOuEmBrancoProibidoException.class, acao);
+        }
+
+        @ParameterizedTest
+        @ValueSource(strings = {
+            "99 TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaxi",
+            "5001 TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo  TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaC"
+        })
+        @DisplayName("tamanho inválido")
+        void dadoCorpoMaiorOuMenorQueLimites_QuandoSettar_EntaoLancarException(String valor) {
+            Executable acao = () -> noticia.setCorpo(valor);
+            Assertions.assertThrows(CampoComTamanhoInvalidoException.class, acao);
+        }
+    }
+
+    @Nested
     @DisplayName("Autorias")
     class Autorias {
 
@@ -173,6 +204,45 @@ class NoticiaUnitTest {
         void dadoAutoriasMaiorOuMenorQueLimites_QuandoSettar_EntaoLancarException(String valor) {
             var autorias = List.of(valor);
             Executable acao = () -> noticia.setAutorias(autorias);
+            Assertions.assertThrows(CampoComTamanhoInvalidoException.class, acao);
+        }
+    }
+
+    @Nested
+    @DisplayName("Fontes")
+    class Fontes {
+
+        @ParameterizedTest
+        @ValueSource(strings = {"", "   "})
+        @DisplayName("vazio ou em branco")
+        void dadoFontesVazioOuEmBranco_QuandoSettar_EntaoLancarException(String valor) {
+            var fontes = List.of(valor);
+            Executable acao = () -> noticia.setFontes(fontes);
+            Assertions.assertThrows(CampoVazioOuEmBrancoProibidoException.class, acao);
+        }
+
+        @ParameterizedTest
+        @ValueSource(strings = {
+            "2_",
+            "251 TestarLimiteMaximoDeCaracteresParaFontes TestarLimiteMaximoDeCaracteresParaFontes TestarLimiteMaximoDeCaracteresParaFontes TestarLimiteMaximoDeCaracteresParaFontes TestarLimiteMaximoDeCaracteresParaFontes TestarLimiteMaximoDeCaracteresParaFontes__"
+        })
+        @DisplayName("tamanho inválido")
+        void dadoFontesMaiorOuMenorQueLimites_QuandoSettar_EntaoLancarException(String valor) {
+            var fontes = List.of(valor);
+            Executable acao = () -> noticia.setFontes(fontes);
+            Assertions.assertThrows(CampoComTamanhoInvalidoException.class, acao);
+        }
+
+        @ParameterizedTest
+        @ValueSource(strings = {
+            "2_",
+            "251 TestarLimiteMaximoDeCaracteresParaFontes TestarLimiteMaximoDeCaracteresParaFontes TestarLimiteMaximoDeCaracteresParaFontes TestarLimiteMaximoDeCaracteresParaFontes TestarLimiteMaximoDeCaracteresParaFontes TestarLimiteMaximoDeCaracteresParaFontes__"
+        })
+        @DisplayName("tamanho inválido")
+        void dadoDuasFontesMaiorOuMenorQueLimites_QuandoSettar_EntaoLancarException(String valor) {
+            var valor2 = RandomStringUtils.randomAlphabetic(200);
+            var fontes = List.of(valor, valor2);
+            Executable acao = () -> noticia.setFontes(fontes);
             Assertions.assertThrows(CampoComTamanhoInvalidoException.class, acao);
         }
     }

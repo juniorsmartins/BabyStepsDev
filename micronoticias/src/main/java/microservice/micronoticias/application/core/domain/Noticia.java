@@ -1,9 +1,7 @@
 package microservice.micronoticias.application.core.domain;
 
 import microservice.micronoticias.application.core.useful.UtilityDomain;
-import microservice.micronoticias.config.exception.http_409.CampoComTamanhoInvalidoException;
 import microservice.micronoticias.config.exception.http_409.CampoNuloProibidoException;
-import microservice.micronoticias.config.exception.http_409.CampoVazioOuEmBrancoProibidoException;
 
 import java.util.List;
 import java.util.Optional;
@@ -26,9 +24,17 @@ public final class Noticia {
 
     public static final int LIDE_CARACTERES_MINIMO = 80;
 
+    public static final int CORPO_CARACTERES_MAXIMO = 5000;
+
+    public static final int CORPO_CARACTERES_MINIMO = 100;
+
     public static final int AUTORIA_CARACTERES_MAXIMO = 100;
 
     public static final int AUTORIA_CARACTERES_MINIMO = 3;
+
+    public static final int FONTE_CARACTERES_MAXIMO = 250;
+
+    public static final int FONTE_CARACTERES_MINIMO = 3;
 
     private String chapeu;
 
@@ -120,8 +126,18 @@ public final class Noticia {
         return corpo;
     }
 
-    public void setCorpo(String corpo) {
-        this.corpo = corpo;
+    public void setCorpo(String valorCampo) {
+        var nomeCampo = "Corpo";
+
+        Optional.ofNullable(valorCampo)
+            .ifPresentOrElse(body -> {
+                UtilityDomain.validarCampoNaoVazioOuEmBranco(nomeCampo, body);
+                UtilityDomain.validarCampoComTamanhoValido(nomeCampo, CORPO_CARACTERES_MINIMO,
+                    CORPO_CARACTERES_MAXIMO, body.length());
+                this.corpo = body;
+            },
+            () -> {throw new CampoNuloProibidoException(nomeCampo);}
+        );
     }
 
     public List<String> getAutorias() {
@@ -147,7 +163,17 @@ public final class Noticia {
     }
 
     public void setFontes(List<String> fontes) {
-        this.fontes = fontes;
+        var nomeCampo = "Fontes";
+
+        Optional.ofNullable(fontes)
+            .ifPresentOrElse(sources -> {
+                UtilityDomain.validarListaComValoresNaoVazioOuEmBranco(nomeCampo, sources);
+                UtilityDomain.validarListaComValoresEmTamanhoValido(nomeCampo, sources,
+                    FONTE_CARACTERES_MINIMO, FONTE_CARACTERES_MAXIMO);
+                this.fontes = sources;
+            },
+            () -> this.fontes = fontes
+        );
     }
 }
 

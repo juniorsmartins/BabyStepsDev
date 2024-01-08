@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 Ž
 <<<<<<< HEAD
@@ -8,4 +9,9 @@ java:S1128"wRemove this unused import 'microservice.micronoticias.config.excep
 java:S1128"rRemove this unused import 'microservice.micronoticias.config.exception.http_409.CampoComTamanhoInvalidoException'.(ÍÔ°N8ÙÙÖ±Î1
 ”
 java:S1128"wRemove this unused import 'microservice.micronoticias.config.exception.http_409.CampoVazioOuEmBrancoProibidoException'.(¯ªµŸ8ÙÙÖ±Î1
+<<<<<<< HEAD
+>>>>>>> develop
+=======
+=======
+>>>>>>> feature/post-noticia
 >>>>>>> develop
