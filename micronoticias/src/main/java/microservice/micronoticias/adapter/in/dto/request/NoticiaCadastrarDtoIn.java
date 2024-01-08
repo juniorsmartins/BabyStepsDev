@@ -34,8 +34,7 @@ public record NoticiaCadastrarDtoIn(
 
     List<@NotBlank @Size(min = Noticia.AUTORIA_CARACTERES_MINIMO, max = Noticia.AUTORIA_CARACTERES_MAXIMO) String> autorias,
 
-//    @Size(min = Noticia.FONTE_CARACTERES_MINIMO, max = Noticia.FONTE_CARACTERES_MAXIMO)
-    List<String> fontes
+    List<@NotBlank @Size(min = Noticia.FONTE_CARACTERES_MINIMO, max = Noticia.FONTE_CARACTERES_MAXIMO) String> fontes
 
 ) { }
 

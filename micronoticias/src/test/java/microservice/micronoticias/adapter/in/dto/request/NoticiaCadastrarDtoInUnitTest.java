@@ -227,7 +227,6 @@ class NoticiaCadastrarDtoInUnitTest {
             var dtoIn = noticiaCadastrarDtoInBuilder.autorias(null).build();
             Set<ConstraintViolation<NoticiaCadastrarDtoIn>> violations = validator.validate(dtoIn);
             Assertions.assertTrue(violations.isEmpty());
-            Assertions.assertEquals(0, violations.size());
         }
 
         @ParameterizedTest
@@ -247,6 +246,41 @@ class NoticiaCadastrarDtoInUnitTest {
         @DisplayName("tamanho inválido")
         void dadoAutoriasComValoresComTamanhoInvalido_QuandoInstanciar_EntaoLancarException(String valor) {
             var dtoIn = noticiaCadastrarDtoInBuilder.autorias(List.of(valor)).build();
+            Set<ConstraintViolation<NoticiaCadastrarDtoIn>> violations = validator.validate(dtoIn);
+            Assertions.assertFalse(violations.isEmpty());
+            Assertions.assertEquals(1, violations.size());
+        }
+    }
+
+    @Nested
+    @DisplayName("Fontes")
+    class Fontes {
+
+        @Test
+        @DisplayName("nulo")
+        void dadoFontesNulo_QuandoInstanciar_EntaoRetornarDtoIn() {
+            var dtoIn = noticiaCadastrarDtoInBuilder.fontes(null).build();
+            Set<ConstraintViolation<NoticiaCadastrarDtoIn>> violations = validator.validate(dtoIn);
+            Assertions.assertTrue(violations.isEmpty());
+        }
+
+        @ParameterizedTest
+        @ValueSource(strings = {"", "     "})
+        @DisplayName("vazio ou em branco")
+        void dadoFontesComValoresVaziosOuEmBranco_QuandoInstanciar_EntaoLancarException(String valor) {
+            var dtoIn = noticiaCadastrarDtoInBuilder.fontes(List.of(valor)).build();
+            Set<ConstraintViolation<NoticiaCadastrarDtoIn>> violations = validator.validate(dtoIn);
+            Assertions.assertFalse(violations.isEmpty());
+        }
+
+        @ParameterizedTest
+        @ValueSource(strings = {
+            "2_",
+            "251 TestarLimiteMaximoDeCaracteresParaFontes TestarLimiteMaximoDeCaracteresParaFontes TestarLimiteMaximoDeCaracteresParaFontes TestarLimiteMaximoDeCaracteresParaFontes TestarLimiteMaximoDeCaracteresParaFontes TestarLimiteMaximoDeCaracteresParaFontes__"
+        })
+        @DisplayName("tamanho inválido")
+        void dadoFontesComValoresComTamanhoInvalido_QuandoInstanciar_EntaoLancarException(String valor) {
+            var dtoIn = noticiaCadastrarDtoInBuilder.fontes(List.of(valor)).build();
             Set<ConstraintViolation<NoticiaCadastrarDtoIn>> violations = validator.validate(dtoIn);
             Assertions.assertFalse(violations.isEmpty());
             Assertions.assertEquals(1, violations.size());
