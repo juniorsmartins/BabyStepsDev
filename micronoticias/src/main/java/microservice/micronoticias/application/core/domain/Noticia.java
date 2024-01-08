@@ -24,6 +24,10 @@ public final class Noticia {
 
     public static final int LIDE_CARACTERES_MINIMO = 80;
 
+    public static final int CORPO_CARACTERES_MAXIMO = 5000;
+
+    public static final int CORPO_CARACTERES_MINIMO = 100;
+
     public static final int AUTORIA_CARACTERES_MAXIMO = 100;
 
     public static final int AUTORIA_CARACTERES_MINIMO = 3;
