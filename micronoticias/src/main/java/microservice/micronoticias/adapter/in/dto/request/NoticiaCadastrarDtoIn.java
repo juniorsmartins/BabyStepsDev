@@ -1,8 +1,6 @@
 package microservice.micronoticias.adapter.in.dto.request;
 
-import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 import lombok.Builder;
 import microservice.micronoticias.application.core.domain.Noticia;
