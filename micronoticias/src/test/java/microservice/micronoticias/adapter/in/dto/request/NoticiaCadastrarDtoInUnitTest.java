@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import java.util.List;
 import java.util.Set;
 
 @SpringBootTest
@@ -210,6 +211,42 @@ class NoticiaCadastrarDtoInUnitTest {
         @DisplayName("com tamanho inválido")
         void dadoCorpoComTamanhoInvalido_QuandoInstanciar_EntaoLancarException(String valor) {
             var dtoIn = noticiaCadastrarDtoInBuilder.corpo(valor).build();
+            Set<ConstraintViolation<NoticiaCadastrarDtoIn>> violations = validator.validate(dtoIn);
+            Assertions.assertFalse(violations.isEmpty());
+            Assertions.assertEquals(1, violations.size());
+        }
+    }
+
+    @Nested
+    @DisplayName("Autorias")
+    class Autorias {
+
+        @Test
+        @DisplayName("nulo")
+        void dadoAutoriasNulo_QuandoInstanciar_EntaoRetornarDtoIn() {
+            var dtoIn = noticiaCadastrarDtoInBuilder.autorias(null).build();
+            Set<ConstraintViolation<NoticiaCadastrarDtoIn>> violations = validator.validate(dtoIn);
+            Assertions.assertTrue(violations.isEmpty());
+            Assertions.assertEquals(0, violations.size());
+        }
+
+        @ParameterizedTest
+        @ValueSource(strings = {"", "     "})
+        @DisplayName("vazio ou em branco")
+        void dadoAutoriasComValoresVaziosOuEmBranco_QuandoInstanciar_EntaoLancarException(String valor) {
+            var dtoIn = noticiaCadastrarDtoInBuilder.autorias(List.of(valor)).build();
+            Set<ConstraintViolation<NoticiaCadastrarDtoIn>> violations = validator.validate(dtoIn);
+            Assertions.assertFalse(violations.isEmpty());
+        }
+
+        @ParameterizedTest
+        @ValueSource(strings = {
+            "2_",
+            "101 TestarLimiteMaximoDeCaracteresParaAutoria TestarLimiteMaximoDeCaracteresParaAutoria TestarLimiteM"
+        })
+        @DisplayName("tamanho inválido")
+        void dadoAutoriasComValoresComTamanhoInvalido_QuandoInstanciar_EntaoLancarException(String valor) {
+            var dtoIn = noticiaCadastrarDtoInBuilder.autorias(List.of(valor)).build();
             Set<ConstraintViolation<NoticiaCadastrarDtoIn>> violations = validator.validate(dtoIn);
             Assertions.assertFalse(violations.isEmpty());
             Assertions.assertEquals(1, violations.size());

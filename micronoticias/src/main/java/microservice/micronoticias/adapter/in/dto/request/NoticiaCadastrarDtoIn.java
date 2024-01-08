@@ -2,6 +2,7 @@ package microservice.micronoticias.adapter.in.dto.request;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 import lombok.Builder;
 import microservice.micronoticias.application.core.domain.Noticia;
@@ -31,8 +32,7 @@ public record NoticiaCadastrarDtoIn(
     @Size(min = Noticia.CORPO_CARACTERES_MINIMO, max = Noticia.CORPO_CARACTERES_MAXIMO)
     String corpo,
 
-//    @Valid
-    List<@Size(min = Noticia.AUTORIA_CARACTERES_MINIMO, max = Noticia.AUTORIA_CARACTERES_MAXIMO) String> autorias,
+    List<@NotBlank @Size(min = Noticia.AUTORIA_CARACTERES_MINIMO, max = Noticia.AUTORIA_CARACTERES_MAXIMO) String> autorias,
 
 //    @Size(min = Noticia.FONTE_CARACTERES_MINIMO, max = Noticia.FONTE_CARACTERES_MAXIMO)
     List<String> fontes
