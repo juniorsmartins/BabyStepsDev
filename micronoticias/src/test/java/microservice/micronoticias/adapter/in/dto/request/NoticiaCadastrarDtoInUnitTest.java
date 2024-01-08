@@ -143,5 +143,41 @@ class NoticiaCadastrarDtoInUnitTest {
             Assertions.assertEquals(1, violations.size());
         }
     }
+
+    @Nested
+    @DisplayName("Lide")
+    class Lide {
+
+        @Test
+        @DisplayName("nulo")
+        void dadoLideNulo_QuandoInstanciar_EntaoLancarException() {
+            var dtoIn = noticiaCadastrarDtoInBuilder.lide(null).build();
+            Set<ConstraintViolation<NoticiaCadastrarDtoIn>> violations = validator.validate(dtoIn);
+            Assertions.assertFalse(violations.isEmpty());
+            Assertions.assertEquals(1, violations.size());
+        }
+
+        @ParameterizedTest
+        @ValueSource(strings = {"", "   "})
+        @DisplayName("vazio ou em branco")
+        void dadoLideVazioOuEmBranco_QuandoInstanciar_EntaoLancarException(String valor) {
+            var dtoIn = noticiaCadastrarDtoInBuilder.lide(valor).build();
+            Set<ConstraintViolation<NoticiaCadastrarDtoIn>> violations = validator.validate(dtoIn);
+            Assertions.assertFalse(violations.isEmpty());
+        }
+
+        @ParameterizedTest
+        @ValueSource(strings = {
+            "79 TestarLimiteMaximoDeCaracteresParaLinhaFina TestarLimiteMaximoDeCaracteresPa",
+            "401 TestarLimiteMaximoDeCaracteresParaLinhaFina TestarLimiteMaximoDeCaracteresParaLinhaFina TestarLimiteMaximoDeCaracteresParaLinhaFina TestarLimiteMaximoDeCaracteresParaLinhaFina TestarLimiteMaximoDeCaracteresParaLinhaFina TestarLimiteMaximoDeCaracteresParaLinhaFina TestarLimiteMaximoDeCaracteresParaLinhaFina TestarLimiteMaximoDeCaracteresParaLinhaFina TestarLimiteMaximoDeCaracteresParaLinhaFina__"
+        })
+        @DisplayName("com tamanho inválido")
+        void dadoLideComTamanhoInvalido_QuandoInstanciar_EntaoLancarException(String valor) {
+            var dtoIn = noticiaCadastrarDtoInBuilder.lide(valor).build();
+            Set<ConstraintViolation<NoticiaCadastrarDtoIn>> violations = validator.validate(dtoIn);
+            Assertions.assertFalse(violations.isEmpty());
+            Assertions.assertEquals(1, violations.size());
+        }
+    }
 }
 
