@@ -12,9 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import java.util.List;
 import java.util.Set;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @ExtendWith({SpringExtension.class, MockitoExtension.class})
@@ -68,6 +67,220 @@ class NoticiaCadastrarDtoInUnitTest {
         @DisplayName("com tamanho inválido")
         void dadoChapeuComTamanhoInvalido_QuandoInstanciar_EntaoLancarException(String valor) {
             var dtoIn = noticiaCadastrarDtoInBuilder.chapeu(valor).build();
+            Set<ConstraintViolation<NoticiaCadastrarDtoIn>> violations = validator.validate(dtoIn);
+            Assertions.assertFalse(violations.isEmpty());
+            Assertions.assertEquals(1, violations.size());
+        }
+    }
+
+    @Nested
+    @DisplayName("Título")
+    class Titulo {
+
+        @Test
+        @DisplayName("nulo")
+        void dadoTituloNulo_QuandoInstanciar_EntaoLancarException() {
+            var dtoIn = noticiaCadastrarDtoInBuilder.titulo(null).build();
+            Set<ConstraintViolation<NoticiaCadastrarDtoIn>> violations = validator.validate(dtoIn);
+            Assertions.assertFalse(violations.isEmpty());
+            Assertions.assertEquals(1, violations.size());
+        }
+
+        @ParameterizedTest
+        @ValueSource(strings = {"", "   "})
+        @DisplayName("vazio ou em branco")
+        void dadoTituloVazioOuEmBranco_QuandoInstanciar_EntaoLancarException(String valor) {
+            var dtoIn = noticiaCadastrarDtoInBuilder.titulo(valor).build();
+            Set<ConstraintViolation<NoticiaCadastrarDtoIn>> violations = validator.validate(dtoIn);
+            Assertions.assertFalse(violations.isEmpty());
+        }
+
+        @ParameterizedTest
+        @ValueSource(strings = {
+            "19 a1b2c3d4e5f6g7h8",
+            "151 TestarLimiteMaximoDeCaracteresParaTitulo TestarLimiteMaximoDeCaracteresParaTitulo TestarLimiteMaximoDeCaracteresParaTitulo TestarLimiteMaximoDeCara"
+        })
+        @DisplayName("com tamanho inválido")
+        void dadoTituloComTamanhoInvalido_QuandoInstanciar_EntaoLancarException(String valor) {
+            var dtoIn = noticiaCadastrarDtoInBuilder.titulo(valor).build();
+            Set<ConstraintViolation<NoticiaCadastrarDtoIn>> violations = validator.validate(dtoIn);
+            Assertions.assertFalse(violations.isEmpty());
+            Assertions.assertEquals(1, violations.size());
+        }
+    }
+
+    @Nested
+    @DisplayName("LinhaFina")
+    class LinhaFina {
+
+        @Test
+        @DisplayName("nulo")
+        void dadoLinhaFinaNulo_QuandoInstanciar_EntaoLancarException() {
+            var dtoIn = noticiaCadastrarDtoInBuilder.linhaFina(null).build();
+            Set<ConstraintViolation<NoticiaCadastrarDtoIn>> violations = validator.validate(dtoIn);
+            Assertions.assertFalse(violations.isEmpty());
+            Assertions.assertEquals(1, violations.size());
+        }
+
+        @ParameterizedTest
+        @ValueSource(strings = {"", "   "})
+        @DisplayName("vazio ou em branco")
+        void dadoLinhaFinaVazioOuEmBranco_QuandoInstanciar_EntaoLancarException(String valor) {
+            var dtoIn = noticiaCadastrarDtoInBuilder.linhaFina(valor).build();
+            Set<ConstraintViolation<NoticiaCadastrarDtoIn>> violations = validator.validate(dtoIn);
+            Assertions.assertFalse(violations.isEmpty());
+        }
+
+        @ParameterizedTest
+        @ValueSource(strings = {
+            "79 TestarLimiteMaximoDeCaracteresParaLinhaFina TestarLimiteMaximoDeCaracteresPa",
+            "251 TestarLimiteMaximoDeCaracteresParaLinhaFina TestarLimiteMaximoDeCaracteresParaLinhaFina TestarLimiteMaximoDeCaracteresParaLinhaFina TestarLimiteMaximoDeCaracteresParaLinhaFina TestarLimiteMaximoDeCaracteresParaLinhaFina TestarLimiteMaximoDeCaracte"
+        })
+        @DisplayName("com tamanho inválido")
+        void dadoLinhaFinaComTamanhoInvalido_QuandoInstanciar_EntaoLancarException(String valor) {
+            var dtoIn = noticiaCadastrarDtoInBuilder.linhaFina(valor).build();
+            Set<ConstraintViolation<NoticiaCadastrarDtoIn>> violations = validator.validate(dtoIn);
+            Assertions.assertFalse(violations.isEmpty());
+            Assertions.assertEquals(1, violations.size());
+        }
+    }
+
+    @Nested
+    @DisplayName("Lide")
+    class Lide {
+
+        @Test
+        @DisplayName("nulo")
+        void dadoLideNulo_QuandoInstanciar_EntaoLancarException() {
+            var dtoIn = noticiaCadastrarDtoInBuilder.lide(null).build();
+            Set<ConstraintViolation<NoticiaCadastrarDtoIn>> violations = validator.validate(dtoIn);
+            Assertions.assertFalse(violations.isEmpty());
+            Assertions.assertEquals(1, violations.size());
+        }
+
+        @ParameterizedTest
+        @ValueSource(strings = {"", "   "})
+        @DisplayName("vazio ou em branco")
+        void dadoLideVazioOuEmBranco_QuandoInstanciar_EntaoLancarException(String valor) {
+            var dtoIn = noticiaCadastrarDtoInBuilder.lide(valor).build();
+            Set<ConstraintViolation<NoticiaCadastrarDtoIn>> violations = validator.validate(dtoIn);
+            Assertions.assertFalse(violations.isEmpty());
+        }
+
+        @ParameterizedTest
+        @ValueSource(strings = {
+            "79 TestarLimiteMaximoDeCaracteresParaLinhaFina TestarLimiteMaximoDeCaracteresPa",
+            "401 TestarLimiteMaximoDeCaracteresParaLinhaFina TestarLimiteMaximoDeCaracteresParaLinhaFina TestarLimiteMaximoDeCaracteresParaLinhaFina TestarLimiteMaximoDeCaracteresParaLinhaFina TestarLimiteMaximoDeCaracteresParaLinhaFina TestarLimiteMaximoDeCaracteresParaLinhaFina TestarLimiteMaximoDeCaracteresParaLinhaFina TestarLimiteMaximoDeCaracteresParaLinhaFina TestarLimiteMaximoDeCaracteresParaLinhaFina__"
+        })
+        @DisplayName("com tamanho inválido")
+        void dadoLideComTamanhoInvalido_QuandoInstanciar_EntaoLancarException(String valor) {
+            var dtoIn = noticiaCadastrarDtoInBuilder.lide(valor).build();
+            Set<ConstraintViolation<NoticiaCadastrarDtoIn>> violations = validator.validate(dtoIn);
+            Assertions.assertFalse(violations.isEmpty());
+            Assertions.assertEquals(1, violations.size());
+        }
+    }
+
+    @Nested
+    @DisplayName("Corpo")
+    class Corpo {
+
+        @Test
+        @DisplayName("nulo")
+        void dadoCorpoNulo_QuandoInstanciar_EntaoLancarException() {
+            var dtoIn = noticiaCadastrarDtoInBuilder.corpo(null).build();
+            Set<ConstraintViolation<NoticiaCadastrarDtoIn>> violations = validator.validate(dtoIn);
+            Assertions.assertFalse(violations.isEmpty());
+            Assertions.assertEquals(1, violations.size());
+        }
+
+        @ParameterizedTest
+        @ValueSource(strings = {"", "   "})
+        @DisplayName("vazio ou em branco")
+        void dadoCorpoVazioOuEmBranco_QuandoInstanciar_EntaoLancarException(String valor) {
+            var dtoIn = noticiaCadastrarDtoInBuilder.corpo(valor).build();
+            Set<ConstraintViolation<NoticiaCadastrarDtoIn>> violations = validator.validate(dtoIn);
+            Assertions.assertFalse(violations.isEmpty());
+        }
+
+        @ParameterizedTest
+        @ValueSource(strings = {
+            "99 TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaxi",
+            "5001 TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo  TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaCorpo TestarLimiteMaximoDeCaracteresParaC"
+        })
+        @DisplayName("com tamanho inválido")
+        void dadoCorpoComTamanhoInvalido_QuandoInstanciar_EntaoLancarException(String valor) {
+            var dtoIn = noticiaCadastrarDtoInBuilder.corpo(valor).build();
+            Set<ConstraintViolation<NoticiaCadastrarDtoIn>> violations = validator.validate(dtoIn);
+            Assertions.assertFalse(violations.isEmpty());
+            Assertions.assertEquals(1, violations.size());
+        }
+    }
+
+    @Nested
+    @DisplayName("Autorias")
+    class Autorias {
+
+        @Test
+        @DisplayName("nulo")
+        void dadoAutoriasNulo_QuandoInstanciar_EntaoRetornarDtoIn() {
+            var dtoIn = noticiaCadastrarDtoInBuilder.autorias(null).build();
+            Set<ConstraintViolation<NoticiaCadastrarDtoIn>> violations = validator.validate(dtoIn);
+            Assertions.assertTrue(violations.isEmpty());
+        }
+
+        @ParameterizedTest
+        @ValueSource(strings = {"", "     "})
+        @DisplayName("vazio ou em branco")
+        void dadoAutoriasComValoresVaziosOuEmBranco_QuandoInstanciar_EntaoLancarException(String valor) {
+            var dtoIn = noticiaCadastrarDtoInBuilder.autorias(List.of(valor)).build();
+            Set<ConstraintViolation<NoticiaCadastrarDtoIn>> violations = validator.validate(dtoIn);
+            Assertions.assertFalse(violations.isEmpty());
+        }
+
+        @ParameterizedTest
+        @ValueSource(strings = {
+            "2_",
+            "101 TestarLimiteMaximoDeCaracteresParaAutoria TestarLimiteMaximoDeCaracteresParaAutoria TestarLimiteM"
+        })
+        @DisplayName("tamanho inválido")
+        void dadoAutoriasComValoresComTamanhoInvalido_QuandoInstanciar_EntaoLancarException(String valor) {
+            var dtoIn = noticiaCadastrarDtoInBuilder.autorias(List.of(valor)).build();
+            Set<ConstraintViolation<NoticiaCadastrarDtoIn>> violations = validator.validate(dtoIn);
+            Assertions.assertFalse(violations.isEmpty());
+            Assertions.assertEquals(1, violations.size());
+        }
+    }
+
+    @Nested
+    @DisplayName("Fontes")
+    class Fontes {
+
+        @Test
+        @DisplayName("nulo")
+        void dadoFontesNulo_QuandoInstanciar_EntaoRetornarDtoIn() {
+            var dtoIn = noticiaCadastrarDtoInBuilder.fontes(null).build();
+            Set<ConstraintViolation<NoticiaCadastrarDtoIn>> violations = validator.validate(dtoIn);
+            Assertions.assertTrue(violations.isEmpty());
+        }
+
+        @ParameterizedTest
+        @ValueSource(strings = {"", "     "})
+        @DisplayName("vazio ou em branco")
+        void dadoFontesComValoresVaziosOuEmBranco_QuandoInstanciar_EntaoLancarException(String valor) {
+            var dtoIn = noticiaCadastrarDtoInBuilder.fontes(List.of(valor)).build();
+            Set<ConstraintViolation<NoticiaCadastrarDtoIn>> violations = validator.validate(dtoIn);
+            Assertions.assertFalse(violations.isEmpty());
+        }
+
+        @ParameterizedTest
+        @ValueSource(strings = {
+            "2_",
+            "251 TestarLimiteMaximoDeCaracteresParaFontes TestarLimiteMaximoDeCaracteresParaFontes TestarLimiteMaximoDeCaracteresParaFontes TestarLimiteMaximoDeCaracteresParaFontes TestarLimiteMaximoDeCaracteresParaFontes TestarLimiteMaximoDeCaracteresParaFontes__"
+        })
+        @DisplayName("tamanho inválido")
+        void dadoFontesComValoresComTamanhoInvalido_QuandoInstanciar_EntaoLancarException(String valor) {
+            var dtoIn = noticiaCadastrarDtoInBuilder.fontes(List.of(valor)).build();
             Set<ConstraintViolation<NoticiaCadastrarDtoIn>> violations = validator.validate(dtoIn);
             Assertions.assertFalse(violations.isEmpty());
             Assertions.assertEquals(1, violations.size());
