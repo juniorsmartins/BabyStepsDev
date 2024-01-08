@@ -110,6 +110,11 @@
 			<scope>test</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-webflux</artifactId>
+		</dependency>
+
 		<!-- Parametrização de Testes -->
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>

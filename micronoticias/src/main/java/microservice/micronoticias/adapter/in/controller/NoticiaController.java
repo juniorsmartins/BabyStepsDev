@@ -5,8 +5,8 @@ import lombok.RequiredArgsConstructor;
 import microservice.micronoticias.adapter.in.dto.request.NoticiaCadastrarDtoIn;
 import microservice.micronoticias.adapter.in.dto.response.NoticiaCadastrarDtoOut;
 import microservice.micronoticias.adapter.in.mapper.NoticiaMapperIn;
-import microservice.micronoticias.adapter.in.mapper.NoticiaMapperOut;
 import microservice.micronoticias.application.port.input.NoticiaCadastrarInputPort;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,15 +25,15 @@ public class NoticiaController {
 
     private final NoticiaMapperIn mapperIn;
 
-    private final NoticiaMapperOut mapperOut;
-
-    @PostMapping
+    @PostMapping(
+        consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE},
+        produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     public ResponseEntity<NoticiaCadastrarDtoOut> cadastrar(@RequestBody @Valid NoticiaCadastrarDtoIn cadastrarDtoIn) {
 
         var resposta = Optional.of(cadastrarDtoIn)
             .map(this.mapperIn::toNoticia)
             .map(this.cadastrarInputPort::cadastrar)
-            .map(this.mapperOut::toNoticiaCadastrarDtoOut)
+            .map(this.mapperIn::toNoticiaCadastrarDtoOut)
             .orElseThrow();
 
         return ResponseEntity
