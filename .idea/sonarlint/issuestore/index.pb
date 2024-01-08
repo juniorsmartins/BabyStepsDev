@@ -49,3 +49,7 @@ vmicronoticias/src/main/java/microservice/micronoticias/config/exception/http_40
 tmicronoticias/src/main/java/microservice/micronoticias/config/exception/http_409/RegraDeNegocioVioladaException.java,f/7/f7e1eac7fe35ca7ec0788463afba076f68e55be9
 ‘
 amicronoticias/src/main/java/microservice/micronoticias/application/core/useful/UtilityDomain.java,9/1/91792b895761e7d9b36ba0f2f42d4f72bad6f310
+˜
+hmicronoticias/src/main/java/microservice/micronoticias/adapter/in/dto/request/NoticiaCadastrarDtoIn.java,0/d/0df5afd362f4d0fda447840630ea7a0bf95480b6
+ 
+pmicronoticias/src/test/java/microservice/micronoticias/adapter/in/dto/request/NoticiaCadastrarDtoInUnitTest.java,2/6/26d69c53fc7c7a7cc44f782f8509b4eaaa135e9c

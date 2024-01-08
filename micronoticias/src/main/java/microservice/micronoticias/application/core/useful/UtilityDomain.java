@@ -29,11 +29,7 @@ public final class UtilityDomain {
 
     public static void validarListaComValoresEmTamanhoValido(String nomeCampo, List<String> lista,
                                                              int limiteMinimo, int limiteMaximo) {
-        lista.stream()
-            .filter(autor -> autor.length() < limiteMinimo || autor.length() > limiteMaximo)
-            .findAny()
-            .ifPresent(autor -> {throw new CampoComTamanhoInvalidoException(nomeCampo, limiteMaximo,
-                limiteMaximo, autor.length());});
+        lista.forEach(valor -> validarCampoComTamanhoValido(nomeCampo, limiteMinimo, limiteMaximo, valor.length()));
     }
 }
 

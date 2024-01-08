@@ -1,5 +1,6 @@
 package microservice.micronoticias.utility;
 
+import microservice.micronoticias.adapter.in.dto.request.NoticiaCadastrarDtoIn;
 import microservice.micronoticias.adapter.out.entity.NoticiaEntity;
 import microservice.micronoticias.application.core.domain.Noticia;
 import net.datafaker.Faker;
@@ -24,14 +25,14 @@ public final class FactoryObjectMother {
     }
 
     public NoticiaEntity.NoticiaEntityBuilder gerarNoticiaEntityBuilder(int quantiaChapeu,
-                                                                int quantiaTitulo, int quantiaLinhaFina,
-                                                                int quantiaLide, int quantiaCorpo) {
+                                                            int quantiaTitulo, int quantiaLinhaFina,
+                                                            int quantiaLide, int quantiaCorpo) {
         return NoticiaEntity.builder()
-                .chapeu(gerarString(quantiaChapeu))
-                .titulo(gerarString(quantiaTitulo))
-                .linhaFina(gerarString(quantiaLinhaFina))
-                .lide(gerarString(quantiaLide))
-                .corpo(gerarString(quantiaCorpo));
+            .chapeu(gerarString(quantiaChapeu))
+            .titulo(gerarString(quantiaTitulo))
+            .linhaFina(gerarString(quantiaLinhaFina))
+            .lide(gerarString(quantiaLide))
+            .corpo(gerarString(quantiaCorpo));
     }
 
     private String gerarString(int numeroCaracteres) {
@@ -60,6 +61,18 @@ public final class FactoryObjectMother {
         noticia.setFontes(gerarListString(quantidadeFonte, numeroCaracterFonte));
 
         return noticia;
+    }
+
+    public NoticiaCadastrarDtoIn.NoticiaCadastrarDtoInBuilder gerarNoticiaCadastrarDtoInBuilder() {
+
+        return NoticiaCadastrarDtoIn.builder()
+            .chapeu(faker.lorem().characters(2, 30))
+            .titulo(faker.lorem().characters(20, 150))
+            .linhaFina(faker.lorem().characters(80, 250))
+            .lide(faker.lorem().characters(80, 400))
+            .corpo(faker.lorem().characters(100, 5000))
+            .autorias(List.of(faker.lorem().characters(3, 100)))
+            .fontes(List.of(faker.lorem().characters(3, 250)));
     }
 }
 
