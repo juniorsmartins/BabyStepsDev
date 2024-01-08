@@ -122,8 +122,18 @@ public final class Noticia {
         return corpo;
     }
 
-    public void setCorpo(String corpo) {
-        this.corpo = corpo;
+    public void setCorpo(String valorCampo) {
+        var nomeCampo = "Corpo";
+
+        Optional.ofNullable(valorCampo)
+            .ifPresentOrElse(body -> {
+                UtilityDomain.validarCampoNaoVazioOuEmBranco(nomeCampo, body);
+                UtilityDomain.validarCampoComTamanhoValido(nomeCampo, CORPO_CARACTERES_MINIMO,
+                    CORPO_CARACTERES_MAXIMO, body.length());
+                this.corpo = body;
+            },
+            () -> {throw new CampoNuloProibidoException(nomeCampo);}
+        );
     }
 
     public List<String> getAutorias() {
