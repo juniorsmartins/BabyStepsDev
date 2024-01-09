@@ -6,7 +6,6 @@ pipeline {
             steps {
                 echo 'Building..'
                 git branch: 'master', url: 'https://github.com/juniorsmartins/site.git'
-                sh "./mvnw clean install -DskipTests"
             }
         }
         stage('Test') {
