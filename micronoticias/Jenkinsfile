@@ -1,4 +1,4 @@
-pipeline-micronoticias {
+pipeline {
     agent any
 
     stages {
