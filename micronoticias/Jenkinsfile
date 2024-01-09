@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools {
-        maven 'MAVEN'
+        maven 'mvn'
     }
 
     stages {
@@ -10,6 +10,12 @@ pipeline {
             steps {
                 checkout scm
             }
+        }
+
+        stage( 'Pull Configurations' ) {
+            steps {
+
+             }
         }
 
         stage('Build') {
