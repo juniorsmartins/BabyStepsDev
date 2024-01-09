@@ -36,7 +36,7 @@ em construção.....
 17. Relatório (JasperReports);
 18. DevTools;
 19. Lombok;
-20. JavaFaker (versão 1.0.2);
+20. DataFaker (versão 2.0.2);
 21. Boas práticas de codificação (Clean Code, Refactor, Solid, Yagni, Kiss, Dry e Soc);
 22. Design Patterns (Criacionais: Object Mother e Builder; Comportamentais: ;Estrututais: );
 23. Teste Automatizados (JUnit, JUnit Params, Mockito, WebTestClient);
