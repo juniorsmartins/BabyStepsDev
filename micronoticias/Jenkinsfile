@@ -16,10 +16,6 @@ pipeline {
             steps {
                 echo 'Building..'
                 git branch: 'master', url: 'https://github.com/juniorsmartins/site.git'
-                script {
-                    def mvnCmd = "${MAVEN}/bin/mvn"
-                    sh "${mvnCmd} clean install"
-                }
             }
         }
 
