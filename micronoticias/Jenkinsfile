@@ -1,5 +1,4 @@
 pipeline {
-#    agent any
     agent { docker { image 'amazoncorretto:21.0.1-al2023-headful' } }
 
     stages {
