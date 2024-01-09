@@ -1,11 +1,10 @@
 pipeline {
-    agent { docker { image 'amazoncorretto:21.0.1-al2023-headful' } }
+    agent any
 
     stages {
         stage('Build') {
             steps {
                 echo 'Building..'
-                sh 'mvn --version'
             }
         }
         stage('Test') {
