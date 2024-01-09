@@ -185,5 +185,19 @@ public final class Noticia {
             () -> this.fontes = fontes
         );
     }
+
+    @Override
+    public String toString() {
+        return "Noticia{" +
+                "id=" + id +
+                ", chapeu='" + chapeu + '\'' +
+                ", titulo='" + titulo + '\'' +
+                ", linhaFina='" + linhaFina + '\'' +
+                ", lide='" + lide + '\'' +
+                ", corpo='" + corpo + '\'' +
+                ", autorias=" + autorias +
+                ", fontes=" + fontes +
+                '}';
+    }
 }
 

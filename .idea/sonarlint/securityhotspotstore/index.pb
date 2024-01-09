@@ -65,14 +65,6 @@ rmicronoticias/src/test/java/microservice/micronoticias/adapter/in/controller/No
 lmicronoticias/src/main/java/microservice/micronoticias/application/port/input/NoticiaCadastrarInputPort.java,1/4/14e5e9698a885bacb1a6d65a13e3da964b6379f5
 ç
 ]micronoticias/src/main/java/microservice/micronoticias/adapter/in/mapper/NoticiaMapperIn.java,2/8/28dcd554dfff9cb1486a694a24a1000a9f4e2725
-é
-^micronoticias/src/main/java/microservice/micronoticias/adapter/in/mapper/NoticiaMapperOut.java,b/4/b482cf7e78e2abff218cbe1c4dcc41b5f2fc5be3
-ú
-lmicronoticias/src/main/java/microservice/micronoticias/application/core/usecase/NoticiaCadastrarUseCase.java,9/7/97872670bae2d04899bc1ee8f5532738f50c0c47
-û
-nmicronoticias/src/main/java/microservice/micronoticias/application/port/output/NoticiaCadastrarOutputPort.java,e/7/e7d9ff8d49ab72c1243f1cd3a3668683578a0a3a
-Ö
-Umicronoticias/src/main/java/microservice/micronoticias/config/bean/NoticiaConfig.java,3/3/33c0b2c9d17888838e75aa2738582a9fd73a4d0f
 õ
 kmicronoticias/src/main/java/microservice/micronoticias/application/port/output/NoticiaSalvarOutputPort.java,d/1/d13d6969b280a55953fb24c430a126781ebac1b2
 è
@@ -83,3 +75,5 @@ hmicronoticias/src/main/java/microservice/micronoticias/application/core/usecase
 \micronoticias/src/main/java/microservice/micronoticias/config/bean/NoticiaUseCaseConfig.java,5/9/5976d6381bd705a2de080af3d96958054a08ea23
 Å
 Qmicronoticias/src/main/java/microservice/micronoticias/config/bean/WebConfig.java,d/5/d5d45b2a7dae0de723ecc4275c6e1b96dfdb39be
+ì
+cmicronoticias/src/main/java/microservice/micronoticias/adapter/out/mapper/NoticiaMapperOutImpl.java,f/9/f9845c15734552c1e6d561a0929410bc0f302269
