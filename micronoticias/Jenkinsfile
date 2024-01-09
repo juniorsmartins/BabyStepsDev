@@ -8,14 +8,14 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                echo 'Check..'
+                echo 'Fase de verificação'
                 checkout scm
             }
         }
 
         stage('Pull Configurations') {
             steps {
-                echo 'Config..'
+                echo 'Fase de configuração'
 
              }
         }
@@ -30,8 +30,15 @@ pipeline {
 
         stage('Test') {
             steps {
-                echo 'Testing..'
+                echo 'Fase de teste'
                 sh 'mvn test'
+            }
+            post {
+                failure {
+                    mail to: 'juniorsoaresmartins@gmail.com',
+                        subject: 'A pipeline falhou! Verifique os testes automatizados.',
+                        body: 'Falha nos testes automatizados'
+                }
             }
         }
 
