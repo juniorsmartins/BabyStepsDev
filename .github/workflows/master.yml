@@ -3,14 +3,12 @@ name: CI-CD-babysteps
 on:
   push:
     branches: 
-    - master
-    - release/*
+    - develop
   pull_request:
     branches:
-    - master
-    - release/*
+    - develop
   schedule:
-  - cron: "0 8,13,18 * * *"
+  - cron: "0 7,13,19 * * *"
 
 jobs:
 
