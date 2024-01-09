@@ -5,6 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
+                git branch: 'master', url: 'https://github.com/juniorsmartins/site.git'
             }
         }
         stage('Test') {
