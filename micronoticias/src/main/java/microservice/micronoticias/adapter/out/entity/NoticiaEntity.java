@@ -14,6 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
+@ToString
 @EqualsAndHashCode(of = {"id"})
 public final class NoticiaEntity implements Serializable {
 

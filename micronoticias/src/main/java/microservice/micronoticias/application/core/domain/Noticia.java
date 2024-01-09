@@ -36,6 +36,8 @@ public final class Noticia {
 
     public static final int FONTE_CARACTERES_MINIMO = 3;
 
+    private Long id;
+
     private String chapeu;
 
     private String titulo;
@@ -49,6 +51,14 @@ public final class Noticia {
     private List<String> autorias;
 
     private List<String> fontes;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getChapeu() {
         return chapeu;
@@ -174,6 +184,20 @@ public final class Noticia {
             },
             () -> this.fontes = fontes
         );
+    }
+
+    @Override
+    public String toString() {
+        return "Noticia{" +
+                "id=" + id +
+                ", chapeu='" + chapeu + '\'' +
+                ", titulo='" + titulo + '\'' +
+                ", linhaFina='" + linhaFina + '\'' +
+                ", lide='" + lide + '\'' +
+                ", corpo='" + corpo + '\'' +
+                ", autorias=" + autorias +
+                ", fontes=" + fontes +
+                '}';
     }
 }
 

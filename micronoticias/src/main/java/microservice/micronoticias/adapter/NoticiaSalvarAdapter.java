@@ -1,18 +1,31 @@
 package microservice.micronoticias.adapter;
 
 import lombok.RequiredArgsConstructor;
-import microservice.micronoticias.adapter.out.entity.NoticiaEntity;
+import microservice.micronoticias.adapter.out.mapper.NoticiaMapperOut;
 import microservice.micronoticias.adapter.out.repository.NoticiaRepository;
+import microservice.micronoticias.application.core.domain.Noticia;
+import microservice.micronoticias.application.port.output.NoticiaSalvarOutputPort;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Optional;
 
 @Repository
 @RequiredArgsConstructor
-public class NoticiaSalvarAdapter {
+public class NoticiaSalvarAdapter implements NoticiaSalvarOutputPort {
 
-    private final NoticiaRepository noticiaRepository;
+    private final NoticiaRepository repository;
 
-    public NoticiaEntity salvar(NoticiaEntity entity) {
+    private final NoticiaMapperOut mapperOut;
 
-        return this.noticiaRepository.save(entity);
+    @Transactional
+    @Override
+    public Noticia salvar(Noticia noticia) {
+
+        return Optional.of(noticia)
+            .map(this.mapperOut::toNoticiaEntity)
+            .map(this.repository::save)
+            .map(this.mapperOut::toNoticia)
+            .orElseThrow();
     }
 }
