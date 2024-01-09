@@ -6,17 +6,24 @@ pipeline {
     }
 
     stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+
         stage('Build') {
             steps {
                 echo 'Building..'
                 git branch: 'master', url: 'https://github.com/juniorsmartins/site.git'
             }
         }
+
         stage('Test') {
             steps {
                 echo 'Testing..'
             }
         }
+
         stage('Deploy') {
             when {
               expression {
