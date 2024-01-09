@@ -1,5 +1,4 @@
-Jenkinsfile (pipeline declarativo)
-pipeline {
+pipeline-micronoticias {
     agent any
 
     stages {
