@@ -10,6 +10,12 @@ pipeline {
             steps {
                 echo 'Fase de verificação'
                 checkout scm
+
+                echo "Java VERSION"
+                sh 'java -version'
+
+                echo "Maven VERSION"
+                sh 'mvn -version'
             }
         }
 
