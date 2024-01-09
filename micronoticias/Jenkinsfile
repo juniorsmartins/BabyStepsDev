@@ -22,8 +22,9 @@ pipeline {
 
         stage('Build') {
             steps {
-                echo 'Building..'
+                echo 'Fase de construção'
                 git branch: 'master', url: 'https://github.com/juniorsmartins/site.git'
+                sh 'mvn clean install'
             }
         }
 
