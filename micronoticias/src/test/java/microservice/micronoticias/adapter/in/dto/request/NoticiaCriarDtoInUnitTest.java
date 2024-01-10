@@ -18,25 +18,25 @@ import java.util.Set;
 @SpringBootTest
 @ExtendWith({SpringExtension.class, MockitoExtension.class})
 @DisplayName("Unit CadastrarDtoIn - Notícia")
-class NoticiaCadastrarDtoInUnitTest {
+class NoticiaCriarDtoInUnitTest {
 
     private final FactoryObjectMother factory = FactoryObjectMother.singleton();
 
     @Autowired
     private Validator validator;
 
-    private NoticiaCadastrarDtoIn.NoticiaCadastrarDtoInBuilder noticiaCadastrarDtoInBuilder;
+    private NoticiaCriarDtoIn.NoticiaCriarDtoInBuilder noticiaCadastrarDtoInBuilder;
 
     @BeforeEach
     void setUp() {
-        noticiaCadastrarDtoInBuilder = factory.gerarNoticiaCadastrarDtoInBuilder();
+        noticiaCadastrarDtoInBuilder = factory.gerarNoticiaCriarDtoInBuilder();
     }
 
     @Test
     @DisplayName("notícia válida")
     void dadoNoticiaValida_QuandoInstanciar_EntaoRetornarDtoIn() {
         var dtoIn = noticiaCadastrarDtoInBuilder.build();
-        Set<ConstraintViolation<NoticiaCadastrarDtoIn>> violations = validator.validate(dtoIn);
+        Set<ConstraintViolation<NoticiaCriarDtoIn>> violations = validator.validate(dtoIn);
         Assertions.assertTrue(violations.isEmpty());
     }
 
@@ -48,7 +48,7 @@ class NoticiaCadastrarDtoInUnitTest {
         @DisplayName("nulo")
         void dadoChapeuNulo_QuandoInstanciar_EntaoLancarException() {
             var dtoIn = noticiaCadastrarDtoInBuilder.chapeu(null).build();
-            Set<ConstraintViolation<NoticiaCadastrarDtoIn>> violations = validator.validate(dtoIn);
+            Set<ConstraintViolation<NoticiaCriarDtoIn>> violations = validator.validate(dtoIn);
             Assertions.assertFalse(violations.isEmpty());
             Assertions.assertEquals(1, violations.size());
         }
@@ -58,7 +58,7 @@ class NoticiaCadastrarDtoInUnitTest {
         @DisplayName("vazio ou em branco")
         void dadoChapeuVazioOuEmBranco_QuandoInstanciar_EntaoLancarException(String valor) {
             var dtoIn = noticiaCadastrarDtoInBuilder.chapeu(valor).build();
-            Set<ConstraintViolation<NoticiaCadastrarDtoIn>> violations = validator.validate(dtoIn);
+            Set<ConstraintViolation<NoticiaCriarDtoIn>> violations = validator.validate(dtoIn);
             Assertions.assertFalse(violations.isEmpty());
         }
 
@@ -67,7 +67,7 @@ class NoticiaCadastrarDtoInUnitTest {
         @DisplayName("com tamanho inválido")
         void dadoChapeuComTamanhoInvalido_QuandoInstanciar_EntaoLancarException(String valor) {
             var dtoIn = noticiaCadastrarDtoInBuilder.chapeu(valor).build();
-            Set<ConstraintViolation<NoticiaCadastrarDtoIn>> violations = validator.validate(dtoIn);
+            Set<ConstraintViolation<NoticiaCriarDtoIn>> violations = validator.validate(dtoIn);
             Assertions.assertFalse(violations.isEmpty());
             Assertions.assertEquals(1, violations.size());
         }
@@ -81,7 +81,7 @@ class NoticiaCadastrarDtoInUnitTest {
         @DisplayName("nulo")
         void dadoTituloNulo_QuandoInstanciar_EntaoLancarException() {
             var dtoIn = noticiaCadastrarDtoInBuilder.titulo(null).build();
-            Set<ConstraintViolation<NoticiaCadastrarDtoIn>> violations = validator.validate(dtoIn);
+            Set<ConstraintViolation<NoticiaCriarDtoIn>> violations = validator.validate(dtoIn);
             Assertions.assertFalse(violations.isEmpty());
             Assertions.assertEquals(1, violations.size());
         }
@@ -91,7 +91,7 @@ class NoticiaCadastrarDtoInUnitTest {
         @DisplayName("vazio ou em branco")
         void dadoTituloVazioOuEmBranco_QuandoInstanciar_EntaoLancarException(String valor) {
             var dtoIn = noticiaCadastrarDtoInBuilder.titulo(valor).build();
-            Set<ConstraintViolation<NoticiaCadastrarDtoIn>> violations = validator.validate(dtoIn);
+            Set<ConstraintViolation<NoticiaCriarDtoIn>> violations = validator.validate(dtoIn);
             Assertions.assertFalse(violations.isEmpty());
         }
 
@@ -103,7 +103,7 @@ class NoticiaCadastrarDtoInUnitTest {
         @DisplayName("com tamanho inválido")
         void dadoTituloComTamanhoInvalido_QuandoInstanciar_EntaoLancarException(String valor) {
             var dtoIn = noticiaCadastrarDtoInBuilder.titulo(valor).build();
-            Set<ConstraintViolation<NoticiaCadastrarDtoIn>> violations = validator.validate(dtoIn);
+            Set<ConstraintViolation<NoticiaCriarDtoIn>> violations = validator.validate(dtoIn);
             Assertions.assertFalse(violations.isEmpty());
             Assertions.assertEquals(1, violations.size());
         }
@@ -117,7 +117,7 @@ class NoticiaCadastrarDtoInUnitTest {
         @DisplayName("nulo")
         void dadoLinhaFinaNulo_QuandoInstanciar_EntaoLancarException() {
             var dtoIn = noticiaCadastrarDtoInBuilder.linhaFina(null).build();
-            Set<ConstraintViolation<NoticiaCadastrarDtoIn>> violations = validator.validate(dtoIn);
+            Set<ConstraintViolation<NoticiaCriarDtoIn>> violations = validator.validate(dtoIn);
             Assertions.assertFalse(violations.isEmpty());
             Assertions.assertEquals(1, violations.size());
         }
@@ -127,7 +127,7 @@ class NoticiaCadastrarDtoInUnitTest {
         @DisplayName("vazio ou em branco")
         void dadoLinhaFinaVazioOuEmBranco_QuandoInstanciar_EntaoLancarException(String valor) {
             var dtoIn = noticiaCadastrarDtoInBuilder.linhaFina(valor).build();
-            Set<ConstraintViolation<NoticiaCadastrarDtoIn>> violations = validator.validate(dtoIn);
+            Set<ConstraintViolation<NoticiaCriarDtoIn>> violations = validator.validate(dtoIn);
             Assertions.assertFalse(violations.isEmpty());
         }
 
@@ -139,7 +139,7 @@ class NoticiaCadastrarDtoInUnitTest {
         @DisplayName("com tamanho inválido")
         void dadoLinhaFinaComTamanhoInvalido_QuandoInstanciar_EntaoLancarException(String valor) {
             var dtoIn = noticiaCadastrarDtoInBuilder.linhaFina(valor).build();
-            Set<ConstraintViolation<NoticiaCadastrarDtoIn>> violations = validator.validate(dtoIn);
+            Set<ConstraintViolation<NoticiaCriarDtoIn>> violations = validator.validate(dtoIn);
             Assertions.assertFalse(violations.isEmpty());
             Assertions.assertEquals(1, violations.size());
         }
@@ -153,7 +153,7 @@ class NoticiaCadastrarDtoInUnitTest {
         @DisplayName("nulo")
         void dadoLideNulo_QuandoInstanciar_EntaoLancarException() {
             var dtoIn = noticiaCadastrarDtoInBuilder.lide(null).build();
-            Set<ConstraintViolation<NoticiaCadastrarDtoIn>> violations = validator.validate(dtoIn);
+            Set<ConstraintViolation<NoticiaCriarDtoIn>> violations = validator.validate(dtoIn);
             Assertions.assertFalse(violations.isEmpty());
             Assertions.assertEquals(1, violations.size());
         }
@@ -163,7 +163,7 @@ class NoticiaCadastrarDtoInUnitTest {
         @DisplayName("vazio ou em branco")
         void dadoLideVazioOuEmBranco_QuandoInstanciar_EntaoLancarException(String valor) {
             var dtoIn = noticiaCadastrarDtoInBuilder.lide(valor).build();
-            Set<ConstraintViolation<NoticiaCadastrarDtoIn>> violations = validator.validate(dtoIn);
+            Set<ConstraintViolation<NoticiaCriarDtoIn>> violations = validator.validate(dtoIn);
             Assertions.assertFalse(violations.isEmpty());
         }
 
@@ -175,7 +175,7 @@ class NoticiaCadastrarDtoInUnitTest {
         @DisplayName("com tamanho inválido")
         void dadoLideComTamanhoInvalido_QuandoInstanciar_EntaoLancarException(String valor) {
             var dtoIn = noticiaCadastrarDtoInBuilder.lide(valor).build();
-            Set<ConstraintViolation<NoticiaCadastrarDtoIn>> violations = validator.validate(dtoIn);
+            Set<ConstraintViolation<NoticiaCriarDtoIn>> violations = validator.validate(dtoIn);
             Assertions.assertFalse(violations.isEmpty());
             Assertions.assertEquals(1, violations.size());
         }
@@ -189,7 +189,7 @@ class NoticiaCadastrarDtoInUnitTest {
         @DisplayName("nulo")
         void dadoCorpoNulo_QuandoInstanciar_EntaoLancarException() {
             var dtoIn = noticiaCadastrarDtoInBuilder.corpo(null).build();
-            Set<ConstraintViolation<NoticiaCadastrarDtoIn>> violations = validator.validate(dtoIn);
+            Set<ConstraintViolation<NoticiaCriarDtoIn>> violations = validator.validate(dtoIn);
             Assertions.assertFalse(violations.isEmpty());
             Assertions.assertEquals(1, violations.size());
         }
@@ -199,7 +199,7 @@ class NoticiaCadastrarDtoInUnitTest {
         @DisplayName("vazio ou em branco")
         void dadoCorpoVazioOuEmBranco_QuandoInstanciar_EntaoLancarException(String valor) {
             var dtoIn = noticiaCadastrarDtoInBuilder.corpo(valor).build();
-            Set<ConstraintViolation<NoticiaCadastrarDtoIn>> violations = validator.validate(dtoIn);
+            Set<ConstraintViolation<NoticiaCriarDtoIn>> violations = validator.validate(dtoIn);
             Assertions.assertFalse(violations.isEmpty());
         }
 
@@ -211,7 +211,7 @@ class NoticiaCadastrarDtoInUnitTest {
         @DisplayName("com tamanho inválido")
         void dadoCorpoComTamanhoInvalido_QuandoInstanciar_EntaoLancarException(String valor) {
             var dtoIn = noticiaCadastrarDtoInBuilder.corpo(valor).build();
-            Set<ConstraintViolation<NoticiaCadastrarDtoIn>> violations = validator.validate(dtoIn);
+            Set<ConstraintViolation<NoticiaCriarDtoIn>> violations = validator.validate(dtoIn);
             Assertions.assertFalse(violations.isEmpty());
             Assertions.assertEquals(1, violations.size());
         }
@@ -225,7 +225,7 @@ class NoticiaCadastrarDtoInUnitTest {
         @DisplayName("nulo")
         void dadoAutoriasNulo_QuandoInstanciar_EntaoRetornarDtoIn() {
             var dtoIn = noticiaCadastrarDtoInBuilder.autorias(null).build();
-            Set<ConstraintViolation<NoticiaCadastrarDtoIn>> violations = validator.validate(dtoIn);
+            Set<ConstraintViolation<NoticiaCriarDtoIn>> violations = validator.validate(dtoIn);
             Assertions.assertTrue(violations.isEmpty());
         }
 
@@ -234,7 +234,7 @@ class NoticiaCadastrarDtoInUnitTest {
         @DisplayName("vazio ou em branco")
         void dadoAutoriasComValoresVaziosOuEmBranco_QuandoInstanciar_EntaoLancarException(String valor) {
             var dtoIn = noticiaCadastrarDtoInBuilder.autorias(List.of(valor)).build();
-            Set<ConstraintViolation<NoticiaCadastrarDtoIn>> violations = validator.validate(dtoIn);
+            Set<ConstraintViolation<NoticiaCriarDtoIn>> violations = validator.validate(dtoIn);
             Assertions.assertFalse(violations.isEmpty());
         }
 
@@ -246,7 +246,7 @@ class NoticiaCadastrarDtoInUnitTest {
         @DisplayName("tamanho inválido")
         void dadoAutoriasComValoresComTamanhoInvalido_QuandoInstanciar_EntaoLancarException(String valor) {
             var dtoIn = noticiaCadastrarDtoInBuilder.autorias(List.of(valor)).build();
-            Set<ConstraintViolation<NoticiaCadastrarDtoIn>> violations = validator.validate(dtoIn);
+            Set<ConstraintViolation<NoticiaCriarDtoIn>> violations = validator.validate(dtoIn);
             Assertions.assertFalse(violations.isEmpty());
             Assertions.assertEquals(1, violations.size());
         }
@@ -260,7 +260,7 @@ class NoticiaCadastrarDtoInUnitTest {
         @DisplayName("nulo")
         void dadoFontesNulo_QuandoInstanciar_EntaoRetornarDtoIn() {
             var dtoIn = noticiaCadastrarDtoInBuilder.fontes(null).build();
-            Set<ConstraintViolation<NoticiaCadastrarDtoIn>> violations = validator.validate(dtoIn);
+            Set<ConstraintViolation<NoticiaCriarDtoIn>> violations = validator.validate(dtoIn);
             Assertions.assertTrue(violations.isEmpty());
         }
 
@@ -269,7 +269,7 @@ class NoticiaCadastrarDtoInUnitTest {
         @DisplayName("vazio ou em branco")
         void dadoFontesComValoresVaziosOuEmBranco_QuandoInstanciar_EntaoLancarException(String valor) {
             var dtoIn = noticiaCadastrarDtoInBuilder.fontes(List.of(valor)).build();
-            Set<ConstraintViolation<NoticiaCadastrarDtoIn>> violations = validator.validate(dtoIn);
+            Set<ConstraintViolation<NoticiaCriarDtoIn>> violations = validator.validate(dtoIn);
             Assertions.assertFalse(violations.isEmpty());
         }
 
@@ -281,7 +281,7 @@ class NoticiaCadastrarDtoInUnitTest {
         @DisplayName("tamanho inválido")
         void dadoFontesComValoresComTamanhoInvalido_QuandoInstanciar_EntaoLancarException(String valor) {
             var dtoIn = noticiaCadastrarDtoInBuilder.fontes(List.of(valor)).build();
-            Set<ConstraintViolation<NoticiaCadastrarDtoIn>> violations = validator.validate(dtoIn);
+            Set<ConstraintViolation<NoticiaCriarDtoIn>> violations = validator.validate(dtoIn);
             Assertions.assertFalse(violations.isEmpty());
             Assertions.assertEquals(1, violations.size());
         }

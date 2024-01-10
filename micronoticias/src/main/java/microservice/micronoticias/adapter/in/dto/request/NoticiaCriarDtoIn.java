@@ -8,7 +8,7 @@ import microservice.micronoticias.application.core.domain.Noticia;
 import java.util.List;
 
 @Builder
-public record NoticiaCadastrarDtoIn(
+public record NoticiaCriarDtoIn(
 
     @NotBlank
     @Size(min = Noticia.CHAPEU_CARACTERES_MINIMO, max = Noticia.CHAPEU_CARACTERES_MAXIMO)
