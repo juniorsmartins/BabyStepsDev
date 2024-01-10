@@ -80,6 +80,7 @@ class NoticiaControllerIntegrationTest {
                     assertThat(response.getResponseBody().corpo()).isEqualTo(dtoIn.corpo());
                     assertThat(response.getResponseBody().autorias().get(0)).isEqualTo(dtoIn.autorias().get(0));
                     assertThat(response.getResponseBody().fontes().get(0)).isEqualTo(dtoIn.fontes().get(0));
+                    assertThat(response.getResponseBody().editorias().size()).isEqualTo(1);
                 });
         }
 
@@ -108,6 +109,7 @@ class NoticiaControllerIntegrationTest {
             assertThat(dtoIn.corpo()).isEqualTo(noticiaDoBanco.getCorpo());
             assertThat(dtoIn.autorias().get(0)).isEqualTo(noticiaDoBanco.getAutorias().get(0));
             assertThat(dtoIn.fontes().get(0)).isEqualTo(noticiaDoBanco.getFontes().get(0));
+            assertThat(noticiaDoBanco.getEditorias().size()).isEqualTo(1);
         }
     }
 }

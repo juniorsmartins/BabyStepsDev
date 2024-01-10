@@ -117,3 +117,9 @@ dmicronoticias/src/main/java/microservice/micronoticias/adapter/in/dto/request/N
 emicronoticias/src/main/java/microservice/micronoticias/adapter/in/dto/request/EditoriaCriarDtoIn.java,2/5/25082c182051349628fa851e499e347bcc460728
 ù
 mmicronoticias/src/test/java/microservice/micronoticias/adapter/in/dto/request/EditoriaCriarDtoInUnitTest.java,3/6/365682ebc9638860e14e8bb9fb043709d42ab643
+ñ
+fmicronoticias/src/main/java/microservice/micronoticias/adapter/in/dto/response/NoticiaCriarDtoOut.java,7/1/7145a9b68df2af733295b167f267b3b29dc2d8de
+ó
+gmicronoticias/src/main/java/microservice/micronoticias/adapter/in/dto/response/EditoriaCriarDtoOut.java,e/f/efcf0c115bc806188e080b7445336f9449b5e4ee
+é
+^micronoticias/src/main/java/microservice/micronoticias/adapter/in/mapper/EditoriaMapperIn.java,1/3/138dab4c5507398787bf0984a3256e992e596366
