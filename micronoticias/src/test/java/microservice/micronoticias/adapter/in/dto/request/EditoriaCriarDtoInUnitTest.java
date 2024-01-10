@@ -40,6 +40,21 @@ class EditoriaCriarDtoInUnitTest {
     }
 
     @Nested
+    @DisplayName("Id")
+    class Id {
+
+        @Test
+        @DisplayName("nulo")
+        void dadoIdNula_QuandoInstanciar_EntaoLancarException() {
+            var idNegativo = -1L;
+            var dtoIn = editoriaCriarDtoInBuilder.id(idNegativo).build();
+            Set<ConstraintViolation<EditoriaCriarDtoIn>> violations = validator.validate(dtoIn);
+            Assertions.assertFalse(violations.isEmpty());
+            Assertions.assertEquals(1, violations.size());
+        }
+    }
+
+    @Nested
     @DisplayName("Nomenclatura")
     class Nomenclatura {
 
@@ -62,10 +77,47 @@ class EditoriaCriarDtoInUnitTest {
         }
 
         @ParameterizedTest
-        @ValueSource(strings = {"2_", "101 RegraDeLimiteMaximoDeCaracteres RegraDeLimiteMaximoDeCaracteres RegraDeLimiteMaximoDeCaracteres__"})
+        @ValueSource(strings = {
+            "2_",
+            "101 RegraDeLimiteMaximoDeCaracteres RegraDeLimiteMaximoDeCaracteres RegraDeLimiteMaximoDeCaracteres__"})
         @DisplayName("com tamanho inválido")
         void dadoNomenclaturaComTamanhoInvalido_QuandoInstanciar_EntaoLancarException(String valor) {
             var dtoIn = editoriaCriarDtoInBuilder.nomenclatura(valor).build();
+            Set<ConstraintViolation<EditoriaCriarDtoIn>> violations = validator.validate(dtoIn);
+            Assertions.assertFalse(violations.isEmpty());
+            Assertions.assertEquals(1, violations.size());
+        }
+    }
+
+    @Nested
+    @DisplayName("Descrição")
+    class Descricao {
+
+        @Test
+        @DisplayName("nulo")
+        void dadoDescricaoNula_QuandoInstanciar_EntaoLancarException() {
+            var dtoIn = editoriaCriarDtoInBuilder.descricao(null).build();
+            Set<ConstraintViolation<EditoriaCriarDtoIn>> violations = validator.validate(dtoIn);
+            Assertions.assertFalse(violations.isEmpty());
+            Assertions.assertEquals(1, violations.size());
+        }
+
+        @ParameterizedTest
+        @ValueSource(strings = {"", "   "})
+        @DisplayName("vazio ou em branco")
+        void dadoDescricaoVaziaOuEmBranco_QuandoInstanciar_EntaoLancarException(String valor) {
+            var dtoIn = editoriaCriarDtoInBuilder.descricao(valor).build();
+            Set<ConstraintViolation<EditoriaCriarDtoIn>> violations = validator.validate(dtoIn);
+            Assertions.assertFalse(violations.isEmpty());
+        }
+
+        @ParameterizedTest
+        @ValueSource(strings = {
+            "9 RegraDe",
+            "201 RegraDeLimiteMaximoDeCaracteres RegraDeLimiteMaximoDeCaracteres RegraDeLimiteMaximoDeCaracteres RegraDeLimiteMaximoDeCaracteres RegraDeLimiteMaximoDeCaracteres RegraDeLimiteMaximoDeCaracteres Regra"})
+        @DisplayName("com tamanho inválido")
+        void dadoDescricaoComTamanhoInvalido_QuandoInstanciar_EntaoLancarException(String valor) {
+            var dtoIn = editoriaCriarDtoInBuilder.descricao(valor).build();
             Set<ConstraintViolation<EditoriaCriarDtoIn>> violations = validator.validate(dtoIn);
             Assertions.assertFalse(violations.isEmpty());
             Assertions.assertEquals(1, violations.size());
