@@ -7,7 +7,7 @@ import java.util.List;
 
 @Builder
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public record NoticiaCadastrarDtoOut(
+public record NoticiaCriarDtoOut(
 
     Long id,
 

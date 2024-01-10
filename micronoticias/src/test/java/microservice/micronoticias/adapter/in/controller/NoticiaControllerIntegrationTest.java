@@ -1,7 +1,7 @@
 package microservice.micronoticias.adapter.in.controller;
 
-import microservice.micronoticias.adapter.in.dto.request.NoticiaCadastrarDtoIn;
-import microservice.micronoticias.adapter.in.dto.response.NoticiaCadastrarDtoOut;
+import microservice.micronoticias.adapter.in.dto.request.NoticiaCriarDtoIn;
+import microservice.micronoticias.adapter.in.dto.response.NoticiaCriarDtoOut;
 import microservice.micronoticias.adapter.out.repository.NoticiaRepository;
 import microservice.micronoticias.utility.FactoryObjectMother;
 import org.junit.jupiter.api.BeforeEach;
@@ -29,11 +29,11 @@ class NoticiaControllerIntegrationTest {
     @Autowired
     private NoticiaRepository noticiaRepository;
 
-    private NoticiaCadastrarDtoIn.NoticiaCadastrarDtoInBuilder noticiaCadastrarDtoIn;
+    private NoticiaCriarDtoIn.NoticiaCriarDtoInBuilder noticiaCriarDtoIn;
 
     @BeforeEach
     void setUp() {
-        noticiaCadastrarDtoIn = factory.gerarNoticiaCadastrarDtoInBuilder();
+        noticiaCriarDtoIn = factory.gerarNoticiaCriarDtoInBuilder();
     }
 
     @Nested
@@ -44,7 +44,7 @@ class NoticiaControllerIntegrationTest {
         @DisplayName("dados validos com XML")
         void dadaNoticiaValida_QuandoCriarComContentNegotiationXML_EntaoRetornarHttp201() {
 
-            var dtoIn = noticiaCadastrarDtoIn.build();
+            var dtoIn = noticiaCriarDtoIn.build();
 
             webTestClient.post()
                 .uri(END_POINT)
@@ -62,7 +62,7 @@ class NoticiaControllerIntegrationTest {
         @DisplayName("dados válidos com JSON")
         void dadoNoticiaValida_QuandoCriarComContentNegotiationJSon_EntaoRetornarNoticiaCriarDtoOutComDadosIguaisEntradaAndHttp201() {
 
-            var dtoIn = noticiaCadastrarDtoIn.build();
+            var dtoIn = noticiaCriarDtoIn.build();
 
             webTestClient.post()
                 .uri(END_POINT)
@@ -70,7 +70,7 @@ class NoticiaControllerIntegrationTest {
                 .bodyValue(dtoIn)
                 .exchange()
                 .expectStatus().isCreated()
-                .expectBody(NoticiaCadastrarDtoOut.class)
+                .expectBody(NoticiaCriarDtoOut.class)
                 .consumeWith(response -> {
                     assertThat(response.getResponseBody()).isNotNull();
                     assertThat(response.getResponseBody().chapeu()).isEqualTo(dtoIn.chapeu());
@@ -87,7 +87,7 @@ class NoticiaControllerIntegrationTest {
         @DisplayName("persistência")
         void dadaNoticiaValida_QuandoCriar_EntaoRetornarNoticiaCriarDtoOutComDadosPersistidos() {
 
-            var dtoIn = noticiaCadastrarDtoIn.build();
+            var dtoIn = noticiaCriarDtoIn.build();
 
             var resposta = webTestClient.post()
                 .uri(END_POINT)
@@ -95,7 +95,7 @@ class NoticiaControllerIntegrationTest {
                 .bodyValue(dtoIn)
                 .exchange()
                 .expectStatus().isCreated()
-                .expectBody(NoticiaCadastrarDtoOut.class)
+                .expectBody(NoticiaCriarDtoOut.class)
                 .returnResult().getResponseBody();
 
             var noticiaDoBanco = noticiaRepository.findById(resposta.id()).get();

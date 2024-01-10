@@ -1,6 +1,6 @@
 package microservice.micronoticias.utility;
 
-import microservice.micronoticias.adapter.in.dto.request.NoticiaCadastrarDtoIn;
+import microservice.micronoticias.adapter.in.dto.request.NoticiaCriarDtoIn;
 import microservice.micronoticias.adapter.out.entity.NoticiaEntity;
 import microservice.micronoticias.application.core.domain.Noticia;
 import net.datafaker.Faker;
@@ -63,9 +63,9 @@ public final class FactoryObjectMother {
         return noticia;
     }
 
-    public NoticiaCadastrarDtoIn.NoticiaCadastrarDtoInBuilder gerarNoticiaCadastrarDtoInBuilder() {
+    public NoticiaCriarDtoIn.NoticiaCriarDtoInBuilder gerarNoticiaCriarDtoInBuilder() {
 
-        return NoticiaCadastrarDtoIn.builder()
+        return NoticiaCriarDtoIn.builder()
             .chapeu(faker.lorem().characters(2, 30))
             .titulo(faker.lorem().characters(20, 150))
             .linhaFina(faker.lorem().characters(80, 250))
