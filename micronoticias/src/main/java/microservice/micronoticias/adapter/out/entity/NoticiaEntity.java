@@ -6,6 +6,7 @@ import lombok.*;
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "noticias")
@@ -55,5 +56,13 @@ public final class NoticiaEntity implements Serializable {
             foreignKey = @ForeignKey(name = "fk_noticia_fonte")))
     @Column(name = "fonte", length = 250)
     private List<String> fontes;
+
+    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE}, targetEntity = EditoriaEntity.class)
+    @JoinTable(name = "noticia_editoria",
+        joinColumns = {@JoinColumn(name = "noticia_id", nullable = false, referencedColumnName = "id",
+            foreignKey = @ForeignKey(name = "fk_ne_noticia"))},
+        inverseJoinColumns = {@JoinColumn(name = "editoria_id", nullable = false, referencedColumnName = "id",
+            foreignKey = @ForeignKey(name = "fk_ne_editoria"))})
+    private Set<EditoriaEntity> editorias;
 }
 
