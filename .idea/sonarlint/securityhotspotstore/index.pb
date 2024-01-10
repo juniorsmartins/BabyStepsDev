@@ -99,3 +99,7 @@ xmicronoticias/src/main/java/microservice/micronoticias/config/exception/http_50
 lmicronoticias/src/test/java/microservice/micronoticias/adapter/in/dto/request/NoticiaCriarDtoInUnitTest.java,9/e/9e42eadedcea936b33ce0634cfbe50297365a906
 ç
 ]micronoticias/src/main/java/microservice/micronoticias/adapter/out/entity/EditoriaEntity.java,2/0/20439cdd517687b9bd8953f3789ba203bb882bd9
+ï
+emicronoticias/src/main/java/microservice/micronoticias/adapter/out/repository/EditoriaRepository.java,6/3/63f2a8491005b930f85527c8e8e246b3969f56f6
+§
+tmicronoticias/src/test/java/microservice/micronoticias/adapter/out/repository/EditoriaRepositoryIntegrationTest.java,a/9/a9b8034af942a1e847684e6b9dcedd9e6dbf13ca
