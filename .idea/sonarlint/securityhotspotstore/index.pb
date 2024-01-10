@@ -81,3 +81,9 @@ cmicronoticias/src/main/java/microservice/micronoticias/adapter/out/mapper/Notic
 Umicronoticias/src/main/java/microservice/micronoticias/config/exception/ApiError.java,e/9/e9d3a7a2f39b496aac9c184fcdb54be5f09a6ae3
 ˜
 hmicronoticias/src/main/java/microservice/micronoticias/application/port/input/NoticiaCriarInputPort.java,d/c/dcc2db996364f03042599802951e89eb971151a6
+‹
+[micronoticias/src/main/java/microservice/micronoticias/config/exception/TipoDeErroEnum.java,9/8/9890432ad4d4a506cc2b1f902e3caf7ff7909342
+‰
+Ymicronoticias/src/main/java/microservice/micronoticias/config/exception/TipoErroEnum.java,9/2/927ff7d9b565657038b012777264a44bdec8eb74
+Š
+Zmicronoticias/src/main/java/microservice/micronoticias/config/exception/TipoErrorEnum.java,b/d/bd79740b7588abb8e20522662d01f6ddc6431c44
