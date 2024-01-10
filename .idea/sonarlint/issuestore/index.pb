@@ -87,3 +87,11 @@ hmicronoticias/src/main/java/microservice/micronoticias/application/port/input/N
 Ymicronoticias/src/main/java/microservice/micronoticias/config/exception/TipoErroEnum.java,9/2/927ff7d9b565657038b012777264a44bdec8eb74
 Š
 Zmicronoticias/src/main/java/microservice/micronoticias/config/exception/TipoErrorEnum.java,b/d/bd79740b7588abb8e20522662d01f6ddc6431c44
+“
+cmicronoticias/src/main/java/microservice/micronoticias/config/exception/GlobalExceptionHandler.java,0/0/00a80cfb44aee4d030a49917d2e40bd8c492bfbe
+¥
+umicronoticias/src/main/java/microservice/micronoticias/config/exception/http_400/RequisicaoMalFormuladaException.java,9/e/9e70367bce0d4b3056faf51c4a46b94b60259387
+£
+smicronoticias/src/main/java/microservice/micronoticias/config/exception/http_404/RecursoNaoEncontradoException.java,2/f/2fb5fe23a0f1f5ba4e762794a1191e34a7a31375
+¨
+xmicronoticias/src/main/java/microservice/micronoticias/config/exception/http_500/ProblemaInternoNoServidorException.java,1/b/1b0280ad9a533ec1d1b9fde529abbae1b520bf4a
