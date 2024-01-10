@@ -7,13 +7,13 @@ import java.util.Optional;
 
 public final class Editoria {
 
-    private static final int NOMENCLATURA_CARACTERES_MAXIMO = 100;
+    public static final int NOMENCLATURA_CARACTERES_MAXIMO = 100;
 
-    private static final int NOMENCLATURA_CARACTERES_MININO = 3;
+    public static final int NOMENCLATURA_CARACTERES_MININO = 3;
 
-    private static final int DESCRICAO_CARACTERES_MAXIMO = 200;
+    public static final int DESCRICAO_CARACTERES_MAXIMO = 200;
 
-    private static final int DESCRICAO_CARACTERES_MININO = 10;
+    public static final int DESCRICAO_CARACTERES_MININO = 10;
 
     private Long id;
 
