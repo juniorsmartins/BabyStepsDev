@@ -9,10 +9,10 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import microservice.micronoticias.adapter.in.dto.request.NoticiaCadastrarDtoIn;
-import microservice.micronoticias.adapter.in.dto.response.NoticiaCadastrarDtoOut;
+import microservice.micronoticias.adapter.in.dto.request.NoticiaCriarDtoIn;
+import microservice.micronoticias.adapter.in.dto.response.NoticiaCriarDtoOut;
 import microservice.micronoticias.adapter.in.mapper.NoticiaMapperIn;
-import microservice.micronoticias.application.port.input.NoticiaCadastrarInputPort;
+import microservice.micronoticias.application.port.input.NoticiaCriarInputPort;
 import microservice.micronoticias.config.exception.ApiError;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -31,7 +31,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class NoticiaController {
 
-    private final NoticiaCadastrarInputPort cadastrarInputPort;
+    private final NoticiaCriarInputPort cadastrarInputPort;
 
     private final NoticiaMapperIn mapperIn;
 
@@ -41,7 +41,7 @@ public class NoticiaController {
     @Operation(summary = "Cadastrar Notícia", description = "Recurso para cadastrar uma nova Notícia.",
         responses = {
             @ApiResponse(responseCode = "201", description = "Recurso cadastrado com sucesso.",
-                content = @Content(mediaType = "application/json", schema = @Schema(implementation = NoticiaCadastrarDtoOut.class))),
+                content = @Content(mediaType = "application/json", schema = @Schema(implementation = NoticiaCriarDtoOut.class))),
             @ApiResponse(responseCode = "400", description = "Requisição mal formulada.",
                 content = @Content(mediaType = "application/json", schema = @Schema(implementation = ApiError.class))),
             @ApiResponse(responseCode = "403", description = "Usuário sem permissão para acessar recurso.",
@@ -55,15 +55,15 @@ public class NoticiaController {
             @ApiResponse(responseCode = "500", description = "Situação inesperada no servidor.",
                 content = @Content(mediaType = "application/json", schema = @Schema(implementation = ApiError.class))),
         })
-    public ResponseEntity<NoticiaCadastrarDtoOut> cadastrar(
+    public ResponseEntity<NoticiaCriarDtoOut> criar(
         @Parameter(name = "NoticiaCadastrarDtoIn", description = "Objeto para transporte de dados de entrada.", required = true)
-        @RequestBody @Valid NoticiaCadastrarDtoIn cadastrarDtoIn) {
+        @RequestBody @Valid NoticiaCriarDtoIn cadastrarDtoIn) {
 
         log.info("Recebida requisição para criar Notícia: {}", cadastrarDtoIn.titulo());
 
         var resposta = Optional.of(cadastrarDtoIn)
             .map(this.mapperIn::toNoticia)
-            .map(this.cadastrarInputPort::cadastrar)
+            .map(this.cadastrarInputPort::criar)
             .map(this.mapperIn::toNoticiaCadastrarDtoOut)
             .orElseThrow();
 

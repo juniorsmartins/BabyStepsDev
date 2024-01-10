@@ -1,15 +1,15 @@
 package microservice.micronoticias.adapter.in.mapper;
 
-import microservice.micronoticias.adapter.in.dto.request.NoticiaCadastrarDtoIn;
-import microservice.micronoticias.adapter.in.dto.response.NoticiaCadastrarDtoOut;
+import microservice.micronoticias.adapter.in.dto.request.NoticiaCriarDtoIn;
+import microservice.micronoticias.adapter.in.dto.response.NoticiaCriarDtoOut;
 import microservice.micronoticias.application.core.domain.Noticia;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")
 public interface NoticiaMapperIn {
 
-    Noticia toNoticia(NoticiaCadastrarDtoIn noticiaCadastrarDtoIn);
+    Noticia toNoticia(NoticiaCriarDtoIn noticiaCriarDtoIn);
 
-    NoticiaCadastrarDtoOut toNoticiaCadastrarDtoOut(Noticia noticia);
+    NoticiaCriarDtoOut toNoticiaCadastrarDtoOut(Noticia noticia);
 }
 

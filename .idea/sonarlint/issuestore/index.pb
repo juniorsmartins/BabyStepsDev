@@ -79,3 +79,5 @@ Qmicronoticias/src/main/java/microservice/micronoticias/config/bean/WebConfig.ja
 cmicronoticias/src/main/java/microservice/micronoticias/adapter/out/mapper/NoticiaMapperOutImpl.java,f/9/f9845c15734552c1e6d561a0929410bc0f302269
 …
 Umicronoticias/src/main/java/microservice/micronoticias/config/exception/ApiError.java,e/9/e9d3a7a2f39b496aac9c184fcdb54be5f09a6ae3
+˜
+hmicronoticias/src/main/java/microservice/micronoticias/application/port/input/NoticiaCriarInputPort.java,d/c/dcc2db996364f03042599802951e89eb971151a6

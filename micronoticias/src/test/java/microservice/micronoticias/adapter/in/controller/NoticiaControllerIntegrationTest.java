@@ -1,7 +1,7 @@
 package microservice.micronoticias.adapter.in.controller;
 
-import microservice.micronoticias.adapter.in.dto.request.NoticiaCadastrarDtoIn;
-import microservice.micronoticias.adapter.in.dto.response.NoticiaCadastrarDtoOut;
+import microservice.micronoticias.adapter.in.dto.request.NoticiaCriarDtoIn;
+import microservice.micronoticias.adapter.in.dto.response.NoticiaCriarDtoOut;
 import microservice.micronoticias.adapter.out.repository.NoticiaRepository;
 import microservice.micronoticias.utility.FactoryObjectMother;
 import org.junit.jupiter.api.BeforeEach;
@@ -29,7 +29,7 @@ class NoticiaControllerIntegrationTest {
     @Autowired
     private NoticiaRepository noticiaRepository;
 
-    private NoticiaCadastrarDtoIn.NoticiaCadastrarDtoInBuilder noticiaCadastrarDtoIn;
+    private NoticiaCriarDtoIn.NoticiaCadastrarDtoInBuilder noticiaCadastrarDtoIn;
 
     @BeforeEach
     void setUp() {
@@ -70,7 +70,7 @@ class NoticiaControllerIntegrationTest {
                 .bodyValue(dtoIn)
                 .exchange()
                 .expectStatus().isCreated()
-                .expectBody(NoticiaCadastrarDtoOut.class)
+                .expectBody(NoticiaCriarDtoOut.class)
                 .consumeWith(response -> {
                     assertThat(response.getResponseBody()).isNotNull();
                     assertThat(response.getResponseBody().chapeu()).isEqualTo(dtoIn.chapeu());
@@ -95,7 +95,7 @@ class NoticiaControllerIntegrationTest {
                 .bodyValue(dtoIn)
                 .exchange()
                 .expectStatus().isCreated()
-                .expectBody(NoticiaCadastrarDtoOut.class)
+                .expectBody(NoticiaCriarDtoOut.class)
                 .returnResult().getResponseBody();
 
             var noticiaDoBanco = noticiaRepository.findById(resposta.id()).get();
