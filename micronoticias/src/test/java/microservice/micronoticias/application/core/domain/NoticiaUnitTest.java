@@ -238,12 +238,24 @@ class NoticiaUnitTest {
             "2_",
             "251 TestarLimiteMaximoDeCaracteresParaFontes TestarLimiteMaximoDeCaracteresParaFontes TestarLimiteMaximoDeCaracteresParaFontes TestarLimiteMaximoDeCaracteresParaFontes TestarLimiteMaximoDeCaracteresParaFontes TestarLimiteMaximoDeCaracteresParaFontes__"
         })
-        @DisplayName("tamanho inválido")
+        @DisplayName("dois itens com tamanho inválido")
         void dadoDuasFontesMaiorOuMenorQueLimites_QuandoSettar_EntaoLancarException(String valor) {
             var valor2 = RandomStringUtils.randomAlphabetic(200);
             var fontes = List.of(valor, valor2);
             Executable acao = () -> noticia.setFontes(fontes);
             Assertions.assertThrows(CampoComTamanhoInvalidoException.class, acao);
+        }
+    }
+
+    @Nested
+    @DisplayName("Editorias")
+    class Editorias {
+
+        @Test
+        @DisplayName("nulo")
+        void dadoEditoriasNulo_QuandoSettar_EntaoLancarException() {
+            Executable acao = () -> noticia.setEditorias(null);
+            Assertions.assertThrows(CampoNuloProibidoException.class, acao);
         }
     }
 }
