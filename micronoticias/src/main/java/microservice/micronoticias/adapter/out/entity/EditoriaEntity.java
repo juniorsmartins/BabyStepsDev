@@ -18,7 +18,7 @@ import java.util.Set;
 @Setter
 @ToString
 @EqualsAndHashCode(of = {"nomenclatura"})
-public class EditoriaEntity implements Serializable {
+public final class EditoriaEntity implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 1L;
