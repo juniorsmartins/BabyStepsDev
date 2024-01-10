@@ -97,3 +97,5 @@ smicronoticias/src/main/java/microservice/micronoticias/config/exception/http_40
 xmicronoticias/src/main/java/microservice/micronoticias/config/exception/http_500/ProblemaInternoNoServidorException.java,1/b/1b0280ad9a533ec1d1b9fde529abbae1b520bf4a
 ú
 lmicronoticias/src/test/java/microservice/micronoticias/adapter/in/dto/request/NoticiaCriarDtoInUnitTest.java,9/e/9e42eadedcea936b33ce0634cfbe50297365a906
+ç
+]micronoticias/src/main/java/microservice/micronoticias/adapter/out/entity/EditoriaEntity.java,2/0/20439cdd517687b9bd8953f3789ba203bb882bd9

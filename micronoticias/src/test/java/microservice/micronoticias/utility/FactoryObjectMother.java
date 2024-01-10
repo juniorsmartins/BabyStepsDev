@@ -1,6 +1,7 @@
 package microservice.micronoticias.utility;
 
 import microservice.micronoticias.adapter.in.dto.request.NoticiaCriarDtoIn;
+import microservice.micronoticias.adapter.out.entity.EditoriaEntity;
 import microservice.micronoticias.adapter.out.entity.NoticiaEntity;
 import microservice.micronoticias.application.core.domain.Noticia;
 import net.datafaker.Faker;
@@ -8,7 +9,9 @@ import org.apache.commons.lang3.RandomStringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
+// Padrão Object Mother
 public final class FactoryObjectMother {
 
     private static FactoryObjectMother singletonFactory;
@@ -17,6 +20,7 @@ public final class FactoryObjectMother {
 
     private FactoryObjectMother() { }
 
+    // Padrão Singleton
     public static synchronized FactoryObjectMother singleton() {
         if (singletonFactory == null) {
             singletonFactory = new FactoryObjectMother();
@@ -24,15 +28,27 @@ public final class FactoryObjectMother {
         return singletonFactory;
     }
 
+    // Padrão Builder
     public NoticiaEntity.NoticiaEntityBuilder gerarNoticiaEntityBuilder(int quantiaChapeu,
                                                             int quantiaTitulo, int quantiaLinhaFina,
                                                             int quantiaLide, int quantiaCorpo) {
+
+        var editoria = gerarEditoriaEntityBuilder().build();
+
         return NoticiaEntity.builder()
             .chapeu(gerarString(quantiaChapeu))
             .titulo(gerarString(quantiaTitulo))
             .linhaFina(gerarString(quantiaLinhaFina))
             .lide(gerarString(quantiaLide))
-            .corpo(gerarString(quantiaCorpo));
+            .corpo(gerarString(quantiaCorpo))
+            .editorias(Set.of(editoria));
+    }
+
+    public EditoriaEntity.EditoriaEntityBuilder gerarEditoriaEntityBuilder() {
+
+        return EditoriaEntity.builder()
+            .nomenclatura(faker.lorem().characters(3, 100))
+            .descricao(faker.lorem().characters(10, 200));
     }
 
     private String gerarString(int numeroCaracteres) {
@@ -48,6 +64,7 @@ public final class FactoryObjectMother {
         return lista;
     }
 
+    // Padrão JavaBeans
     public Noticia gerarNoticia(int quantiaChapeu, int quantiaTitulo, int quantiaLinhaFina,
                                 int quantiaLide, int quantiaCorpo, int quantidadeAutoria,
                                 int numeroCaracterAutoria, int quantidadeFonte, int numeroCaracterFonte) {
@@ -63,6 +80,7 @@ public final class FactoryObjectMother {
         return noticia;
     }
 
+    // Padrão Builder
     public NoticiaCriarDtoIn.NoticiaCriarDtoInBuilder gerarNoticiaCriarDtoInBuilder() {
 
         return NoticiaCriarDtoIn.builder()
