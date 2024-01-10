@@ -29,11 +29,11 @@ class NoticiaControllerIntegrationTest {
     @Autowired
     private NoticiaRepository noticiaRepository;
 
-    private NoticiaCriarDtoIn.NoticiaCadastrarDtoInBuilder noticiaCadastrarDtoIn;
+    private NoticiaCriarDtoIn.NoticiaCriarDtoInBuilder noticiaCriarDtoIn;
 
     @BeforeEach
     void setUp() {
-        noticiaCadastrarDtoIn = factory.gerarNoticiaCadastrarDtoInBuilder();
+        noticiaCriarDtoIn = factory.gerarNoticiaCriarDtoInBuilder();
     }
 
     @Nested
@@ -44,7 +44,7 @@ class NoticiaControllerIntegrationTest {
         @DisplayName("dados validos com XML")
         void dadaNoticiaValida_QuandoCriarComContentNegotiationXML_EntaoRetornarHttp201() {
 
-            var dtoIn = noticiaCadastrarDtoIn.build();
+            var dtoIn = noticiaCriarDtoIn.build();
 
             webTestClient.post()
                 .uri(END_POINT)
@@ -62,7 +62,7 @@ class NoticiaControllerIntegrationTest {
         @DisplayName("dados válidos com JSON")
         void dadoNoticiaValida_QuandoCriarComContentNegotiationJSon_EntaoRetornarNoticiaCriarDtoOutComDadosIguaisEntradaAndHttp201() {
 
-            var dtoIn = noticiaCadastrarDtoIn.build();
+            var dtoIn = noticiaCriarDtoIn.build();
 
             webTestClient.post()
                 .uri(END_POINT)
@@ -87,7 +87,7 @@ class NoticiaControllerIntegrationTest {
         @DisplayName("persistência")
         void dadaNoticiaValida_QuandoCriar_EntaoRetornarNoticiaCriarDtoOutComDadosPersistidos() {
 
-            var dtoIn = noticiaCadastrarDtoIn.build();
+            var dtoIn = noticiaCriarDtoIn.build();
 
             var resposta = webTestClient.post()
                 .uri(END_POINT)

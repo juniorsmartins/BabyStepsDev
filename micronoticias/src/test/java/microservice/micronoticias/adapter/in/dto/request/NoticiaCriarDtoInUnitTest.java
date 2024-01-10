@@ -25,11 +25,11 @@ class NoticiaCriarDtoInUnitTest {
     @Autowired
     private Validator validator;
 
-    private NoticiaCriarDtoIn.NoticiaCadastrarDtoInBuilder noticiaCadastrarDtoInBuilder;
+    private NoticiaCriarDtoIn.NoticiaCriarDtoInBuilder noticiaCadastrarDtoInBuilder;
 
     @BeforeEach
     void setUp() {
-        noticiaCadastrarDtoInBuilder = factory.gerarNoticiaCadastrarDtoInBuilder();
+        noticiaCadastrarDtoInBuilder = factory.gerarNoticiaCriarDtoInBuilder();
     }
 
     @Test

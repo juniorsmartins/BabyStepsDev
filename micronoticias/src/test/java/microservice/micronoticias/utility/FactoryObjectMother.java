@@ -63,7 +63,7 @@ public final class FactoryObjectMother {
         return noticia;
     }
 
-    public NoticiaCriarDtoIn.NoticiaCadastrarDtoInBuilder gerarNoticiaCadastrarDtoInBuilder() {
+    public NoticiaCriarDtoIn.NoticiaCriarDtoInBuilder gerarNoticiaCriarDtoInBuilder() {
 
         return NoticiaCriarDtoIn.builder()
             .chapeu(faker.lorem().characters(2, 30))

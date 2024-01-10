@@ -95,3 +95,5 @@ umicronoticias/src/main/java/microservice/micronoticias/config/exception/http_40
 smicronoticias/src/main/java/microservice/micronoticias/config/exception/http_404/RecursoNaoEncontradoException.java,2/f/2fb5fe23a0f1f5ba4e762794a1191e34a7a31375
 ¨
 xmicronoticias/src/main/java/microservice/micronoticias/config/exception/http_500/ProblemaInternoNoServidorException.java,1/b/1b0280ad9a533ec1d1b9fde529abbae1b520bf4a
+œ
+lmicronoticias/src/test/java/microservice/micronoticias/adapter/in/dto/request/NoticiaCriarDtoInUnitTest.java,9/e/9e42eadedcea936b33ce0634cfbe50297365a906
