@@ -79,5 +79,3 @@ Qmicronoticias/src/main/java/microservice/micronoticias/config/bean/WebConfig.ja
 cmicronoticias/src/main/java/microservice/micronoticias/adapter/out/mapper/NoticiaMapperOutImpl.java,f/9/f9845c15734552c1e6d561a0929410bc0f302269
 …
 Umicronoticias/src/main/java/microservice/micronoticias/config/exception/ApiError.java,e/9/e9d3a7a2f39b496aac9c184fcdb54be5f09a6ae3
-I
-micronoticias/Jenkinsfile,1/8/18a95323b0bf634d2e3f6a3bd7a1db8acd34f242

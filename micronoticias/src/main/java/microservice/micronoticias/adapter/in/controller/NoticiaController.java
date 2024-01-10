@@ -1,10 +1,12 @@
 package microservice.micronoticias.adapter.in.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -23,6 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.net.URI;
 import java.util.Optional;
 
+@Tag(name = "Noticias", description = "Contém todos os recursos de Cadastrar, Consultar, Atualizar e Deletar).")
 @Slf4j
 @RestController
 @RequestMapping(path = "/api/v1/noticias")
@@ -53,7 +56,9 @@ public class NoticiaController {
             @ApiResponse(responseCode = "500", description = "Situação inesperada no servidor.",
                 content = @Content(mediaType = "application/json", schema = @Schema(implementation = ApiError.class))),
         })
-    public ResponseEntity<NoticiaCadastrarDtoOut> cadastrar(@RequestBody @Valid NoticiaCadastrarDtoIn cadastrarDtoIn) {
+    public ResponseEntity<NoticiaCadastrarDtoOut> cadastrar(
+        @Parameter(name = "NoticiaCadastrarDtoIn", description = "Objeto para transporte de dados de entrada.", required = true)
+        @RequestBody @Valid NoticiaCadastrarDtoIn cadastrarDtoIn) {
 
         log.info("Recebida requisição para criar Notícia: {}", cadastrarDtoIn.titulo());
 
