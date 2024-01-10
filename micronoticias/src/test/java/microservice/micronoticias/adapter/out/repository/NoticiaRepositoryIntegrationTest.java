@@ -36,20 +36,22 @@ class NoticiaRepositoryIntegrationTest {
         @Test
         @DisplayName("dados completos")
         void dadaNoticiaValida_QuandoSalvar_EntaoRetornarDadosCompletosSalvos() {
-            var noticiaSalva = noticiaRepository.save(noticiaEntityBuilder.build());
+            var noticia = noticiaEntityBuilder.build();
+            var noticiaSalva = noticiaRepository.save(noticia);
+
             Assertions.assertTrue(noticiaSalva.getId() > 0);
-            Assertions.assertEquals(30, noticiaSalva.getChapeu().length());
-            Assertions.assertEquals(150, noticiaSalva.getTitulo().length());
-            Assertions.assertEquals(250, noticiaSalva.getLinhaFina().length());
-            Assertions.assertEquals(400, noticiaSalva.getLide().length());
-            Assertions.assertEquals(5000, noticiaSalva.getCorpo().length());
+            Assertions.assertEquals(noticia.getChapeu(), noticiaSalva.getChapeu());
+            Assertions.assertEquals(noticia.getTitulo(), noticiaSalva.getTitulo());
+            Assertions.assertEquals(noticia.getLinhaFina(), noticiaSalva.getLinhaFina());
+            Assertions.assertEquals(noticia.getLide(), noticiaSalva.getLide());
+            Assertions.assertEquals(noticia.getCorpo(), noticiaSalva.getCorpo());
             Assertions.assertEquals(1, noticiaSalva.getAutorias().size());
             Assertions.assertEquals(1, noticiaSalva.getFontes().size());
             Assertions.assertEquals(1, noticiaSalva.getEditorias().size());
         }
 
         @Test
-        @DisplayName("listas populadas")
+        @DisplayName("listas bem populadas")
         void dadoNoticiaValidaComListasBemPopuladas_QuandoSalvar_EntaoRetornarListasSalvas() {
             var autorias = factory.gerarListString(3, 100);
             var fontes = factory.gerarListString(5, 250);
@@ -64,7 +66,7 @@ class NoticiaRepositoryIntegrationTest {
         }
 
         @Test
-        @DisplayName("duas categorias")
+        @DisplayName("duas editorias")
         void dadoNoticiaValidaComDuasEditorias_QuandoSalvar_EntaoRetornarComAmbasSalvas() {
             var novaEditoria1 = factory.gerarEditoriaEntityBuilder().build();
             var novaEditoria2 = factory.gerarEditoriaEntityBuilder().build();
