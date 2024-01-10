@@ -193,8 +193,13 @@ public final class Noticia {
         return editorias;
     }
 
-    public void setEditorias(Set<Editoria> editorias) {
-        this.editorias = editorias;
+    public void setEditorias(Set<Editoria> valorCampo) {
+        var nomeCampo = "Editorias";
+
+        Optional.ofNullable(valorCampo)
+            .ifPresentOrElse(categoria -> this.editorias = categoria,
+                () -> {throw new CampoNuloProibidoException(nomeCampo);}
+            );
     }
 
     @Override

@@ -246,5 +246,17 @@ class NoticiaUnitTest {
             Assertions.assertThrows(CampoComTamanhoInvalidoException.class, acao);
         }
     }
+
+    @Nested
+    @DisplayName("Editorias")
+    class Editorias {
+
+        @Test
+        @DisplayName("nulo")
+        void dadoEditoriasNulo_QuandoSettar_EntaoLancarException() {
+            Executable acao = () -> noticia.setEditorias(null);
+            Assertions.assertThrows(CampoNuloProibidoException.class, acao);
+        }
+    }
 }
 
