@@ -238,7 +238,7 @@ class NoticiaUnitTest {
             "2_",
             "251 TestarLimiteMaximoDeCaracteresParaFontes TestarLimiteMaximoDeCaracteresParaFontes TestarLimiteMaximoDeCaracteresParaFontes TestarLimiteMaximoDeCaracteresParaFontes TestarLimiteMaximoDeCaracteresParaFontes TestarLimiteMaximoDeCaracteresParaFontes__"
         })
-        @DisplayName("tamanho inválido")
+        @DisplayName("dois itens com tamanho inválido")
         void dadoDuasFontesMaiorOuMenorQueLimites_QuandoSettar_EntaoLancarException(String valor) {
             var valor2 = RandomStringUtils.randomAlphabetic(200);
             var fontes = List.of(valor, valor2);
