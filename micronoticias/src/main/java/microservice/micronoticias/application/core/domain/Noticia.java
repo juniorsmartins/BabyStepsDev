@@ -5,6 +5,7 @@ import microservice.micronoticias.config.exception.http_409.CampoNuloProibidoExc
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 public final class Noticia {
 
@@ -51,6 +52,8 @@ public final class Noticia {
     private List<String> autorias;
 
     private List<String> fontes;
+
+    private Set<Editoria> editorias;
 
     public Long getId() {
         return id;
@@ -184,6 +187,14 @@ public final class Noticia {
             },
             () -> this.fontes = fontes
         );
+    }
+
+    public Set<Editoria> getEditorias() {
+        return editorias;
+    }
+
+    public void setEditorias(Set<Editoria> editorias) {
+        this.editorias = editorias;
     }
 
     @Override

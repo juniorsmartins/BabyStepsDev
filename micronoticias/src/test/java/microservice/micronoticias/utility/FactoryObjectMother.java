@@ -3,6 +3,7 @@ package microservice.micronoticias.utility;
 import microservice.micronoticias.adapter.in.dto.request.NoticiaCriarDtoIn;
 import microservice.micronoticias.adapter.out.entity.EditoriaEntity;
 import microservice.micronoticias.adapter.out.entity.NoticiaEntity;
+import microservice.micronoticias.application.core.domain.Editoria;
 import microservice.micronoticias.application.core.domain.Noticia;
 import net.datafaker.Faker;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -42,13 +43,6 @@ public final class FactoryObjectMother {
             .lide(gerarString(quantiaLide))
             .corpo(gerarString(quantiaCorpo))
             .editorias(Set.of(editoria));
-    }
-
-    public EditoriaEntity.EditoriaEntityBuilder gerarEditoriaEntityBuilder() {
-
-        return EditoriaEntity.builder()
-            .nomenclatura(faker.lorem().characters(3, 100))
-            .descricao(faker.lorem().characters(10, 200));
     }
 
     private String gerarString(int numeroCaracteres) {
@@ -91,6 +85,24 @@ public final class FactoryObjectMother {
             .corpo(faker.lorem().characters(100, 5000))
             .autorias(List.of(faker.lorem().characters(3, 100)))
             .fontes(List.of(faker.lorem().characters(3, 250)));
+    }
+
+    // Padrão Builder
+    public EditoriaEntity.EditoriaEntityBuilder gerarEditoriaEntityBuilder() {
+
+        return EditoriaEntity.builder()
+            .nomenclatura(faker.lorem().characters(3, 100))
+            .descricao(faker.lorem().characters(10, 200));
+    }
+
+    // Padrão JavaBeans
+    public Editoria gerarEditoria() {
+
+        var editoria = new Editoria();
+        editoria.setNomenclatura(faker.lorem().characters(3, 100));
+        editoria.setDescricao(faker.lorem().characters(10, 200));
+
+        return editoria;
     }
 }
 

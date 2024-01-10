@@ -105,3 +105,9 @@ emicronoticias/src/main/java/microservice/micronoticias/adapter/out/repository/E
 tmicronoticias/src/test/java/microservice/micronoticias/adapter/out/repository/EditoriaRepositoryIntegrationTest.java,a/9/a9b8034af942a1e847684e6b9dcedd9e6dbf13ca
 é
 ^micronoticias/src/main/java/microservice/micronoticias/config/bean/SpringDocOpenApiConfig.java,e/5/e5ffe4aec98ac197a891e2a3edc4444159732ddb
+ç
+]micronoticias/src/main/java/microservice/micronoticias/application/core/domain/Categoria.java,a/7/a7555bafb1b9d218c566c94a61d643ecd3907264
+å
+\micronoticias/src/main/java/microservice/micronoticias/application/core/domain/Editoria.java,d/9/d947d0fd596a1587496d246f544daa832484f190
+î
+dmicronoticias/src/test/java/microservice/micronoticias/application/core/domain/EditoriaUnitTest.java,3/f/3f312946e1bc86c25df8625f5b39fe9e5d567203
