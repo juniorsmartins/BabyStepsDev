@@ -4,6 +4,6 @@ import microservice.micronoticias.application.core.domain.Noticia;
 
 public interface RuleChainOfResponsibility {
 
-    Noticia runRule(Noticia noticia);
+    Noticia execute(Noticia noticia);
 }
 

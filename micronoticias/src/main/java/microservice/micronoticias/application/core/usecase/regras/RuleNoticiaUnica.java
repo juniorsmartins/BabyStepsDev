@@ -11,12 +11,12 @@ public class RuleNoticiaUnica implements RuleChainOfResponsibility {
     }
 
     @Override
-    public Noticia runRule(Noticia noticia) {
+    public Noticia execute(Noticia noticia) {
         // TODO add regra
         System.out.println("\n\nRegra de Notícia\n");
 
         if (nextRule != null) {
-            this.nextRule.runRule(noticia);
+            this.nextRule.execute(noticia);
         }
 
         return noticia;

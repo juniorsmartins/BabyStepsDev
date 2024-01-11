@@ -23,7 +23,7 @@ public class NoticiaCriarUseCase implements NoticiaCriarInputPort {
     public Noticia criar(Noticia noticia) {
 
         return Optional.of(noticia)
-            .map(this.ruleChain::runRule)
+            .map(this.ruleChain::execute)
             .map(this.cadastrarOutputPort::salvar)
             .orElseThrow();
     }

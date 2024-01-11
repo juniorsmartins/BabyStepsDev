@@ -11,12 +11,12 @@ public class RuleNomenclaturaUnicaDeEditoria implements RuleChainOfResponsibilit
     }
 
     @Override
-    public Noticia runRule(Noticia noticia) {
+    public Noticia execute(Noticia noticia) {
         // TODO add regra
         System.out.println("\n\nRegra de Nomenclatura\n");
 
         if (nextRule != null) {
-            this.nextRule.runRule(noticia);
+            this.nextRule.execute(noticia);
         }
 
         return noticia;
