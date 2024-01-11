@@ -37,7 +37,7 @@ public class NoticiaSalvarAdapter implements NoticiaSalvarOutputPort {
 
         var noticiaSalva = Optional.of(noticia)
             .map(this.mapperOut::toNoticiaEntity)
-            .map(this::checarEditorias)
+            .map(this::managedEditorias)
             .map(this.repository::save)
             .map(this.mapperOut::toNoticia)
             .orElseThrow();
@@ -47,12 +47,11 @@ public class NoticiaSalvarAdapter implements NoticiaSalvarOutputPort {
         return noticiaSalva;
     }
 
-    private NoticiaEntity checarEditorias(NoticiaEntity noticiaEntity) {
+    private NoticiaEntity managedEditorias(NoticiaEntity noticiaEntity) {
 
-        var editorias = noticiaEntity.getEditorias();
         Set<EditoriaEntity> editoriasManaged = new HashSet<>();
 
-        editorias.forEach(editoria -> {
+        noticiaEntity.getEditorias().forEach(editoria -> {
             if (editoria.getId() == null) {
                 editoriasManaged.add(editoria);
             }
