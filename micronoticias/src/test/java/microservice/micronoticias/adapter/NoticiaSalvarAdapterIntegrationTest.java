@@ -6,10 +6,7 @@ import microservice.micronoticias.application.core.domain.Editoria;
 import microservice.micronoticias.application.core.domain.Noticia;
 import microservice.micronoticias.application.port.output.NoticiaSalvarOutputPort;
 import microservice.micronoticias.utility.FactoryObjectMother;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,6 +43,12 @@ class NoticiaSalvarAdapterIntegrationTest {
         noticia = factory.gerarNoticia(30, 150, 250, 400, 5000, 1, 50, 1, 100);
     }
 
+    @AfterEach
+    void tearDown() {
+        this.noticiaRepository.deleteAll();
+        this.editoriaRepository.deleteAll();
+    }
+
     @Test
     @DisplayName("duas existentes editorias")
     void dadoNoticiaValidaComDuasExistentesEditorias_QuandoSalvar_EntaoRetornarComAmbasSalvas() {
@@ -57,10 +60,8 @@ class NoticiaSalvarAdapterIntegrationTest {
 
         var editoriaAtual1 = factory.gerarEditoria();
         editoriaAtual1.setId(1001L);
-
         var editoriaAtual2 = factory.gerarEditoria();
         editoriaAtual2.setId(1002L);
-
         noticia.setEditorias(Set.of(editoriaAtual1, editoriaAtual2));
 
         var noticiaSalva = noticiaSalvarOutputPort.salvar(noticia);
