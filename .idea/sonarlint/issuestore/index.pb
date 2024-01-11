@@ -110,8 +110,6 @@ gmicronoticias/src/main/java/microservice/micronoticias/adapter/in/dto/response/
 Ž
 ^micronoticias/src/main/java/microservice/micronoticias/adapter/in/mapper/EditoriaMapperIn.java,1/3/138dab4c5507398787bf0984a3256e992e596366
 ¤
-tmicronoticias/src/main/java/microservice/micronoticias/config/exception/http_400/EditoriaNaoEncontradaException.java,a/e/ae1f57a9f467da4e84cbb190d0a381207f080123
-¤
 tmicronoticias/src/main/java/microservice/micronoticias/config/exception/http_404/EditoriaNaoEncontradaException.java,d/2/d2badd39c0b8045b961e983958eefe0bc98fed65
 —
 gmicronoticias/src/test/java/microservice/micronoticias/adapter/NoticiaSalvarAdapterIntegrationTest.java,e/7/e7d3802d13bcf3da628aa75fbb91a84caa7e333f
@@ -119,3 +117,11 @@ gmicronoticias/src/test/java/microservice/micronoticias/adapter/NoticiaSalvarAda
 wmicronoticias/src/test/java/microservice/micronoticias/application/core/usecase/NoticiaCriarUseCaseIntegrationTest.java,1/d/1d05c0a14ecc87eb86a3aafd325d2a904ca174ce
 £
 smicronoticias/src/main/java/microservice/micronoticias/config/exception/http_409/NomenclaturaNaoUnicaException.java,4/0/40e2c0f5266fb4eed00061067e16196b032a6cc1
+§
+wmicronoticias/src/main/java/microservice/micronoticias/application/core/usecase/regras/ClasseChainOfResponsibility.java,e/3/e31d6760c3bdc6ebf2007b1ef483f65be49c725a
+¥
+umicronoticias/src/main/java/microservice/micronoticias/application/core/usecase/regras/RuleChainOfResponsibility.java,f/1/f1039c48963217eb6d11315289018af78be16070
+«
+{micronoticias/src/main/java/microservice/micronoticias/application/core/usecase/regras/RuleNomenclaturaUnicaDeEditoria.java,d/1/d1468ab86db03f43cabb9c260073ceadd0519de5
+œ
+lmicronoticias/src/main/java/microservice/micronoticias/application/core/usecase/regras/RuleNoticiaUnica.java,0/b/0be55e62dc1659e1a0ac735117422c4d14a62cec
