@@ -2,16 +2,17 @@ package microservice.micronoticias.adapter.in.controller;
 
 import microservice.micronoticias.adapter.in.dto.request.NoticiaCriarDtoIn;
 import microservice.micronoticias.adapter.in.dto.response.NoticiaCriarDtoOut;
+import microservice.micronoticias.adapter.out.entity.EditoriaEntity;
+import microservice.micronoticias.adapter.out.repository.EditoriaRepository;
 import microservice.micronoticias.adapter.out.repository.NoticiaRepository;
 import microservice.micronoticias.utility.FactoryObjectMother;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Nested;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.reactive.server.WebTestClient;
+
+import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -29,11 +30,20 @@ class NoticiaControllerIntegrationTest {
     @Autowired
     private NoticiaRepository noticiaRepository;
 
+    @Autowired
+    private EditoriaRepository editoriaRepository;
+
     private NoticiaCriarDtoIn.NoticiaCriarDtoInBuilder noticiaCriarDtoIn;
 
     @BeforeEach
     void setUp() {
         noticiaCriarDtoIn = factory.gerarNoticiaCriarDtoInBuilder();
+    }
+
+    @AfterEach
+    void tearDown() {
+        noticiaRepository.deleteAll();
+        editoriaRepository.deleteAll();
     }
 
     @Nested
@@ -80,7 +90,7 @@ class NoticiaControllerIntegrationTest {
                     assertThat(response.getResponseBody().corpo()).isEqualTo(dtoIn.corpo());
                     assertThat(response.getResponseBody().autorias().get(0)).isEqualTo(dtoIn.autorias().get(0));
                     assertThat(response.getResponseBody().fontes().get(0)).isEqualTo(dtoIn.fontes().get(0));
-                    assertThat(response.getResponseBody().editorias().size()).isEqualTo(1);
+                    assertThat(response.getResponseBody().editorias()).hasSize(1);
                 });
         }
 
@@ -109,7 +119,33 @@ class NoticiaControllerIntegrationTest {
             assertThat(dtoIn.corpo()).isEqualTo(noticiaDoBanco.getCorpo());
             assertThat(dtoIn.autorias().get(0)).isEqualTo(noticiaDoBanco.getAutorias().get(0));
             assertThat(dtoIn.fontes().get(0)).isEqualTo(noticiaDoBanco.getFontes().get(0));
-            assertThat(noticiaDoBanco.getEditorias().size()).isEqualTo(1);
+            assertThat(noticiaDoBanco.getEditorias()).hasSize(1);
+        }
+
+        @Test
+        @DisplayName("duas novas editorias")
+        void dadaNoticiaComDuasNovaEditorias_QuandoCriar_EntaoRetornarComDuasEditoriasSalvas() {
+            var editoria1 = factory.gerarEditoriaCriarDtoInBuilder().build();
+            var editoria2 = factory.gerarEditoriaCriarDtoInBuilder().build();
+
+            var dtoIn = noticiaCriarDtoIn
+                .editorias(Set.of(editoria1, editoria2))
+                .build();
+
+            var resposta = webTestClient.post()
+                .uri(END_POINT)
+                .contentType(MediaType.APPLICATION_JSON)
+                .bodyValue(dtoIn)
+                .exchange()
+                .expectStatus().isCreated()
+                .expectBody(NoticiaCriarDtoOut.class)
+                .returnResult().getResponseBody();
+
+            var noticiaDoBanco = noticiaRepository.findById(resposta.id()).get();
+
+            assertThat(noticiaDoBanco.getEditorias()).hasSize(2);
+            assertThat(noticiaDoBanco.getEditorias().stream().map(EditoriaEntity::getNomenclatura))
+                .containsExactlyInAnyOrder(editoria1.nomenclatura(), editoria2.nomenclatura());
         }
     }
 }

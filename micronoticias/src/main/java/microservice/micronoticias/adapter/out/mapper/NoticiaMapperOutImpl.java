@@ -68,6 +68,4 @@ public class NoticiaMapperOutImpl implements NoticiaMapperOut {
 
         return editoria;
     }
-
-
 }
