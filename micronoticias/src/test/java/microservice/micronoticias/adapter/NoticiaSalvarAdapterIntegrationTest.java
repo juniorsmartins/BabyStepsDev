@@ -37,9 +37,6 @@ class NoticiaSalvarAdapterIntegrationTest {
 
     @BeforeEach
     void setUp() {
-        var autorias = factory.gerarListString(1, 100);
-        var fontes = factory.gerarListString(1, 250);
-
         noticia = factory.gerarNoticia(30, 150, 250, 400, 5000, 1, 50, 1, 100);
     }
 

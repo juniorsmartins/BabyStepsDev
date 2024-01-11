@@ -115,3 +115,7 @@ tmicronoticias/src/main/java/microservice/micronoticias/config/exception/http_40
 tmicronoticias/src/main/java/microservice/micronoticias/config/exception/http_404/EditoriaNaoEncontradaException.java,d/2/d2badd39c0b8045b961e983958eefe0bc98fed65
 —
 gmicronoticias/src/test/java/microservice/micronoticias/adapter/NoticiaSalvarAdapterIntegrationTest.java,e/7/e7d3802d13bcf3da628aa75fbb91a84caa7e333f
+§
+wmicronoticias/src/test/java/microservice/micronoticias/application/core/usecase/NoticiaCriarUseCaseIntegrationTest.java,1/d/1d05c0a14ecc87eb86a3aafd325d2a904ca174ce
+£
+smicronoticias/src/main/java/microservice/micronoticias/config/exception/http_409/NomenclaturaNaoUnicaException.java,4/0/40e2c0f5266fb4eed00061067e16196b032a6cc1
