@@ -1,13 +1,11 @@
 package microservice.micronoticias.adapter.out.repository;
 
-import microservice.micronoticias.adapter.out.entity.EditoriaEntity;
 import microservice.micronoticias.adapter.out.entity.NoticiaEntity;
 import microservice.micronoticias.utility.FactoryObjectMother;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.jdbc.Sql;
-import org.springframework.util.Assert;
 
 import java.util.Set;
 
@@ -83,38 +81,6 @@ class NoticiaRepositoryIntegrationTest {
 
             var noticiaSalva = noticiaRepository.save(noticia);
             Assertions.assertEquals(2, noticiaSalva.getEditorias().size());
-        }
-
-        @Test
-        @DisplayName("duas existentes editorias")
-        void dadoNoticiaValidaComDuasExistentesEditorias_QuandoSalvar_EntaoRetornarComAmbasSalvas() {
-            var editoria1 = editoriaRepository.findById(1001L).get();
-            var editoria2 = editoriaRepository.findById(1002L).get();
-
-            Assertions.assertEquals("Economia", editoria1.getNomenclatura());
-            Assertions.assertEquals("Tecnologia", editoria2.getNomenclatura());
-
-            var novaEditoria1 = factory.gerarEditoriaEntityBuilder()
-                .id(1001L)
-                .build();
-            var novaEditoria2 = factory.gerarEditoriaEntityBuilder()
-                .id(1002L)
-                .build();
-
-            var noticia = noticiaEntityBuilder.editorias(Set.of(novaEditoria1, novaEditoria2))
-                .build();
-
-            var noticiaSalva = noticiaRepository.save(noticia);
-            var nomenclaturas = noticiaSalva.getEditorias()
-                .stream()
-                .map(EditoriaEntity::getNomenclatura)
-                .toList();
-
-            Assertions.assertEquals(2, noticiaSalva.getEditorias().size());
-            Assertions.assertFalse(nomenclaturas.contains(editoria1.getNomenclatura()));
-            Assertions.assertFalse(nomenclaturas.contains(editoria2.getNomenclatura()));
-            Assertions.assertTrue(nomenclaturas.contains(novaEditoria1.getNomenclatura()));
-            Assertions.assertTrue(nomenclaturas.contains(novaEditoria2.getNomenclatura()));
         }
     }
 }

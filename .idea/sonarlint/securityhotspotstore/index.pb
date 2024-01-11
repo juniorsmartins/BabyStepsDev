@@ -113,3 +113,5 @@ gmicronoticias/src/main/java/microservice/micronoticias/adapter/in/dto/response/
 tmicronoticias/src/main/java/microservice/micronoticias/config/exception/http_400/EditoriaNaoEncontradaException.java,a/e/ae1f57a9f467da4e84cbb190d0a381207f080123
 ¤
 tmicronoticias/src/main/java/microservice/micronoticias/config/exception/http_404/EditoriaNaoEncontradaException.java,d/2/d2badd39c0b8045b961e983958eefe0bc98fed65
+—
+gmicronoticias/src/test/java/microservice/micronoticias/adapter/NoticiaSalvarAdapterIntegrationTest.java,e/7/e7d3802d13bcf3da628aa75fbb91a84caa7e333f

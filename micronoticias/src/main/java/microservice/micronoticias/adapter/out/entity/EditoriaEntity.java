@@ -33,7 +33,7 @@ public final class EditoriaEntity implements Serializable {
     @Column(name = "descricao", length = 200, nullable = false)
     private String descricao;
 
-    @ManyToMany(mappedBy = "editorias", targetEntity = NoticiaEntity.class)
+    @ManyToMany(mappedBy = "editorias", cascade = {CascadeType.MERGE}, targetEntity = NoticiaEntity.class)
     private Set<NoticiaEntity> noticias;
 }
 
