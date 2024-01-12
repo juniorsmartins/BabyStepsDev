@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Builder;
 
 import java.util.List;
+import java.util.Set;
 
 @Builder
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -23,7 +24,9 @@ public record NoticiaCriarDtoOut(
 
     List<String> autorias,
 
-    List<String> fontes
+    List<String> fontes,
+
+    Set<EditoriaCriarDtoOut> editorias
 
 ) { }
 

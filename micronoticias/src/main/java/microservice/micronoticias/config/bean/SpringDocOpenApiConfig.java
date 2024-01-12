@@ -19,7 +19,7 @@ public class SpringDocOpenApiConfig {
             .components(new Components().addSecuritySchemes("security", securityScheme())) // Cria um componente responsável por linkar Swagger com Security
             .info(new Info()
                 .title("Site - API Rest")
-                .description("Site. API Rest escrita com Java 21 LTS e Spring Boot 3.0.12")
+                .description("API Rest escrita com Java (versão 21 LTS) e Spring Boot (versão 3.0.12)")
                 .version("v1")
                 .termsOfService("http://teste.com.br/terms-of-service") // URL fictícia
                 .license(new License()
