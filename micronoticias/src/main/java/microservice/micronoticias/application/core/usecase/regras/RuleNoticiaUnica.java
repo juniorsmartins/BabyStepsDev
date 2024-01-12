@@ -1,24 +1,13 @@
 package microservice.micronoticias.application.core.usecase.regras;
 
 import microservice.micronoticias.application.core.domain.Noticia;
+import org.springframework.stereotype.Service;
 
-public class RuleNoticiaUnica implements RuleChainOfResponsibility {
-
-    private RuleChainOfResponsibility nextRule;
-
-    public RuleNoticiaUnica(RuleChainOfResponsibility ruleChainOfResponsibility) {
-        this.nextRule = ruleChainOfResponsibility;
-    }
+@Service
+public class RuleNoticiaUnica implements RuleStrategy {
 
     @Override
-    public Noticia execute(Noticia noticia) {
-        // TODO add regra
-        System.out.println("\n\nRegra de Notícia\n");
+    public void executar(Noticia noticia) {
 
-        if (nextRule != null) {
-            this.nextRule.execute(noticia);
-        }
-
-        return noticia;
     }
 }

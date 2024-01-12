@@ -66,6 +66,7 @@ public class NoticiaSalvarAdapter implements NoticiaSalvarOutputPort {
         return noticiaEntity;
     }
 
+    // TODO Não precisa disso - transformar quem chama e usar ifPresent()
     private EditoriaEntity buscarEditoriaNoDatabase(EditoriaEntity editoriaEntity) {
         var idEditoria = editoriaEntity.getId();
 

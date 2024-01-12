@@ -22,21 +22,27 @@ class NoticiaRepositoryIntegrationTest {
     @Autowired
     private EditoriaRepository editoriaRepository;
 
+    NoticiaEntity.NoticiaEntityBuilder noticiaEntityBuilder;
+
+    @BeforeEach
+    void setUp() {
+        var autorias = factory.gerarListString(1, 100);
+        var fontes = factory.gerarListString(1, 250);
+
+        noticiaEntityBuilder = factory.gerarNoticiaEntityBuilder(30, 150, 250, 400, 5000)
+            .autorias(autorias)
+            .fontes(fontes);
+    }
+
+    @AfterEach
+    void tearDown() {
+        noticiaRepository.deleteAll();
+        editoriaRepository.deleteAll();
+    }
+
     @Nested
     @DisplayName("Save")
     class SaveNoticia {
-
-        NoticiaEntity.NoticiaEntityBuilder noticiaEntityBuilder;
-
-        @BeforeEach
-        void setUp() {
-            var autorias = factory.gerarListString(1, 100);
-            var fontes = factory.gerarListString(1, 250);
-
-            noticiaEntityBuilder = factory.gerarNoticiaEntityBuilder(30, 150, 250, 400, 5000)
-                .autorias(autorias)
-                .fontes(fontes);
-        }
 
         @Test
         @DisplayName("dados completos")

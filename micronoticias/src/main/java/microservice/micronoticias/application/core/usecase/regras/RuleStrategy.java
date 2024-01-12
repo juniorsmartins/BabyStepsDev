@@ -2,8 +2,8 @@ package microservice.micronoticias.application.core.usecase.regras;
 
 import microservice.micronoticias.application.core.domain.Noticia;
 
-public interface RuleChainOfResponsibility {
+public interface RuleStrategy {
 
-    Noticia execute(Noticia noticia);
+    void executar(Noticia noticia);
 }
 
