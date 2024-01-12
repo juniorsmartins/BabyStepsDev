@@ -201,19 +201,5 @@ public final class Noticia {
                 () -> {throw new CampoNuloProibidoException(nomeCampo);}
             );
     }
-
-    @Override
-    public String toString() {
-        return "Noticia{" +
-                "id=" + id +
-                ", chapeu='" + chapeu + '\'' +
-                ", titulo='" + titulo + '\'' +
-                ", linhaFina='" + linhaFina + '\'' +
-                ", lide='" + lide + '\'' +
-                ", corpo='" + corpo + '\'' +
-                ", autorias=" + autorias +
-                ", fontes=" + fontes +
-                '}';
-    }
 }
 
