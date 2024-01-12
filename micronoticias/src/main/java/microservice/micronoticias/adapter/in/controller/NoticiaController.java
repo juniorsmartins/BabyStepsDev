@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.net.URI;
 import java.util.Optional;
 
-@Tag(name = "Noticias", description = "Contém todos os recursos de Cadastrar, Consultar, Atualizar e Deletar).")
+@Tag(name = "Noticias", description = "Contém os recursos de Cadastrar, Consultar, Atualizar e Deletar.")
 @Slf4j
 @RestController
 @RequestMapping(path = "/api/v1/noticias")
@@ -38,7 +38,7 @@ public class NoticiaController {
     @PostMapping(
         consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE},
         produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
-    @Operation(summary = "Cadastrar Notícia", description = "Recurso para cadastrar uma nova Notícia.",
+    @Operation(summary = "Cadastrar", description = "Recurso para criar uma nova Notícia.",
         responses = {
             @ApiResponse(responseCode = "201", description = "Recurso cadastrado com sucesso.",
                 content = @Content(mediaType = "application/json", schema = @Schema(implementation = NoticiaCriarDtoOut.class))),

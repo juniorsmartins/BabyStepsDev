@@ -5,10 +5,12 @@ import microservice.micronoticias.utility.FactoryObjectMother;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.test.context.jdbc.Sql;
 
 import java.util.Set;
 
 @DataJpaTest
+@Sql(scripts = {"/sql/editorias/editorias-insert.sql"}, executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
 @DisplayName("Integration Repository - Notícia")
 class NoticiaRepositoryIntegrationTest {
 
@@ -17,21 +19,30 @@ class NoticiaRepositoryIntegrationTest {
     @Autowired
     private NoticiaRepository noticiaRepository;
 
+    @Autowired
+    private EditoriaRepository editoriaRepository;
+
+    NoticiaEntity.NoticiaEntityBuilder noticiaEntityBuilder;
+
+    @BeforeEach
+    void setUp() {
+        var autorias = factory.gerarListString(1, 100);
+        var fontes = factory.gerarListString(1, 250);
+
+        noticiaEntityBuilder = factory.gerarNoticiaEntityBuilder(30, 150, 250, 400, 5000)
+            .autorias(autorias)
+            .fontes(fontes);
+    }
+
+    @AfterEach
+    void tearDown() {
+        noticiaRepository.deleteAll();
+        editoriaRepository.deleteAll();
+    }
+
     @Nested
     @DisplayName("Save")
     class SaveNoticia {
-
-        NoticiaEntity.NoticiaEntityBuilder noticiaEntityBuilder;
-
-        @BeforeEach
-        void setUp() {
-            var autorias = factory.gerarListString(1, 100);
-            var fontes = factory.gerarListString(1, 250);
-
-            noticiaEntityBuilder = factory.gerarNoticiaEntityBuilder(30, 150, 250, 400, 5000)
-                .autorias(autorias)
-                .fontes(fontes);
-        }
 
         @Test
         @DisplayName("dados completos")
@@ -66,8 +77,8 @@ class NoticiaRepositoryIntegrationTest {
         }
 
         @Test
-        @DisplayName("duas editorias")
-        void dadoNoticiaValidaComDuasEditorias_QuandoSalvar_EntaoRetornarComAmbasSalvas() {
+        @DisplayName("duas novas editorias")
+        void dadoNoticiaValidaComDuasNovasEditorias_QuandoSalvar_EntaoRetornarComAmbasSalvas() {
             var novaEditoria1 = factory.gerarEditoriaEntityBuilder().build();
             var novaEditoria2 = factory.gerarEditoriaEntityBuilder().build();
 

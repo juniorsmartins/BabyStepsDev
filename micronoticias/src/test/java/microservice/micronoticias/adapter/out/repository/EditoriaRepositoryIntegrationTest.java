@@ -13,18 +13,27 @@ class EditoriaRepositoryIntegrationTest {
     private final FactoryObjectMother factory = FactoryObjectMother.singleton();
 
     @Autowired
+    private NoticiaRepository noticiaRepository;
+
+    @Autowired
     private EditoriaRepository editoriaRepository;
+
+    EditoriaEntity.EditoriaEntityBuilder editoriaEntityBuilder;
+
+    @BeforeEach
+    void setUp() {
+        editoriaEntityBuilder = factory.gerarEditoriaEntityBuilder();
+    }
+
+    @AfterEach
+    void tearDown() {
+        noticiaRepository.deleteAll();
+        editoriaRepository.deleteAll();
+    }
 
     @Nested
     @DisplayName("Save")
     class SaveEditoria {
-
-        EditoriaEntity.EditoriaEntityBuilder editoriaEntityBuilder;
-
-        @BeforeEach
-        void setUp() {
-            editoriaEntityBuilder = factory.gerarEditoriaEntityBuilder();
-        }
 
         @Test
         @DisplayName("dados completos")
