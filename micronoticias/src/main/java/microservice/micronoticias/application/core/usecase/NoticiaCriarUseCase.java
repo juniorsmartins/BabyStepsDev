@@ -6,7 +6,6 @@ import microservice.micronoticias.application.port.input.NoticiaCriarInputPort;
 import microservice.micronoticias.application.port.output.NoticiaSalvarOutputPort;
 
 import java.util.List;
-import java.util.Optional;
 
 public class NoticiaCriarUseCase implements NoticiaCriarInputPort {
 
