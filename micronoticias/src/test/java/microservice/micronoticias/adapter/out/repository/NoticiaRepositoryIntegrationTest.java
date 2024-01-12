@@ -22,7 +22,7 @@ class NoticiaRepositoryIntegrationTest {
     @Autowired
     private EditoriaRepository editoriaRepository;
 
-    NoticiaEntity.NoticiaEntityBuilder noticiaEntityBuilder;
+    private NoticiaEntity.NoticiaEntityBuilder noticiaEntityBuilder;
 
     @BeforeEach
     void setUp() {
