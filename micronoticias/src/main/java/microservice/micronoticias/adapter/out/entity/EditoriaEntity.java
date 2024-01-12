@@ -16,7 +16,6 @@ import java.util.Set;
 @AllArgsConstructor
 @Getter
 @Setter
-@ToString
 @EqualsAndHashCode(of = {"nomenclatura"})
 public final class EditoriaEntity implements Serializable {
 

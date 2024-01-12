@@ -4,6 +4,7 @@ import microservice.micronoticias.adapter.out.entity.NoticiaEntity;
 import microservice.micronoticias.adapter.out.repository.EditoriaRepository;
 import microservice.micronoticias.adapter.out.repository.NoticiaRepository;
 import microservice.micronoticias.config.exception.http_409.NomenclaturaNaoUnicaException;
+import microservice.micronoticias.config.exception.http_409.RuleWithProhibitedNullValueException;
 import microservice.micronoticias.utility.FactoryObjectMother;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -50,6 +51,13 @@ class RuleNomenclaturaUnicaDeEditoriaIntegrationTest {
     void tearDown() {
         this.noticiaRepository.deleteAll();
         this.editoriaRepository.deleteAll();
+    }
+
+    @Test
+    @DisplayName("null")
+    void dadoNoticiaNula_QuandoExecutar_EntaoLancarException() {
+        Executable acao = () -> ruleNomenclaturaUnicaDeEditoria.executar(null);
+        Assertions.assertThrows(RuleWithProhibitedNullValueException.class, acao);
     }
 
     @Test
