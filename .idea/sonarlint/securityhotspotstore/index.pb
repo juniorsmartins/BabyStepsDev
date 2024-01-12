@@ -131,3 +131,7 @@ hmicronoticias/src/main/java/microservice/micronoticias/application/core/usecase
 pmicronoticias/src/main/java/microservice/micronoticias/config/exception/http_409/ValorNuloProibidoException.java,c/c/ccb3f18e7ce90d0bfd4e062bf0a2344be1a720c9
 ª
 zmicronoticias/src/main/java/microservice/micronoticias/config/exception/http_409/RuleWithProhibitedNullValueException.java,9/f/9f65b0122417567d14ab0f02ed206d7535209115
+ž
+nmicronoticias/src/main/java/microservice/micronoticias/config/exception/http_409/NoticiaNaoUnicaException.java,c/2/c217c958afae98a73b4123a754ac0567d161df4b
+«
+{micronoticias/src/test/java/microservice/micronoticias/application/core/usecase/regras/RuleNoticiaUnicaIntegrationTest.java,7/c/7ccbbf563dcfb390e385015525b4cb65c265acb6
