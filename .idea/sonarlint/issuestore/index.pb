@@ -135,3 +135,5 @@ zmicronoticias/src/main/java/microservice/micronoticias/config/exception/http_40
 nmicronoticias/src/main/java/microservice/micronoticias/config/exception/http_409/NoticiaNaoUnicaException.java,c/2/c217c958afae98a73b4123a754ac0567d161df4b
 «
 {micronoticias/src/test/java/microservice/micronoticias/application/core/usecase/regras/RuleNoticiaUnicaIntegrationTest.java,7/c/7ccbbf563dcfb390e385015525b4cb65c265acb6
+»
+Šmicronoticias/src/test/java/microservice/micronoticias/application/core/usecase/regras/RuleNomenclaturaUnicaDeEditoriaIntegrationTest.java,3/c/3c8aece8b5a4d8e2758200ccd7f0fa20aa9ce184
