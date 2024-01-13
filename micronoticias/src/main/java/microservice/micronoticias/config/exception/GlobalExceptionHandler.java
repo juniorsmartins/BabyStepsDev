@@ -1,5 +1,6 @@
 package microservice.micronoticias.config.exception;
 
+import lombok.extern.slf4j.Slf4j;
 import microservice.micronoticias.config.exception.http_400.RequisicaoMalFormuladaException;
 import microservice.micronoticias.config.exception.http_404.RecursoNaoEncontradoException;
 import microservice.micronoticias.config.exception.http_500.ProblemaInternoNoServidorException;
@@ -22,6 +23,7 @@ import java.time.Instant;
 import java.util.List;
 import java.util.NoSuchElementException;
 
+@Slf4j
 @RestControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
@@ -34,6 +36,8 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     // -------------------- SEGURANÇA --------------------
     @ExceptionHandler(value = AccessDeniedException.class)
     public ResponseEntity<Object> tratarAccessDenied(AccessDeniedException ex, WebRequest webRequest) {
+
+        log.error("Exception: {}", ex.getMessage(), ex);
 
         var tipoErrorEnum = TipoErrorEnum.USUARIO_NAO_AUTORIZADO;
         var httpStatus = HttpStatus.FORBIDDEN;
@@ -49,6 +53,8 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(value = RequisicaoMalFormuladaException.class)
     public ResponseEntity<Object> tratarRequisicaoMalFormulada(RequisicaoMalFormuladaException ex, WebRequest webRequest) {
 
+        log.error("Exception: {}", ex.getMessage(), ex);
+
         var tipoErroEnum = TipoErrorEnum.REQUISICAO_MAL_FORMULADA;
         var httpStatus = HttpStatus.BAD_REQUEST;
         var detail = ex.getMessage();
@@ -62,6 +68,8 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     // -------------------- RECURSO NÃO ENCONTRADO --------------------
     @ExceptionHandler(value = RecursoNaoEncontradoException.class)
     public ResponseEntity<Object> tratarRecursoNaoEncontrado(RecursoNaoEncontradoException ex, WebRequest webRequest) {
+
+        log.error("Exception: {}", ex.getMessage(), ex);
 
         var tipoErroEnum = TipoErrorEnum.RECURSO_NAO_ENCONTRADO;
         var httpStatus = HttpStatus.NOT_FOUND;
@@ -77,6 +85,8 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(value = ProblemaInternoNoServidorException.class)
     public ResponseEntity<Object> tratarProblemaInterno(ProblemaInternoNoServidorException ex, WebRequest webRequest) {
 
+        log.error("Exception: {}", ex.getMessage(), ex);
+
         var tipoErroEnum = TipoErrorEnum.PROBLEMA_INTERNO_NO_SERVIDOR;
         var httpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
         var detail = ex.getMessage();
@@ -90,6 +100,8 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(value = NoSuchElementException.class)
     public ResponseEntity<Object> tratarNoSuchElement(NoSuchElementException ex, WebRequest webRequest) {
 
+        log.error("Exception: {}", ex.getMessage(), ex);
+
         var tipoErroEnum = TipoErrorEnum.VALOR_NULO_PROIBIDO;
         var httpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
         var detail = ex.getMessage();
@@ -102,6 +114,8 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(value = NullPointerException.class)
     public ResponseEntity<Object> tratarNullPointer(NullPointerException ex, WebRequest webRequest) {
+
+        log.error("Exception: {}", ex.getMessage(), ex);
 
         var tipoErroEnum = TipoErrorEnum.VALOR_NULO_PROIBIDO;
         var httpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
@@ -118,10 +132,13 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     // -------------------- BEAN VALIDATION --------------------
     // Aqui o tratamendo de anotações de Bean Validation
     @Override
-    protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException argumentNotValid,
-                                                                  HttpHeaders headers, HttpStatusCode status,
+    protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
+                                                                  HttpHeaders headers,
+                                                                  HttpStatusCode status,
                                                                   WebRequest request) {
-        return this.construirResponseComMensagemDeErros(argumentNotValid, argumentNotValid.getBindingResult(),
+        log.error("Exception: {}", ex.getMessage(), ex);
+
+        return this.construirResponseComMensagemDeErros(ex, ex.getBindingResult(),
                 new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
     }
 
@@ -180,6 +197,8 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     @Override
     protected ResponseEntity<Object> handleExceptionInternal(
             Exception ex, Object body, HttpHeaders headers, HttpStatusCode statusCode, WebRequest webRequest) {
+
+        log.error("Exception: {}", ex.getMessage(), ex);
 
         if (body == null) {
             body = ApiError.builder()
