@@ -124,8 +124,8 @@ class NoticiaControllerIntegrationTest {
         @Test
         @DisplayName("duas novas editorias")
         void dadaNoticiaComDuasNovaEditorias_QuandoCriar_EntaoRetornarComDuasEditoriasSalvas() {
-            var editoria1 = factory.gerarEditoriaCriarDtoInBuilder().build();
-            var editoria2 = factory.gerarEditoriaCriarDtoInBuilder().build();
+            var editoria1 = factory.gerarEditoriaDtoInBuilder().build();
+            var editoria2 = factory.gerarEditoriaDtoInBuilder().build();
 
             var dtoIn = noticiaCriarDtoIn
                 .editorias(Set.of(editoria1, editoria2))

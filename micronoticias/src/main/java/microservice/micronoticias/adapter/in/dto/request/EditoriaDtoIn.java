@@ -7,7 +7,7 @@ import lombok.Builder;
 import microservice.micronoticias.application.core.domain.Editoria;
 
 @Builder
-public record EditoriaCriarDtoIn(
+public record EditoriaDtoIn(
 
     @Positive
     Long id,

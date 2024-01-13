@@ -1,6 +1,6 @@
 package microservice.micronoticias.utility;
 
-import microservice.micronoticias.adapter.in.dto.request.EditoriaCriarDtoIn;
+import microservice.micronoticias.adapter.in.dto.request.EditoriaDtoIn;
 import microservice.micronoticias.adapter.in.dto.request.NoticiaCriarDtoIn;
 import microservice.micronoticias.adapter.out.entity.EditoriaEntity;
 import microservice.micronoticias.adapter.out.entity.NoticiaEntity;
@@ -77,7 +77,7 @@ public final class FactoryObjectMother {
 
     // Padrão Builder
     public NoticiaCriarDtoIn.NoticiaCriarDtoInBuilder gerarNoticiaCriarDtoInBuilder() {
-        var editoria = gerarEditoriaCriarDtoInBuilder().build();
+        var editoria = gerarEditoriaDtoInBuilder().build();
 
         return NoticiaCriarDtoIn.builder()
             .chapeu(faker.lorem().characters(2, 30))
@@ -109,9 +109,9 @@ public final class FactoryObjectMother {
     }
 
     // Padrão Builder
-    public EditoriaCriarDtoIn.EditoriaCriarDtoInBuilder gerarEditoriaCriarDtoInBuilder() {
+    public EditoriaDtoIn.EditoriaDtoInBuilder gerarEditoriaDtoInBuilder() {
 
-        return EditoriaCriarDtoIn.builder()
+        return EditoriaDtoIn.builder()
             .nomenclatura(faker.lorem().characters(3, 100))
             .descricao(faker.lorem().characters(10, 200));
     }

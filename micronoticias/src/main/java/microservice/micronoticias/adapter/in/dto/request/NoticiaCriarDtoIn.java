@@ -38,7 +38,7 @@ public record NoticiaCriarDtoIn(
     List<@NotBlank @Size(min = Noticia.FONTE_CARACTERES_MINIMO, max = Noticia.FONTE_CARACTERES_MAXIMO) String> fontes,
 
     @Valid
-    Set<@NotNull EditoriaCriarDtoIn> editorias
+    Set<@NotNull EditoriaDtoIn> editorias
 
 ) { }
 
