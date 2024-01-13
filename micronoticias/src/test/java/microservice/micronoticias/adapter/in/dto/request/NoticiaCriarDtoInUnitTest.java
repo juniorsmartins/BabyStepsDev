@@ -23,8 +23,9 @@ class NoticiaCriarDtoInUnitTest {
     private final FactoryObjectMother factory = FactoryObjectMother.singleton();
 
     @Autowired
-    Validator validator;
+    private Validator validator;
 
+    // fixture ou Scaffolding
     private NoticiaCriarDtoIn.NoticiaCriarDtoInBuilder noticiaCriarDtoInBuilder;
 
     @BeforeEach

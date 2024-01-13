@@ -33,7 +33,8 @@ class NoticiaSalvarAdapterIntegrationTest {
     @Autowired
     private EditoriaRepository editoriaRepository;
 
-    Noticia noticia;
+    // fixture ou Scaffolding
+    private Noticia noticia;
 
     @BeforeEach
     void setUp() {
