@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.net.URI;
 import java.util.Optional;
 
-@Tag(name = "Noticias", description = "Contém os recursos de Cadastrar, Consultar, Atualizar e Deletar.")
+@Tag(name = "Noticias", description = "Contém os recursos de Cadastrar, Pesquisar, Atualizar e Deletar.")
 @Slf4j
 @RestController
 @RequestMapping(path = "/api/v1/noticias")
@@ -56,12 +56,12 @@ public class NoticiaController {
                 content = @Content(mediaType = "application/json", schema = @Schema(implementation = ApiError.class))),
         })
     public ResponseEntity<NoticiaCriarDtoOut> criar(
-        @Parameter(name = "NoticiaCadastrarDtoIn", description = "Objeto para transporte de dados de entrada.", required = true)
-        @RequestBody @Valid NoticiaCriarDtoIn cadastrarDtoIn) {
+        @Parameter(name = "NoticiaCriarDtoIn", description = "Objeto para Transporte de Dados de entrada.", required = true)
+        @RequestBody @Valid NoticiaCriarDtoIn criarDtoIn) {
 
-        log.info("Recebida requisição para criar Notícia: {}", cadastrarDtoIn.titulo());
+        log.info("Recebida requisição para criar Notícia: {}", criarDtoIn.titulo());
 
-        var resposta = Optional.of(cadastrarDtoIn)
+        var resposta = Optional.of(criarDtoIn)
             .map(this.mapperIn::toNoticia)
             .map(this.cadastrarInputPort::criar)
             .map(this.mapperIn::toNoticiaCadastrarDtoOut)
