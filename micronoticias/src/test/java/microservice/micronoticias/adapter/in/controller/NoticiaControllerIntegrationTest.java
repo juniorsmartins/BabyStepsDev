@@ -52,7 +52,7 @@ class NoticiaControllerIntegrationTest {
     class PostNoticia {
 
         @Test
-        @DisplayName("dados validos com XML")
+        @DisplayName("dados válidos com XML")
         void dadaNoticiaValida_QuandoCriarComContentNegotiationXML_EntaoRetornarHttp201() {
 
             var dtoIn = noticiaCriarDtoIn.build();
@@ -64,9 +64,7 @@ class NoticiaControllerIntegrationTest {
                 .exchange()
                 .expectStatus().isCreated()
                 .expectHeader().contentType(MediaType.APPLICATION_XML)
-                .expectBody().consumeWith(response -> {
-                    assertThat(response.getResponseBody()).isNotNull();
-                });
+                .expectBody().consumeWith(response -> assertThat(response.getResponseBody()).isNotNull());
         }
 
         @Test

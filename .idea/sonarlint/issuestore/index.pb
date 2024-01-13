@@ -129,3 +129,7 @@ zmicronoticias/src/main/java/microservice/micronoticias/config/exception/http_40
 {micronoticias/src/test/java/microservice/micronoticias/application/core/usecase/regras/RuleNoticiaUnicaIntegrationTest.java,7/c/7ccbbf563dcfb390e385015525b4cb65c265acb6
 »
 Šmicronoticias/src/test/java/microservice/micronoticias/application/core/usecase/regras/RuleNomenclaturaUnicaDeEditoriaIntegrationTest.java,3/c/3c8aece8b5a4d8e2758200ccd7f0fa20aa9ce184
+”
+dmicronoticias/src/main/java/microservice/micronoticias/adapter/in/controller/EditoriaController.java,b/f/bf2a66b422aea15269e3c9afe456857371388043
+£
+smicronoticias/src/test/java/microservice/micronoticias/adapter/in/controller/EditoriaControllerIntegrationTest.java,a/6/a6e75ecd970653574f21b9712ea49c9ff1b0ebb8
