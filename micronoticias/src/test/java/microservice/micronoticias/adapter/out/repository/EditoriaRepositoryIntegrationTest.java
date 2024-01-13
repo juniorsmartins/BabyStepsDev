@@ -18,17 +18,12 @@ class EditoriaRepositoryIntegrationTest {
     @Autowired
     private EditoriaRepository editoriaRepository;
 
+    // fixture ou Scaffolding
     EditoriaEntity.EditoriaEntityBuilder editoriaEntityBuilder;
 
     @BeforeEach
     void setUp() {
         editoriaEntityBuilder = factory.gerarEditoriaEntityBuilder();
-    }
-
-    @AfterEach
-    void tearDown() {
-        noticiaRepository.deleteAll();
-        editoriaRepository.deleteAll();
     }
 
     @Nested

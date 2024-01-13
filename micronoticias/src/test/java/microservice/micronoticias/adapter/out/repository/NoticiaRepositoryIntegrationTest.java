@@ -22,6 +22,7 @@ class NoticiaRepositoryIntegrationTest {
     @Autowired
     private EditoriaRepository editoriaRepository;
 
+    // fixture ou Scaffolding
     private NoticiaEntity.NoticiaEntityBuilder noticiaEntityBuilder;
 
     @BeforeEach

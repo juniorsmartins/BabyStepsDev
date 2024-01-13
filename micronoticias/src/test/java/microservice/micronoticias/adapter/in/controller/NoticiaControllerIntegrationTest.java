@@ -33,6 +33,7 @@ class NoticiaControllerIntegrationTest {
     @Autowired
     private EditoriaRepository editoriaRepository;
 
+    // fixture ou Scaffolding
     private NoticiaCriarDtoIn.NoticiaCriarDtoInBuilder noticiaCriarDtoIn;
 
     @BeforeEach
@@ -51,7 +52,7 @@ class NoticiaControllerIntegrationTest {
     class PostNoticia {
 
         @Test
-        @DisplayName("dados validos com XML")
+        @DisplayName("dados válidos com XML")
         void dadaNoticiaValida_QuandoCriarComContentNegotiationXML_EntaoRetornarHttp201() {
 
             var dtoIn = noticiaCriarDtoIn.build();
@@ -63,9 +64,7 @@ class NoticiaControllerIntegrationTest {
                 .exchange()
                 .expectStatus().isCreated()
                 .expectHeader().contentType(MediaType.APPLICATION_XML)
-                .expectBody().consumeWith(response -> {
-                    assertThat(response.getResponseBody()).isNotNull();
-                });
+                .expectBody().consumeWith(response -> assertThat(response.getResponseBody()).isNotNull());
         }
 
         @Test
@@ -125,8 +124,8 @@ class NoticiaControllerIntegrationTest {
         @Test
         @DisplayName("duas novas editorias")
         void dadaNoticiaComDuasNovaEditorias_QuandoCriar_EntaoRetornarComDuasEditoriasSalvas() {
-            var editoria1 = factory.gerarEditoriaCriarDtoInBuilder().build();
-            var editoria2 = factory.gerarEditoriaCriarDtoInBuilder().build();
+            var editoria1 = factory.gerarEditoriaDtoInBuilder().build();
+            var editoria2 = factory.gerarEditoriaDtoInBuilder().build();
 
             var dtoIn = noticiaCriarDtoIn
                 .editorias(Set.of(editoria1, editoria2))

@@ -20,6 +20,7 @@ class EditoriaUnitTest {
 
     private final FactoryObjectMother factory = FactoryObjectMother.singleton();
 
+    // fixture ou Scaffolding
     private Editoria editoria;
 
     @BeforeEach
