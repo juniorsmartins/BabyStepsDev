@@ -1,5 +1,5 @@
 
-p
-java:S1192("NDefine a constant instead of duplicating this literal "Exception: {}" 8 times.(è—àêøÿÿÿÿ8û®§ŸĞ1
-j
-java:S6201Ÿ"NReplace this instanceof check and cast with 'instanceof FieldError fielderror'(ÑÔƒûÿÿÿÿ
+k
+java:S1192("IDefine a constant instead of duplicating this literal "Error {}" 8 times.(©šå†ıÿÿÿÿ8¾éÈŸĞ1
+q
+java:S6201Ÿ"NReplace this instanceof check and cast with 'instanceof FieldError fielderror'(ÑÔƒûÿÿÿÿ8ÏéÈŸĞ1
