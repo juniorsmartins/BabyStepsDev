@@ -1,5 +1,6 @@
 package microservice.micronoticias.adapter.out.mapper;
 
+import lombok.RequiredArgsConstructor;
 import microservice.micronoticias.adapter.out.entity.EditoriaEntity;
 import microservice.micronoticias.adapter.out.entity.NoticiaEntity;
 import microservice.micronoticias.application.core.domain.Editoria;
@@ -10,12 +11,15 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Service
+@RequiredArgsConstructor
 public class NoticiaMapperOutImpl implements NoticiaMapperOut {
+
+    private final EditoriaMapperOut editoriaMapperOut;
 
     @Override
     public NoticiaEntity toNoticiaEntity(Noticia noticia) {
         Set<EditoriaEntity> editorias = new HashSet<>();
-        noticia.getEditorias().forEach(editoria -> editorias.add(toEditoriaEntity(editoria)));
+        noticia.getEditorias().forEach(editoria -> editorias.add(this.editoriaMapperOut.toEditoriaEntity(editoria)));
 
         return NoticiaEntity.builder()
             .chapeu(noticia.getChapeu())
@@ -32,7 +36,7 @@ public class NoticiaMapperOutImpl implements NoticiaMapperOut {
     @Override
     public Noticia toNoticia(NoticiaEntity entity) {
         Set<Editoria> editorias = new HashSet<>();
-        entity.getEditorias().forEach(editoriaEntity -> editorias.add(toEditoria(editoriaEntity)));
+        entity.getEditorias().forEach(editoriaEntity -> editorias.add(this.editoriaMapperOut.toEditoria(editoriaEntity)));
 
         var noticia = new Noticia();
         noticia.setId(entity.getId());
@@ -46,26 +50,5 @@ public class NoticiaMapperOutImpl implements NoticiaMapperOut {
         noticia.setEditorias(editorias);
 
         return noticia;
-    }
-
-    @Override
-    public EditoriaEntity toEditoriaEntity(Editoria editoria) {
-
-        return EditoriaEntity.builder()
-            .id(editoria.getId())
-            .nomenclatura(editoria.getNomenclatura())
-            .descricao(editoria.getDescricao())
-            .build();
-    }
-
-    @Override
-    public Editoria toEditoria(EditoriaEntity editoriaEntity) {
-
-        var editoria = new Editoria();
-        editoria.setId(editoriaEntity.getId());
-        editoria.setNomenclatura(editoriaEntity.getNomenclatura());
-        editoria.setDescricao(editoriaEntity.getDescricao());
-
-        return editoria;
     }
 }
