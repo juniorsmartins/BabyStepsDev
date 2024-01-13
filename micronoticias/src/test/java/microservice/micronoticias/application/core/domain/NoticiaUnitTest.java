@@ -23,6 +23,7 @@ class NoticiaUnitTest {
 
     private final FactoryObjectMother factory = FactoryObjectMother.singleton();
 
+    // fixture ou Scaffolding
     private Noticia noticia;
 
     @BeforeEach

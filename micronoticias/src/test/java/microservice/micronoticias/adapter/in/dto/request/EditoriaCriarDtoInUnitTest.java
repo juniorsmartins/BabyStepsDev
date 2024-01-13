@@ -22,8 +22,9 @@ class EditoriaCriarDtoInUnitTest {
     private final FactoryObjectMother factory = FactoryObjectMother.singleton();
 
     @Autowired
-    Validator validator;
+    private Validator validator;
 
+    // fixture ou Scaffolding
     private EditoriaCriarDtoIn.EditoriaCriarDtoInBuilder editoriaCriarDtoInBuilder;
 
     @BeforeEach

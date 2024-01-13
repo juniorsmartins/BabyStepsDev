@@ -113,12 +113,8 @@ gmicronoticias/src/main/java/microservice/micronoticias/adapter/in/dto/response/
 tmicronoticias/src/main/java/microservice/micronoticias/config/exception/http_404/EditoriaNaoEncontradaException.java,d/2/d2badd39c0b8045b961e983958eefe0bc98fed65
 —
 gmicronoticias/src/test/java/microservice/micronoticias/adapter/NoticiaSalvarAdapterIntegrationTest.java,e/7/e7d3802d13bcf3da628aa75fbb91a84caa7e333f
-§
-wmicronoticias/src/test/java/microservice/micronoticias/application/core/usecase/NoticiaCriarUseCaseIntegrationTest.java,1/d/1d05c0a14ecc87eb86a3aafd325d2a904ca174ce
 £
 smicronoticias/src/main/java/microservice/micronoticias/config/exception/http_409/NomenclaturaNaoUnicaException.java,4/0/40e2c0f5266fb4eed00061067e16196b032a6cc1
-¥
-umicronoticias/src/main/java/microservice/micronoticias/application/core/usecase/regras/RuleChainOfResponsibility.java,f/1/f1039c48963217eb6d11315289018af78be16070
 «
 {micronoticias/src/main/java/microservice/micronoticias/application/core/usecase/regras/RuleNomenclaturaUnicaDeEditoria.java,d/1/d1468ab86db03f43cabb9c260073ceadd0519de5
 œ
@@ -127,12 +123,8 @@ lmicronoticias/src/main/java/microservice/micronoticias/application/core/usecase
 hmicronoticias/src/main/java/microservice/micronoticias/application/core/usecase/regras/RuleStrategy.java,2/c/2cdd69f1e5e546a40bd1b1e1ee34d467db946017
 ‹
 [micronoticias/src/main/java/microservice/micronoticias/config/bean/BusinessRulesConfig.java,c/1/c11bd75adf4e26f866a23fcc11b8c352698015ba
- 
-pmicronoticias/src/main/java/microservice/micronoticias/config/exception/http_409/ValorNuloProibidoException.java,c/c/ccb3f18e7ce90d0bfd4e062bf0a2344be1a720c9
 ª
 zmicronoticias/src/main/java/microservice/micronoticias/config/exception/http_409/RuleWithProhibitedNullValueException.java,9/f/9f65b0122417567d14ab0f02ed206d7535209115
-ž
-nmicronoticias/src/main/java/microservice/micronoticias/config/exception/http_409/NoticiaNaoUnicaException.java,c/2/c217c958afae98a73b4123a754ac0567d161df4b
 «
 {micronoticias/src/test/java/microservice/micronoticias/application/core/usecase/regras/RuleNoticiaUnicaIntegrationTest.java,7/c/7ccbbf563dcfb390e385015525b4cb65c265acb6
 »

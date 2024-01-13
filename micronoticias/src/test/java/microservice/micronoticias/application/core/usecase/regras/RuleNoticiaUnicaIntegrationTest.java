@@ -30,6 +30,7 @@ class RuleNoticiaUnicaIntegrationTest {
     @Autowired
     private EditoriaRepository editoriaRepository;
 
+    // fixture ou Scaffolding
     private NoticiaEntity noticiaEntity;
 
     @BeforeEach

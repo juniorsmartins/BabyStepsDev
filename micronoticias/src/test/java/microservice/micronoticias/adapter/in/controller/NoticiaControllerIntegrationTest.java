@@ -33,6 +33,7 @@ class NoticiaControllerIntegrationTest {
     @Autowired
     private EditoriaRepository editoriaRepository;
 
+    // fixture ou Scaffolding
     private NoticiaCriarDtoIn.NoticiaCriarDtoInBuilder noticiaCriarDtoIn;
 
     @BeforeEach
