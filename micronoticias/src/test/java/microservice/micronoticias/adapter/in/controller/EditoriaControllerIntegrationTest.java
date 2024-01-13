@@ -75,7 +75,7 @@ class EditoriaControllerIntegrationTest {
                 .expectStatus().isCreated()
                 .expectBody(EditoriaCriarDtoOut.class)
                 .consumeWith(response -> {
-                    assertThat(response.getResponseBody().id()).isGreaterThan(0);
+                    assertThat(response.getResponseBody().id()).isPositive();
                     assertThat(response.getResponseBody().nomenclatura()).isEqualTo(dtoIn.nomenclatura());
                     assertThat(response.getResponseBody().descricao()).isEqualTo(dtoIn.descricao());
                 });
