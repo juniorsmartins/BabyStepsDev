@@ -16,7 +16,7 @@ import java.util.Set;
 
 @SpringBootTest
 @ExtendWith({SpringExtension.class, MockitoExtension.class})
-@DisplayName("Unit EditoriaCriarDtoIn - Editoria")
+@DisplayName("Unit EditoriaDtoIn - Editoria")
 class EditoriaDtoInUnitTest {
 
     private final FactoryObjectMother factory = FactoryObjectMother.singleton();
