@@ -81,7 +81,7 @@ class NoticiaControllerIntegrationTest {
                 .expectStatus().isCreated()
                 .expectBody(NoticiaCriarDtoOut.class)
                 .consumeWith(response -> {
-                    assertThat(response.getResponseBody()).isNotNull();
+                    assertThat(response.getResponseBody().id()).isGreaterThan(0);
                     assertThat(response.getResponseBody().chapeu()).isEqualTo(dtoIn.chapeu());
                     assertThat(response.getResponseBody().titulo()).isEqualTo(dtoIn.titulo());
                     assertThat(response.getResponseBody().linhaFina()).isEqualTo(dtoIn.linhaFina());
