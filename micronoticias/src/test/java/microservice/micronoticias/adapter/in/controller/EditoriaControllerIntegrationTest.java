@@ -1,5 +1,7 @@
 package microservice.micronoticias.adapter.in.controller;
 
+import microservice.micronoticias.adapter.in.dto.request.EditoriaCriarDtoIn;
+import microservice.micronoticias.adapter.in.dto.response.EditoriaCriarDtoOut;
 import microservice.micronoticias.adapter.out.repository.EditoriaRepository;
 import microservice.micronoticias.application.core.domain.Editoria;
 import microservice.micronoticias.utility.FactoryObjectMother;
@@ -9,6 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
+import static org.assertj.core.api.Assertions.as;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -26,11 +29,11 @@ class EditoriaControllerIntegrationTest {
     private EditoriaRepository editoriaRepository;
 
     // Fixture ou Scaffolding
-    private Editoria editoria;
+    private EditoriaCriarDtoIn.EditoriaCriarDtoInBuilder editoriaCriarDtoInBuilder;
 
     @BeforeEach
     void setUp() {
-        editoria = factory.gerarEditoria();
+        editoriaCriarDtoInBuilder = factory.gerarEditoriaCriarDtoInBuilder();
     }
 
     @AfterEach
@@ -42,20 +45,40 @@ class EditoriaControllerIntegrationTest {
     @DisplayName("Post")
     class PostEditoria {
 
-//        @Test
+        @Test
         @DisplayName("dados válidos com XML")
         void dadoEditoriaValida_QuandoCriarComContentNegotiationXML_EntaoRetornarHttp201() {
 
-            var dtoIn =
+            var dtoIn = editoriaCriarDtoInBuilder.build();
 
             webTestClient.post()
                 .uri(END_POINT)
                 .accept(MediaType.APPLICATION_XML)
-//                .bodyValue()
+                .bodyValue(dtoIn)
                 .exchange()
                 .expectStatus().isCreated()
                 .expectHeader().contentType(MediaType.APPLICATION_XML)
                 .expectBody().consumeWith(response -> assertThat(response.getResponseBody()).isNotNull());
+        }
+
+        @Test
+        @DisplayName("dados válidos com JSON")
+        void dadoEditoriaValida_QuandoCriarComContentNegotiationJSon_EntaoRetornarDadosIguaisSalvos() {
+
+            var dtoIn = editoriaCriarDtoInBuilder.build();
+
+            webTestClient.post()
+                .uri(END_POINT)
+                .contentType(MediaType.APPLICATION_JSON)
+                .bodyValue(dtoIn)
+                .exchange()
+                .expectStatus().isCreated()
+                .expectBody(EditoriaCriarDtoOut.class)
+                .consumeWith(response -> {
+                    assertThat(response.getResponseBody().id()).isPositive();
+                    assertThat(response.getResponseBody().nomenclatura()).isEqualTo(dtoIn.nomenclatura());
+                    assertThat(response.getResponseBody().descricao()).isEqualTo(dtoIn.descricao());
+                });
         }
     }
 }
