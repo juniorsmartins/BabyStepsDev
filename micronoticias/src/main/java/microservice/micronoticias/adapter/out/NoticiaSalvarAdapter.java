@@ -1,4 +1,4 @@
-package microservice.micronoticias.adapter;
+package microservice.micronoticias.adapter.out;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

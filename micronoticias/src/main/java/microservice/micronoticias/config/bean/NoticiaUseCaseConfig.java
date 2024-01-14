@@ -1,6 +1,6 @@
 package microservice.micronoticias.config.bean;
 
-import microservice.micronoticias.adapter.NoticiaSalvarAdapter;
+import microservice.micronoticias.adapter.out.NoticiaSalvarAdapter;
 import microservice.micronoticias.application.core.usecase.NoticiaCriarUseCase;
 import microservice.micronoticias.application.core.usecase.regras.RuleStrategyToCreateNews;
 import org.springframework.context.annotation.Bean;

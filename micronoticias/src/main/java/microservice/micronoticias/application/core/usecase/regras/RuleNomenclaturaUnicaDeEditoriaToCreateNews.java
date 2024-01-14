@@ -28,8 +28,7 @@ public class RuleNomenclaturaUnicaDeEditoriaToCreateNews implements RuleStrategy
                             }
                         })
             ),
-            () -> {throw new RuleWithProhibitedNullValueException("RuleNomenclaturaUnicaDeEditoria");
-            }
+            () -> {throw new RuleWithProhibitedNullValueException("RuleNomenclaturaUnicaDeEditoria");}
         );
     }
 }
