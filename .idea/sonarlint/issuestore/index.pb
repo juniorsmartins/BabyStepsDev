@@ -163,3 +163,9 @@ emicronoticias/src/test/java/microservice/micronoticias/adapter/out/EditoriaSalv
 tmicronoticias/src/main/java/microservice/micronoticias/config/exception/http_500/EditoriaMapperOutImplException.java,0/9/091452d832c851016c69090a3f9adc4b3f08bf8d
 œ
 lmicronoticias/src/test/java/microservice/micronoticias/adapter/out/mapper/EditoriaMapperOutImplUnitTest.java,0/e/0e59af3208a97e3bfa3dd3519fb24573f1cdcb53
+¢
+rmicronoticias/src/main/java/microservice/micronoticias/config/exception/http_500/NoticiaCriarUseCaseException.java,9/0/908f6c3389aeb4db38b6bc189c0f1cfe7e0e0ec2
+ 
+pmicronoticias/src/test/java/microservice/micronoticias/application/core/usecase/NoticiaCriarUseCaseUnitTest.java,9/6/961518f71f710cee01330e17e79972f0af73d4f3
+¤
+tmicronoticias/src/main/java/microservice/micronoticias/application/core/usecase/regras/RuleStrategyToCreateNews.java,6/e/6e7dec1f58ffdb618ef10234bbe6678e27e5d0da

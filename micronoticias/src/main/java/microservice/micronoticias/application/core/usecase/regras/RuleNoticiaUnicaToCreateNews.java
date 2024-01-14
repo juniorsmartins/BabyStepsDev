@@ -7,11 +7,11 @@ import microservice.micronoticias.config.exception.http_409.RuleWithProhibitedNu
 
 import java.util.Optional;
 
-public class RuleNoticiaUnica implements RuleStrategy {
+public class RuleNoticiaUnicaToCreateNews implements RuleStrategyToCreateNews {
 
     private final NoticiaRepository noticiaRepository;
 
-    public RuleNoticiaUnica(NoticiaRepository noticiaRepository) {
+    public RuleNoticiaUnicaToCreateNews(NoticiaRepository noticiaRepository) {
         this.noticiaRepository = noticiaRepository;
     }
 
