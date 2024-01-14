@@ -183,3 +183,5 @@ lmicronoticias/src/main/java/microservice/micronoticias/adapter/out/EditoriaBusc
 \micronoticias/src/main/java/microservice/micronoticias/adapter/out/NoticiaSalvarAdapter.java,5/9/5986107f1ab3b8f8a6e749b18761d93f865049f9
 ›
 kmicronoticias/src/test/java/microservice/micronoticias/adapter/out/NoticiaSalvarAdapterIntegrationTest.java,1/e/1e089fc4963413eab8f01da688d26622c7f9a36d
+¨
+xmicronoticias/src/test/java/microservice/micronoticias/application/core/usecase/EditoriaCriarUseCaseIntegrationTest.java,d/6/d6234ce7c879aee07e7754e0b82afe6a38828737

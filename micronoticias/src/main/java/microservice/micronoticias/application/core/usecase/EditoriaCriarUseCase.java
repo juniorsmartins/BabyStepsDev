@@ -26,7 +26,7 @@ public class EditoriaCriarUseCase implements EditoriaCriarInputPort {
     public Editoria criar(Editoria editoria) {
 
         return Optional.ofNullable(editoria)
-//            .map(this::callBusinessRules)
+            .map(this::callBusinessRules)
             .map(this.editoriaSalvarOutputPort::salvar)
             .orElseThrow(EditoriaCriarUseCaseException::new);
     }
@@ -36,7 +36,7 @@ public class EditoriaCriarUseCase implements EditoriaCriarInputPort {
         Optional.ofNullable(editoria)
             .ifPresentOrElse(edit -> {
                 var editoriaEncontrada = this.editoriaBuscarPorNomenclaturaOutputPort.buscarPorNomenclatura(edit.getNomenclatura());
-                if (editoriaEncontrada.isPresent() && !edit.getId().equals(editoriaEncontrada.get().getId())) {
+                if (editoriaEncontrada.isPresent() && !editoriaEncontrada.get().getId().equals(edit.getId())) {
                     throw new NomenclaturaNaoUnicaException(edit.getNomenclatura());
                 }
             },
