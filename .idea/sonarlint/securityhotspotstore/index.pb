@@ -163,3 +163,25 @@ emicronoticias/src/test/java/microservice/micronoticias/adapter/out/EditoriaSalv
 tmicronoticias/src/main/java/microservice/micronoticias/config/exception/http_500/EditoriaMapperOutImplException.java,0/9/091452d832c851016c69090a3f9adc4b3f08bf8d
 œ
 lmicronoticias/src/test/java/microservice/micronoticias/adapter/out/mapper/EditoriaMapperOutImplUnitTest.java,0/e/0e59af3208a97e3bfa3dd3519fb24573f1cdcb53
+¢
+rmicronoticias/src/main/java/microservice/micronoticias/config/exception/http_500/NoticiaCriarUseCaseException.java,9/0/908f6c3389aeb4db38b6bc189c0f1cfe7e0e0ec2
+ 
+pmicronoticias/src/test/java/microservice/micronoticias/application/core/usecase/NoticiaCriarUseCaseUnitTest.java,9/6/961518f71f710cee01330e17e79972f0af73d4f3
+¤
+tmicronoticias/src/main/java/microservice/micronoticias/application/core/usecase/regras/RuleStrategyToCreateNews.java,6/e/6e7dec1f58ffdb618ef10234bbe6678e27e5d0da
+£
+smicronoticias/src/main/java/microservice/micronoticias/config/exception/http_500/NoticiaSalvarAdapterException.java,1/b/1b79a3ce2cee2c035bce2fa2f9ffcf4cf895ec60
+¸
+‡micronoticias/src/main/java/microservice/micronoticias/application/core/usecase/regras/RuleNomenclaturaUnicaDeEditoriaToCreateNews.java,9/7/97fa502b069ce5340a7faf11dc2992172c3aa304
+«
+{micronoticias/src/main/java/microservice/micronoticias/application/port/output/EditoriaBuscarPorNomenclaturaOutputPort.java,4/5/45bdb9db61431b45e9ca1b9e373d47b6d5ee837d
+œ
+lmicronoticias/src/main/java/microservice/micronoticias/adapter/out/EditoriaBuscarPorNomenclaturaAdapter.java,e/1/e1381707511306bd012c2a9142364d5dfcdb59be
+«
+{micronoticias/src/test/java/microservice/micronoticias/adapter/out/EditoriaBuscarPorNomenclaturaAdapterIntegrationTest.java,4/3/4362f9c766a3c207c78b545c51b84a281fc41a97
+Œ
+\micronoticias/src/main/java/microservice/micronoticias/adapter/out/NoticiaSalvarAdapter.java,5/9/5986107f1ab3b8f8a6e749b18761d93f865049f9
+›
+kmicronoticias/src/test/java/microservice/micronoticias/adapter/out/NoticiaSalvarAdapterIntegrationTest.java,1/e/1e089fc4963413eab8f01da688d26622c7f9a36d
+¨
+xmicronoticias/src/test/java/microservice/micronoticias/application/core/usecase/EditoriaCriarUseCaseIntegrationTest.java,d/6/d6234ce7c879aee07e7754e0b82afe6a38828737

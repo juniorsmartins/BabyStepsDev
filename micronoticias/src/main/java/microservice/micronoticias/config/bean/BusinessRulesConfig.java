@@ -2,8 +2,8 @@ package microservice.micronoticias.config.bean;
 
 import microservice.micronoticias.adapter.out.repository.EditoriaRepository;
 import microservice.micronoticias.adapter.out.repository.NoticiaRepository;
-import microservice.micronoticias.application.core.usecase.regras.RuleNomenclaturaUnicaDeEditoria;
-import microservice.micronoticias.application.core.usecase.regras.RuleNoticiaUnica;
+import microservice.micronoticias.application.core.usecase.regras.RuleNomenclaturaUnicaDeEditoriaToCreateNews;
+import microservice.micronoticias.application.core.usecase.regras.RuleNoticiaUnicaToCreateNews;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
@@ -11,13 +11,13 @@ import org.springframework.stereotype.Component;
 public class BusinessRulesConfig {
 
     @Bean
-    public RuleNomenclaturaUnicaDeEditoria ruleNomenclaturaUnicaDeEditoria(EditoriaRepository editoriaRepository) {
-        return new RuleNomenclaturaUnicaDeEditoria(editoriaRepository);
+    public RuleNomenclaturaUnicaDeEditoriaToCreateNews ruleNomenclaturaUnicaDeEditoria(EditoriaRepository editoriaRepository) {
+        return new RuleNomenclaturaUnicaDeEditoriaToCreateNews(editoriaRepository);
     }
 
     @Bean
-    public RuleNoticiaUnica ruleNoticiaUnica(NoticiaRepository noticiaRepository) {
-        return new RuleNoticiaUnica(noticiaRepository);
+    public RuleNoticiaUnicaToCreateNews ruleNoticiaUnica(NoticiaRepository noticiaRepository) {
+        return new RuleNoticiaUnicaToCreateNews(noticiaRepository);
     }
 }
 

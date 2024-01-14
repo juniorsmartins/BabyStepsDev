@@ -24,7 +24,7 @@ class RuleNomenclaturaUnicaDeEditoriaIntegrationTest {
     private final FactoryObjectMother factory = FactoryObjectMother.singleton();
 
     @Autowired
-    private RuleNomenclaturaUnicaDeEditoria ruleNomenclaturaUnicaDeEditoria;
+    private RuleNomenclaturaUnicaDeEditoriaToCreateNews ruleNomenclaturaUnicaDeEditoria;
 
     @Autowired
     private NoticiaRepository noticiaRepository;
