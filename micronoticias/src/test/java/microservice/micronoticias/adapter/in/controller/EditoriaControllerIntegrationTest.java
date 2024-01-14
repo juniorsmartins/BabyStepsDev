@@ -3,7 +3,6 @@ package microservice.micronoticias.adapter.in.controller;
 import microservice.micronoticias.adapter.in.dto.request.EditoriaCriarDtoIn;
 import microservice.micronoticias.adapter.in.dto.response.EditoriaCriarDtoOut;
 import microservice.micronoticias.adapter.out.repository.EditoriaRepository;
-import microservice.micronoticias.application.core.domain.Editoria;
 import microservice.micronoticias.utility.FactoryObjectMother;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +10,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
-import static org.assertj.core.api.Assertions.as;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
