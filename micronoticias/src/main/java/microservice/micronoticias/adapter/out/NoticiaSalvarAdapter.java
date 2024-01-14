@@ -1,4 +1,4 @@
-package microservice.micronoticias.adapter;
+package microservice.micronoticias.adapter.out;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -10,6 +10,7 @@ import microservice.micronoticias.adapter.out.repository.NoticiaRepository;
 import microservice.micronoticias.application.core.domain.Noticia;
 import microservice.micronoticias.application.port.output.NoticiaSalvarOutputPort;
 import microservice.micronoticias.config.exception.http_404.EditoriaNaoEncontradaException;
+import microservice.micronoticias.config.exception.http_500.NoticiaSalvarAdapterException;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -40,7 +41,7 @@ public class NoticiaSalvarAdapter implements NoticiaSalvarOutputPort {
             .map(this::managedEditorias)
             .map(this.repository::save)
             .map(this.mapperOut::toNoticia)
-            .orElseThrow();
+            .orElseThrow(NoticiaSalvarAdapterException::new);
 
         log.info("Finalizado adaptador para salvar Notícia, com título: {}.", noticiaSalva.getTitulo());
 

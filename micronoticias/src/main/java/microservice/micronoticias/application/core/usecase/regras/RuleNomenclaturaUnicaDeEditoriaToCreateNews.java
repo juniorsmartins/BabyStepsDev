@@ -7,11 +7,11 @@ import microservice.micronoticias.config.exception.http_409.RuleWithProhibitedNu
 
 import java.util.Optional;
 
-public class RuleNomenclaturaUnicaDeEditoria implements RuleStrategy {
+public class RuleNomenclaturaUnicaDeEditoriaToCreateNews implements RuleStrategyToCreateNews {
 
     private final EditoriaRepository editoriaRepository;
 
-    public RuleNomenclaturaUnicaDeEditoria(EditoriaRepository editoriaRepository) {
+    public RuleNomenclaturaUnicaDeEditoriaToCreateNews(EditoriaRepository editoriaRepository) {
         this.editoriaRepository = editoriaRepository;
     }
 
@@ -28,8 +28,7 @@ public class RuleNomenclaturaUnicaDeEditoria implements RuleStrategy {
                             }
                         })
             ),
-            () -> {throw new RuleWithProhibitedNullValueException("RuleNomenclaturaUnicaDeEditoria");
-            }
+            () -> {throw new RuleWithProhibitedNullValueException("RuleNomenclaturaUnicaDeEditoria");}
         );
     }
 }

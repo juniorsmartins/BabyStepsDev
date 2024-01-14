@@ -1,6 +1,7 @@
 package microservice.micronoticias.application.core.usecase;
 
 import microservice.micronoticias.adapter.out.EditoriaSalvarAdapter;
+import microservice.micronoticias.config.exception.http_409.RuleWithProhibitedNullValueException;
 import microservice.micronoticias.config.exception.http_500.EditoriaCriarUseCaseException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -31,6 +32,13 @@ class EditoriaCriarUseCaseUnitTest {
         Executable acao = () -> this.editoriaCriarUseCase.criar(null);
         Assertions.assertThrows(EditoriaCriarUseCaseException.class, acao);
         Mockito.verifyNoInteractions(editoriaSalvarAdapter);
+    }
+
+    @Test
+    @DisplayName("callBusinessRules null")
+    void dadoNullParaCallBusinessRules_QuandoChamar_EntaoLancarException() {
+        Executable acao = () -> this.editoriaCriarUseCase.callBusinessRules(null);
+        Assertions.assertThrows(RuleWithProhibitedNullValueException.class, acao);
     }
 }
 

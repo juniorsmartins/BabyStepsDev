@@ -1,4 +1,4 @@
-package microservice.micronoticias.adapter;
+package microservice.micronoticias.adapter.out;
 
 import microservice.micronoticias.adapter.out.repository.EditoriaRepository;
 import microservice.micronoticias.adapter.out.repository.NoticiaRepository;

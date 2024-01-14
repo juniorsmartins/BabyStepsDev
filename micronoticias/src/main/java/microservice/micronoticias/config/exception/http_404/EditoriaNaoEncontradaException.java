@@ -1,7 +1,5 @@
 package microservice.micronoticias.config.exception.http_404;
 
-import microservice.micronoticias.config.exception.http_404.RecursoNaoEncontradoException;
-
 import java.io.Serial;
 
 public final class EditoriaNaoEncontradaException extends RecursoNaoEncontradoException {
@@ -9,8 +7,8 @@ public final class EditoriaNaoEncontradaException extends RecursoNaoEncontradoEx
   @Serial
   private static final long serialVersionUID = 1L;
 
-  public EditoriaNaoEncontradaException(String mensagem) {
-    super(mensagem);
+  public EditoriaNaoEncontradaException(String nomenclatura) {
+    super(String.format("A Editoria %s não foi encontrada.", nomenclatura));
   }
 
   public EditoriaNaoEncontradaException(Long id) {

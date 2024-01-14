@@ -22,7 +22,7 @@ class RuleNoticiaUnicaIntegrationTest {
     private final FactoryObjectMother factory = FactoryObjectMother.singleton();
 
     @Autowired
-    private RuleNoticiaUnica ruleNoticiaUnica;
+    private RuleNoticiaUnicaToCreateNews ruleNoticiaUnica;
 
     @Autowired
     private NoticiaRepository noticiaRepository;
