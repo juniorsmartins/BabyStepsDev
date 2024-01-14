@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.net.URI;
 import java.util.Optional;
 
-@Tag(name = "Editorias", description = "Contém os recursos de Cadastrar, Pesquisar, Atualizar e Deletar.")
+@Tag(name = "Editorias", description = "Contém os recursos de Cadastrar, Listar e Deletar.")
 @Slf4j
 @RestController
 @RequestMapping(path = "/api/v1/editorias")

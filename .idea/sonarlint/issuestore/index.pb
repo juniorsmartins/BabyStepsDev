@@ -141,8 +141,6 @@ hmicronoticias/src/test/java/microservice/micronoticias/adapter/in/dto/request/E
 imicronoticias/src/main/java/microservice/micronoticias/application/port/input/EditoriaCriarInputPort.java,f/0/f06a2538d86ee48d27a94fa51a51ba155adac291
 ô
 imicronoticias/src/main/java/microservice/micronoticias/application/core/usecase/EditoriaCriarUseCase.java,f/a/fa39659c87ef971ec5c3851b08bb1a558cb039e9
-õ
-kmicronoticias/src/main/java/microservice/micronoticias/application/port/output/EditoriaCriarOutputPort.java,e/0/e01d456ec8556e7813ef26a9a2868f64fa44b53f
 ç
 ]micronoticias/src/main/java/microservice/micronoticias/config/bean/EditoriaUseCaseConfig.java,5/0/5017c18456c60d2ccf8d3669f7b5c0c215dd4615
 ç
@@ -153,3 +151,15 @@ lmicronoticias/src/main/java/microservice/micronoticias/application/port/output/
 `micronoticias/src/main/java/microservice/micronoticias/adapter/out/mapper/EditoriaMapperOut.java,5/4/54a50fe76714e075ae0635de2370dbfb70e4d0fb
 î
 dmicronoticias/src/main/java/microservice/micronoticias/adapter/out/mapper/EditoriaMapperOutImpl.java,2/5/25637550aadc522c71552b393d3e929d09069c48
+°
+qmicronoticias/src/test/java/microservice/micronoticias/application/core/usecase/EditoriaCriarUseCaseUnitTest.java,3/c/3cc1f994355a2d78f775ae2c21a2518fdb079b1d
+£
+smicronoticias/src/main/java/microservice/micronoticias/config/exception/http_500/EditoriaCriarUseCaseException.java,e/8/e817179e9e4cea98b64fa1840066bd6c209d7a9d
+§
+tmicronoticias/src/main/java/microservice/micronoticias/config/exception/http_500/EditoriaSalvarAdapterException.java,a/1/a1da49acd3bda05e75d02aeb8f120348bd7f299b
+ï
+emicronoticias/src/test/java/microservice/micronoticias/adapter/out/EditoriaSalvarAdapterUnitTest.java,d/7/d77d4dfbe6b641f876fe032c466e9fc7b463cc03
+§
+tmicronoticias/src/main/java/microservice/micronoticias/config/exception/http_500/EditoriaMapperOutImplException.java,0/9/091452d832c851016c69090a3f9adc4b3f08bf8d
+ú
+lmicronoticias/src/test/java/microservice/micronoticias/adapter/out/mapper/EditoriaMapperOutImplUnitTest.java,0/e/0e59af3208a97e3bfa3dd3519fb24573f1cdcb53

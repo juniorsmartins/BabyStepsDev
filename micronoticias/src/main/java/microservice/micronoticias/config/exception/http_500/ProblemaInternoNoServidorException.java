@@ -2,7 +2,8 @@ package microservice.micronoticias.config.exception.http_500;
 
 import java.io.Serial;
 
-public abstract class ProblemaInternoNoServidorException extends RuntimeException {
+public abstract sealed class ProblemaInternoNoServidorException extends RuntimeException
+  permits EditoriaCriarUseCaseException, EditoriaSalvarAdapterException, EditoriaMapperOutImplException {
 
   @Serial
   private static final long serialVersionUID = 1L;

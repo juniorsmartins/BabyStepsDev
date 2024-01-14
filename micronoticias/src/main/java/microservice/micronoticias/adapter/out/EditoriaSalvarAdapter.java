@@ -6,6 +6,7 @@ import microservice.micronoticias.adapter.out.mapper.EditoriaMapperOut;
 import microservice.micronoticias.adapter.out.repository.EditoriaRepository;
 import microservice.micronoticias.application.core.domain.Editoria;
 import microservice.micronoticias.application.port.output.EditoriaSalvarOutputPort;
+import microservice.micronoticias.config.exception.http_500.EditoriaSalvarAdapterException;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -30,7 +31,7 @@ public class EditoriaSalvarAdapter implements EditoriaSalvarOutputPort {
             .map(this.mapperOut::toEditoriaEntity)
             .map(this.editoriaRepository::save)
             .map(this.mapperOut::toEditoria)
-            .orElseThrow();
+            .orElseThrow(EditoriaSalvarAdapterException::new);
 
         log.info("Finalizado adaptador para salvar Editoria, com nomenclatura: {}.", editoria.getNomenclatura());
 
