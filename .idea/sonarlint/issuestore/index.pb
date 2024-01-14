@@ -169,3 +169,5 @@ rmicronoticias/src/main/java/microservice/micronoticias/config/exception/http_50
 pmicronoticias/src/test/java/microservice/micronoticias/application/core/usecase/NoticiaCriarUseCaseUnitTest.java,9/6/961518f71f710cee01330e17e79972f0af73d4f3
 ¤
 tmicronoticias/src/main/java/microservice/micronoticias/application/core/usecase/regras/RuleStrategyToCreateNews.java,6/e/6e7dec1f58ffdb618ef10234bbe6678e27e5d0da
+£
+smicronoticias/src/main/java/microservice/micronoticias/config/exception/http_500/NoticiaSalvarAdapterException.java,1/b/1b79a3ce2cee2c035bce2fa2f9ffcf4cf895ec60
