@@ -25,8 +25,6 @@ C
 Zmicrousuarios/src/main/java/microservice/microusuarios/application/core/domain/Pessoa.java,8/8/88cd4c8615681d21f9d0c6225d6b98d4c49a3202
 Œ
 \micronoticias/src/main/java/microservice/micronoticias/adapter/out/entity/NoticiaEntity.java,c/3/c32441789339a5834f8a984764a2601b6ff99dbb
-ˆ
-Xmicronoticias/src/main/java/microservice/micronoticias/adapter/NoticiaSalvarAdapter.java,6/a/6aa4551e0bcfdaa56c7179452930480797667dde
 ”
 dmicronoticias/src/main/java/microservice/micronoticias/adapter/out/repository/NoticiaRepository.java,9/a/9a3d20fb41eaf2e1c35e12f040a71f683710dc8a
 L
@@ -111,16 +109,8 @@ gmicronoticias/src/main/java/microservice/micronoticias/adapter/in/dto/response/
 ^micronoticias/src/main/java/microservice/micronoticias/adapter/in/mapper/EditoriaMapperIn.java,1/3/138dab4c5507398787bf0984a3256e992e596366
 ¤
 tmicronoticias/src/main/java/microservice/micronoticias/config/exception/http_404/EditoriaNaoEncontradaException.java,d/2/d2badd39c0b8045b961e983958eefe0bc98fed65
-—
-gmicronoticias/src/test/java/microservice/micronoticias/adapter/NoticiaSalvarAdapterIntegrationTest.java,e/7/e7d3802d13bcf3da628aa75fbb91a84caa7e333f
 £
 smicronoticias/src/main/java/microservice/micronoticias/config/exception/http_409/NomenclaturaNaoUnicaException.java,4/0/40e2c0f5266fb4eed00061067e16196b032a6cc1
-«
-{micronoticias/src/main/java/microservice/micronoticias/application/core/usecase/regras/RuleNomenclaturaUnicaDeEditoria.java,d/1/d1468ab86db03f43cabb9c260073ceadd0519de5
-œ
-lmicronoticias/src/main/java/microservice/micronoticias/application/core/usecase/regras/RuleNoticiaUnica.java,0/b/0be55e62dc1659e1a0ac735117422c4d14a62cec
-˜
-hmicronoticias/src/main/java/microservice/micronoticias/application/core/usecase/regras/RuleStrategy.java,2/c/2cdd69f1e5e546a40bd1b1e1ee34d467db946017
 ‹
 [micronoticias/src/main/java/microservice/micronoticias/config/bean/BusinessRulesConfig.java,c/1/c11bd75adf4e26f866a23fcc11b8c352698015ba
 ª
@@ -157,8 +147,6 @@ qmicronoticias/src/test/java/microservice/micronoticias/application/core/usecase
 smicronoticias/src/main/java/microservice/micronoticias/config/exception/http_500/EditoriaCriarUseCaseException.java,e/8/e817179e9e4cea98b64fa1840066bd6c209d7a9d
 ¤
 tmicronoticias/src/main/java/microservice/micronoticias/config/exception/http_500/EditoriaSalvarAdapterException.java,a/1/a1da49acd3bda05e75d02aeb8f120348bd7f299b
-•
-emicronoticias/src/test/java/microservice/micronoticias/adapter/out/EditoriaSalvarAdapterUnitTest.java,d/7/d77d4dfbe6b641f876fe032c466e9fc7b463cc03
 ¤
 tmicronoticias/src/main/java/microservice/micronoticias/config/exception/http_500/EditoriaMapperOutImplException.java,0/9/091452d832c851016c69090a3f9adc4b3f08bf8d
 œ
