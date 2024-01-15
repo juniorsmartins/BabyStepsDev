@@ -33,7 +33,7 @@ public class EditoriaSalvarAdapter implements EditoriaSalvarOutputPort {
             .map(this.mapperOut::toEditoria)
             .orElseThrow(EditoriaSalvarAdapterException::new);
 
-        log.info("Finalizado adaptador para salvar Editoria, com nomenclatura: {}.", editoria.getNomenclatura());
+        log.info("Finalizado adaptador para salvar Editoria, com nomenclatura: {}.", resposta.getNomenclatura());
 
         return resposta;
     }
