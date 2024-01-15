@@ -25,7 +25,7 @@ public class EditoriaSalvarAdapter implements EditoriaSalvarOutputPort {
     @Override
     public Editoria salvar(Editoria editoria) {
 
-        log.info("Iniciado adaptador para salvar Editoria, com nomenclatura: {}.", editoria.getNomenclatura());
+        log.info("Iniciado adaptador para salvar Editoria.");
 
         var resposta = Optional.of(editoria)
             .map(this.mapperOut::toEditoriaEntity)
