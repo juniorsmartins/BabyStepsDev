@@ -34,7 +34,7 @@ public class NoticiaSalvarAdapter implements NoticiaSalvarOutputPort {
     @Override
     public Noticia salvar(Noticia noticia) {
 
-        log.info("Iniciado adaptador para salvar Notícia, com título: {}.", noticia.getTitulo());
+        log.info("Iniciado adaptador para salvar Notícia.");
 
         var noticiaSalva = Optional.of(noticia)
             .map(this.mapperOut::toNoticiaEntity)

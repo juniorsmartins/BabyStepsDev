@@ -59,7 +59,7 @@ public class NoticiaController {
         @Parameter(name = "NoticiaCriarDtoIn", description = "Objeto para Transporte de Dados de entrada.", required = true)
         @RequestBody @Valid NoticiaCriarDtoIn criarDtoIn) {
 
-        log.info("Recebida requisição para criar Notícia: {}", criarDtoIn.titulo());
+        log.info("Recebida requisição para criar Notícia.");
 
         var resposta = Optional.of(criarDtoIn)
             .map(this.mapperIn::toNoticia)

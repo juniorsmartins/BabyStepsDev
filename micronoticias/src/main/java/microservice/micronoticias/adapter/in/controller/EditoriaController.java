@@ -60,7 +60,7 @@ public class EditoriaController {
         @Parameter(name = "EditoriaCriarDtoIn", description = "Objeto para Transporte de Dados de entrada.", required = true)
         @RequestBody @Valid EditoriaCriarDtoIn criarDtoIn) {
 
-        log.info("Recebida requisição para criar Editoria: {}", criarDtoIn.nomenclatura());
+        log.info("Recebida requisição para criar Editoria.");
 
         var resposta = Optional.of(criarDtoIn)
             .map(this.mapperIn::toEditoria)

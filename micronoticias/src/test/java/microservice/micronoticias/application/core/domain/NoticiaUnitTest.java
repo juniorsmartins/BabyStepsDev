@@ -80,8 +80,8 @@ class NoticiaUnitTest {
 
         @ParameterizedTest
         @ValueSource(strings = {
-                "19 a1b2c3d4e5f6g7h8",
-                "151 TestarLimiteMaximoDeCaracteresParaTitulo TestarLimiteMaximoDeCaracteresParaTitulo TestarLimiteMaximoDeCaracteresParaTitulo TestarLimiteMaximoDeCara"
+            "19 a1b2c3d4e5f6g7h8",
+            "151 TestarLimiteMaximoDeCaracteresParaTitulo TestarLimiteMaximoDeCaracteresParaTitulo TestarLimiteMaximoDeCaracteresParaTitulo TestarLimiteMaximoDeCara"
         })
         @DisplayName("tamanho inválido")
         void dadoTituloMaiorOuMenorQueLimites_QuandoSettar_EntaoLancarException(String valor) {
@@ -187,6 +187,13 @@ class NoticiaUnitTest {
     @DisplayName("Autorias")
     class Autorias {
 
+        @Test
+        @DisplayName("null")
+        void dadoAutoriasNull_QuandoSettar_EntaoLancarException() {
+            noticia.setAutorias(null);
+            Assertions.assertNull(noticia.getAutorias());
+        }
+
         @ParameterizedTest
         @ValueSource(strings = {"", "   "})
         @DisplayName("vazio ou em branco")
@@ -212,6 +219,13 @@ class NoticiaUnitTest {
     @Nested
     @DisplayName("Fontes")
     class Fontes {
+
+        @Test
+        @DisplayName("null")
+        void dadoFontesNull_QuandoSettar_EntaoLancarException() {
+            noticia.setFontes(null);
+            Assertions.assertNull(noticia.getFontes());
+        }
 
         @ParameterizedTest
         @ValueSource(strings = {"", "   "})
