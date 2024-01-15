@@ -37,7 +37,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(value = AccessDeniedException.class)
     public ResponseEntity<Object> tratarAccessDenied(AccessDeniedException ex, WebRequest webRequest) {
 
-        log.error("Error {}", ex.getMessage(), ex);
+        log.error("Error: {}", ex.getMessage(), ex);
 
         var tipoErrorEnum = TipoErrorEnum.USUARIO_NAO_AUTORIZADO;
         var httpStatus = HttpStatus.FORBIDDEN;
@@ -53,7 +53,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(value = RequisicaoMalFormuladaException.class)
     public ResponseEntity<Object> tratarRequisicaoMalFormulada(RequisicaoMalFormuladaException ex, WebRequest webRequest) {
 
-        log.error("Error {}", ex.getMessage(), ex);
+        log.error("Error: {}", ex.getMessage(), ex);
 
         var tipoErroEnum = TipoErrorEnum.REQUISICAO_MAL_FORMULADA;
         var httpStatus = HttpStatus.BAD_REQUEST;
@@ -69,7 +69,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(value = RecursoNaoEncontradoException.class)
     public ResponseEntity<Object> tratarRecursoNaoEncontrado(RecursoNaoEncontradoException ex, WebRequest webRequest) {
 
-        log.error("Error {}", ex.getMessage(), ex);
+        log.error("Error: {}", ex.getMessage(), ex);
 
         var tipoErroEnum = TipoErrorEnum.RECURSO_NAO_ENCONTRADO;
         var httpStatus = HttpStatus.NOT_FOUND;
@@ -85,7 +85,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(value = ProblemaInternoNoServidorException.class)
     public ResponseEntity<Object> tratarProblemaInterno(ProblemaInternoNoServidorException ex, WebRequest webRequest) {
 
-        log.error("Error {}", ex.getMessage(), ex);
+        log.error("Error: {}", ex.getMessage(), ex);
 
         var tipoErroEnum = TipoErrorEnum.PROBLEMA_INTERNO_NO_SERVIDOR;
         var httpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
@@ -100,7 +100,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(value = NoSuchElementException.class)
     public ResponseEntity<Object> tratarNoSuchElement(NoSuchElementException ex, WebRequest webRequest) {
 
-        log.error("Error {}", ex.getMessage(), ex);
+        log.error("Error: {}", ex.getMessage(), ex);
 
         var tipoErroEnum = TipoErrorEnum.VALOR_NULO_PROIBIDO;
         var httpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
@@ -115,7 +115,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(value = NullPointerException.class)
     public ResponseEntity<Object> tratarNullPointer(NullPointerException ex, WebRequest webRequest) {
 
-        log.error("Error {}", ex.getMessage(), ex);
+        log.error("Error: {}", ex.getMessage(), ex);
 
         var tipoErroEnum = TipoErrorEnum.VALOR_NULO_PROIBIDO;
         var httpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
@@ -136,7 +136,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
                                                                   HttpHeaders headers,
                                                                   HttpStatusCode status,
                                                                   WebRequest request) {
-        log.error("Error {}", ex.getMessage(), ex);
+        log.error("Error: {}", ex.getMessage(), ex);
 
         return this.construirResponseComMensagemDeErros(ex, ex.getBindingResult(),
                 new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
@@ -198,7 +198,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     protected ResponseEntity<Object> handleExceptionInternal(
             Exception ex, Object body, HttpHeaders headers, HttpStatusCode statusCode, WebRequest webRequest) {
 
-        log.error("Error {}", ex.getMessage(), ex);
+        log.error("Error: {}", ex.getMessage(), ex);
 
         if (body == null) {
             body = ApiError.builder()

@@ -7,10 +7,14 @@ import microservice.micronoticias.application.port.output.EditoriaSalvarOutputPo
 import microservice.micronoticias.config.exception.http_409.NomenclaturaNaoUnicaException;
 import microservice.micronoticias.config.exception.http_409.RuleWithProhibitedNullValueException;
 import microservice.micronoticias.config.exception.http_500.EditoriaCriarUseCaseException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Optional;
 
 public class EditoriaCriarUseCase implements EditoriaCriarInputPort {
+
+    private static final Logger log = LoggerFactory.getLogger(EditoriaCriarUseCase.class);
 
     private final EditoriaSalvarOutputPort editoriaSalvarOutputPort;
 
@@ -25,10 +29,16 @@ public class EditoriaCriarUseCase implements EditoriaCriarInputPort {
     @Override
     public Editoria criar(Editoria editoria) {
 
-        return Optional.ofNullable(editoria)
+        log.info("Iniciado serviço para cadastrar nova Editoria.");
+
+        var resposta = Optional.ofNullable(editoria)
             .map(this::callBusinessRules)
             .map(this.editoriaSalvarOutputPort::salvar)
             .orElseThrow(EditoriaCriarUseCaseException::new);
+
+        log.info("Finalizado serviço para cadastrar nova Editoria, com nomenclatura: {}.", resposta.getNomenclatura());
+
+        return resposta;
     }
 
     public Editoria callBusinessRules(Editoria editoria) {
@@ -40,7 +50,7 @@ public class EditoriaCriarUseCase implements EditoriaCriarInputPort {
                     throw new NomenclaturaNaoUnicaException(edit.getNomenclatura());
                 }
             },
-            () -> {throw new RuleWithProhibitedNullValueException("NomenclaturaÚnicaDeEditoria");}
+            () -> {throw new RuleWithProhibitedNullValueException("NomenclaturaUnicaDeEditoria");}
         );
 
         return editoria;
