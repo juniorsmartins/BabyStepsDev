@@ -175,5 +175,3 @@ kmicronoticias/src/test/java/microservice/micronoticias/adapter/out/NoticiaSalva
 xmicronoticias/src/test/java/microservice/micronoticias/application/core/usecase/EditoriaCriarUseCaseIntegrationTest.java,d/6/d6234ce7c879aee07e7754e0b82afe6a38828737
 ”
 dmicronoticias/src/test/java/microservice/micronoticias/adapter/out/entity/NoticiaEntityUnitTest.java,9/c/9c818f93b4aefd6b51c4b7d7f5fb246fb9ce11b3
-”
-dmicronoticias/src/test/java/microservice/micronoticias/adapter/out/NoticiaSalvarAdapterUnitTest.java,b/e/be36a8161a75ab5a87a0d94d5349f65518b95d36
