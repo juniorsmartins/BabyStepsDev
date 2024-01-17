@@ -63,15 +63,17 @@ services:
   jenkins:
     container_name: jenkins
 #    image: jenkins/jenkins:lts
-    build:
-      context: ./
-      dockerfile: ./Dockerfile
+    image: jenkins/jenkins:lts-jdk21
+#    build:
+#      context: ./
+#      dockerfile: ./Dockerfile
     privileged: true
     user: root
     environment:
       - DOCKER_HOST=tcp://docker:2376
       - DOCKER_CERT_PATH=/certs/client
       - DOCKER_TLS_VERIFY=1
+      - JENKINS_HOME=/var/jenkins_home
       - JAVA_OPTS=-Djava.util.logging.config.file=/var/jenkins_home/log.properties -Djenkins.install.runSetupWizard=false
       - JAVA_HOME=/usr/local/openjdk-21
     #      - JAVA_HOME=/usr/lib/jvm/jdk-21-oracle-x64
@@ -79,8 +81,10 @@ services:
       - "9090:8080"
       - "50000:50000"
     volumes:
-      - jenkins-docker-certs:/certs/client:ro
-      - ./jenkins_home:/var/jenkins_home
+      - /var/jenkins/caches:/var/jenkins/caches
+      - /var/jenkins_home:/var/jenkins_home
+#      - jenkins-docker-certs:/certs/client:ro
+#      - ./jenkins_home:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock
     networks:
       - jenkinsnet
@@ -90,11 +94,11 @@ volumes:
     name: data-mysql
   data-postgres:
     name: data-postgres
-  jenkins_home:
-    name: jenkins_home
+#  jenkins_home:
+#    name: jenkins_home
 #    driver: local
-  jenkins-docker-certs:
-    name: jenkins-docker-certs
+#  jenkins-docker-certs:
+#    name: jenkins-docker-certs
 
 networks:
   babystepsnet:
