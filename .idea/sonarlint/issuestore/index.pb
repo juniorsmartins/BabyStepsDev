@@ -177,3 +177,6 @@ xmicronoticias/src/test/java/microservice/micronoticias/application/core/usecase
 dmicronoticias/src/test/java/microservice/micronoticias/adapter/out/entity/NoticiaEntityUnitTest.java,9/c/9c818f93b4aefd6b51c4b7d7f5fb246fb9ce11b3
 ”
 dmicronoticias/src/test/java/microservice/micronoticias/adapter/out/NoticiaSalvarAdapterUnitTest.java,b/e/be36a8161a75ab5a87a0d94d5349f65518b95d36
+:
+
+.gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
