@@ -5,9 +5,6 @@ pipeline {
         MAVEN_HOME = tool 'MAVEN'
         PATH = "$MAVEN_HOME/bin:$PATH"
     }
-//     environment {
-//         JAVA_HOME = '/usr/local/openjdk-21'
-//     }
 
     tools {
         git 'Git'
@@ -19,8 +16,8 @@ pipeline {
                 echo "Java VERSION"
                 sh 'java -version'
 
-//                 echo "Maven VERSION"
-//                 sh 'mvn -version'
+                echo "Maven VERSION"
+                sh 'mvn -version'
 
                 echo "Git VERSION"
                 sh 'git --version'
@@ -35,7 +32,6 @@ pipeline {
         stage('Build Maven Project') {
             steps {
                 echo 'limpando e construíndo projeto'
-//                 sh 'mvn clean install'
                 sh 'mvn clean install -Dmaven.home=MAVEN'
             }
         }
