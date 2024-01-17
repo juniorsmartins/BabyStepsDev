@@ -10,8 +10,8 @@ pipeline {
                 echo "Java VERSION"
                 sh 'java -version'
 
-                echo "Maven VERSION"
-                sh 'mvn -version'
+//                 echo "Maven VERSION"
+//                 sh 'mvn -version'
 
                 echo "Git VERSION"
                 sh 'git --version'
