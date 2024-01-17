@@ -20,7 +20,7 @@ pipeline {
         stage('Clone Repository') {
             steps {
                 echo 'clonando repositório...'
-//                 checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'ad0a0b0c-4025-495d-ab95-98bef81e09a3', url: 'https://github.com/juniorsmartins/site']])
+                checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: '2699083d-6c9c-44d5-81c8-c7466c08e54f', url: 'https://github.com/juniorsmartins/site']])
             }
         }
         stage('Build Maven Project') {
