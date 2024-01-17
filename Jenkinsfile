@@ -34,13 +34,6 @@ pipeline {
                 echo 'rodando testes automatizados'
                 sh 'mvn test'
             }
-            post {
-                failure {
-                    mail to: 'juniorsoaresmartins@gmail.com',
-                        subject: 'A pipeline falhou! Verifique os testes automatizados.',
-                        body: 'Falha nos testes automatizados'
-                }
-            }
         }
     }
 }
