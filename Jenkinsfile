@@ -26,7 +26,8 @@ pipeline {
         stage('Build Maven Project') {
             steps {
                 echo 'limpando e construíndo projeto'
-                sh 'mvn clean install'
+//                 sh 'mvn clean install'
+                sh 'mvn clean install -Dmaven.home=MAVEN'
             }
         }
         stage('Tests') {
