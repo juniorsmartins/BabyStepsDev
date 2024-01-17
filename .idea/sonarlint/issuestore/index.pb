@@ -14,3 +14,5 @@ B
 micronoticias/.env,9/e/9ef152560b269bb9b414cb54ee1566ce2d75ef56
 B
 microusuarios/.env,c/a/ca04359b703b59af60c905a8003d1e79249526da
+<
+settings.xml,1/d/1d784fce58c3719506730fb9749600554125b511

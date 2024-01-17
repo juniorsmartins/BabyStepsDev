@@ -70,11 +70,11 @@ services:
       - "50000:50000"
     volumes:
       - ./jenkins_home:/var/jenkins_home
-#      - /usr/bin/docker:/usr/bin/docker
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
       - JAVA_OPTS=-Djava.util.logging.config.file=/var/jenkins_home/log.properties -Djenkins.install.runSetupWizard=false
       - JAVA_HOME=/usr/local/openjdk-21
+#      - JAVA_HOME=/usr/lib/jvm/jdk-21-oracle-x64
     networks:
       - jenkinsnet
 
