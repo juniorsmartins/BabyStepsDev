@@ -1,9 +1,9 @@
 pipeline {
     agent any
 
-    environment {
-        JAVA_HOME = '/usr/local/openjdk-21'
-    }
+//     environment {
+//         JAVA_HOME = '/usr/local/openjdk-21'
+//     }
     stages{
         stage('Versões') {
             steps {
