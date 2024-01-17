@@ -1,9 +1,5 @@
 pipeline {
-    agent {
-        docker {
-            image 'maven:3.9.6-eclipse-temurin-21'
-        }
-    }
+    agent any
     stages{
         stage('Versões') {
             steps {
