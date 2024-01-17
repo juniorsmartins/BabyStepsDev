@@ -13,7 +13,7 @@ services:
       - data-mysql:/var/lib/mysql
     restart: always
     networks:
-      - netesporte
+      - babystepsnet
 
   postgres16micronoticias:
     container_name: postgres16micronoticias
@@ -27,7 +27,7 @@ services:
       - data-postgres:/var/lib/postgresql/data
     restart: always
     networks:
-      - netesporte
+      - babystepsnet
 
   microusuarios:
     container_name: microusuarios
@@ -35,10 +35,11 @@ services:
       context: ./
       dockerfile: ./microusuarios/Dockerfile
     ports:
-      - "8002:8002"
-    env_file: ./microusuarios/.env
+      - "8001:8001"
+    env_file:
+      - ./microusuarios/.env
     networks:
-      - netesporte
+      - babystepsnet
     depends_on:
       - mysql8microusuarios
     restart: always
@@ -49,23 +50,44 @@ services:
       context: ./
       dockerfile: ./micronoticias/Dockerfile
     ports:
-      - "8001:8001"
-    env_file: ./micronoticias/.env
+      - "8002:8002"
+    env_file:
+      - ./micronoticias/.env
     networks:
-      - netesporte
+      - babystepsnet
     depends_on:
       - postgres16micronoticias
       - microusuarios
     restart: always
 
+  jenkins:
+    container_name: jenkins
+    user: root
+    image: jenkins/jenkins:lts
+    ports:
+      - "9090:8080"
+    volumes:
+      - ./jenkins_home:/var/jenkins_home
+#      - /usr/bin/docker:/usr/bin/docker
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - JAVA_OPTS=-Djava.util.logging.config.file=/var/jenkins_home/log.properties -Djenkins.install.runSetupWizard=false
+      - JAVA_HOME=/usr/local/openjdk-21
+    networks:
+      - jenkinsnet
 
 volumes:
   data-mysql:
     name: data-mysql
   data-postgres:
     name: data-postgres
+  jenkins_home:
+    name: jenkins_home
+#    driver: local
 
 networks:
-  netesporte:
-    name: netesporte
-
+  babystepsnet:
+    name: babystepsnet
+  jenkinsnet:
+    name: jenkinsnet
+    driver: bridge
