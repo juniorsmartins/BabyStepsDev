@@ -62,16 +62,16 @@ services:
 
   jenkins:
     container_name: jenkins
-    user: jenkins
+    user: root
     image: jenkins/jenkins:lts
     ports:
       - "9090:8080"
     volumes:
-      - ./jenkins:/var/jenkins
+      - ./jenkins_home:/var/jenkins_home
 #      - /usr/bin/docker:/usr/bin/docker
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
-      - JAVA_OPTS=-Djava.util.logging.config.file=/var/jenkins/log.properties -Djenkins.install.runSetupWizard=false
+      - JAVA_OPTS=-Djava.util.logging.config.file=/var/jenkins_home/log.properties -Djenkins.install.runSetupWizard=false
       - JAVA_HOME=/usr/local/openjdk-21
     networks:
       - jenkinsnet
@@ -82,7 +82,8 @@ volumes:
   data-postgres:
     name: data-postgres
   jenkins_home:
-    name: jenkins
+    name: jenkins_home
+#    driver: local
 
 networks:
   babystepsnet:

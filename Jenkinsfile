@@ -1,42 +1,37 @@
 pipeline {
-    agent any
-
-    tools {
-        maven 'mvn'
+    agent {
+        docker {
+            image 'maven:3.9.6-eclipse-temurin-21'
+        }
     }
-
-    stages {
-        stage('Checkout') {
+    stages{
+        stage('Versões') {
             steps {
-                echo 'Fase de verificação'
-                checkout scm
-
                 echo "Java VERSION"
                 sh 'java -version'
 
                 echo "Maven VERSION"
                 sh 'mvn -version'
+
+                echo "Git VERSION"
+                sh 'git --version'
             }
         }
-
-        stage('Pull Configurations') {
+        stage('Clone Repository') {
             steps {
-                echo 'Fase de configuração'
-
-             }
+                echo 'clonando repositório...'
+                checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'e426aa02-6bce-4e47-9792-89f0655ed2c2', url: 'https://github.com/juniorsmartins/site']])
+            }
         }
-
-        stage('Build') {
+        stage('Build Maven Project') {
             steps {
-                echo 'Fase de construção'
-                git branch: 'master', url: 'https://github.com/juniorsmartins/site.git'
+                echo 'limpando e construíndo projeto'
                 sh 'mvn clean install'
             }
         }
-
-        stage('Test') {
+        stage('Tests') {
             steps {
-                echo 'Fase de teste'
+                echo 'rodando testes automatizados'
                 sh 'mvn test'
             }
             post {
@@ -45,17 +40,6 @@ pipeline {
                         subject: 'A pipeline falhou! Verifique os testes automatizados.',
                         body: 'Falha nos testes automatizados'
                 }
-            }
-        }
-
-        stage('Deploy') {
-            when {
-              expression {
-                currentBuild.result == null || currentBuild.result == 'SUCCESS'
-              }
-            }
-            steps {
-                echo 'Deploying....'
             }
         }
     }
