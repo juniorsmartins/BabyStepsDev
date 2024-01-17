@@ -1,9 +1,18 @@
 pipeline {
     agent any
 
+    environment {
+        MAVEN_HOME = tool 'MAVEN'
+        PATH = "$MAVEN_HOME/bin:$PATH"
+    }
 //     environment {
 //         JAVA_HOME = '/usr/local/openjdk-21'
 //     }
+
+    tools {
+        git 'Git'
+    }
+
     stages{
         stage('Versões') {
             steps {
