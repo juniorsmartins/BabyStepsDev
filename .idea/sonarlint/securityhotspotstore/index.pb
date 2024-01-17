@@ -27,8 +27,6 @@ Zmicrousuarios/src/main/java/microservice/microusuarios/application/core/domain/
 \micronoticias/src/main/java/microservice/micronoticias/adapter/out/entity/NoticiaEntity.java,c/3/c32441789339a5834f8a984764a2601b6ff99dbb
 ”
 dmicronoticias/src/main/java/microservice/micronoticias/adapter/out/repository/NoticiaRepository.java,9/a/9a3d20fb41eaf2e1c35e12f040a71f683710dc8a
-L
-.github/workflows/master.yml,0/9/09f57d3ecc595c66500ce7764c10265fac3ad915
 ‰
 Ymicronoticias/src/test/java/microservice/micronoticias/MicronoticiasApplicationTests.java,2/7/27de27d3f5602268de377af068152870adde3df5
 £
@@ -177,3 +175,10 @@ xmicronoticias/src/test/java/microservice/micronoticias/application/core/usecase
 dmicronoticias/src/test/java/microservice/micronoticias/adapter/out/entity/NoticiaEntityUnitTest.java,9/c/9c818f93b4aefd6b51c4b7d7f5fb246fb9ce11b3
 ;
 Jenkinsfile,0/c/0c2c5c506cef0ed2d3ad2b7e45e97980b66f5520
+G
+jenkins_home/secret.key,b/5/b503068dbd08f41d85ad2458ebb84d568e1ecc47
+J
+jenkins_home/queue.xml.bak,d/8/d840da9f12c24a665dacef05f1b93540e9c344db
+:
+
+.gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
