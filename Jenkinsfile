@@ -23,7 +23,7 @@ pipeline {
                 sh 'git --version'
             }
         }
-        stage('2 - Clonar projeto no repositório GitHub') {
+        stage('2 - Clonar projeto do GitHub') {
             steps {
                 echo 'clonando repositório...'
                 checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: '2699083d-6c9c-44d5-81c8-c7466c08e54f', url: 'https://github.com/juniorsmartins/site']])
@@ -32,7 +32,8 @@ pipeline {
         stage('3 - Construir projeto Maven') {
             steps {
                 echo 'limpando e construíndo projeto...'
-                sh 'mvn clean install -Dmaven.home=MAVEN'
+//                 sh 'mvn clean install -Dmaven.home=MAVEN'
+                sh 'mvn clean install'
             }
         }
         stage('4 - Rodar tests automatizados') {
