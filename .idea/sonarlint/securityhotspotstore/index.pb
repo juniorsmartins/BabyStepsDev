@@ -19,3 +19,9 @@ B
 :
 
 Dockerfile,6/6/6651ddff6eb82c840ced7c1dddee15c6e1913dd4
+f
+6eurekaserver/src/main/resources/application.properties,7/e/7e9fc3ad88b033adf8a6831407cbbc98c082cbf6
+D
+eurekaserver/pom.xml,6/7/67fb8a88b9284616f5b0d1ee12ee457c4b4d22a2
+E
+micronoticias/pom.xml,8/1/81a82d5500b7046dbc60106277f740ab1db74909
