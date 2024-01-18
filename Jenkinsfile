@@ -60,6 +60,8 @@ pipeline {
     post {
         always {
             echo 'Finalização...'
+//             sh 'docker logout'
+            deleteDir()
             cleanWs()
         }
     }
