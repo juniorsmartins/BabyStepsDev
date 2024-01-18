@@ -11,7 +11,7 @@ pipeline {
     }
 
     stages{
-        stage('Versões') {
+        stage('1 - Declaração de versões') {
             steps {
                 echo "Java VERSION"
                 sh 'java -version'
@@ -23,22 +23,37 @@ pipeline {
                 sh 'git --version'
             }
         }
-        stage('Clone Repository') {
+        stage('2 - Clonar projeto no repositório GitHub') {
             steps {
                 echo 'clonando repositório...'
                 checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: '2699083d-6c9c-44d5-81c8-c7466c08e54f', url: 'https://github.com/juniorsmartins/site']])
             }
         }
-        stage('Build Maven Project') {
+        stage('3 - Construir projeto Maven') {
             steps {
-                echo 'limpando e construíndo projeto'
+                echo 'limpando e construíndo projeto...'
                 sh 'mvn clean install -Dmaven.home=MAVEN'
             }
         }
-        stage('Tests') {
+        stage('4 - Rodar tests automatizados') {
             steps {
-                echo 'rodando testes automatizados'
+                echo 'rodando testes automatizados...'
                 sh 'mvn test'
+            }
+        }
+        stage('5 - Construir imagens Docker') {
+            steps {
+                echo 'construíndo imagens Docker do projeto...'
+            }
+        }
+        stage('6 - Deploy') {
+            steps {
+                echo 'deploy...'
+            }
+        }
+        stage('7 - Atualizar imagens no DockerHub') {
+            steps {
+                echo 'atualizando imagens no DockerHub...'
             }
         }
     }
