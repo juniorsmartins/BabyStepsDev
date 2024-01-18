@@ -32,7 +32,6 @@ pipeline {
         stage('3 - Construir projeto Maven') {
             steps {
                 echo 'limpando e construíndo projeto...'
-//                 sh 'mvn clean install -Dmaven.home=MAVEN'
                 sh 'mvn clean install'
             }
         }
@@ -42,9 +41,9 @@ pipeline {
                 sh 'mvn test'
             }
         }
-        stage('5 - Construir imagens Docker') {
+        stage('5 - Construir imagens Docker e substituir containers') {
             steps {
-                echo 'construíndo imagens Docker do projeto...'
+                echo 'construíndo imagens Docker do projeto e substituíndo containers...'
             }
         }
         stage('6 - Deploy') {
@@ -56,6 +55,12 @@ pipeline {
             steps {
                 echo 'atualizando imagens no DockerHub...'
             }
+        }
+    }
+    post {
+        always {
+            echo 'Finalização...'
+            cleanWs()
         }
     }
 }
