@@ -63,9 +63,6 @@ services:
   jenkins:
     container_name: jenkins
     image: jenkins/jenkins:lts-jdk21
-#    build:
-#      context: ./
-#      dockerfile: ./Dockerfile
     privileged: true
     user: root
     ports:
@@ -94,6 +91,4 @@ volumes:
 networks:
   babystepsnet:
     name: babystepsnet
-#  jenkinsnet:
-#    name: jenkinsnet
-#    driver: bridge
+
