@@ -11,18 +11,18 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import microservice.micronoticias.adapter.in.dto.request.EditoriaCriarDtoIn;
 import microservice.micronoticias.adapter.in.dto.response.EditoriaCriarDtoOut;
+import microservice.micronoticias.adapter.in.dto.response.EditoriaListDtoOut;
 import microservice.micronoticias.adapter.in.dto.response.NoticiaCriarDtoOut;
 import microservice.micronoticias.adapter.in.mapper.EditoriaMapperIn;
 import microservice.micronoticias.application.port.input.EditoriaCriarInputPort;
+import microservice.micronoticias.application.port.input.EditoriaListarInputPort;
 import microservice.micronoticias.config.exception.ApiError;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
+import java.util.List;
 import java.util.Optional;
 
 @Tag(name = "Editorias", description = "Contém os recursos de Cadastrar, Listar, Atualizar e Deletar.")
@@ -33,6 +33,8 @@ import java.util.Optional;
 public class EditoriaController {
 
     private final EditoriaCriarInputPort editoriaCriarInputPort;
+
+    private final EditoriaListarInputPort editoriaListarInputPort;
 
     private final EditoriaMapperIn mapperIn;
 
@@ -73,6 +75,32 @@ public class EditoriaController {
         return ResponseEntity
             .created(URI.create("/api/v1/noticias/" + resposta.id()))
             .body(resposta);
+    }
+
+    @GetMapping(produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+    @Operation(summary = "Listar", description = "Recurso para listar Editorias.",
+        responses = {
+            @ApiResponse(responseCode = "200", description = "Requisição bem sucedida e com retorno.",
+                content = @Content(mediaType = "application/json", schema = @Schema(implementation = EditoriaListDtoOut.class))),
+            @ApiResponse(responseCode = "403", description = "Usuário sem permissão para acessar recurso.",
+                content = @Content(mediaType = "application/json", schema = @Schema(implementation = ApiError.class))),
+            @ApiResponse(responseCode = "500", description = "Situação inesperada no servidor.",
+                content = @Content(mediaType = "application/json", schema = @Schema(implementation = ApiError.class))),
+        })
+    public ResponseEntity<List<EditoriaListDtoOut>> listar() {
+
+        log.info("Requisição recebida para listar Editorias.");
+
+        var response = this.editoriaListarInputPort.listar()
+            .stream()
+            .map(this.mapperIn::toEditoriaListDtoOut)
+            .toList();
+
+        log.info("Editorias listadas com sucesso.");
+
+        return ResponseEntity
+            .ok()
+            .body(response);
     }
 }
 

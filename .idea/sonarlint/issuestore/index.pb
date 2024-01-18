@@ -27,3 +27,13 @@ E
 micronoticias/pom.xml,8/1/81a82d5500b7046dbc60106277f740ab1db74909
 7
 pom.xml,4/4/442292b8a7efeabbe4cc176709b833b1792140ec
+”
+dmicronoticias/src/main/java/microservice/micronoticias/adapter/in/controller/EditoriaController.java,b/f/bf2a66b422aea15269e3c9afe456857371388043
+—
+gmicronoticias/src/main/java/microservice/micronoticias/adapter/in/dto/response/EditoriaCriarDtoOut.java,e/f/efcf0c115bc806188e080b7445336f9449b5e4ee
+–
+fmicronoticias/src/main/java/microservice/micronoticias/adapter/in/dto/response/EditoriaListDtoOut.java,7/6/7671a620e850b72f6a4198048b0c9308728ea0d5
+š
+jmicronoticias/src/main/java/microservice/micronoticias/application/port/input/EditoriaListarInputPort.java,9/8/98fa349921a035b46708ce1740c280e5e218ed7c
+Ž
+^micronoticias/src/main/java/microservice/micronoticias/adapter/in/mapper/EditoriaMapperIn.java,1/3/138dab4c5507398787bf0984a3256e992e596366
