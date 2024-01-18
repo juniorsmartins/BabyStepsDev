@@ -25,3 +25,5 @@ D
 eurekaserver/pom.xml,6/7/67fb8a88b9284616f5b0d1ee12ee457c4b4d22a2
 E
 micronoticias/pom.xml,8/1/81a82d5500b7046dbc60106277f740ab1db74909
+7
+pom.xml,4/4/442292b8a7efeabbe4cc176709b833b1792140ec

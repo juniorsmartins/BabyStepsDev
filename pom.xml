@@ -17,8 +17,9 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>micronoticias</module>
+        <module>eurekaserver</module>
         <module>microusuarios</module>
+        <module>micronoticias</module>
     </modules>
 
     <properties>
