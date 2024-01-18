@@ -31,3 +31,7 @@ E
 Qeurekaserver/src/main/java/microservice/eurekaserver/EurekaserverApplication.java,4/e/4ee10ccb891bc2f2ed4b085169e30ac632f5557a
 E
 microusuarios/pom.xml,d/3/d3aaade5247c194d826623aa8d8c88aec4c1e37f
+„
+Tmicronoticias/src/main/java/microservice/micronoticias/MicronoticiasApplication.java,0/e/0e7412dea629473894d7278def1cbbdcb8d21b52
+„
+Tmicrousuarios/src/main/java/microservice/microusuarios/MicrousuariosApplication.java,b/3/b373d67a2744fca5dc98e96859a1eeddabc1ddc0
