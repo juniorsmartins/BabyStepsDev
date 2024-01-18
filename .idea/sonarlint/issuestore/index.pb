@@ -29,3 +29,5 @@ E
 pom.xml,4/4/442292b8a7efeabbe4cc176709b833b1792140ec
 Å
 Qeurekaserver/src/main/java/microservice/eurekaserver/EurekaserverApplication.java,4/e/4ee10ccb891bc2f2ed4b085169e30ac632f5557a
+E
+microusuarios/pom.xml,d/3/d3aaade5247c194d826623aa8d8c88aec4c1e37f
