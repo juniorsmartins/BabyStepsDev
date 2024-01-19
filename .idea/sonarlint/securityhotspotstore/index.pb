@@ -27,3 +27,9 @@ B
 micronoticias/.env,9/e/9ef152560b269bb9b414cb54ee1566ce2d75ef56
 A
 eurekaserver/.env,8/a/8ae9a500ca5d407da78bae71ce444626207246eb
+B
+gateway/Dockerfile,5/a/5a39717901490093530d8f039ae4bb7d57680f50
+;
+Jenkinsfile,0/c/0c2c5c506cef0ed2d3ad2b7e45e97980b66f5520
+H
+microusuarios/Dockerfile,e/7/e77d6eafc7b402405888dcb51d7954deb9e4e2f6

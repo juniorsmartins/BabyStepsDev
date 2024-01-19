@@ -47,3 +47,5 @@ G
 eurekaserver/Dockerfile,2/b/2b0fbfd6af857f5a7e361a7917ef24fc34511854
 A
 eurekaserver/.env,8/a/8ae9a500ca5d407da78bae71ce444626207246eb
+B
+gateway/Dockerfile,5/a/5a39717901490093530d8f039ae4bb7d57680f50
