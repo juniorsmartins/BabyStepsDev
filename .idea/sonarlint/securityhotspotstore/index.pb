@@ -17,3 +17,13 @@ D
 eurekaserver/pom.xml,6/7/67fb8a88b9284616f5b0d1ee12ee457c4b4d22a2
 Å
 Qeurekaserver/src/main/java/microservice/eurekaserver/EurekaserverApplication.java,4/e/4ee10ccb891bc2f2ed4b085169e30ac632f5557a
+G
+eurekaserver/Dockerfile,2/b/2b0fbfd6af857f5a7e361a7917ef24fc34511854
+H
+micronoticias/Dockerfile,f/2/f253ab5ef34b84b2509e06fc336340e1dc3f54f8
+C
+docker-compose.yaml,e/f/ef8def03dc8f162799089e9b5f4321201c8810d5
+B
+micronoticias/.env,9/e/9ef152560b269bb9b414cb54ee1566ce2d75ef56
+A
+eurekaserver/.env,8/a/8ae9a500ca5d407da78bae71ce444626207246eb

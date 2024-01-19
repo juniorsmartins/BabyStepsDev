@@ -1,6 +1,17 @@
 version: "3.9"
 
 services:
+  eurekaserver:
+    container_name: eurekaserver
+    build:
+      context: ./
+      dockerfile: ./eurekaserver/Dockerfile
+    ports:
+      - "8761:8761"
+    networks:
+      - babystepsnet
+    restart: always
+
   mysql8microusuarios:
     container_name: mysql8microusuarios
     image: mysql:8.0.17

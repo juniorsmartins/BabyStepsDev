@@ -43,3 +43,7 @@ Bgateway/src/main/java/microservice/gateway/GatewayApplication.java,b/6/b695e1f
 cmicronoticias/src/main/java/microservice/micronoticias/adapter/in/controller/NoticiaController.java,7/c/7c618cfe13f7b60ac7d01d675295ce0f5bea372a
 ”
 dmicronoticias/src/main/java/microservice/micronoticias/adapter/in/controller/EditoriaController.java,b/f/bf2a66b422aea15269e3c9afe456857371388043
+G
+eurekaserver/Dockerfile,2/b/2b0fbfd6af857f5a7e361a7917ef24fc34511854
+A
+eurekaserver/.env,8/a/8ae9a500ca5d407da78bae71ce444626207246eb
