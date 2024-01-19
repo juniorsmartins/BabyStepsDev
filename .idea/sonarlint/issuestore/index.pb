@@ -95,3 +95,7 @@ xmicronoticias/src/test/java/microservice/micronoticias/application/core/usecase
 xmicronoticias/src/test/java/microservice/micronoticias/application/core/usecase/EditoriaDeletarPorIdUseCaseUnitTest.java,f/8/f8169dd767f94484177f02ba3f6e808be2659a2e
 ¡
 qmicronoticias/src/test/java/microservice/micronoticias/application/core/usecase/EditoriaCriarUseCaseUnitTest.java,3/c/3cc1f994355a2d78f775ae2c21a2518fdb079b1d
+¤
+tmicronoticias/src/test/java/microservice/micronoticias/adapter/out/repository/EditoriaRepositoryIntegrationTest.java,a/9/a9b8034af942a1e847684e6b9dcedd9e6dbf13ca
+£
+smicronoticias/src/test/java/microservice/micronoticias/adapter/in/controller/EditoriaControllerIntegrationTest.java,a/6/a6e75ecd970653574f21b9712ea49c9ff1b0ebb8
