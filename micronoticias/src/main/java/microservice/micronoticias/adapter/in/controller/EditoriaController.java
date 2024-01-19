@@ -11,7 +11,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import microservice.micronoticias.adapter.in.dto.request.EditoriaCriarDtoIn;
 import microservice.micronoticias.adapter.in.dto.response.EditoriaCriarDtoOut;
-import microservice.micronoticias.adapter.in.dto.response.EditoriaListDtoOut;
+import microservice.micronoticias.adapter.in.dto.response.EditoriaListarDtoOut;
 import microservice.micronoticias.adapter.in.dto.response.NoticiaCriarDtoOut;
 import microservice.micronoticias.adapter.in.mapper.EditoriaMapperIn;
 import microservice.micronoticias.application.port.input.EditoriaCriarInputPort;
@@ -81,19 +81,19 @@ public class EditoriaController {
     @Operation(summary = "Listar", description = "Recurso para listar Editorias.",
         responses = {
             @ApiResponse(responseCode = "200", description = "Requisição bem sucedida e com retorno.",
-                content = @Content(mediaType = "application/json", schema = @Schema(implementation = EditoriaListDtoOut.class))),
+                content = @Content(mediaType = "application/json", schema = @Schema(implementation = EditoriaListarDtoOut.class))),
             @ApiResponse(responseCode = "403", description = "Usuário sem permissão para acessar recurso.",
                 content = @Content(mediaType = "application/json", schema = @Schema(implementation = ApiError.class))),
             @ApiResponse(responseCode = "500", description = "Situação inesperada no servidor.",
                 content = @Content(mediaType = "application/json", schema = @Schema(implementation = ApiError.class))),
         })
-    public ResponseEntity<List<EditoriaListDtoOut>> listar() {
+    public ResponseEntity<List<EditoriaListarDtoOut>> listar() {
 
         log.info("Requisição recebida para listar Editorias.");
 
         var response = this.editoriaListarInputPort.listar()
             .stream()
-            .map(this.mapperIn::toEditoriaListDtoOut)
+            .map(this.mapperIn::toEditoriaListarDtoOut)
             .toList();
 
         log.info("Editorias listadas com sucesso.");
