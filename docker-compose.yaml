@@ -1,6 +1,17 @@
 version: "3.9"
 
 services:
+  eurekaserver:
+    container_name: eurekaserver
+    build:
+      context: ./
+      dockerfile: ./eurekaserver/Dockerfile
+    ports:
+      - "8761:8761"
+    networks:
+      - babystepsnet
+    restart: always
+
   mysql8microusuarios:
     container_name: mysql8microusuarios
     image: mysql:8.0.17
@@ -34,8 +45,8 @@ services:
     build:
       context: ./
       dockerfile: ./microusuarios/Dockerfile
-    ports:
-      - "8001:8001"
+#    ports:
+#      - "8001:8001"
     env_file:
       - ./microusuarios/.env
     networks:
@@ -49,8 +60,8 @@ services:
     build:
       context: ./
       dockerfile: ./micronoticias/Dockerfile
-    ports:
-      - "8002:8002"
+#    ports:
+#      - "8002:8002"
     env_file:
       - ./micronoticias/.env
     networks:
@@ -58,6 +69,21 @@ services:
     depends_on:
       - postgres16micronoticias
       - microusuarios
+    restart: always
+
+  gateway:
+    container_name: gateway
+    build:
+      context: ./
+      dockerfile: ./gateway/Dockerfile
+    ports:
+      - "8000:8000"
+    networks:
+      - babystepsnet
+    depends_on:
+      - eurekaserver
+      - microusuarios
+      - micronoticias
     restart: always
 
   jenkins:

@@ -1,4 +1,4 @@
-ARG DIRETORIO_MICRO=micronoticias
+ARG DIRETORIO_MICRO=gateway
 
 FROM amazoncorretto:21.0.1-al2023-headful AS builder
 
@@ -30,11 +30,11 @@ RUN mkdir ./logs
 
 ARG DIRETORIO_TARGET=/app/$DIRETORIO_MICRO/target
 
-COPY --from=builder $DIRETORIO_TARGET/micronoticias-0.0.1-SNAPSHOT.jar .
+COPY --from=builder $DIRETORIO_TARGET/gateway-0.0.1-SNAPSHOT.jar .
 
-#ARG PORT_APP=8002
-#ENV PORT $PORT_APP
-#EXPOSE $PORT
+ARG PORT_APP=8000
+ENV PORT $PORT_APP
+EXPOSE $PORT
 
-ENTRYPOINT ["java", "-jar", "micronoticias-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java", "-jar", "gateway-0.0.1-SNAPSHOT.jar"]
 
