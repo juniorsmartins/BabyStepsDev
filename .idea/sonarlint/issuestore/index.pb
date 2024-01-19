@@ -35,3 +35,11 @@ E
 Tmicronoticias/src/main/java/microservice/micronoticias/MicronoticiasApplication.java,0/e/0e7412dea629473894d7278def1cbbdcb8d21b52
 „
 Tmicrousuarios/src/main/java/microservice/microusuarios/MicrousuariosApplication.java,b/3/b373d67a2744fca5dc98e96859a1eeddabc1ddc0
+?
+gateway/pom.xml,4/b/4b316bc60d1cfae51045f6fc8e58a8ae31f03ff3
+r
+Bgateway/src/main/java/microservice/gateway/GatewayApplication.java,b/6/b695e1f34d1f0187f642eb0680f82797b6cd234d
+“
+cmicronoticias/src/main/java/microservice/micronoticias/adapter/in/controller/NoticiaController.java,7/c/7c618cfe13f7b60ac7d01d675295ce0f5bea372a
+”
+dmicronoticias/src/main/java/microservice/micronoticias/adapter/in/controller/EditoriaController.java,b/f/bf2a66b422aea15269e3c9afe456857371388043
