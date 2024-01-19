@@ -5,6 +5,7 @@ import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -15,6 +16,7 @@ import microservice.micronoticias.adapter.in.dto.response.EditoriaListarDtoOut;
 import microservice.micronoticias.adapter.in.dto.response.NoticiaCriarDtoOut;
 import microservice.micronoticias.adapter.in.mapper.EditoriaMapperIn;
 import microservice.micronoticias.application.port.input.EditoriaCriarInputPort;
+import microservice.micronoticias.application.port.input.EditoriaDeletarPorIdInputPort;
 import microservice.micronoticias.application.port.input.EditoriaListarInputPort;
 import microservice.micronoticias.config.exception.ApiError;
 import org.springframework.http.MediaType;
@@ -23,6 +25,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @Tag(name = "Editorias", description = "Contém os recursos de Cadastrar, Listar, Atualizar e Deletar.")
@@ -35,6 +38,8 @@ public class EditoriaController {
     private final EditoriaCriarInputPort editoriaCriarInputPort;
 
     private final EditoriaListarInputPort editoriaListarInputPort;
+
+    private final EditoriaDeletarPorIdInputPort editoriaDeletarPorIdInputPort;
 
     private final EditoriaMapperIn mapperIn;
 
@@ -101,6 +106,39 @@ public class EditoriaController {
         return ResponseEntity
             .ok()
             .body(response);
+    }
+
+    @DeleteMapping(path = {"/produtoId"},
+        produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+    @Operation(summary = "Deletar por Id", description = "Recurso para apagar Editoria.",
+        responses = {
+            @ApiResponse(responseCode = "204", description = "Requisição bem sucedida e sem retorno.",
+                content = @Content(mediaType = "application/json")),
+            @ApiResponse(responseCode = "400", description = "Requisição mal formulada.",
+                content = @Content(mediaType = "application/json", schema = @Schema(implementation = ApiError.class))),
+            @ApiResponse(responseCode = "403", description = "Usuário sem permissão para acessar recurso.",
+                content = @Content(mediaType = "application/json", schema = @Schema(implementation = ApiError.class))),
+            @ApiResponse(responseCode = "404", description = "Recurso não encontrado.",
+                content = @Content(mediaType = "application/json", schema = @Schema(implementation = ApiError.class))),
+            @ApiResponse(responseCode = "500", description = "Situação inesperada no servidor.",
+                content = @Content(mediaType = "application/json", schema = @Schema(implementation = ApiError.class))),
+        })
+    public ResponseEntity<Void> deletarPorId(
+        @Parameter(name = "id", description = "Chave de Identificação.", example = "78", required = true)
+        @PathVariable(name = "id") final Long id) {
+
+        log.info("Requisição recebida para deletar Editoria por Id.");
+
+        Optional.ofNullable(id)
+            .ifPresentOrElse(this.editoriaDeletarPorIdInputPort::deletarPorId,
+                () -> {throw new NoSuchElementException();}
+            );
+
+        log.info("Sucesso ao deletar Editoria por Id: {}.", id);
+
+        return ResponseEntity
+            .noContent()
+            .build();
     }
 }
 
