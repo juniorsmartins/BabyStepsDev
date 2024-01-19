@@ -87,3 +87,11 @@ rmicronoticias/src/test/java/microservice/micronoticias/adapter/out/EditoriaDele
 {micronoticias/src/test/java/microservice/micronoticias/adapter/out/EditoriaBuscarPorNomenclaturaAdapterIntegrationTest.java,4/3/4362f9c766a3c207c78b545c51b84a281fc41a97
 ¢
 rmicronoticias/src/main/java/microservice/micronoticias/config/exception/http_500/ProhibitedNullValueException.java,2/8/28d2ff9b1f56aeb9fa2abfe622f76fbad1f00b29
+ 
+pmicronoticias/src/test/java/microservice/micronoticias/application/core/usecase/NoticiaCriarUseCaseUnitTest.java,9/6/961518f71f710cee01330e17e79972f0af73d4f3
+¨
+xmicronoticias/src/test/java/microservice/micronoticias/application/core/usecase/EditoriaCriarUseCaseIntegrationTest.java,d/6/d6234ce7c879aee07e7754e0b82afe6a38828737
+¨
+xmicronoticias/src/test/java/microservice/micronoticias/application/core/usecase/EditoriaDeletarPorIdUseCaseUnitTest.java,f/8/f8169dd767f94484177f02ba3f6e808be2659a2e
+¡
+qmicronoticias/src/test/java/microservice/micronoticias/application/core/usecase/EditoriaCriarUseCaseUnitTest.java,3/c/3cc1f994355a2d78f775ae2c21a2518fdb079b1d
