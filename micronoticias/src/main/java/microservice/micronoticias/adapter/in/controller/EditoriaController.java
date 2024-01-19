@@ -108,8 +108,8 @@ public class EditoriaController {
             .body(response);
     }
 
-    @DeleteMapping(path = {"/produtoId"},
-        produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+    @DeleteMapping(path = {"/{produtoId}"},
+            produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     @Operation(summary = "Deletar por Id", description = "Recurso para apagar Editoria.",
         responses = {
             @ApiResponse(responseCode = "204", description = "Requisição bem sucedida e sem retorno.",
@@ -125,7 +125,7 @@ public class EditoriaController {
         })
     public ResponseEntity<Void> deletarPorId(
         @Parameter(name = "id", description = "Chave de Identificação.", example = "78", required = true)
-        @PathVariable(name = "id") final Long id) {
+        @PathVariable(name = "produtoId") final Long id) {
 
         log.info("Requisição recebida para deletar Editoria por Id.");
 
