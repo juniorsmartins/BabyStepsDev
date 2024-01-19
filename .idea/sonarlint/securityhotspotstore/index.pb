@@ -33,3 +33,5 @@ B
 Jenkinsfile,0/c/0c2c5c506cef0ed2d3ad2b7e45e97980b66f5520
 H
 microusuarios/Dockerfile,e/7/e77d6eafc7b402405888dcb51d7954deb9e4e2f6
+B
+microusuarios/.env,c/a/ca04359b703b59af60c905a8003d1e79249526da
