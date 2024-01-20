@@ -15,7 +15,7 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
-        converters.add(new ContentNegotiationYamlConfig());
+        converters.add(new ContentNegotiationYaml());
     }
 
     // Content Negotiation via Header

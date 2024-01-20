@@ -2,6 +2,7 @@ package microservice.micronoticias.adapter.in.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -81,11 +82,13 @@ public class EditoriaController {
             .body(resposta);
     }
 
-    @GetMapping(produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, "application/x-yaml"})
+//    @GetMapping(produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, "application/x-yaml"})
+    @GetMapping
     @Operation(summary = "Listar", description = "Recurso para listar Editorias.",
         responses = {
-            @ApiResponse(responseCode = "200", description = "Requisição bem sucedida e com retorno.",
-                content = @Content(mediaType = "application/json", schema = @Schema(implementation = EditoriaListarDtoOut.class))),
+            @ApiResponse(responseCode = "200", description = "Recursos listados com sucesso.",
+                content = @Content(mediaType = "application/json", array =
+                    @ArraySchema(schema = @Schema(implementation = EditoriaListarDtoOut.class)))),
             @ApiResponse(responseCode = "403", description = "Usuário sem permissão para acessar recurso.",
                 content = @Content(mediaType = "application/json", schema = @Schema(implementation = ApiError.class))),
             @ApiResponse(responseCode = "500", description = "Situação inesperada no servidor.",

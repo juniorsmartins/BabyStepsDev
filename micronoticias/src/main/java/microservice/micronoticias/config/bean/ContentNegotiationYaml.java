@@ -7,9 +7,9 @@ import org.springframework.http.MediaType;
 import org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter;
 
 @Configuration
-public class ContentNegotiationYamlConfig extends AbstractJackson2HttpMessageConverter {
+public class ContentNegotiationYaml extends AbstractJackson2HttpMessageConverter {
 
-    protected ContentNegotiationYamlConfig() {
+    protected ContentNegotiationYaml() {
         super(new YAMLMapper().setSerializationInclusion(JsonInclude.Include.NON_NULL),
             MediaType.parseMediaType("application/x-yaml"));
     }
