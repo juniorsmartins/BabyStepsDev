@@ -95,3 +95,5 @@ fmicronoticias/src/main/java/microservice/micronoticias/adapter/in/dto/response/
 jmicronoticias/src/main/java/microservice/micronoticias/application/port/input/EditoriaListarInputPort.java,9/8/98fa349921a035b46708ce1740c280e5e218ed7c
 œ
 lmicronoticias/src/main/java/microservice/micronoticias/application/port/output/EditoriaListarOutputPort.java,5/e/5ef3180d2fb0fd94018426a9884aebf341818687
+˜
+hmicronoticias/src/main/java/microservice/micronoticias/adapter/in/dto/response/EditoriaListarDtoOut.java,a/d/ad378c02ea27f51bbc8ad12ec8e13bc9b038a896
