@@ -104,3 +104,7 @@ fmicronoticias/src/main/java/microservice/micronoticias/adapter/in/dto/response/
 jmicronoticias/src/main/java/microservice/micronoticias/application/port/input/EditoriaListarInputPort.java,9/8/98fa349921a035b46708ce1740c280e5e218ed7c
 œ
 lmicronoticias/src/main/java/microservice/micronoticias/application/port/output/EditoriaListarOutputPort.java,5/e/5ef3180d2fb0fd94018426a9884aebf341818687
+Ž
+^micronoticias/src/main/java/microservice/micronoticias/config/bean/ContentNegotiationYaml.java,9/c/9cdf022d75b432bccc3f5f8ffb38fa05e032fb61
+”
+dmicronoticias/src/main/java/microservice/micronoticias/config/bean/ContentNegotiationYamlConfig.java,9/4/949dbf6983756ed93a108700f297160e555b12ca
