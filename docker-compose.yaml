@@ -80,8 +80,6 @@ services:
       - "8000:8000"
     env_file:
       - ./micronoticias/.env
-#    environment:
-#      - EUREKA_SERVER=eurekaserver
     networks:
       - babystepsnet
     depends_on:
