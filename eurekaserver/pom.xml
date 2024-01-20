@@ -14,7 +14,7 @@
 	<artifactId>eurekaserver</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>eurekaserver</name>
-	<description>Eureka Server é um serviço de descoberta de serviços para microsserviços se encontrarem e se comunicarem uns com os outros. Funciona como ponto central para o registro e a localização de serviços em ambiente distribuído.</description>
+	<description>EurekaServer é serviço de descoberta de serviços para microsserviços se encontrarem e se comunicarem uns com os outros. Funciona como ponto central para o registro e a localização de serviços em ambiente distribuído.</description>
 
 	<properties>
 		<java.version>21</java.version>

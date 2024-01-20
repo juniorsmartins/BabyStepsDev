@@ -78,8 +78,8 @@ services:
       dockerfile: ./gateway/Dockerfile
     ports:
       - "8000:8000"
-    env_file:
-      - ./gateway/.env
+#    environment:
+#      - EUREKA_SERVER=eurekaserver
     networks:
       - babystepsnet
     depends_on:

@@ -13,7 +13,6 @@ COPY ./$DIRETORIO_MICRO/mvnw .
 COPY ./$DIRETORIO_MICRO/pom.xml .
 
 RUN ./mvnw clean package -Dmaven.test.skip -Dmaven.main.skip -Dspring-boot.repackage.skip && rm -r ./target/
-# RUN ./mvnw dependency:go-offline
 
 COPY ./$DIRETORIO_MICRO/src ./src
 
@@ -25,7 +24,6 @@ FROM amazoncorretto:21.0.1-al2023-headful
 ARG DIRETORIO_MICRO
 WORKDIR /app
 
-# add logging.file.path=/app/logs no application.properties
 RUN mkdir ./logs
 
 ARG DIRETORIO_TARGET=/app/$DIRETORIO_MICRO/target
