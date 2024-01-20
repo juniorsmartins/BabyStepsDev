@@ -52,6 +52,7 @@ services:
     networks:
       - babystepsnet
     depends_on:
+      - eurekaserver
       - mysql8microusuarios
     restart: always
 
@@ -67,6 +68,7 @@ services:
     networks:
       - babystepsnet
     depends_on:
+      - eurekaserver
       - postgres16micronoticias
       - microusuarios
     restart: always

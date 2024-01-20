@@ -103,5 +103,7 @@ gmicronoticias/src/main/java/microservice/micronoticias/adapter/in/dto/response/
 hmicronoticias/src/main/java/microservice/micronoticias/adapter/in/dto/response/EditoriaListarDtoOut.java,a/d/ad378c02ea27f51bbc8ad12ec8e13bc9b038a896
 „
 Tmicronoticias/src/main/java/microservice/micronoticias/MicronoticiasApplication.java,0/e/0e7412dea629473894d7278def1cbbdcb8d21b52
-<
-gateway/.env,7/0/70516f3998a6ab69dd97be85c7aa93b6ff996901
+’
+bmicrousuarios/src/main/java/microservice/microusuarios/adapter/in/controller/PersonController.java,3/d/3dad7ae9c5dbcd90149c3f02ae6f9c32b16aa9fb
+„
+Tmicrousuarios/src/main/java/microservice/microusuarios/MicrousuariosApplication.java,b/3/b373d67a2744fca5dc98e96859a1eeddabc1ddc0
