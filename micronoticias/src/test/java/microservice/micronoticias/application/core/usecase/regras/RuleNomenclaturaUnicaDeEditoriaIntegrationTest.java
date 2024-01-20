@@ -62,7 +62,7 @@ class RuleNomenclaturaUnicaDeEditoriaIntegrationTest {
     }
 
     @Test
-    @DisplayName("noticia com nomenclatura repetida de editoria")
+    @DisplayName("nomenclatura repetida de editoria")
     void dadoNoticiaValidaComEditoriaComNomenclaturaRepetida_QuandoExecutar_EntaoLancarException() {
         var editorias = noticiaEntity.getEditorias();
         var editoriaComNomenclaturaRepetida = factory.gerarEditoria();

@@ -34,12 +34,12 @@ public class SpringDocOpenApiConfig {
     private SecurityScheme securityScheme() { // Método responsável por informar o Swagger sobre o Security. E da necessidade de Token nas requisições.
 
         return new SecurityScheme()
-                .description("Insira um Bearer Token válido para prosseguir.")
-                .type(SecurityScheme.Type.HTTP)
-                .in(SecurityScheme.In.HEADER)
-                .scheme("bearer")
-                .bearerFormat("JWT")
-                .name("security"); // Essa string é a mesma usada lá nos recursos: security = {@SecurityRequirement(name = "security")}. Pode ser qualquer palavra.
+            .description("Insira um Bearer Token válido para prosseguir.")
+            .type(SecurityScheme.Type.HTTP)
+            .in(SecurityScheme.In.HEADER)
+            .scheme("bearer")
+            .bearerFormat("JWT")
+            .name("security"); // Essa string é a mesma usada lá nos recursos: security = {@SecurityRequirement(name = "security")}. Pode ser qualquer palavra.
     }
 }
 
