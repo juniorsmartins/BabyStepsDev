@@ -16,11 +16,6 @@ B
 microusuarios/.env,c/a/ca04359b703b59af60c905a8003d1e79249526da
 <
 settings.xml,1/d/1d784fce58c3719506730fb9749600554125b511
-:
-
-Dockerfile,6/6/6651ddff6eb82c840ced7c1dddee15c6e1913dd4
-f
-6eurekaserver/src/main/resources/application.properties,7/e/7e9fc3ad88b033adf8a6831407cbbc98c082cbf6
 D
 eurekaserver/pom.xml,6/7/67fb8a88b9284616f5b0d1ee12ee457c4b4d22a2
 E
@@ -45,8 +40,6 @@ cmicronoticias/src/main/java/microservice/micronoticias/adapter/in/controller/No
 dmicronoticias/src/main/java/microservice/micronoticias/adapter/in/controller/EditoriaController.java,b/f/bf2a66b422aea15269e3c9afe456857371388043
 G
 eurekaserver/Dockerfile,2/b/2b0fbfd6af857f5a7e361a7917ef24fc34511854
-A
-eurekaserver/.env,8/a/8ae9a500ca5d407da78bae71ce444626207246eb
 B
 gateway/Dockerfile,5/a/5a39717901490093530d8f039ae4bb7d57680f50
  
@@ -99,3 +92,15 @@ qmicronoticias/src/test/java/microservice/micronoticias/application/core/usecase
 tmicronoticias/src/test/java/microservice/micronoticias/adapter/out/repository/EditoriaRepositoryIntegrationTest.java,a/9/a9b8034af942a1e847684e6b9dcedd9e6dbf13ca
 £
 smicronoticias/src/test/java/microservice/micronoticias/adapter/in/controller/EditoriaControllerIntegrationTest.java,a/6/a6e75ecd970653574f21b9712ea49c9ff1b0ebb8
+»
+Šmicronoticias/src/test/java/microservice/micronoticias/application/core/usecase/regras/RuleNomenclaturaUnicaDeEditoriaIntegrationTest.java,3/c/3c8aece8b5a4d8e2758200ccd7f0fa20aa9ce184
+“
+cmicronoticias/src/main/java/microservice/micronoticias/config/exception/GlobalExceptionHandler.java,0/0/00a80cfb44aee4d030a49917d2e40bd8c492bfbe
+œ
+lmicronoticias/src/test/java/microservice/micronoticias/adapter/in/controller/EditoriaControllerUnitTest.java,b/a/bac1078a8aa3aedf2b3ced9a35f7bc5ac59147c0
+–
+fmicronoticias/src/main/java/microservice/micronoticias/adapter/in/dto/response/NoticiaCriarDtoOut.java,7/1/7145a9b68df2af733295b167f267b3b29dc2d8de
+š
+jmicronoticias/src/main/java/microservice/micronoticias/application/port/input/EditoriaListarInputPort.java,9/8/98fa349921a035b46708ce1740c280e5e218ed7c
+œ
+lmicronoticias/src/main/java/microservice/micronoticias/application/port/output/EditoriaListarOutputPort.java,5/e/5ef3180d2fb0fd94018426a9884aebf341818687

@@ -2,6 +2,7 @@ package microservice.micronoticias.adapter.in.controller;
 
 import microservice.micronoticias.adapter.in.dto.request.EditoriaCriarDtoIn;
 import microservice.micronoticias.adapter.in.dto.response.EditoriaCriarDtoOut;
+import microservice.micronoticias.adapter.in.dto.response.EditoriaListarDtoOut;
 import microservice.micronoticias.adapter.out.entity.EditoriaEntity;
 import microservice.micronoticias.adapter.out.repository.EditoriaRepository;
 import microservice.micronoticias.utility.FactoryObjectMother;
@@ -46,8 +47,8 @@ class EditoriaControllerIntegrationTest {
     }
 
     @Nested
-    @DisplayName("Post")
-    class PostEditoria {
+    @DisplayName("Criar")
+    class Criar {
 
         @Test
         @DisplayName("dados válidos com XML")
@@ -87,12 +88,32 @@ class EditoriaControllerIntegrationTest {
     }
 
     @Nested
-    @DisplayName("")
-    class Delete {
+    @DisplayName("Listar")
+    class Listar {
 
         @Test
-        @DisplayName("dados válidos com JSON")
-        void dadoEditoriaValida_QuandoCriarComContentNegotiationJSon_EntaoRetornarDadosIguaisSalvos() {
+        @DisplayName("dois itens")
+        void dadoDuasEditorias_QuandoListar_EntaoRetornarListaComDoisItens() {
+
+            webTestClient.get()
+                .uri(END_POINT)
+                .accept(MediaType.APPLICATION_JSON)
+                .exchange()
+                .expectStatus().isOk()
+                .expectBodyList(EditoriaListarDtoOut.class)
+                .consumeWith(response -> {
+                    assertThat(response.getResponseBody().size()).isEqualTo(2);
+                });
+        }
+    }
+
+    @Nested
+    @DisplayName("DeletarPorId")
+    class DeletarPorId {
+
+        @Test
+        @DisplayName("id válido")
+        void dadoIdValido_QuandoDeletarPorId_EntaoRetornarHttpNoContent() {
 
             webTestClient.delete()
                 .uri(END_POINT + "/" + editoriaEntity.getId())
