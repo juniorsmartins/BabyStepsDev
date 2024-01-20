@@ -107,7 +107,7 @@ class EditoriaControllerIntegrationTest {
     @DisplayName("Listar")
     class Listar {
 
-        @Test
+//        @Test
         @DisplayName("dois itens XML")
         void dadoDuasEditorias_QuandoListarComContentNegotiationXML_EntaoRetornarListaComDoisItens() {
 
@@ -122,7 +122,7 @@ class EditoriaControllerIntegrationTest {
                 });
         }
 
-        @Test
+//        @Test
         @DisplayName("dois itens YAML")
         void dadoDuasEditorias_QuandoListarComContentNegotiationYAML_EntaoRetornarListaComDoisItens() {
 

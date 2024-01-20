@@ -82,8 +82,7 @@ public class EditoriaController {
             .body(resposta);
     }
 
-//    @GetMapping(produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, "application/x-yaml"})
-    @GetMapping
+    @GetMapping(produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, "application/x-yaml"})
     @Operation(summary = "Listar", description = "Recurso para listar Editorias.",
         responses = {
             @ApiResponse(responseCode = "200", description = "Recursos listados com sucesso.",
