@@ -79,7 +79,7 @@ services:
     ports:
       - "8000:8000"
     env_file:
-      - ./micronoticias/.env
+      - ./gateway/.env
     networks:
       - babystepsnet
     depends_on:
