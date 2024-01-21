@@ -52,6 +52,7 @@ services:
     networks:
       - babystepsnet
     depends_on:
+      - eurekaserver
       - mysql8microusuarios
     restart: always
 
@@ -67,6 +68,7 @@ services:
     networks:
       - babystepsnet
     depends_on:
+      - eurekaserver
       - postgres16micronoticias
       - microusuarios
     restart: always
@@ -78,8 +80,8 @@ services:
       dockerfile: ./gateway/Dockerfile
     ports:
       - "8000:8000"
-    environment:
-      - EUREKA_SERVER=eurekaserver
+#    environment:
+#      - EUREKA_SERVER=eurekaserver
     networks:
       - babystepsnet
     depends_on:

@@ -13,7 +13,6 @@ COPY ./$DIRETORIO_MICRO/mvnw .
 COPY ./$DIRETORIO_MICRO/pom.xml .
 
 RUN ./mvnw clean package -Dmaven.test.skip -Dmaven.main.skip -Dspring-boot.repackage.skip && rm -r ./target/
-# RUN ./mvnw dependency:go-offline
 
 COPY ./$DIRETORIO_MICRO/src ./src
 
@@ -32,7 +31,6 @@ ARG DIRETORIO_TARGET=/app/$DIRETORIO_MICRO/target
 
 COPY --from=builder $DIRETORIO_TARGET/gateway-0.0.1-SNAPSHOT.jar .
 
-ARG EUREKA_SERVER=eurekaserver
 ARG PORT_APP=8000
 ENV PORT $PORT_APP
 EXPOSE $PORT

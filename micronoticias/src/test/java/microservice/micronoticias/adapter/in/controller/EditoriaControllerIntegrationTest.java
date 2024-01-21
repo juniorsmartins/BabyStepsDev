@@ -67,6 +67,22 @@ class EditoriaControllerIntegrationTest {
         }
 
         @Test
+        @DisplayName("dados válidos com YAML")
+        void dadoEditoriaValida_QuandoCriarComContentNegotiationYAML_EntaoRetornarHttp201() {
+
+            var dtoIn = editoriaCriarDtoInBuilder.build();
+
+            webTestClient.post()
+                .uri(END_POINT)
+                .accept(MediaType.valueOf("application/x-yaml"))
+                .bodyValue(dtoIn)
+                .exchange()
+                .expectStatus().isCreated()
+                .expectHeader().contentType(MediaType.valueOf("application/x-yaml"))
+                .expectBody().consumeWith(response -> assertThat(response.getResponseBody()).isNotNull());
+        }
+
+        @Test
         @DisplayName("dados válidos com JSON")
         void dadoEditoriaValida_QuandoCriarComContentNegotiationJSon_EntaoRetornarDadosIguaisSalvos() {
 
@@ -91,6 +107,36 @@ class EditoriaControllerIntegrationTest {
     @DisplayName("Listar")
     class Listar {
 
+//        @Test
+//        @DisplayName("dois itens XML")
+//        void dadoDuasEditorias_QuandoListarComContentNegotiationXML_EntaoRetornarListaComDoisItens() {
+//
+//            webTestClient.get()
+//                .uri(END_POINT)
+//                .accept(MediaType.APPLICATION_XML)
+//                .exchange()
+//                .expectStatus().isOk()
+//                .expectBodyList(EditoriaListarDtoOut.class)
+//                .consumeWith(response -> {
+//                    assertThat(response.getResponseBody().size()).isEqualTo(2);
+//                });
+//        }
+
+//        @Test
+//        @DisplayName("dois itens YAML")
+//        void dadoDuasEditorias_QuandoListarComContentNegotiationYAML_EntaoRetornarListaComDoisItens() {
+//
+//            webTestClient.get()
+//                .uri(END_POINT)
+//                .accept(MediaType.valueOf("application/x-yaml"))
+//                .exchange()
+//                .expectStatus().isOk()
+//                .expectBodyList(EditoriaListarDtoOut.class)
+//                .consumeWith(response -> {
+//                    assertThat(response.getResponseBody().size()).isEqualTo(2);
+//                });
+//        }
+
         @Test
         @DisplayName("dois itens")
         void dadoDuasEditorias_QuandoListar_EntaoRetornarListaComDoisItens() {
@@ -110,6 +156,30 @@ class EditoriaControllerIntegrationTest {
     @Nested
     @DisplayName("DeletarPorId")
     class DeletarPorId {
+
+        @Test
+        @DisplayName("id válido XML")
+        void dadoIdValido_QuandoDeletarPorIdComContentNegotiationXML_EntaoRetornarHttpNoContent() {
+
+            webTestClient.delete()
+                .uri(END_POINT + "/" + editoriaEntity.getId())
+                .accept(MediaType.APPLICATION_XML)
+                .exchange()
+                .expectStatus().isNoContent()
+                .expectBody();
+        }
+
+        @Test
+        @DisplayName("id válido YAML")
+        void dadoIdValido_QuandoDeletarPorIdComContentNegotiationYAML_EntaoRetornarHttpNoContent() {
+
+            webTestClient.delete()
+                .uri(END_POINT + "/" + editoriaEntity.getId())
+                .accept(MediaType.valueOf("application/x-yaml"))
+                .exchange()
+                .expectStatus().isNoContent()
+                .expectBody();
+        }
 
         @Test
         @DisplayName("id válido")

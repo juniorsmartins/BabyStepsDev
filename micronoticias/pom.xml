@@ -14,7 +14,7 @@
 	<artifactId>micronoticias</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>micronoticias</name>
-	<description>Projeto para desenvolver site pessoal/profissional.</description>
+	<description>Microsserviço para atender site profissional.</description>
 
 	<properties>
 		<java.version>21</java.version>
@@ -67,6 +67,11 @@
 			<artifactId>jackson-dataformat-xml</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>com.fasterxml.jackson.dataformat</groupId>
+			<artifactId>jackson-dataformat-yaml</artifactId>
+		</dependency>
+
 
 		<!-- AUDITORIA -->
 		<dependency>
@@ -84,13 +89,6 @@
 
 
 		<!-- FERRAMENTAS -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<scope>runtime</scope>
-			<optional>true</optional>
-		</dependency>
-
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
