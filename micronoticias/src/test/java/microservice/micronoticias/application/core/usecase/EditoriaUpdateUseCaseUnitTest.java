@@ -4,6 +4,7 @@ import microservice.micronoticias.adapter.out.EditoriaUpdateAdapter;
 import microservice.micronoticias.config.exception.http_500.EditoriaDeletarPorIdUseCaseException;
 import microservice.micronoticias.config.exception.http_500.EditoriaUpdateUseCaseException;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

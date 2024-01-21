@@ -5,8 +5,11 @@ import microservice.micronoticias.application.core.usecase.EditoriaCriarUseCase;
 import microservice.micronoticias.application.core.usecase.EditoriaDeletarPorIdUseCase;
 import microservice.micronoticias.application.core.usecase.EditoriaListarUseCase;
 import microservice.micronoticias.application.core.usecase.EditoriaUpdateUseCase;
+import microservice.micronoticias.application.core.usecase.regras.RuleStrategyToUpdateEditor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import java.util.List;
 
 @Configuration
 public class EditoriaUseCaseConfig {
@@ -18,8 +21,9 @@ public class EditoriaUseCaseConfig {
     }
 
     @Bean
-    public EditoriaUpdateUseCase editoriaUpdateUseCase(EditoriaUpdateAdapter editoriaUpdateAdapter) {
-        return new EditoriaUpdateUseCase(editoriaUpdateAdapter);
+    public EditoriaUpdateUseCase editoriaUpdateUseCase(EditoriaUpdateAdapter editoriaUpdateAdapter,
+                                                       List<RuleStrategyToUpdateEditor> ruleStrategies) {
+        return new EditoriaUpdateUseCase(editoriaUpdateAdapter, ruleStrategies);
     }
 
     @Bean

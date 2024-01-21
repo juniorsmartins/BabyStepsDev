@@ -22,12 +22,11 @@ public class EditoriaBuscarPorNomenclaturaAdapter implements EditoriaBuscarPorNo
 
     @Transactional
     @Override
-    public Optional<Editoria> buscarPorNomenclatura(String nomenclatura) {
+    public Optional<Editoria> buscarPorNomenclatura(final String nomenclatura) {
 
-        log.info("Iniciado adaptador para buscar Editoria por Nomenclatura: {}", nomenclatura);
+        log.info("Iniciado adaptador para buscar Editoria.");
 
         var editoriaEncontrada = this.editoriaRepository.findByNomenclatura(nomenclatura);
-
         if (editoriaEncontrada.isEmpty()) {
             return Optional.empty();
         }
