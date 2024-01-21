@@ -1,8 +1,6 @@
 package microservice.micronoticias.application.core.usecase;
 
 import microservice.micronoticias.application.core.domain.Editoria;
-import microservice.micronoticias.application.core.domain.Noticia;
-import microservice.micronoticias.application.core.usecase.regras.RuleStrategyToCreateNews;
 import microservice.micronoticias.application.core.usecase.regras.RuleStrategyToUpdateEditor;
 import microservice.micronoticias.application.port.input.EditoriaUpdateInputPort;
 import microservice.micronoticias.application.port.output.EditoriaUpdateOutputPort;
