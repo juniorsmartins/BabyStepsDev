@@ -158,3 +158,5 @@ smicronoticias/src/main/java/microservice/micronoticias/config/exception/http_50
 rmicronoticias/src/test/java/microservice/micronoticias/application/core/usecase/EditoriaUpdateUseCaseUnitTest.java,4/f/4f44455d63ea491a67601410f147a71edd5b0227
 ¤
 tmicronoticias/src/main/java/microservice/micronoticias/config/exception/http_500/EditoriaUpdateUseCaseException.java,5/0/5057272a212b8a11674c218e0c28db14c48a4732
+¤
+tmicronoticias/src/main/java/microservice/micronoticias/config/exception/http_404/EditoriaNaoEncontradaException.java,d/2/d2badd39c0b8045b961e983958eefe0bc98fed65

@@ -1,8 +1,10 @@
 package microservice.micronoticias.adapter.in.controller;
 
 import microservice.micronoticias.adapter.in.dto.request.EditoriaCriarDtoIn;
+import microservice.micronoticias.adapter.in.dto.request.EditoriaUpdateDtoIn;
 import microservice.micronoticias.adapter.in.dto.response.EditoriaCriarDtoOut;
 import microservice.micronoticias.adapter.in.dto.response.EditoriaListarDtoOut;
+import microservice.micronoticias.adapter.in.dto.response.EditoriaUpdateDtoOut;
 import microservice.micronoticias.adapter.out.entity.EditoriaEntity;
 import microservice.micronoticias.adapter.out.repository.EditoriaRepository;
 import microservice.micronoticias.utility.FactoryObjectMother;
@@ -35,9 +37,12 @@ class EditoriaControllerIntegrationTest {
 
     private EditoriaEntity editoriaEntity;
 
+    private EditoriaUpdateDtoIn.EditoriaUpdateDtoInBuilder editoriaUpdateDtoInBuilder;
+
     @BeforeEach
     void setUp() {
         editoriaCriarDtoInBuilder = factory.gerarEditoriaCriarDtoInBuilder();
+        editoriaUpdateDtoInBuilder = factory.gerarEditoriaUpdateDtoInBuilder();
         editoriaEntity = this.editoriaRepository.findById(1001L).get();
     }
 
@@ -95,6 +100,31 @@ class EditoriaControllerIntegrationTest {
                 .exchange()
                 .expectStatus().isCreated()
                 .expectBody(EditoriaCriarDtoOut.class)
+                .consumeWith(response -> {
+                    assertThat(response.getResponseBody().id()).isPositive();
+                    assertThat(response.getResponseBody().nomenclatura()).isEqualTo(dtoIn.nomenclatura());
+                    assertThat(response.getResponseBody().descricao()).isEqualTo(dtoIn.descricao());
+                });
+        }
+    }
+
+    @Nested
+    @DisplayName("Update")
+    class Update {
+
+        @Test
+        @DisplayName("dados válidos")
+        void dadoEditoriaValida_QuandoUpdate_EntaoRetornarDadosIguaisSalvos() {
+
+            var dtoIn = editoriaUpdateDtoInBuilder.id(1001L).build();
+
+            webTestClient.put()
+                .uri(END_POINT)
+                .contentType(MediaType.APPLICATION_JSON)
+                .bodyValue(dtoIn)
+                .exchange()
+                .expectStatus().isOk()
+                .expectBody(EditoriaUpdateDtoOut.class)
                 .consumeWith(response -> {
                     assertThat(response.getResponseBody().id()).isPositive();
                     assertThat(response.getResponseBody().nomenclatura()).isEqualTo(dtoIn.nomenclatura());
