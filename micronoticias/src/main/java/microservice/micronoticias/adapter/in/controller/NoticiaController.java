@@ -36,8 +36,8 @@ public class NoticiaController {
     private final NoticiaMapperIn mapperIn;
 
     @PostMapping(
-        consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE},
-        produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+        consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, "application/x-yaml"},
+        produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, "application/x-yaml"})
     @Operation(summary = "Cadastrar", description = "Recurso para criar uma nova Notícia.",
         responses = {
             @ApiResponse(responseCode = "201", description = "Recurso cadastrado com sucesso.",

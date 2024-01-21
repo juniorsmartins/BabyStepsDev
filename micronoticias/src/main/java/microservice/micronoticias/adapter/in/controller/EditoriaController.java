@@ -2,10 +2,10 @@ package microservice.micronoticias.adapter.in.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -44,8 +44,8 @@ public class EditoriaController {
     private final EditoriaMapperIn mapperIn;
 
     @PostMapping(
-        consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_JSON_VALUE},
-        produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+        consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_JSON_VALUE, "application/x-yaml"},
+        produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, "application/x-yaml"})
     @Operation(summary = "Cadastrar", description = "Recurso para criar uma nova Editoria.",
         responses = {
             @ApiResponse(responseCode = "201", description = "Recurso cadastrado com sucesso.",
@@ -82,11 +82,12 @@ public class EditoriaController {
             .body(resposta);
     }
 
-    @GetMapping(produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+    @GetMapping(produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, "application/x-yaml"})
     @Operation(summary = "Listar", description = "Recurso para listar Editorias.",
         responses = {
-            @ApiResponse(responseCode = "200", description = "Requisição bem sucedida e com retorno.",
-                content = @Content(mediaType = "application/json", schema = @Schema(implementation = EditoriaListarDtoOut.class))),
+            @ApiResponse(responseCode = "200", description = "Recursos listados com sucesso.",
+                content = @Content(mediaType = "application/json", array =
+                    @ArraySchema(schema = @Schema(implementation = EditoriaListarDtoOut.class)))),
             @ApiResponse(responseCode = "403", description = "Usuário sem permissão para acessar recurso.",
                 content = @Content(mediaType = "application/json", schema = @Schema(implementation = ApiError.class))),
             @ApiResponse(responseCode = "500", description = "Situação inesperada no servidor.",
@@ -109,7 +110,7 @@ public class EditoriaController {
     }
 
     @DeleteMapping(path = {"/{produtoId}"},
-            produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+        produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, "application/x-yaml"})
     @Operation(summary = "Deletar por Id", description = "Recurso para apagar Editoria.",
         responses = {
             @ApiResponse(responseCode = "204", description = "Requisição bem sucedida e sem retorno.",
