@@ -94,11 +94,15 @@ public class EditoriaController {
         produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, APPLICATION_YAML_VALUE})
     public ResponseEntity<EditoriaUpdateDtoOut> update(@RequestBody @Valid EditoriaUpdateDtoIn updateDtoIn) {
 
+        log.info("Requisição recebida para atualizar Editoria.");
+
         var response = Optional.of(updateDtoIn)
             .map(this.mapperIn::toEditoria)
             .map(this.editoriaUpdateInputPort::update)
             .map(this.mapperIn::toEditoriaUpdateDtoOut)
             .orElseThrow();
+
+        log.info("Sucesso ao atualizar Editoria com Id: {}.", response.id());
 
         return ResponseEntity
             .ok()
