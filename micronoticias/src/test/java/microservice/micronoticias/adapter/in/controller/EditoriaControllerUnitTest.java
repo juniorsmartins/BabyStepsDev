@@ -3,6 +3,7 @@ package microservice.micronoticias.adapter.in.controller;
 import microservice.micronoticias.application.port.input.EditoriaDeletarPorIdInputPort;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.function.Executable;
@@ -16,7 +17,7 @@ import java.util.NoSuchElementException;
 
 @SpringBootTest
 @ExtendWith({SpringExtension.class, MockitoExtension.class})
-@DisplayName("Unit Controller - DeletePorId Editoria")
+@DisplayName("Unit Controller - Editoria")
 class EditoriaControllerUnitTest {
 
     @Mock
@@ -25,11 +26,16 @@ class EditoriaControllerUnitTest {
     @InjectMocks
     private EditoriaController editoriaController;
 
-    @Test
-    @DisplayName("id nulo")
-    void dadoIdNulo_QuandoCriarComContentNegotiationJSon_EntaoRetornarDadosIguaisSalvos() {
-        Executable acao = () -> this.editoriaController.deletarPorId(null);
-        Assertions.assertThrows(NoSuchElementException.class, acao);
+    @Nested
+    @DisplayName("Delete")
+    class Delete {
+
+        @Test
+        @DisplayName("id nulo")
+        void dadoIdNulo_QuandoDeletar_EntaoLancarException() {
+            Executable acao = () -> editoriaController.deletarPorId(null);
+            Assertions.assertThrows(NoSuchElementException.class, acao);
+        }
     }
 }
 

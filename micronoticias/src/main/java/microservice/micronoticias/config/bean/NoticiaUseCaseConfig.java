@@ -12,7 +12,8 @@ import java.util.List;
 public class NoticiaUseCaseConfig {
 
     @Bean
-    public NoticiaCriarUseCase noticiaCadastrarUseCase(NoticiaSalvarAdapter noticiaSalvarAdapter, List<RuleStrategyToCreateNews> ruleStrategies) {
+    public NoticiaCriarUseCase noticiaCadastrarUseCase(NoticiaSalvarAdapter noticiaSalvarAdapter,
+                                                       List<RuleStrategyToCreateNews> ruleStrategies) {
         return new NoticiaCriarUseCase(noticiaSalvarAdapter, ruleStrategies);
     }
 }

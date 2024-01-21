@@ -49,7 +49,6 @@ class EditoriaCriarDtoInUnitTest {
         void dadoNomenclaturaNula_QuandoInstanciar_EntaoLancarException() {
             var dtoIn = editoriaCriarDtoInBuilder.nomenclatura(null).build();
             Set<ConstraintViolation<EditoriaCriarDtoIn>> violations = validator.validate(dtoIn);
-            Assertions.assertFalse(violations.isEmpty());
             Assertions.assertEquals(1, violations.size());
         }
 
@@ -70,7 +69,6 @@ class EditoriaCriarDtoInUnitTest {
         void dadoNomenclaturaComTamanhoInvalido_QuandoInstanciar_EntaoLancarException(String valor) {
             var dtoIn = editoriaCriarDtoInBuilder.nomenclatura(valor).build();
             Set<ConstraintViolation<EditoriaCriarDtoIn>> violations = validator.validate(dtoIn);
-            Assertions.assertFalse(violations.isEmpty());
             Assertions.assertEquals(1, violations.size());
         }
     }

@@ -2,6 +2,7 @@ package microservice.micronoticias.utility;
 
 import microservice.micronoticias.adapter.in.dto.request.EditoriaCriarDtoIn;
 import microservice.micronoticias.adapter.in.dto.request.EditoriaDtoIn;
+import microservice.micronoticias.adapter.in.dto.request.EditoriaUpdateDtoIn;
 import microservice.micronoticias.adapter.in.dto.request.NoticiaCriarDtoIn;
 import microservice.micronoticias.adapter.out.entity.EditoriaEntity;
 import microservice.micronoticias.adapter.out.entity.NoticiaEntity;
@@ -120,6 +121,14 @@ public final class FactoryObjectMother {
     public EditoriaCriarDtoIn.EditoriaCriarDtoInBuilder gerarEditoriaCriarDtoInBuilder() {
 
         return EditoriaCriarDtoIn.builder()
+            .nomenclatura(faker.lorem().characters(3, 100))
+            .descricao(faker.lorem().characters(10, 200));
+    }
+
+    public EditoriaUpdateDtoIn.EditoriaUpdateDtoInBuilder gerarEditoriaUpdateDtoInBuilder() {
+
+        return EditoriaUpdateDtoIn.builder()
+            .id(1000L)
             .nomenclatura(faker.lorem().characters(3, 100))
             .descricao(faker.lorem().characters(10, 200));
     }
