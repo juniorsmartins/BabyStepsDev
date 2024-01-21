@@ -107,3 +107,11 @@ Tmicronoticias/src/main/java/microservice/micronoticias/MicronoticiasApplication
 bmicrousuarios/src/main/java/microservice/microusuarios/adapter/in/controller/PersonController.java,3/d/3dad7ae9c5dbcd90149c3f02ae6f9c32b16aa9fb
 Ñ
 Tmicrousuarios/src/main/java/microservice/microusuarios/MicrousuariosApplication.java,b/3/b373d67a2744fca5dc98e96859a1eeddabc1ddc0
+ó
+gmicronoticias/src/main/java/microservice/micronoticias/config/bean/YamlJackson2HttpMesageConverter.java,f/4/f41e49e4fef6820931b878ea057a1ca8f53006ee
+ò
+hmicronoticias/src/main/java/microservice/micronoticias/config/bean/YamlJackson2HttpMessageConverter.java,8/1/8181dc204ff04f92df227de44725661aa2a71d07
+Å
+Qmicronoticias/src/main/java/microservice/micronoticias/config/bean/MediaType.java,0/5/055053edf43a47db2078142230de984c0b3844e3
+á
+Wmicronoticias/src/main/java/microservice/micronoticias/config/bean/MediaTypeConfig.java,b/6/b66eb625bc264cce47bf931a5164a294db42a767

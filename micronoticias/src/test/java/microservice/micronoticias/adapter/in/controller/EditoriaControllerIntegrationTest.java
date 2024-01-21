@@ -107,36 +107,6 @@ class EditoriaControllerIntegrationTest {
     @DisplayName("Listar")
     class Listar {
 
-//        @Test
-//        @DisplayName("dois itens XML")
-//        void dadoDuasEditorias_QuandoListarComContentNegotiationXML_EntaoRetornarListaComDoisItens() {
-//
-//            webTestClient.get()
-//                .uri(END_POINT)
-//                .accept(MediaType.APPLICATION_XML)
-//                .exchange()
-//                .expectStatus().isOk()
-//                .expectBodyList(EditoriaListarDtoOut.class)
-//                .consumeWith(response -> {
-//                    assertThat(response.getResponseBody().size()).isEqualTo(2);
-//                });
-//        }
-
-//        @Test
-//        @DisplayName("dois itens YAML")
-//        void dadoDuasEditorias_QuandoListarComContentNegotiationYAML_EntaoRetornarListaComDoisItens() {
-//
-//            webTestClient.get()
-//                .uri(END_POINT)
-//                .accept(MediaType.valueOf("application/x-yaml"))
-//                .exchange()
-//                .expectStatus().isOk()
-//                .expectBodyList(EditoriaListarDtoOut.class)
-//                .consumeWith(response -> {
-//                    assertThat(response.getResponseBody().size()).isEqualTo(2);
-//                });
-//        }
-
         @Test
         @DisplayName("dois itens")
         void dadoDuasEditorias_QuandoListar_EntaoRetornarListaComDoisItens() {
@@ -148,7 +118,7 @@ class EditoriaControllerIntegrationTest {
                 .expectStatus().isOk()
                 .expectBodyList(EditoriaListarDtoOut.class)
                 .consumeWith(response -> {
-                    assertThat(response.getResponseBody().size()).isEqualTo(2);
+                    assertThat(response.getResponseBody()).hasSize(2);
                 });
         }
     }
