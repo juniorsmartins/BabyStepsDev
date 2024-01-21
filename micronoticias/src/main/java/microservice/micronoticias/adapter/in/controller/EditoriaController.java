@@ -11,13 +11,16 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import microservice.micronoticias.adapter.in.dto.request.EditoriaCriarDtoIn;
+import microservice.micronoticias.adapter.in.dto.request.EditoriaUpdateDtoIn;
 import microservice.micronoticias.adapter.in.dto.response.EditoriaCriarDtoOut;
 import microservice.micronoticias.adapter.in.dto.response.EditoriaListarDtoOut;
+import microservice.micronoticias.adapter.in.dto.response.EditoriaUpdateDtoOut;
 import microservice.micronoticias.adapter.in.dto.response.NoticiaCriarDtoOut;
 import microservice.micronoticias.adapter.in.mapper.EditoriaMapperIn;
 import microservice.micronoticias.application.port.input.EditoriaCriarInputPort;
 import microservice.micronoticias.application.port.input.EditoriaDeletarPorIdInputPort;
 import microservice.micronoticias.application.port.input.EditoriaListarInputPort;
+import microservice.micronoticias.application.port.input.EditoriaUpdateInputPort;
 import microservice.micronoticias.config.exception.ApiError;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -35,7 +38,11 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class EditoriaController {
 
+    private static final String APPLICATION_YAML_VALUE = "application/x-yaml";
+
     private final EditoriaCriarInputPort editoriaCriarInputPort;
+
+    private final EditoriaUpdateInputPort editoriaUpdateInputPort;
 
     private final EditoriaListarInputPort editoriaListarInputPort;
 
@@ -44,8 +51,8 @@ public class EditoriaController {
     private final EditoriaMapperIn mapperIn;
 
     @PostMapping(
-        consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_JSON_VALUE, "application/x-yaml"},
-        produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, "application/x-yaml"})
+        consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_JSON_VALUE, APPLICATION_YAML_VALUE},
+        produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, APPLICATION_YAML_VALUE})
     @Operation(summary = "Cadastrar", description = "Recurso para criar uma nova Editoria.",
         responses = {
             @ApiResponse(responseCode = "201", description = "Recurso cadastrado com sucesso.",
@@ -82,7 +89,23 @@ public class EditoriaController {
             .body(resposta);
     }
 
-    @GetMapping(produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, "application/x-yaml"})
+    @PutMapping(
+        consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, APPLICATION_YAML_VALUE},
+        produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, APPLICATION_YAML_VALUE})
+    public ResponseEntity<EditoriaUpdateDtoOut> update(@RequestBody @Valid EditoriaUpdateDtoIn updateDtoIn) {
+
+        var response = Optional.of(updateDtoIn)
+            .map(this.mapperIn::toEditoria)
+            .map(this.editoriaUpdateInputPort::update)
+            .map(this.mapperIn::toEditoriaUpdateDtoOut)
+            .orElseThrow();
+
+        return ResponseEntity
+            .ok()
+            .body(response);
+    }
+
+    @GetMapping(produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, APPLICATION_YAML_VALUE})
     @Operation(summary = "Listar", description = "Recurso para listar Editorias.",
         responses = {
             @ApiResponse(responseCode = "200", description = "Recursos listados com sucesso.",
@@ -110,7 +133,7 @@ public class EditoriaController {
     }
 
     @DeleteMapping(path = {"/{produtoId}"},
-        produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, "application/x-yaml"})
+        produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, APPLICATION_YAML_VALUE})
     @Operation(summary = "Deletar por Id", description = "Recurso para apagar Editoria.",
         responses = {
             @ApiResponse(responseCode = "204", description = "Requisição bem sucedida e sem retorno.",
