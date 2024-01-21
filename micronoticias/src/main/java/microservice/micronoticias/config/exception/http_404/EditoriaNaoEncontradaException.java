@@ -12,7 +12,7 @@ public final class EditoriaNaoEncontradaException extends RecursoNaoEncontradoEx
   }
 
   public EditoriaNaoEncontradaException(Long id) {
-    this(String.format("A Editoria %s não foi encontrada.", id));
+    super(String.format("A Editoria %s não foi encontrada.", id));
   }
 }
 

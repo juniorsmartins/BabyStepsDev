@@ -5,7 +5,7 @@ import java.io.Serial;
 public abstract sealed class ProblemaInternoNoServidorException extends RuntimeException
   permits EditoriaCriarUseCaseException, EditoriaSalvarAdapterException, EditoriaMapperOutImplException,
         NoticiaCriarUseCaseException, NoticiaSalvarAdapterException, EditoriaDeletarPorIdUseCaseException,
-        ProhibitedNullValueException {
+        ProhibitedNullValueException, FailedToUpdateEditorException, EditoriaUpdateUseCaseException {
 
   @Serial
   private static final long serialVersionUID = 1L;
