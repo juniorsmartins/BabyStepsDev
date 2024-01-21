@@ -7,7 +7,7 @@ import microservice.micronoticias.config.exception.http_409.RuleWithProhibitedNu
 
 import java.util.Optional;
 
-public class SingleNamingRuleForEditorial implements RuleStrategyToUpdateEditor {
+public class SingleNamingRuleForEditorial implements RuleStrategyToUpdateEditor, RuleStrategyToCreateEditor {
 
     private final EditoriaBuscarPorNomenclaturaOutputPort outputPort;
 
