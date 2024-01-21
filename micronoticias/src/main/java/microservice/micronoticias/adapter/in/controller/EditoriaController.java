@@ -11,13 +11,16 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import microservice.micronoticias.adapter.in.dto.request.EditoriaCriarDtoIn;
+import microservice.micronoticias.adapter.in.dto.request.EditoriaUpdateDtoIn;
 import microservice.micronoticias.adapter.in.dto.response.EditoriaCriarDtoOut;
 import microservice.micronoticias.adapter.in.dto.response.EditoriaListarDtoOut;
+import microservice.micronoticias.adapter.in.dto.response.EditoriaUpdateDtoOut;
 import microservice.micronoticias.adapter.in.dto.response.NoticiaCriarDtoOut;
 import microservice.micronoticias.adapter.in.mapper.EditoriaMapperIn;
 import microservice.micronoticias.application.port.input.EditoriaCriarInputPort;
 import microservice.micronoticias.application.port.input.EditoriaDeletarPorIdInputPort;
 import microservice.micronoticias.application.port.input.EditoriaListarInputPort;
+import microservice.micronoticias.application.port.input.EditoriaUpdateInputPort;
 import microservice.micronoticias.config.exception.ApiError;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -35,7 +38,11 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class EditoriaController {
 
+    private static final String APPLICATION_YAML_VALUE = "application/x-yaml";
+
     private final EditoriaCriarInputPort editoriaCriarInputPort;
+
+    private final EditoriaUpdateInputPort editoriaUpdateInputPort;
 
     private final EditoriaListarInputPort editoriaListarInputPort;
 
@@ -44,8 +51,8 @@ public class EditoriaController {
     private final EditoriaMapperIn mapperIn;
 
     @PostMapping(
-        consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_JSON_VALUE, "application/x-yaml"},
-        produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, "application/x-yaml"})
+        consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_JSON_VALUE, APPLICATION_YAML_VALUE},
+        produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, APPLICATION_YAML_VALUE})
     @Operation(summary = "Cadastrar", description = "Recurso para criar uma nova Editoria.",
         responses = {
             @ApiResponse(responseCode = "201", description = "Recurso cadastrado com sucesso.",
@@ -82,7 +89,46 @@ public class EditoriaController {
             .body(resposta);
     }
 
-    @GetMapping(produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, "application/x-yaml"})
+    @PutMapping(
+        consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, APPLICATION_YAML_VALUE},
+        produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, APPLICATION_YAML_VALUE})
+    @Operation(summary = "Atualizar", description = "Recurso para atualizar Editoria.",
+        responses = {
+            @ApiResponse(responseCode = "200", description = "Requisição bem sucedida e com retorno.",
+                content = @Content(mediaType = "application/json", schema = @Schema(implementation = EditoriaUpdateDtoOut.class))),
+            @ApiResponse(responseCode = "400", description = "Requisição mal formulada.",
+                content = @Content(mediaType = "application/json", schema = @Schema(implementation = ApiError.class))),
+            @ApiResponse(responseCode = "403", description = "Usuário sem permissão para acessar recurso.",
+                content = @Content(mediaType = "application/json", schema = @Schema(implementation = ApiError.class))),
+            @ApiResponse(responseCode = "404", description = "Recurso não encontrado.",
+                content = @Content(mediaType = "application/json", schema = @Schema(implementation = ApiError.class))),
+            @ApiResponse(responseCode = "409", description = "Conflito com regras de negócio.",
+                content = @Content(mediaType = "application/json", schema = @Schema(implementation = ApiError.class))),
+            @ApiResponse(responseCode = "422", description = "Recurso não processado por dados de entrada inválidos.",
+                content = @Content(mediaType = "application/json", schema = @Schema(implementation = ApiError.class))),
+            @ApiResponse(responseCode = "500", description = "Situação inesperada no servidor.",
+                content = @Content(mediaType = "application/json", schema = @Schema(implementation = ApiError.class))),
+        })
+    public ResponseEntity<EditoriaUpdateDtoOut> update(
+        @Parameter(name = "EditoriaUpdateDtoIn", description = "Objeto para transporte de dados para atualizar.", required = true)
+        @RequestBody @Valid EditoriaUpdateDtoIn updateDtoIn) {
+
+        log.info("Requisição recebida para atualizar Editoria.");
+
+        var response = Optional.of(updateDtoIn)
+            .map(this.mapperIn::toEditoria)
+            .map(this.editoriaUpdateInputPort::update)
+            .map(this.mapperIn::toEditoriaUpdateDtoOut)
+            .orElseThrow();
+
+        log.info("Sucesso ao atualizar Editoria com Id: {}.", response.id());
+
+        return ResponseEntity
+            .ok()
+            .body(response);
+    }
+
+    @GetMapping(produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, APPLICATION_YAML_VALUE})
     @Operation(summary = "Listar", description = "Recurso para listar Editorias.",
         responses = {
             @ApiResponse(responseCode = "200", description = "Recursos listados com sucesso.",
@@ -110,7 +156,7 @@ public class EditoriaController {
     }
 
     @DeleteMapping(path = {"/{produtoId}"},
-        produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, "application/x-yaml"})
+        produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, APPLICATION_YAML_VALUE})
     @Operation(summary = "Deletar por Id", description = "Recurso para apagar Editoria.",
         responses = {
             @ApiResponse(responseCode = "204", description = "Requisição bem sucedida e sem retorno.",

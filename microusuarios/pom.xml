@@ -45,6 +45,18 @@
 		</dependency>
 
 
+		<!-- CONTENT NEGOTIATION -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.dataformat</groupId>
+			<artifactId>jackson-dataformat-xml</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.dataformat</groupId>
+			<artifactId>jackson-dataformat-yaml</artifactId>
+		</dependency>
+
+
 		<!-- AUDITORIA -->
 		<dependency>
 			<groupId>org.springframework.data</groupId>

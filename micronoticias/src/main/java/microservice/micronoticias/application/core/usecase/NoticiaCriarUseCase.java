@@ -19,7 +19,8 @@ public class NoticiaCriarUseCase implements NoticiaCriarInputPort {
 
     private final List<RuleStrategyToCreateNews> ruleStrategies;
 
-    public NoticiaCriarUseCase(NoticiaSalvarOutputPort cadastrarOutputPort, List<RuleStrategyToCreateNews> ruleStrategies) {
+    public NoticiaCriarUseCase(NoticiaSalvarOutputPort cadastrarOutputPort,
+                               List<RuleStrategyToCreateNews> ruleStrategies) {
         this.cadastrarOutputPort = cadastrarOutputPort;
         this.ruleStrategies = ruleStrategies;
     }

@@ -1,7 +1,7 @@
 package microservice.micronoticias.application.core.usecase.regras;
 
-import microservice.micronoticias.adapter.out.repository.EditoriaRepository;
 import microservice.micronoticias.application.core.domain.Noticia;
+import microservice.micronoticias.application.port.output.EditoriaBuscarPorNomenclaturaOutputPort;
 import microservice.micronoticias.config.exception.http_409.NomenclaturaNaoUnicaException;
 import microservice.micronoticias.config.exception.http_409.RuleWithProhibitedNullValueException;
 
@@ -9,10 +9,10 @@ import java.util.Optional;
 
 public class RuleNomenclaturaUnicaDeEditoriaToCreateNews implements RuleStrategyToCreateNews {
 
-    private final EditoriaRepository editoriaRepository;
+    private final EditoriaBuscarPorNomenclaturaOutputPort outputPort;
 
-    public RuleNomenclaturaUnicaDeEditoriaToCreateNews(EditoriaRepository editoriaRepository) {
-        this.editoriaRepository = editoriaRepository;
+    public RuleNomenclaturaUnicaDeEditoriaToCreateNews(EditoriaBuscarPorNomenclaturaOutputPort editoriaBuscarPorNomenclaturaOutputPort) {
+        this.outputPort = editoriaBuscarPorNomenclaturaOutputPort;
     }
 
     @Override
@@ -21,7 +21,7 @@ public class RuleNomenclaturaUnicaDeEditoriaToCreateNews implements RuleStrategy
         Optional.ofNullable(noticia)
             .ifPresentOrElse(news ->
                 news.getEditorias().forEach(editor ->
-                    this.editoriaRepository.findByNomenclatura(editor.getNomenclatura())
+                    outputPort.buscarPorNomenclatura(editor.getNomenclatura())
                         .ifPresent(edit -> {
                             if (!edit.getId().equals(editor.getId())) {
                                 throw new NomenclaturaNaoUnicaException(edit.getNomenclatura());
