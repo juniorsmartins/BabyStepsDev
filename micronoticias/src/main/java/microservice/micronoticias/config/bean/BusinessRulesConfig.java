@@ -6,6 +6,8 @@ import microservice.micronoticias.adapter.out.repository.NoticiaRepository;
 import microservice.micronoticias.application.core.usecase.regras.RuleNomenclaturaUnicaDeEditoriaToCreateNews;
 import microservice.micronoticias.application.core.usecase.regras.RuleNoticiaUnicaToCreateNews;
 import microservice.micronoticias.application.core.usecase.regras.SingleNamingRuleForEditorial;
+import microservice.micronoticias.application.port.output.EditoriaBuscarPorNomenclaturaOutputPort;
+import microservice.micronoticias.application.port.output.NoticiaBuscarPorTituloOutputPort;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
@@ -13,13 +15,13 @@ import org.springframework.stereotype.Component;
 public class BusinessRulesConfig {
 
     @Bean
-    public RuleNomenclaturaUnicaDeEditoriaToCreateNews ruleNomenclaturaUnicaDeEditoria(EditoriaRepository editoriaRepository) {
-        return new RuleNomenclaturaUnicaDeEditoriaToCreateNews(editoriaRepository);
+    public RuleNomenclaturaUnicaDeEditoriaToCreateNews ruleNomenclaturaUnicaDeEditoria(EditoriaBuscarPorNomenclaturaOutputPort editoriaBuscarPorNomenclaturaOutputPort) {
+        return new RuleNomenclaturaUnicaDeEditoriaToCreateNews(editoriaBuscarPorNomenclaturaOutputPort);
     }
 
     @Bean
-    public RuleNoticiaUnicaToCreateNews ruleNoticiaUnica(NoticiaRepository noticiaRepository) {
-        return new RuleNoticiaUnicaToCreateNews(noticiaRepository);
+    public RuleNoticiaUnicaToCreateNews ruleNoticiaUnica(NoticiaBuscarPorTituloOutputPort noticiaBuscarPorTituloOutputPort) {
+        return new RuleNoticiaUnicaToCreateNews(noticiaBuscarPorTituloOutputPort);
     }
 
     @Bean

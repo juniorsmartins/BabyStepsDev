@@ -175,3 +175,9 @@ xmicronoticias/src/main/java/microservice/micronoticias/application/core/usecase
 ‡micronoticias/src/test/java/microservice/micronoticias/application/core/usecase/regras/SingleNamingRuleForEditorialIntegrationTest.java,2/6/26ea4783e533c7b3b78d4f353eff54ac68ed88e0
 ¦
 vmicronoticias/src/main/java/microservice/micronoticias/application/core/usecase/regras/RuleStrategyToCreateEditor.java,8/4/8483f7acc321fbc44dd17e7d6aa633a6db762229
+¤
+tmicronoticias/src/main/java/microservice/micronoticias/application/port/output/NoticiaBuscarPorTituloOutputPort.java,c/e/cee2eead45b59ff2b857609f237f7beb239b5744
+•
+emicronoticias/src/main/java/microservice/micronoticias/adapter/out/NoticiaBuscarPorTituloAdapter.java,2/f/2f652129a9665decd1a23ae4a30aa42a51db09c1
+”
+dmicronoticias/src/main/java/microservice/micronoticias/adapter/out/repository/NoticiaRepository.java,9/a/9a3d20fb41eaf2e1c35e12f040a71f683710dc8a

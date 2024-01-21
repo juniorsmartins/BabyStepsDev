@@ -20,7 +20,7 @@ public class EditoriaBuscarPorNomenclaturaAdapter implements EditoriaBuscarPorNo
 
     private final EditoriaMapperOut mapperOut;
 
-    @Transactional
+    @Transactional(readOnly = true)
     @Override
     public Optional<Editoria> buscarPorNomenclatura(final String nomenclatura) {
 
