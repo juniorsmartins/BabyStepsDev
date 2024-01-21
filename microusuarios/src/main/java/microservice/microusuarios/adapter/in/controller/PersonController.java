@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Tag(name = "Persons", description = "Contém os recursos de Cadastrar, Pesquisar, Atualizar e Deletar.")
 @Slf4j
 @RestController
-@RequestMapping(path = {"/api/v1/person"})
+@RequestMapping(path = {"/api/v1/persons"})
 @RequiredArgsConstructor
 public class PersonController {
 
