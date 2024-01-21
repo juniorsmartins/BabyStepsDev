@@ -3,6 +3,7 @@ package microservice.micronoticias.application.core.usecase;
 import microservice.micronoticias.application.core.domain.Editoria;
 import microservice.micronoticias.application.port.input.EditoriaUpdateInputPort;
 import microservice.micronoticias.application.port.output.EditoriaUpdateOutputPort;
+import microservice.micronoticias.config.exception.http_500.EditoriaUpdateUseCaseException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,13 +20,13 @@ public class EditoriaUpdateUseCase implements EditoriaUpdateInputPort {
     }
 
     @Override
-    public Editoria update(Editoria editoria) {
+    public Editoria update(final Editoria editoria) {
 
         log.info("Iniciado serviço para atualizar Editoria.");
 
         var response = Optional.ofNullable(editoria)
             .map(this.editoriaUpdateOutputPort::update)
-            .orElseThrow();
+            .orElseThrow(EditoriaUpdateUseCaseException::new);
 
         log.info("Finalizado serviço para atualizar Editoria, com Id: {}.", response.getId());
 

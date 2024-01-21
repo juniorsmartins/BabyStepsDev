@@ -7,9 +7,13 @@ import microservice.micronoticias.adapter.out.mapper.EditoriaMapperOut;
 import microservice.micronoticias.adapter.out.repository.EditoriaRepository;
 import microservice.micronoticias.application.core.domain.Editoria;
 import microservice.micronoticias.application.port.output.EditoriaUpdateOutputPort;
+import microservice.micronoticias.config.exception.http_404.EditoriaNaoEncontradaException;
+import microservice.micronoticias.config.exception.http_500.FailedToUpdateEditorException;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Optional;
 
 @Slf4j
 @Repository
@@ -26,14 +30,20 @@ public class EditoriaUpdateAdapter implements EditoriaUpdateOutputPort {
 
         log.info("Iniciado adaptador para atualizar Editoria.");
 
-        var editoriaSalva = this.editoriaRepository.findById(editoria.getId())
+        var editoriaSalva = Optional.ofNullable(editoria.getId())
+            .map(this::searchEditor)
             .map(entity -> this.overrideValues(entity, editoria))
             .map(this.mapperOut::toEditoria)
-            .orElseThrow();
+            .orElseThrow(FailedToUpdateEditorException::new);
 
         log.info("Finalizado adaptador para atualizar Editoria por Id: {}.", editoriaSalva.getId());
 
         return editoriaSalva;
+    }
+
+    private EditoriaEntity searchEditor(final Long id) {
+        return this.editoriaRepository.findById(id)
+            .orElseThrow(() -> new EditoriaNaoEncontradaException(id));
     }
 
     private EditoriaEntity overrideValues(EditoriaEntity editoriaEntity, final Editoria editoria) {

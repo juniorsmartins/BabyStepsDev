@@ -147,3 +147,9 @@ hmicronoticias/src/main/java/microservice/micronoticias/application/core/usecase
 `micronoticias/src/main/java/microservice/micronoticias/adapter/out/mapper/EditoriaMapperOut.java,5/4/54a50fe76714e075ae0635de2370dbfb70e4d0fb
 ”
 dmicronoticias/src/main/java/microservice/micronoticias/adapter/out/mapper/EditoriaMapperOutImpl.java,2/5/25637550aadc522c71552b393d3e929d09069c48
+£
+smicronoticias/src/main/java/microservice/micronoticias/config/exception/http_500/FailedToUpdateEditorException.java,4/e/4e032965d9d6ee4b80f1a5db57a9d5ef85932ba8
+¢
+rmicronoticias/src/test/java/microservice/micronoticias/application/core/usecase/EditoriaUpdateUseCaseUnitTest.java,4/f/4f44455d63ea491a67601410f147a71edd5b0227
+¤
+tmicronoticias/src/main/java/microservice/micronoticias/config/exception/http_500/EditoriaUpdateUseCaseException.java,5/0/5057272a212b8a11674c218e0c28db14c48a4732
