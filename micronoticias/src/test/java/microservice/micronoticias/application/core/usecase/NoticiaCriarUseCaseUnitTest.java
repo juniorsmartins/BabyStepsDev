@@ -9,8 +9,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.function.Executable;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
@@ -19,7 +19,10 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @DisplayName("Unit UseCase - Criar Notícia")
 class NoticiaCriarUseCaseUnitTest {
 
-    @Autowired
+    @Mock
+    private NoticiaSalvarOutputPort cadastrarOutputPort;
+
+    @InjectMocks
     private NoticiaCriarUseCase noticiaCriarUseCase;
 
     @Test
@@ -27,6 +30,7 @@ class NoticiaCriarUseCaseUnitTest {
     void dadoEditoriaNula_QuandoCriar_EntaoLancarException() {
         Executable acao = () -> this.noticiaCriarUseCase.criar(null);
         Assertions.assertThrows(NoticiaCriarUseCaseException.class, acao);
+        Mockito.verifyNoInteractions(cadastrarOutputPort);
     }
 }
 

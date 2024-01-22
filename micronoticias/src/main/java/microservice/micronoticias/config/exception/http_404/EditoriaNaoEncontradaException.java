@@ -7,12 +7,12 @@ public final class EditoriaNaoEncontradaException extends RecursoNaoEncontradoEx
   @Serial
   private static final long serialVersionUID = 1L;
 
-  public EditoriaNaoEncontradaException(String nomenclatura) {
-    super(String.format("A Editoria %s não foi encontrada.", nomenclatura));
+  public EditoriaNaoEncontradaException(String message) {
+    super(message);
   }
 
   public EditoriaNaoEncontradaException(Long id) {
-    super(String.format("A Editoria %s não foi encontrada.", id));
+    this(String.format("A Editoria %d não foi encontrada.", id));
   }
 }
 

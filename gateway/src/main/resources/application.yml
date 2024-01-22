@@ -17,7 +17,8 @@ eureka:
     register-with-eureka: true
     service-url:
       defaultZone: http://eurekaserver:8761/eureka
-
+  instance:
+    lease-renewal-interval-in-seconds: 300
 
 
 logging:
