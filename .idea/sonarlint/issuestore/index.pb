@@ -220,3 +220,11 @@ nmicronoticias/src/main/java/microservice/micronoticias/config/exception/http_40
 smicronoticias/src/main/java/microservice/micronoticias/config/exception/http_404/RecursoNaoEncontradoException.java,2/f/2fb5fe23a0f1f5ba4e762794a1191e34a7a31375
 ›
 kmicronoticias/src/test/java/microservice/micronoticias/adapter/out/NoticiaDeleteAdapterIntegrationTest.java,8/6/86e0e9733268b61fdde0c4383c53b8f8eacc1560
+¡
+qmicronoticias/src/test/java/microservice/micronoticias/application/core/usecase/NoticiaDeleteUseCaseUnitTest.java,a/3/a3b6fd10f45158cf6f7abc10ed02601412f0f290
+£
+smicronoticias/src/main/java/microservice/micronoticias/config/exception/http_500/NoticiaDeleteUseCaseException.java,d/c/dc608b3f405890a2971c80df57ff7e6a739cf4bf
+£
+smicronoticias/src/main/java/microservice/micronoticias/config/exception/http_500/NoticiaSalvarAdapterException.java,1/b/1b79a3ce2cee2c035bce2fa2f9ffcf4cf895ec60
+›
+kmicronoticias/src/test/java/microservice/micronoticias/adapter/in/controller/NoticiaControllerUnitTest.java,6/b/6bfc804dc169de9a324be61e897626056940be63

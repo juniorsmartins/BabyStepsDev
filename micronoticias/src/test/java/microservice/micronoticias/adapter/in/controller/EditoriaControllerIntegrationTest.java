@@ -190,7 +190,7 @@ class EditoriaControllerIntegrationTest {
                 .accept(MediaType.APPLICATION_JSON)
                 .exchange()
                 .expectStatus().isNoContent()
-                .expectBody();
+                .expectBody(Void.class);
         }
     }
 }
