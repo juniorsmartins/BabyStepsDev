@@ -204,3 +204,11 @@ kmicronoticias/src/test/java/microservice/micronoticias/adapter/out/EditoriaDele
 cmicronoticias/src/test/java/microservice/micronoticias/concorrencia/ControleDeConcorrenciaTest.java,4/8/480e5a8640a931675a18a804e44bd3c3fb25c2f9
 Š
 Zmicronoticias/src/main/java/microservice/micronoticias/config/exception/TipoErrorEnum.java,b/d/bd79740b7588abb8e20522662d01f6ddc6431c44
+™
+imicronoticias/src/main/java/microservice/micronoticias/application/port/input/NoticiaDeleteInputPort.java,c/f/cff146cfd84f0fe79bd612ffb75f8521c9544cb4
+›
+kmicronoticias/src/main/java/microservice/micronoticias/application/port/output/NoticiaDeleteOutputPort.java,b/6/b6fb4c51b9d820b811a8951e711492b0ff39acce
+™
+imicronoticias/src/main/java/microservice/micronoticias/application/core/usecase/NoticiaDeleteUseCase.java,0/5/05a9ac584d059e0c843fbc73ecdfaa04a85016c5
+Œ
+\micronoticias/src/main/java/microservice/micronoticias/adapter/out/NoticiaDeleteAdapter.java,a/b/abe380e9f534e8a2ac27125d48a9e01972bc6d4e
