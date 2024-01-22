@@ -30,8 +30,8 @@ class EditoriaDeletarPorIdAdapterIntegrationTest {
     }
 
     @Test
-    @DisplayName("listar duas editorias")
-    void dadoDuasEditoriasNoDatabase_QuandoListar_EntaoRetornarListaComDuasEditorias() {
+    @DisplayName("id válido")
+    void dadoIdValido_QuandoDelete_EntaoApagarEditoria() {
         var editoriaEntity = this.editoriaRepository.findById(1001L);
         Assertions.assertFalse(editoriaEntity.isEmpty());
 

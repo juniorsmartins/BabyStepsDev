@@ -213,3 +213,5 @@ dmicronoticias/src/test/java/microservice/micronoticias/adapter/out/NoticiaDelet
 nmicronoticias/src/main/java/microservice/micronoticias/config/exception/http_404/NoticiaNotFoundException.java,d/6/d695be20724362205f478c46309a9860aea379b2
 £
 smicronoticias/src/main/java/microservice/micronoticias/config/exception/http_404/RecursoNaoEncontradoException.java,2/f/2fb5fe23a0f1f5ba4e762794a1191e34a7a31375
+›
+kmicronoticias/src/test/java/microservice/micronoticias/adapter/out/NoticiaDeleteAdapterIntegrationTest.java,8/6/86e0e9733268b61fdde0c4383c53b8f8eacc1560
