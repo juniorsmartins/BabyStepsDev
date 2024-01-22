@@ -1,8 +1,6 @@
 package microservice.micronoticias.application.core.usecase;
 
 import microservice.micronoticias.adapter.out.EditoriaDeletarPorIdAdapter;
-import microservice.micronoticias.application.core.domain.Editoria;
-import microservice.micronoticias.config.exception.http_500.EditoriaCriarUseCaseException;
 import microservice.micronoticias.config.exception.http_500.EditoriaDeletarPorIdUseCaseException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -26,14 +24,6 @@ class EditoriaDeletarPorIdUseCaseUnitTest {
 
     @InjectMocks
     private EditoriaDeletarPorIdUseCase editoriaDeletarPorIdUseCase;
-
-    @Test
-    @DisplayName("id válido")
-    void dadoIdValido_QuandoDeletarEditoriaPorId_EntaoLancarException() {
-        Executable acao = () -> this.editoriaDeletarPorIdUseCase.deletarPorId(null);
-        Assertions.assertThrows(EditoriaDeletarPorIdUseCaseException.class, acao);
-        Mockito.verifyNoInteractions(editoriaDeletarPorIdAdapter);
-    }
 
     @Test
     @DisplayName("nulo")
