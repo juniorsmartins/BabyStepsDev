@@ -9,10 +9,11 @@ em construção.....
 3. Linguagem Pictográfica (Domain Storytelling);
 4. Event Storming;
 5. Linguagem Ubíqua;
-6. Diagrama Entidade-Relacionamento;
+6. Arquitetura;
 7. Diagramas UML;
-8. Documentação Swagger/OpenAPI;
-9. Como testar.
+8. Diagrama Entidade-Relacionamento;
+9. Documentação Swagger/OpenAPI;
+10. Como testar.
 
 
 ### 2 - TECNOLOGIAS
@@ -50,4 +51,13 @@ em construção.....
 31. DevOps - CI-CD (GitHub Actions);
 32. Sistema Operacional (Linux - Ubuntu);
 33. IDE (Intellij);
+
+### 6 - ARQUITETURA
+
+Em construção...
+<img width=800 src=https://github.com/juniorsmartins/BabyStepsDev/blob/master/UseCaseDiagram1.png)https://github.com/juniorsmartins/BabyStepsDev/blob/master/UseCaseDiagram1.png>
+
+### 7 - DIAGRAMAS UML
+
+
 
