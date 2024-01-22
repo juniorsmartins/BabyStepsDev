@@ -212,3 +212,9 @@ kmicronoticias/src/main/java/microservice/micronoticias/application/port/output/
 imicronoticias/src/main/java/microservice/micronoticias/application/core/usecase/NoticiaDeleteUseCase.java,0/5/05a9ac584d059e0c843fbc73ecdfaa04a85016c5
 Œ
 \micronoticias/src/main/java/microservice/micronoticias/adapter/out/NoticiaDeleteAdapter.java,a/b/abe380e9f534e8a2ac27125d48a9e01972bc6d4e
+”
+dmicronoticias/src/test/java/microservice/micronoticias/adapter/out/NoticiaDeleteAdapterUnitTest.java,5/e/5e08f5dd32f078c29e5354c98ba2bbcd6f2a5b57
+ž
+nmicronoticias/src/main/java/microservice/micronoticias/config/exception/http_404/NoticiaNotFoundException.java,d/6/d695be20724362205f478c46309a9860aea379b2
+£
+smicronoticias/src/main/java/microservice/micronoticias/config/exception/http_404/RecursoNaoEncontradoException.java,2/f/2fb5fe23a0f1f5ba4e762794a1191e34a7a31375
