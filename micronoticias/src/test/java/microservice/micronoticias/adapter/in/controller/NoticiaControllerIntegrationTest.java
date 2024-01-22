@@ -10,6 +10,7 @@ import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
 import java.util.Set;
@@ -17,6 +18,7 @@ import java.util.Set;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@Sql(scripts = {"/sql/editorias/editorias-insert.sql", "/sql/noticias/noticias-insert.sql"}, executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
 @DisplayName("Integration Controller - Notícia")
 class NoticiaControllerIntegrationTest {
 
@@ -145,6 +147,23 @@ class NoticiaControllerIntegrationTest {
             assertThat(noticiaDoBanco.getEditorias()).hasSize(2);
             assertThat(noticiaDoBanco.getEditorias().stream().map(EditoriaEntity::getNomenclatura))
                 .containsExactlyInAnyOrder(editoria1.nomenclatura(), editoria2.nomenclatura());
+        }
+    }
+
+    @Nested
+    @DisplayName("Delete")
+    class DeleteNoticia {
+
+        @Test
+        @DisplayName("dados válidos com JSON")
+        void dadoNoticiaValida_QuandoDeleteComContentNegotiationJson_EntaoRetornarComHttp204() {
+
+            webTestClient.delete()
+                .uri(END_POINT + "/" + 1001L)
+                .accept(MediaType.APPLICATION_JSON)
+                .exchange()
+                .expectStatus().isNoContent()
+                .expectBody(Void.class);
         }
     }
 }

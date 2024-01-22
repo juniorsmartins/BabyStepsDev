@@ -13,15 +13,14 @@ import microservice.micronoticias.adapter.in.dto.request.NoticiaCriarDtoIn;
 import microservice.micronoticias.adapter.in.dto.response.NoticiaCriarDtoOut;
 import microservice.micronoticias.adapter.in.mapper.NoticiaMapperIn;
 import microservice.micronoticias.application.port.input.NoticiaCriarInputPort;
+import microservice.micronoticias.application.port.input.NoticiaDeleteInputPort;
 import microservice.micronoticias.config.exception.ApiError;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @Tag(name = "Noticias", description = "Contém os recursos de Cadastrar, Pesquisar, Atualizar e Deletar.")
@@ -31,7 +30,11 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class NoticiaController {
 
+    private static final String APPLICATION_YAML_VALUE = "application/x-yaml";
+
     private final NoticiaCriarInputPort cadastrarInputPort;
+
+    private final NoticiaDeleteInputPort deleteInputPort;
 
     private final NoticiaMapperIn mapperIn;
 
@@ -72,6 +75,39 @@ public class NoticiaController {
         return ResponseEntity
             .created(URI.create("/api/v1/noticias/" + resposta.id()))
             .body(resposta);
+    }
+
+    @DeleteMapping(path = {"/{noticiaId}"},
+        produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, APPLICATION_YAML_VALUE})
+    @Operation(summary = "Deletar por Id", description = "Recurso para apagar Notícia.",
+        responses = {
+            @ApiResponse(responseCode = "204", description = "Requisição bem sucedida e sem retorno.",
+                content = @Content(mediaType = "application/json")),
+            @ApiResponse(responseCode = "400", description = "Requisição mal formulada.",
+                content = @Content(mediaType = "application/json", schema = @Schema(implementation = ApiError.class))),
+            @ApiResponse(responseCode = "403", description = "Usuário sem permissão para acessar recurso.",
+                content = @Content(mediaType = "application/json", schema = @Schema(implementation = ApiError.class))),
+            @ApiResponse(responseCode = "404", description = "Recurso não encontrado.",
+                content = @Content(mediaType = "application/json", schema = @Schema(implementation = ApiError.class))),
+            @ApiResponse(responseCode = "500", description = "Situação inesperada no servidor.",
+                content = @Content(mediaType = "application/json", schema = @Schema(implementation = ApiError.class))),
+        })
+    public ResponseEntity<Void> delete(
+            @Parameter(name = "id", description = "Chave de Identificação.", example = "78", required = true)
+            @PathVariable(name = "noticiaId") final Long id) {
+
+        log.info("Requisição recebida para deletar Notícia por Id.");
+
+        Optional.ofNullable(id)
+            .ifPresentOrElse(this.deleteInputPort::deleteById,
+                () -> {throw new NoSuchElementException();}
+            );
+
+        log.info("Sucesso ao deletar Notícia por Id: {}.", id);
+
+        return ResponseEntity
+            .noContent()
+            .build();
     }
 }
 
