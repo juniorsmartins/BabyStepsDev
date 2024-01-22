@@ -18,7 +18,7 @@ em construção.....
 
 ### 2 - TECNOLOGIAS
 
-MICRONOTICIAS
+#### MICRONOTICIAS
 1. Java (versão 21 LTS);
 2. Spring Boot (versão 3.0.12);
 3. Spring Web;
@@ -57,7 +57,7 @@ MICRONOTICIAS
 36. Sistema Operacional (Linux - Ubuntu);
 37. IDE (Intellij);
 
-MICROUSUARIOS
+#### MICROUSUARIOS
 1. Java (versão 21 LTS);
 2. Spring Boot (versão 3.0.12);
 3. Spring Web;
@@ -71,5 +71,5 @@ Em construção...
 
 ### 7 - DIAGRAMAS UML
 
-
+### 8 - DIAGRAMA ENTIDADE-RELACIONAMENTO
 
