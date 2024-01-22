@@ -67,7 +67,7 @@ em construção.....
 ### 6 - ARQUITETURA
 
 Em construção...
-<img width=800 src=https://github.com/juniorsmartins/BabyStepsDev/blob/master/UseCaseDiagram1.png>
+<img width=800 src=https://github.com/juniorsmartins/BabyStepsDev/blob/master/documentacao/ArquiteturaMicroservices-22-01-24.png>
 
 ### 7 - DIAGRAMAS UML
 
@@ -75,6 +75,6 @@ Em construção...
 ### 8 - DIAGRAMA ENTIDADE-RELACIONAMENTO
 
 Em construção...
-<img width=800 src=https://github.com/juniorsmartins/BabyStepsDev/blob/master/DER_BabyStepsDev.png>
+<img width=800 src=https://github.com/juniorsmartins/BabyStepsDev/blob/master/documentacao/DiagramaEntidadeRelacionamento-22-01-24.png>
 
 
