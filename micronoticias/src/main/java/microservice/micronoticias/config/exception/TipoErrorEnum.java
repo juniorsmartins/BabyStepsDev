@@ -13,7 +13,8 @@ public enum TipoErrorEnum {
   MIDIA_NAO_SUPORTADA("Tipo de mídia não suportada.", "/midia-nao-suportada"),
   VALOR_NULO_PROIBIDO("Valor nulo proibido.", "/valor-nulo-proibido"),
   USUARIO_NAO_AUTENTICADO("O Usuário não está autenticado. Precisa efetuar login.", "/usuario-nao-autenticado"),
-  USUARIO_NAO_AUTORIZADO("O Usuário não está autorizado. Procure seu administrador para liberar o recurso.", "/usuario-nao-autorizado");
+  USUARIO_NAO_AUTORIZADO("O Usuário não está autorizado. Procure seu administrador para liberar o recurso.", "/usuario-nao-autorizado"),
+  CONTROLE_DE_CONCORRENCIA_ACIONADO("O Usuário tentou atualizar um recurso desatualizado.", "/controle-concorrencia");
 
   private final String titulo;
 
@@ -21,7 +22,7 @@ public enum TipoErrorEnum {
 
   TipoErrorEnum(String titulo, String caminho) {
     this.titulo = titulo;
-    this.caminho = "http://localhost:8001" + caminho;
+    this.caminho = "http://localhost:8000" + caminho;
   }
 }
 
