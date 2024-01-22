@@ -1,5 +1,6 @@
 package microservice.micronoticias.config.exception;
 
+import jakarta.persistence.OptimisticLockException;
 import lombok.extern.slf4j.Slf4j;
 import microservice.micronoticias.config.exception.http_400.RequisicaoMalFormuladaException;
 import microservice.micronoticias.config.exception.http_404.RecursoNaoEncontradoException;
@@ -31,6 +32,22 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
     public GlobalExceptionHandler(MessageSource mensagemInternacionalizada) {
         this.mensagemInternacionalizada = mensagemInternacionalizada;
+    }
+
+    // -------------------- CONCORRÊNCIA --------------------
+    @ExceptionHandler(value = OptimisticLockException.class)
+    public ResponseEntity<Object> tratarConcorrenciaLockOptimistic(OptimisticLockException ex, WebRequest webRequest) {
+
+        log.error("Erros: {}", ex.getMessage(), ex);
+
+        var tipoErrorEnum = TipoErrorEnum.CONTROLE_DE_CONCORRENCIA_ACIONADO;
+        var httpStatus = HttpStatus.CONFLICT;
+        var detail = ex.getMessage();
+
+        var mensagemDeErro = this.criarMensagemDeRetorno(tipoErrorEnum, httpStatus, detail)
+            .build();
+
+        return this.handleExceptionInternal(ex, mensagemDeErro, new HttpHeaders(), httpStatus, webRequest);
     }
 
     // -------------------- SEGURANÇA --------------------

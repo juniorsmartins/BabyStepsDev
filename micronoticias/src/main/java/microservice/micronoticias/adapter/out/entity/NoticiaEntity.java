@@ -5,6 +5,7 @@ import lombok.*;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Set;
 
@@ -21,6 +22,9 @@ public final class NoticiaEntity implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 1L;
+
+    @Version
+    private LocalDateTime version; // Guarda versão da entidade para concorrência LockOtimista (OptimisticLockException) - Pode ser do tipo Integer, Long, Date e LocalDateTime
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

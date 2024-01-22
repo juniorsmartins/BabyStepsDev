@@ -195,3 +195,7 @@ kmicronoticias/src/test/java/microservice/micronoticias/adapter/out/EditoriaDele
 [micronoticias/src/main/java/microservice/micronoticias/application/core/domain/Noticia.java,f/1/f1d2f5afc10b5a89a47b257ef0e73cb22ce0350a
 Œ
 \micronoticias/src/main/java/microservice/micronoticias/adapter/out/entity/NoticiaEntity.java,c/3/c32441789339a5834f8a984764a2601b6ff99dbb
+“
+cmicronoticias/src/test/java/microservice/micronoticias/concorrencia/ControleDeConcorrenciaTest.java,4/8/480e5a8640a931675a18a804e44bd3c3fb25c2f9
+Š
+Zmicronoticias/src/main/java/microservice/micronoticias/config/exception/TipoErrorEnum.java,b/d/bd79740b7588abb8e20522662d01f6ddc6431c44
