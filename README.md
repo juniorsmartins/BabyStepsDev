@@ -71,5 +71,10 @@ Em construção...
 
 ### 7 - DIAGRAMAS UML
 
+
 ### 8 - DIAGRAMA ENTIDADE-RELACIONAMENTO
+
+Em construção...
+<img width=800 src=https://github.com/juniorsmartins/BabyStepsDev/blob/master/UseCaseDiagram1.png>
+
 
