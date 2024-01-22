@@ -55,7 +55,7 @@ em construção.....
 ### 6 - ARQUITETURA
 
 Em construção...
-<img width=800 src=https://github.com/juniorsmartins/BabyStepsDev/blob/master/UseCaseDiagram1.png)https://github.com/juniorsmartins/BabyStepsDev/blob/master/UseCaseDiagram1.png>
+<img width=800 src=https://github.com/juniorsmartins/BabyStepsDev/blob/master/UseCaseDiagram1.png>
 
 ### 7 - DIAGRAMAS UML
 
