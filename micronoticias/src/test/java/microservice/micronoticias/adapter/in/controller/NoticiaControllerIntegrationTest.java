@@ -1,7 +1,9 @@
 package microservice.micronoticias.adapter.in.controller;
 
 import microservice.micronoticias.adapter.in.dto.request.NoticiaCriarDtoIn;
+import microservice.micronoticias.adapter.in.dto.request.NoticiaUpdateDtoIn;
 import microservice.micronoticias.adapter.in.dto.response.NoticiaCriarDtoOut;
+import microservice.micronoticias.adapter.in.dto.response.NoticiaUpdateDtoOut;
 import microservice.micronoticias.adapter.out.entity.EditoriaEntity;
 import microservice.micronoticias.adapter.out.repository.EditoriaRepository;
 import microservice.micronoticias.adapter.out.repository.NoticiaRepository;
@@ -38,9 +40,16 @@ class NoticiaControllerIntegrationTest {
     // fixture ou Scaffolding
     private NoticiaCriarDtoIn.NoticiaCriarDtoInBuilder noticiaCriarDtoIn;
 
+    private NoticiaUpdateDtoIn.NoticiaUpdateDtoInBuilder noticiaUpdateDtoIn;
+
+    private EditoriaEntity editoriaEntity;
+
     @BeforeEach
     void setUp() {
         noticiaCriarDtoIn = factory.gerarNoticiaCriarDtoInBuilder();
+        noticiaUpdateDtoIn = factory.gerarNoticiaUpdateDtoInBuilder();
+
+        editoriaEntity = this.editoriaRepository.findById(1001L).orElseThrow();
     }
 
     @AfterEach
@@ -70,8 +79,24 @@ class NoticiaControllerIntegrationTest {
         }
 
         @Test
+        @DisplayName("dados válidos com YAML")
+        void dadaNoticiaValida_QuandoCriarComContentNegotiationYAML_EntaoRetornarHttp201() {
+
+            var dtoIn = noticiaCriarDtoIn.build();
+
+            webTestClient.post()
+                .uri(END_POINT)
+                .accept(MediaType.valueOf("application/x-yaml"))
+                .bodyValue(dtoIn)
+                .exchange()
+                .expectStatus().isCreated()
+                .expectHeader().contentType(MediaType.valueOf("application/x-yaml"))
+                .expectBody().consumeWith(response -> assertThat(response.getResponseBody()).isNotNull());
+        }
+
+        @Test
         @DisplayName("dados válidos com JSON")
-        void dadoNoticiaValida_QuandoCriarComContentNegotiationJSon_EntaoRetornarNoticiaCriarDtoOutComDadosIguaisEntradaAndHttp201() {
+        void dadoNoticiaValida_QuandoCriarComContentNegotiationJSon_EntaoRetornarNoticiaCriarDtoOutComDadosIguais() {
 
             var dtoIn = noticiaCriarDtoIn.build();
 
@@ -110,7 +135,7 @@ class NoticiaControllerIntegrationTest {
                 .expectBody(NoticiaCriarDtoOut.class)
                 .returnResult().getResponseBody();
 
-            var noticiaDoBanco = noticiaRepository.findById(resposta.id()).get();
+            var noticiaDoBanco = noticiaRepository.findById(resposta.id()).orElseThrow();
 
             assertThat(noticiaDoBanco.getId()).isNotNull();
             assertThat(dtoIn.chapeu()).isEqualTo(noticiaDoBanco.getChapeu());
@@ -124,10 +149,14 @@ class NoticiaControllerIntegrationTest {
         }
 
         @Test
-        @DisplayName("duas novas editorias")
-        void dadaNoticiaComDuasNovaEditorias_QuandoCriar_EntaoRetornarComDuasEditoriasSalvas() {
+        @DisplayName("duas editorias - uma nova e uma existente")
+        void dadaNoticiaComDuasEditorias_QuandoCriar_EntaoRetornarComDuasEditoriasSalvas() {
             var editoria1 = factory.gerarEditoriaDtoInBuilder().build();
-            var editoria2 = factory.gerarEditoriaDtoInBuilder().build();
+            var editoria2 = factory.gerarEditoriaDtoInBuilder()
+                .id(editoriaEntity.getId())
+                .nomenclatura("Games")
+                .descricao(editoriaEntity.getDescricao())
+                .build();
 
             var dtoIn = noticiaCriarDtoIn
                 .editorias(Set.of(editoria1, editoria2))
@@ -142,11 +171,139 @@ class NoticiaControllerIntegrationTest {
                 .expectBody(NoticiaCriarDtoOut.class)
                 .returnResult().getResponseBody();
 
-            var noticiaDoBanco = noticiaRepository.findById(resposta.id()).get();
+            var noticiaDoBanco = noticiaRepository.findById(resposta.id()).orElseThrow();
 
             assertThat(noticiaDoBanco.getEditorias()).hasSize(2);
             assertThat(noticiaDoBanco.getEditorias().stream().map(EditoriaEntity::getNomenclatura))
                 .containsExactlyInAnyOrder(editoria1.nomenclatura(), editoria2.nomenclatura());
+            assertThat(noticiaDoBanco.getEditorias().stream().map(EditoriaEntity::getDescricao))
+                    .containsExactlyInAnyOrder(editoria1.descricao(), editoria2.descricao());
+        }
+    }
+
+    @Nested
+    @DisplayName("Update")
+    class UpdateNoticia {
+
+        @Test
+        @DisplayName("dados válidos com XML")
+        void dadaNoticiaValida_QuandoUpdateComContentNegotiationXML_EntaoRetornarHttp200() {
+
+            var dtoIn = noticiaUpdateDtoIn.id(1001L).build();
+
+            webTestClient.put()
+                .uri(END_POINT)
+                .accept(MediaType.APPLICATION_XML)
+                .bodyValue(dtoIn)
+                .exchange()
+                .expectStatus().isOk()
+                .expectHeader().contentType(MediaType.APPLICATION_XML)
+                .expectBody()
+                    .consumeWith(response -> assertThat(response.getResponseBody()).isNotNull());
+        }
+
+        @Test
+        @DisplayName("dados válidos com YAML")
+        void dadaNoticiaValida_QuandoUpdateComContentNegotiationYAML_EntaoRetornarHttp200() {
+
+            var dtoIn = noticiaUpdateDtoIn.id(1001L).build();
+
+            webTestClient.put()
+                .uri(END_POINT)
+                .accept(MediaType.valueOf("application/x-yaml"))
+                .bodyValue(dtoIn)
+                .exchange()
+                .expectStatus().isOk()
+                .expectHeader().contentType(MediaType.valueOf("application/x-yaml"))
+                .expectBody()
+                    .consumeWith(response -> assertThat(response.getResponseBody()).isNotNull());
+        }
+
+        @Test
+        @DisplayName("dados válidos com JSON")
+        void dadoNoticiaValida_QuandoUpdateComContentNegotiationJSon_EntaoRetornarNoticiaUpdateDtoOutComDadosIguais() {
+
+            var dtoIn = noticiaUpdateDtoIn.id(1001L).build();
+
+            webTestClient.put()
+                .uri(END_POINT)
+                .contentType(MediaType.APPLICATION_JSON)
+                .bodyValue(dtoIn)
+                .exchange()
+                .expectStatus().isOk()
+                .expectBody(NoticiaUpdateDtoOut.class)
+                .consumeWith(response -> {
+                    assertThat(response.getResponseBody().id()).isPositive();
+                    assertThat(response.getResponseBody().chapeu()).isEqualTo(dtoIn.chapeu());
+                    assertThat(response.getResponseBody().titulo()).isEqualTo(dtoIn.titulo());
+                    assertThat(response.getResponseBody().linhaFina()).isEqualTo(dtoIn.linhaFina());
+                    assertThat(response.getResponseBody().lide()).isEqualTo(dtoIn.lide());
+                    assertThat(response.getResponseBody().corpo()).isEqualTo(dtoIn.corpo());
+                    assertThat(response.getResponseBody().autorias().get(0)).isEqualTo(dtoIn.autorias().get(0));
+                    assertThat(response.getResponseBody().fontes().get(0)).isEqualTo(dtoIn.fontes().get(0));
+                    assertThat(response.getResponseBody().editorias()).hasSize(1);
+                });
+        }
+
+        @Test
+        @DisplayName("persistência")
+        void dadaNoticiaValida_QuandoUpdate_EntaoRetornarNoticiaUpdateDtoOutComDadosPersistidos() {
+
+            var dtoIn = noticiaUpdateDtoIn.id(1001L).build();
+
+            var resposta = webTestClient.put()
+                .uri(END_POINT)
+                .contentType(MediaType.APPLICATION_JSON)
+                .bodyValue(dtoIn)
+                .exchange()
+                .expectStatus().isOk()
+                .expectBody(NoticiaUpdateDtoOut.class)
+                .returnResult().getResponseBody();
+
+            var noticiaDoBanco = noticiaRepository.findById(resposta.id()).orElseThrow();
+
+            assertThat(noticiaDoBanco.getId()).isPositive();
+            assertThat(dtoIn.chapeu()).isEqualTo(noticiaDoBanco.getChapeu());
+            assertThat(dtoIn.titulo()).isEqualTo(noticiaDoBanco.getTitulo());
+            assertThat(dtoIn.linhaFina()).isEqualTo(noticiaDoBanco.getLinhaFina());
+            assertThat(dtoIn.lide()).isEqualTo(noticiaDoBanco.getLide());
+            assertThat(dtoIn.corpo()).isEqualTo(noticiaDoBanco.getCorpo());
+            assertThat(dtoIn.autorias().get(0)).isEqualTo(noticiaDoBanco.getAutorias().get(0));
+            assertThat(dtoIn.fontes().get(0)).isEqualTo(noticiaDoBanco.getFontes().get(0));
+            assertThat(noticiaDoBanco.getEditorias()).hasSize(1);
+        }
+
+        @Test
+        @DisplayName("duas editorias - uma nova e uma existente")
+        void dadaNoticiaComDuasEditorias_QuandoUpdate_EntaoRetornarComDuasEditoriasAtualizadas() {
+            var editoria1 = factory.gerarEditoriaDtoInBuilder().build();
+            var editoria2 = factory.gerarEditoriaDtoInBuilder()
+                .id(editoriaEntity.getId())
+                .nomenclatura("Games")
+                .descricao(editoriaEntity.getDescricao())
+                .build();
+
+            var dtoIn = noticiaUpdateDtoIn
+                .id(1001L)
+                .editorias(Set.of(editoria1, editoria2))
+                .build();
+
+            var resposta = webTestClient.put()
+                .uri(END_POINT)
+                .contentType(MediaType.APPLICATION_JSON)
+                .bodyValue(dtoIn)
+                .exchange()
+                .expectStatus().isOk()
+                .expectBody(NoticiaUpdateDtoOut.class)
+                .returnResult().getResponseBody();
+
+            var noticiaDoBanco = noticiaRepository.findById(resposta.id()).orElseThrow();
+
+            assertThat(noticiaDoBanco.getEditorias()).hasSize(2);
+            assertThat(noticiaDoBanco.getEditorias().stream().map(EditoriaEntity::getNomenclatura))
+                .containsExactlyInAnyOrder(editoria1.nomenclatura(), editoria2.nomenclatura());
+            assertThat(noticiaDoBanco.getEditorias().stream().map(EditoriaEntity::getDescricao))
+                .containsExactlyInAnyOrder(editoria1.descricao(), editoria2.descricao());
         }
     }
 
