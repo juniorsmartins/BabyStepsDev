@@ -264,3 +264,5 @@ mmicronoticias/src/test/java/microservice/micronoticias/adapter/in/dto/request/N
 gmicronoticias/src/main/java/microservice/micronoticias/adapter/in/dto/response/NoticiaUpdateDtoOut.java,4/d/4db3ce94606194dad9f7055e0b75ea36c37527b8
 ç
 ]micronoticias/src/main/java/microservice/micronoticias/adapter/in/mapper/NoticiaMapperIn.java,2/8/28dcd554dfff9cb1486a694a24a1000a9f4e2725
+ú
+lmicronoticias/src/test/java/microservice/micronoticias/adapter/in/dto/request/NoticiaCriarDtoInUnitTest.java,9/e/9e42eadedcea936b33ce0634cfbe50297365a906
