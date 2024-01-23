@@ -1,7 +1,9 @@
 package microservice.micronoticias.adapter.in.controller;
 
 import microservice.micronoticias.adapter.in.dto.request.NoticiaCriarDtoIn;
+import microservice.micronoticias.adapter.in.dto.request.NoticiaUpdateDtoIn;
 import microservice.micronoticias.adapter.in.dto.response.NoticiaCriarDtoOut;
+import microservice.micronoticias.adapter.in.dto.response.NoticiaUpdateDtoOut;
 import microservice.micronoticias.adapter.out.entity.EditoriaEntity;
 import microservice.micronoticias.adapter.out.repository.EditoriaRepository;
 import microservice.micronoticias.adapter.out.repository.NoticiaRepository;
@@ -38,9 +40,12 @@ class NoticiaControllerIntegrationTest {
     // fixture ou Scaffolding
     private NoticiaCriarDtoIn.NoticiaCriarDtoInBuilder noticiaCriarDtoIn;
 
+    private NoticiaUpdateDtoIn.NoticiaUpdateDtoInBuilder noticiaUpdateDtoIn;
+
     @BeforeEach
     void setUp() {
         noticiaCriarDtoIn = factory.gerarNoticiaCriarDtoInBuilder();
+        noticiaUpdateDtoIn = factory.gerarNoticiaUpdateDtoInBuilder();
     }
 
     @AfterEach
@@ -70,8 +75,24 @@ class NoticiaControllerIntegrationTest {
         }
 
         @Test
+        @DisplayName("dados válidos com YAML")
+        void dadaNoticiaValida_QuandoCriarComContentNegotiationYAML_EntaoRetornarHttp201() {
+
+            var dtoIn = noticiaCriarDtoIn.build();
+
+            webTestClient.post()
+                .uri(END_POINT)
+                .accept(MediaType.valueOf("application/x-yaml"))
+                .bodyValue(dtoIn)
+                .exchange()
+                .expectStatus().isCreated()
+                .expectHeader().contentType(MediaType.valueOf("application/x-yaml"))
+                .expectBody().consumeWith(response -> assertThat(response.getResponseBody()).isNotNull());
+        }
+
+        @Test
         @DisplayName("dados válidos com JSON")
-        void dadoNoticiaValida_QuandoCriarComContentNegotiationJSon_EntaoRetornarNoticiaCriarDtoOutComDadosIguaisEntradaAndHttp201() {
+        void dadoNoticiaValida_QuandoCriarComContentNegotiationJSon_EntaoRetornarNoticiaCriarDtoOutComDadosIguais() {
 
             var dtoIn = noticiaCriarDtoIn.build();
 
@@ -164,6 +185,71 @@ class NoticiaControllerIntegrationTest {
                 .exchange()
                 .expectStatus().isNoContent()
                 .expectBody(Void.class);
+        }
+    }
+
+    @Nested
+    @DisplayName("Update")
+    class UpdateNoticia {
+
+        @Test
+        @DisplayName("dados válidos com XML")
+        void dadaNoticiaValida_QuandoUpdateComContentNegotiationXML_EntaoRetornarHttp200() {
+
+            var dtoIn = noticiaUpdateDtoIn.build();
+
+            webTestClient.put()
+                .uri(END_POINT)
+                .accept(MediaType.APPLICATION_XML)
+                .bodyValue(dtoIn)
+                .exchange()
+                .expectStatus().isOk()
+                .expectHeader().contentType(MediaType.APPLICATION_XML)
+                .expectBody(NoticiaUpdateDtoOut.class)
+                    .consumeWith(response -> assertThat(response.getResponseBody()).isNotNull());
+        }
+
+        @Test
+        @DisplayName("dados válidos com YAML")
+        void dadaNoticiaValida_QuandoUpdateComContentNegotiationYAML_EntaoRetornarHttp200() {
+
+            var dtoIn = noticiaUpdateDtoIn.build();
+
+            webTestClient.put()
+                .uri(END_POINT)
+                .accept(MediaType.valueOf("application/x-yaml"))
+                .bodyValue(dtoIn)
+                .exchange()
+                .expectStatus().isOk()
+                .expectHeader().contentType(MediaType.valueOf("application/x-yaml"))
+                .expectBody(NoticiaUpdateDtoOut.class)
+                    .consumeWith(response -> assertThat(response.getResponseBody()).isNotNull());
+        }
+
+        @Test
+        @DisplayName("dados válidos com JSON")
+        void dadoNoticiaValida_QuandoUpdateComContentNegotiationJSon_EntaoRetornarNoticiaUpdateDtoOutComDadosIguais() {
+
+            var dtoIn = noticiaUpdateDtoIn.build();
+
+            webTestClient.put()
+                .uri(END_POINT)
+                .contentType(MediaType.APPLICATION_JSON)
+                .bodyValue(dtoIn)
+                .exchange()
+                .expectStatus().isOk()
+                .expectBody(NoticiaUpdateDtoOut.class)
+                .consumeWith(response -> {
+                    assertThat(response.getResponseBody().id()).isPositive();
+                    assertThat(response.getResponseBody().chapeu()).isEqualTo(dtoIn.chapeu());
+                    assertThat(response.getResponseBody().titulo()).isEqualTo(dtoIn.titulo());
+                    assertThat(response.getResponseBody().linhaFina()).isEqualTo(dtoIn.linhaFina());
+                    assertThat(response.getResponseBody().lide()).isEqualTo(dtoIn.lide());
+                    assertThat(response.getResponseBody().corpo()).isEqualTo(dtoIn.corpo());
+                    assertThat(response.getResponseBody().autorias().get(0)).isEqualTo(dtoIn.autorias().get(0));
+                    assertThat(response.getResponseBody().fontes().get(0)).isEqualTo(dtoIn.fontes().get(0));
+                    assertThat(response.getResponseBody().editorias()).hasSize(1);
+                });
         }
     }
 }

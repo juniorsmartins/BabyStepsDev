@@ -256,3 +256,9 @@ zmicronoticias/src/main/java/microservice/micronoticias/config/exception/http_40
 lmicronoticias/src/main/java/microservice/micronoticias/application/core/usecase/regras/RuleNoticiaUnica.java,0/b/0be55e62dc1659e1a0ac735117422c4d14a62cec
 ®
 xmicronoticias/src/test/java/microservice/micronoticias/application/core/usecase/NoticiaUpdateUseCaseIntegrationTest.java,6/8/68b3320dcf77d1fdc44b5e9d8f9877e335c8d5a3
+ï
+emicronoticias/src/main/java/microservice/micronoticias/adapter/in/dto/request/NoticiaUpdateDtoIn.java,d/4/d41d6363d785462c85105f822d242d24584325cc
+ù
+mmicronoticias/src/test/java/microservice/micronoticias/adapter/in/dto/request/NoticiaUpdateDtoInUnitTest.java,e/c/ec0c8bf66d745c29a9bcd2eae6e57285490d51f0
+ó
+gmicronoticias/src/main/java/microservice/micronoticias/adapter/in/dto/response/NoticiaUpdateDtoOut.java,4/d/4db3ce94606194dad9f7055e0b75ea36c37527b8

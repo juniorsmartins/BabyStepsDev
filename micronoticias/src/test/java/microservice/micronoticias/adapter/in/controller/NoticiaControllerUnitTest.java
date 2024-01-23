@@ -1,6 +1,7 @@
 package microservice.micronoticias.adapter.in.controller;
 
 import microservice.micronoticias.application.port.input.NoticiaDeleteInputPort;
+import microservice.micronoticias.application.port.input.NoticiaUpdateInputPort;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -22,10 +23,26 @@ import java.util.NoSuchElementException;
 class NoticiaControllerUnitTest {
 
     @Mock
+    private NoticiaUpdateInputPort noticiaUpdateInputPort;
+
+    @Mock
     private NoticiaDeleteInputPort noticiaDeleteInputPort;
 
     @InjectMocks
     private NoticiaController noticiaController;
+
+    @Nested
+    @DisplayName("Update")
+    class Update {
+
+        @Test
+        @DisplayName("id nulo")
+        void dadoIdNulo_QuandoUpdate_EntaoLancarException() {
+            Executable acao = () -> noticiaController.update(null);
+            Assertions.assertThrows(NoSuchElementException.class, acao);
+            Mockito.verifyNoInteractions(noticiaUpdateInputPort);
+        }
+    }
 
     @Nested
     @DisplayName("Delete")
