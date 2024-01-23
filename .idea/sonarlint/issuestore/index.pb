@@ -254,3 +254,5 @@ tmicronoticias/src/main/java/microservice/micronoticias/application/core/usecase
 zmicronoticias/src/main/java/microservice/micronoticias/config/exception/http_409/RuleWithProhibitedNullValueException.java,9/f/9f65b0122417567d14ab0f02ed206d7535209115
 œ
 lmicronoticias/src/main/java/microservice/micronoticias/application/core/usecase/regras/RuleNoticiaUnica.java,0/b/0be55e62dc1659e1a0ac735117422c4d14a62cec
+¨
+xmicronoticias/src/test/java/microservice/micronoticias/application/core/usecase/NoticiaUpdateUseCaseIntegrationTest.java,6/8/68b3320dcf77d1fdc44b5e9d8f9877e335c8d5a3
