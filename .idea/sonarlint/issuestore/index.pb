@@ -262,3 +262,5 @@ emicronoticias/src/main/java/microservice/micronoticias/adapter/in/dto/request/N
 mmicronoticias/src/test/java/microservice/micronoticias/adapter/in/dto/request/NoticiaUpdateDtoInUnitTest.java,e/c/ec0c8bf66d745c29a9bcd2eae6e57285490d51f0
 ó
 gmicronoticias/src/main/java/microservice/micronoticias/adapter/in/dto/response/NoticiaUpdateDtoOut.java,4/d/4db3ce94606194dad9f7055e0b75ea36c37527b8
+ç
+]micronoticias/src/main/java/microservice/micronoticias/adapter/in/mapper/NoticiaMapperIn.java,2/8/28dcd554dfff9cb1486a694a24a1000a9f4e2725

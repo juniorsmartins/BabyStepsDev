@@ -10,10 +10,13 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import microservice.micronoticias.adapter.in.dto.request.NoticiaCriarDtoIn;
+import microservice.micronoticias.adapter.in.dto.request.NoticiaUpdateDtoIn;
 import microservice.micronoticias.adapter.in.dto.response.NoticiaCriarDtoOut;
+import microservice.micronoticias.adapter.in.dto.response.NoticiaUpdateDtoOut;
 import microservice.micronoticias.adapter.in.mapper.NoticiaMapperIn;
 import microservice.micronoticias.application.port.input.NoticiaCriarInputPort;
 import microservice.micronoticias.application.port.input.NoticiaDeleteInputPort;
+import microservice.micronoticias.application.port.input.NoticiaUpdateInputPort;
 import microservice.micronoticias.config.exception.ApiError;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -33,6 +36,8 @@ public class NoticiaController {
     private static final String APPLICATION_YAML_VALUE = "application/x-yaml";
 
     private final NoticiaCriarInputPort cadastrarInputPort;
+
+    private final NoticiaUpdateInputPort updateInputPort;
 
     private final NoticiaDeleteInputPort deleteInputPort;
 
@@ -75,6 +80,28 @@ public class NoticiaController {
         return ResponseEntity
             .created(URI.create("/api/v1/noticias/" + resposta.id()))
             .body(resposta);
+    }
+
+    @PutMapping(
+        consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, "application/x-yaml"},
+        produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, "application/x-yaml"})
+    public ResponseEntity<NoticiaUpdateDtoOut> update(
+        @Parameter(name = "NoticiaUpdateDtoIn", description = "Objeto para Transporte de Dados de entrada.", required = true)
+        @RequestBody @Valid NoticiaUpdateDtoIn updateDtoIn) {
+
+        log.info("Requisição recebida para atualizar Noticia.");
+
+        var response = Optional.of(updateDtoIn)
+            .map(this.mapperIn::toNoticia)
+            .map(this.updateInputPort::update)
+            .map(this.mapperIn::toNoticiaUpdateDtoOut)
+            .orElseThrow();
+
+        log.info("Sucesso ao atualizar Noticia com Id: {}.", response.id());
+
+        return ResponseEntity
+            .ok()
+            .body(response);
     }
 
     @DeleteMapping(path = {"/{noticiaId}"},

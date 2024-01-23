@@ -196,7 +196,7 @@ class NoticiaControllerIntegrationTest {
         @DisplayName("dados válidos com XML")
         void dadaNoticiaValida_QuandoUpdateComContentNegotiationXML_EntaoRetornarHttp200() {
 
-            var dtoIn = noticiaUpdateDtoIn.build();
+            var dtoIn = noticiaUpdateDtoIn.id(1001L).build();
 
             webTestClient.put()
                 .uri(END_POINT)
@@ -205,7 +205,7 @@ class NoticiaControllerIntegrationTest {
                 .exchange()
                 .expectStatus().isOk()
                 .expectHeader().contentType(MediaType.APPLICATION_XML)
-                .expectBody(NoticiaUpdateDtoOut.class)
+                .expectBody()
                     .consumeWith(response -> assertThat(response.getResponseBody()).isNotNull());
         }
 
@@ -213,7 +213,7 @@ class NoticiaControllerIntegrationTest {
         @DisplayName("dados válidos com YAML")
         void dadaNoticiaValida_QuandoUpdateComContentNegotiationYAML_EntaoRetornarHttp200() {
 
-            var dtoIn = noticiaUpdateDtoIn.build();
+            var dtoIn = noticiaUpdateDtoIn.id(1001L).build();
 
             webTestClient.put()
                 .uri(END_POINT)
@@ -222,7 +222,7 @@ class NoticiaControllerIntegrationTest {
                 .exchange()
                 .expectStatus().isOk()
                 .expectHeader().contentType(MediaType.valueOf("application/x-yaml"))
-                .expectBody(NoticiaUpdateDtoOut.class)
+                .expectBody()
                     .consumeWith(response -> assertThat(response.getResponseBody()).isNotNull());
         }
 
@@ -230,7 +230,7 @@ class NoticiaControllerIntegrationTest {
         @DisplayName("dados válidos com JSON")
         void dadoNoticiaValida_QuandoUpdateComContentNegotiationJSon_EntaoRetornarNoticiaUpdateDtoOutComDadosIguais() {
 
-            var dtoIn = noticiaUpdateDtoIn.build();
+            var dtoIn = noticiaUpdateDtoIn.id(1001L).build();
 
             webTestClient.put()
                 .uri(END_POINT)

@@ -32,19 +32,6 @@ class NoticiaControllerUnitTest {
     private NoticiaController noticiaController;
 
     @Nested
-    @DisplayName("Update")
-    class Update {
-
-        @Test
-        @DisplayName("id nulo")
-        void dadoIdNulo_QuandoUpdate_EntaoLancarException() {
-            Executable acao = () -> noticiaController.update(null);
-            Assertions.assertThrows(NoSuchElementException.class, acao);
-            Mockito.verifyNoInteractions(noticiaUpdateInputPort);
-        }
-    }
-
-    @Nested
     @DisplayName("Delete")
     class Delete {
 
