@@ -93,8 +93,8 @@ public class NoticiaController {
                 content = @Content(mediaType = "application/json", schema = @Schema(implementation = ApiError.class))),
         })
     public ResponseEntity<Void> delete(
-            @Parameter(name = "id", description = "Chave de Identificação.", example = "78", required = true)
-            @PathVariable(name = "noticiaId") final Long id) {
+        @Parameter(name = "id", description = "Chave de Identificação.", example = "78", required = true)
+        @PathVariable(name = "noticiaId") final Long id) {
 
         log.info("Requisição recebida para deletar Notícia por Id.");
 

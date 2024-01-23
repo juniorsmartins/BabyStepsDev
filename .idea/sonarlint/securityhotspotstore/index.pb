@@ -223,3 +223,15 @@ smicronoticias/src/main/java/microservice/micronoticias/config/exception/http_50
 smicronoticias/src/main/java/microservice/micronoticias/config/exception/http_500/NoticiaSalvarAdapterException.java,1/b/1b79a3ce2cee2c035bce2fa2f9ffcf4cf895ec60
 ›
 kmicronoticias/src/test/java/microservice/micronoticias/adapter/in/controller/NoticiaControllerUnitTest.java,6/b/6bfc804dc169de9a324be61e897626056940be63
+™
+imicronoticias/src/main/java/microservice/micronoticias/application/port/input/NoticiaUpdateInputPort.java,4/c/4c4ba655ceb72da55f33542be25402f5be0d953e
+›
+kmicronoticias/src/main/java/microservice/micronoticias/application/port/output/NoticiaUpdateOutputPort.java,d/3/d3000e33bf7e7291fb8cfd308b079cdcb26c2ef3
+™
+imicronoticias/src/main/java/microservice/micronoticias/application/core/usecase/NoticiaUpdateUseCase.java,4/2/42ca883a7a5b981969462caf37fb07ca6e5679e7
+Œ
+\micronoticias/src/main/java/microservice/micronoticias/adapter/out/NoticiaUpdateAdapter.java,9/a/9a1862cb04764ec611ba189a7e34c76957481734
+›
+kmicronoticias/src/test/java/microservice/micronoticias/adapter/out/NoticiaUpdateAdapterIntegrationTest.java,f/3/f35c231d69b4d70594394f29a124aa880b383c90
+¡
+qmicronoticias/src/main/java/microservice/micronoticias/config/exception/http_500/FailedToUpdateNewsException.java,8/0/80a543def7955540bae51d20add1712c72573be8

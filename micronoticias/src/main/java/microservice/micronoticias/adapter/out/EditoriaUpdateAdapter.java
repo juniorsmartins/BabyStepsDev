@@ -30,15 +30,15 @@ public class EditoriaUpdateAdapter implements EditoriaUpdateOutputPort {
 
         log.info("Iniciado adaptador para atualizar Editoria.");
 
-        var editoriaSalva = Optional.ofNullable(editoria.getId())
+        var editoriaAtual = Optional.ofNullable(editoria.getId())
             .map(this::searchEditor)
             .map(entity -> this.overrideValues(entity, editoria))
             .map(this.mapperOut::toEditoria)
             .orElseThrow(FailedToUpdateEditorException::new);
 
-        log.info("Finalizado adaptador para atualizar Editoria por Id: {}.", editoriaSalva.getId());
+        log.info("Finalizado adaptador para atualizar Editoria por Id: {}.", editoriaAtual.getId());
 
-        return editoriaSalva;
+        return editoriaAtual;
     }
 
     private EditoriaEntity searchEditor(final Long id) {
