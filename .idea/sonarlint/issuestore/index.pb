@@ -244,3 +244,7 @@ qmicronoticias/src/main/java/microservice/micronoticias/config/exception/http_50
 dmicronoticias/src/test/java/microservice/micronoticias/adapter/out/NoticiaUpdateAdapterUnitTest.java,a/f/af224c716a948c66d8f3ab031560e5f91a75b9e8
 Ÿ
 omicronoticias/src/main/java/microservice/micronoticias/config/exception/http_404/EditoriaNotFoundException.java,3/9/399df43feecd9dd0d10abc218ba62c747b11422f
+¡
+qmicronoticias/src/test/java/microservice/micronoticias/application/core/usecase/NoticiaUpdateUseCaseUnitTest.java,5/5/55e8cd9e3ab023af6f44c8cb08e5c822d8a2c672
+£
+smicronoticias/src/main/java/microservice/micronoticias/config/exception/http_500/NoticiaUpdateUseCaseException.java,1/f/1fdf001d6818fae75aef2e18cd5c8456448e6632

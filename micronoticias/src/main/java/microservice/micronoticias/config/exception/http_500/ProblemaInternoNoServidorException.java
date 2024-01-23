@@ -6,7 +6,7 @@ public abstract sealed class ProblemaInternoNoServidorException extends RuntimeE
   permits EditoriaCriarUseCaseException, EditoriaSalvarAdapterException, EditoriaMapperOutImplException,
         NoticiaCriarUseCaseException, NoticiaSalvarAdapterException, EditoriaDeletarPorIdUseCaseException,
         ProhibitedNullValueException, FailedToUpdateEditorException, EditoriaUpdateUseCaseException,
-        NoticiaDeleteUseCaseException, FailedToUpdateNewsException {
+        NoticiaDeleteUseCaseException, FailedToUpdateNewsException, NoticiaUpdateUseCaseException {
 
   @Serial
   private static final long serialVersionUID = 1L;
