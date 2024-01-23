@@ -1,6 +1,7 @@
 package microservice.micronoticias.adapter.in.controller;
 
 import microservice.micronoticias.application.port.input.NoticiaDeleteInputPort;
+import microservice.micronoticias.application.port.input.NoticiaUpdateInputPort;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -20,6 +21,9 @@ import java.util.NoSuchElementException;
 @ExtendWith({SpringExtension.class, MockitoExtension.class})
 @DisplayName("Unit Controller - Notícia")
 class NoticiaControllerUnitTest {
+
+    @Mock
+    private NoticiaUpdateInputPort noticiaUpdateInputPort;
 
     @Mock
     private NoticiaDeleteInputPort noticiaDeleteInputPort;

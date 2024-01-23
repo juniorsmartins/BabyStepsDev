@@ -1,10 +1,8 @@
 package microservice.micronoticias.config.bean;
 
 import microservice.micronoticias.adapter.out.EditoriaBuscarPorNomenclaturaAdapter;
-import microservice.micronoticias.adapter.out.repository.EditoriaRepository;
-import microservice.micronoticias.adapter.out.repository.NoticiaRepository;
 import microservice.micronoticias.application.core.usecase.regras.RuleNomenclaturaUnicaDeEditoriaToCreateNews;
-import microservice.micronoticias.application.core.usecase.regras.RuleNoticiaUnicaToCreateNews;
+import microservice.micronoticias.application.core.usecase.regras.RuleNoticiaUnica;
 import microservice.micronoticias.application.core.usecase.regras.SingleNamingRuleForEditorial;
 import microservice.micronoticias.application.port.output.EditoriaBuscarPorNomenclaturaOutputPort;
 import microservice.micronoticias.application.port.output.NoticiaBuscarPorTituloOutputPort;
@@ -20,8 +18,8 @@ public class BusinessRulesConfig {
     }
 
     @Bean
-    public RuleNoticiaUnicaToCreateNews ruleNoticiaUnica(NoticiaBuscarPorTituloOutputPort noticiaBuscarPorTituloOutputPort) {
-        return new RuleNoticiaUnicaToCreateNews(noticiaBuscarPorTituloOutputPort);
+    public RuleNoticiaUnica ruleNoticiaUnica(NoticiaBuscarPorTituloOutputPort noticiaBuscarPorTituloOutputPort) {
+        return new RuleNoticiaUnica(noticiaBuscarPorTituloOutputPort);
     }
 
     @Bean

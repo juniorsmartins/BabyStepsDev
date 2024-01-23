@@ -7,11 +7,11 @@ import microservice.micronoticias.config.exception.http_409.RuleWithProhibitedNu
 
 import java.util.Optional;
 
-public class RuleNoticiaUnicaToCreateNews implements RuleStrategyToCreateNews {
+public class RuleNoticiaUnica implements RuleStrategyToCreateNews, RuleStrategyToUpdateNews {
 
     private final NoticiaBuscarPorTituloOutputPort outputPort;
 
-    public RuleNoticiaUnicaToCreateNews(NoticiaBuscarPorTituloOutputPort noticiaBuscarPorTituloOutputPort) {
+    public RuleNoticiaUnica(NoticiaBuscarPorTituloOutputPort noticiaBuscarPorTituloOutputPort) {
         this.outputPort = noticiaBuscarPorTituloOutputPort;
     }
 

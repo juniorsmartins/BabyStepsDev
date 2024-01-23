@@ -10,7 +10,7 @@ import microservice.micronoticias.adapter.out.repository.EditoriaRepository;
 import microservice.micronoticias.adapter.out.repository.NoticiaRepository;
 import microservice.micronoticias.application.core.domain.Noticia;
 import microservice.micronoticias.application.port.output.NoticiaUpdateOutputPort;
-import microservice.micronoticias.config.exception.http_404.EditoriaNaoEncontradaException;
+import microservice.micronoticias.config.exception.http_404.EditoriaNotFoundException;
 import microservice.micronoticias.config.exception.http_404.NoticiaNotFoundException;
 import microservice.micronoticias.config.exception.http_500.FailedToUpdateNewsException;
 import org.springframework.beans.BeanUtils;
@@ -40,7 +40,8 @@ public class NoticiaUpdateAdapter implements NoticiaUpdateOutputPort {
 
         log.info("Iniciado adaptador para atualizar Notícia.");
 
-        var noticiaAtual = Optional.ofNullable(noticia.getId())
+        var noticiaAtual = Optional.ofNullable(noticia)
+            .map(Noticia::getId)
             .map(this::searchNews)
             .map(entity -> this.overwriteValues(entity, noticia))
             .map(this.noticiaMapperOut::toNoticia)
@@ -74,7 +75,7 @@ public class NoticiaUpdateAdapter implements NoticiaUpdateOutputPort {
                             BeanUtils.copyProperties(editoria, entity, "id");
                             return entity;
                         })
-                        .orElseThrow(() -> new EditoriaNaoEncontradaException(editoria.getId()));
+                        .orElseThrow(() -> new EditoriaNotFoundException(editoria.getId()));
                 }
             })
             .collect(Collectors.toSet());

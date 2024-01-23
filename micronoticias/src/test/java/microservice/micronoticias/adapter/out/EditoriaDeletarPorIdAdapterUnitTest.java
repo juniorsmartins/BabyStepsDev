@@ -1,7 +1,7 @@
 package microservice.micronoticias.adapter.out;
 
 import microservice.micronoticias.adapter.out.repository.EditoriaRepository;
-import microservice.micronoticias.config.exception.http_404.EditoriaNaoEncontradaException;
+import microservice.micronoticias.config.exception.http_404.EditoriaNotFoundException;
 import microservice.micronoticias.config.exception.http_500.ProhibitedNullValueException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -31,7 +31,7 @@ class EditoriaDeletarPorIdAdapterUnitTest {
     void dadoIdInexistente_QuandoDeletarPorId_EntaoLancarException() {
         var idInexistente = 0L;
         Executable acao = () -> this.editoriaDeletarPorIdAdapter.deletarPorId(idInexistente);
-        Assertions.assertThrows(EditoriaNaoEncontradaException.class, acao);
+        Assertions.assertThrows(EditoriaNotFoundException.class, acao);
         Mockito.verifyNoInteractions(editoriaRepository);
     }
 

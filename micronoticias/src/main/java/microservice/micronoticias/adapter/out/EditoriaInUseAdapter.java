@@ -5,7 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import microservice.micronoticias.adapter.out.entity.EditoriaEntity;
 import microservice.micronoticias.adapter.out.repository.EditoriaRepository;
 import microservice.micronoticias.application.port.output.EditoriaInUseOutputPort;
-import microservice.micronoticias.config.exception.http_404.EditoriaNaoEncontradaException;
+import microservice.micronoticias.config.exception.http_404.EditoriaNotFoundException;
 import microservice.micronoticias.config.exception.http_500.ProhibitedNullValueException;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -37,7 +37,7 @@ public class EditoriaInUseAdapter implements EditoriaInUseOutputPort {
 
     private EditoriaEntity searchEditor(final Long id) {
         return this.editoriaRepository.findById(id)
-            .orElseThrow(() -> new EditoriaNaoEncontradaException(id));
+            .orElseThrow(() -> new EditoriaNotFoundException(id));
     }
 }
 

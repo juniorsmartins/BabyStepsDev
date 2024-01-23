@@ -1,9 +1,6 @@
 package microservice.micronoticias.utility;
 
-import microservice.micronoticias.adapter.in.dto.request.EditoriaCriarDtoIn;
-import microservice.micronoticias.adapter.in.dto.request.EditoriaDtoIn;
-import microservice.micronoticias.adapter.in.dto.request.EditoriaUpdateDtoIn;
-import microservice.micronoticias.adapter.in.dto.request.NoticiaCriarDtoIn;
+import microservice.micronoticias.adapter.in.dto.request.*;
 import microservice.micronoticias.adapter.out.entity.EditoriaEntity;
 import microservice.micronoticias.adapter.out.entity.NoticiaEntity;
 import microservice.micronoticias.application.core.domain.Editoria;
@@ -82,6 +79,20 @@ public final class FactoryObjectMother {
         var editoria = gerarEditoriaDtoInBuilder().build();
 
         return NoticiaCriarDtoIn.builder()
+            .chapeu(faker.lorem().characters(2, 30))
+            .titulo(faker.lorem().characters(20, 150))
+            .linhaFina(faker.lorem().characters(80, 250))
+            .lide(faker.lorem().characters(80, 400))
+            .corpo(faker.lorem().characters(100, 5000))
+            .autorias(List.of(faker.lorem().characters(3, 100)))
+            .fontes(List.of(faker.lorem().characters(3, 250)))
+            .editorias(Set.of(editoria));
+    }
+
+    public NoticiaUpdateDtoIn.NoticiaUpdateDtoInBuilder gerarNoticiaUpdateDtoInBuilder() {
+        var editoria = gerarEditoriaDtoInBuilder().build();
+
+        return NoticiaUpdateDtoIn.builder()
             .chapeu(faker.lorem().characters(2, 30))
             .titulo(faker.lorem().characters(20, 150))
             .linhaFina(faker.lorem().characters(80, 250))
