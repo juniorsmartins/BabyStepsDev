@@ -243,3 +243,9 @@ omicronoticias/src/main/java/microservice/micronoticias/config/exception/http_40
 qmicronoticias/src/test/java/microservice/micronoticias/application/core/usecase/NoticiaUpdateUseCaseUnitTest.java,5/5/55e8cd9e3ab023af6f44c8cb08e5c822d8a2c672
 £
 smicronoticias/src/main/java/microservice/micronoticias/config/exception/http_500/NoticiaUpdateUseCaseException.java,1/f/1fdf001d6818fae75aef2e18cd5c8456448e6632
+¤
+tmicronoticias/src/main/java/microservice/micronoticias/application/core/usecase/regras/RuleStrategyToUpdateNews.java,5/9/59365f4b811ae9d563c613e970e19d8b304df3a3
+ª
+zmicronoticias/src/main/java/microservice/micronoticias/config/exception/http_409/RuleWithProhibitedNullValueException.java,9/f/9f65b0122417567d14ab0f02ed206d7535209115
+œ
+lmicronoticias/src/main/java/microservice/micronoticias/application/core/usecase/regras/RuleNoticiaUnica.java,0/b/0be55e62dc1659e1a0ac735117422c4d14a62cec

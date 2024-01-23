@@ -7,6 +7,7 @@ import microservice.micronoticias.application.core.usecase.NoticiaCriarUseCase;
 import microservice.micronoticias.application.core.usecase.NoticiaDeleteUseCase;
 import microservice.micronoticias.application.core.usecase.NoticiaUpdateUseCase;
 import microservice.micronoticias.application.core.usecase.regras.RuleStrategyToCreateNews;
+import microservice.micronoticias.application.core.usecase.regras.RuleStrategyToUpdateNews;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -22,8 +23,9 @@ public class NoticiaUseCaseConfig {
     }
 
     @Bean
-    public NoticiaUpdateUseCase noticiaUpdateUseCase(NoticiaUpdateAdapter noticiaUpdateAdapter) {
-        return new NoticiaUpdateUseCase(noticiaUpdateAdapter);
+    public NoticiaUpdateUseCase noticiaUpdateUseCase(NoticiaUpdateAdapter noticiaUpdateAdapter,
+                                                     List<RuleStrategyToUpdateNews> ruleStrategies) {
+        return new NoticiaUpdateUseCase(noticiaUpdateAdapter, ruleStrategies);
     }
 
     @Bean
