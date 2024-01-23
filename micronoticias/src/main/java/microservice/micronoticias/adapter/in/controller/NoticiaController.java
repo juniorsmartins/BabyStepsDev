@@ -85,6 +85,23 @@ public class NoticiaController {
     @PutMapping(
         consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, "application/x-yaml"},
         produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, "application/x-yaml"})
+    @Operation(summary = "Atualizar", description = "Recurso para atualizar Notícia.",
+        responses = {
+            @ApiResponse(responseCode = "200", description = "Requisição bem sucedida e com retorno.",
+                content = @Content(mediaType = "application/json", schema = @Schema(implementation = NoticiaUpdateDtoOut.class))),
+            @ApiResponse(responseCode = "400", description = "Requisição mal formulada.",
+                content = @Content(mediaType = "application/json", schema = @Schema(implementation = ApiError.class))),
+            @ApiResponse(responseCode = "403", description = "Usuário sem permissão para acessar recurso.",
+                content = @Content(mediaType = "application/json", schema = @Schema(implementation = ApiError.class))),
+            @ApiResponse(responseCode = "404", description = "Recurso não encontrado.",
+                content = @Content(mediaType = "application/json", schema = @Schema(implementation = ApiError.class))),
+            @ApiResponse(responseCode = "409", description = "Conflito com regras de negócio.",
+                content = @Content(mediaType = "application/json", schema = @Schema(implementation = ApiError.class))),
+            @ApiResponse(responseCode = "422", description = "Recurso não processado por dados de entrada inválidos.",
+                content = @Content(mediaType = "application/json", schema = @Schema(implementation = ApiError.class))),
+            @ApiResponse(responseCode = "500", description = "Situação inesperada no servidor.",
+                content = @Content(mediaType = "application/json", schema = @Schema(implementation = ApiError.class))),
+        })
     public ResponseEntity<NoticiaUpdateDtoOut> update(
         @Parameter(name = "NoticiaUpdateDtoIn", description = "Objeto para Transporte de Dados de entrada.", required = true)
         @RequestBody @Valid NoticiaUpdateDtoIn updateDtoIn) {
