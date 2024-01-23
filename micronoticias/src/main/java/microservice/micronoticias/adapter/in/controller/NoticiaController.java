@@ -58,7 +58,7 @@ public class NoticiaController {
             @ApiResponse(responseCode = "500", description = "Situação inesperada no servidor.",
                 content = @Content(mediaType = "application/json", schema = @Schema(implementation = ApiError.class))),
         })
-    public ResponseEntity<NoticiaCriarDtoOut> criar(
+    public ResponseEntity<NoticiaCriarDtoOut> create(
         @Parameter(name = "NoticiaCriarDtoIn", description = "Objeto para Transporte de Dados de entrada.", required = true)
         @RequestBody @Valid NoticiaCriarDtoIn criarDtoIn) {
 

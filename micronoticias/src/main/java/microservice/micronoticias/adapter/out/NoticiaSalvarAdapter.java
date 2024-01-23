@@ -9,7 +9,7 @@ import microservice.micronoticias.adapter.out.repository.EditoriaRepository;
 import microservice.micronoticias.adapter.out.repository.NoticiaRepository;
 import microservice.micronoticias.application.core.domain.Noticia;
 import microservice.micronoticias.application.port.output.NoticiaSalvarOutputPort;
-import microservice.micronoticias.config.exception.http_404.EditoriaNaoEncontradaException;
+import microservice.micronoticias.config.exception.http_404.EditoriaNotFoundException;
 import microservice.micronoticias.config.exception.http_500.NoticiaSalvarAdapterException;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Repository;
@@ -60,7 +60,7 @@ public class NoticiaSalvarAdapter implements NoticiaSalvarOutputPort {
                             BeanUtils.copyProperties(editoria, edit, "id");
                             return edit;
                         })
-                        .orElseThrow(() -> new EditoriaNaoEncontradaException(editoria.getId()));
+                        .orElseThrow(() -> new EditoriaNotFoundException(editoria.getId()));
                 }
             })
             .collect(Collectors.toSet());

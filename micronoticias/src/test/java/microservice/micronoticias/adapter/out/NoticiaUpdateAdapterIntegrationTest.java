@@ -6,9 +6,12 @@ import microservice.micronoticias.adapter.out.repository.EditoriaRepository;
 import microservice.micronoticias.adapter.out.repository.NoticiaRepository;
 import microservice.micronoticias.application.core.domain.Editoria;
 import microservice.micronoticias.application.port.output.NoticiaUpdateOutputPort;
+import microservice.micronoticias.config.exception.http_404.EditoriaNotFoundException;
+import microservice.micronoticias.config.exception.http_404.NoticiaNotFoundException;
 import microservice.micronoticias.utility.FactoryObjectMother;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.api.function.Executable;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -91,6 +94,15 @@ class NoticiaUpdateAdapterIntegrationTest {
             Assertions.assertNotEquals("Autor 1", noticiaSalva.getFontes().get(0));
             Assertions.assertNotEquals("Fonte 1", noticiaSalva.getAutorias().get(0));
         }
+
+        @Test
+        @DisplayName("id inexistente")
+        void dadoNoticiaComIdInexistente_QuandoUpdate_EntaoLancarException() {
+            var noticia = factory.gerarNoticia(30, 150, 250, 400, 5000, 1, 50, 1, 100);
+            noticia.setId(0L);
+            Executable acao = () -> noticiaUpdateOutputPort.update(noticia);
+            Assertions.assertThrows(NoticiaNotFoundException.class, acao);
+        }
     }
 
     @Nested
@@ -156,6 +168,20 @@ class NoticiaUpdateAdapterIntegrationTest {
 
             Assertions.assertEquals(2, noticiaSalva.getEditorias().size());
             Assertions.assertEquals(2, atributosEncontrados);
+        }
+
+        @Test
+        @DisplayName("id inexistente")
+        void dadoNoticiaComEditoriaComIdInexistente_QuandoUpdate_EntaoLancarException() {
+            var editoria = factory.gerarEditoria();
+            editoria.setId(0L);
+
+            var noticia = factory.gerarNoticia(30, 150, 250, 400, 5000, 1, 50, 1, 100);
+            noticia.setId(1001L);
+            noticia.setEditorias(Set.of(editoria));
+
+            Executable acao = () -> noticiaUpdateOutputPort.update(noticia);
+            Assertions.assertThrows(EditoriaNotFoundException.class, acao);
         }
     }
 }

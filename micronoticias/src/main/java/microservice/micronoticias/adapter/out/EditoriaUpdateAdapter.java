@@ -7,7 +7,7 @@ import microservice.micronoticias.adapter.out.mapper.EditoriaMapperOut;
 import microservice.micronoticias.adapter.out.repository.EditoriaRepository;
 import microservice.micronoticias.application.core.domain.Editoria;
 import microservice.micronoticias.application.port.output.EditoriaUpdateOutputPort;
-import microservice.micronoticias.config.exception.http_404.EditoriaNaoEncontradaException;
+import microservice.micronoticias.config.exception.http_404.EditoriaNotFoundException;
 import microservice.micronoticias.config.exception.http_500.FailedToUpdateEditorException;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Repository;
@@ -43,7 +43,7 @@ public class EditoriaUpdateAdapter implements EditoriaUpdateOutputPort {
 
     private EditoriaEntity searchEditor(final Long id) {
         return this.editoriaRepository.findById(id)
-            .orElseThrow(() -> new EditoriaNaoEncontradaException(id));
+            .orElseThrow(() -> new EditoriaNotFoundException(id));
     }
 
     private EditoriaEntity overrideValues(EditoriaEntity editoriaEntity, final Editoria editoria) {
