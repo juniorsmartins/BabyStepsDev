@@ -7,7 +7,7 @@ import microservice.micronoticias.config.exception.http_409.RuleWithProhibitedNu
 
 import java.util.Optional;
 
-public class RuleNomenclaturaUnicaDeEditoriaToCreateNews implements RuleStrategyToCreateNews {
+public class RuleNomenclaturaUnicaDeEditoriaToCreateNews implements RuleStrategyToCreateNews, RuleStrategyToUpdateNews {
 
     private final EditoriaBuscarPorNomenclaturaOutputPort outputPort;
 
