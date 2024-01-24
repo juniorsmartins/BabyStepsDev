@@ -1,6 +1,8 @@
 spring:
   application:
     name: eurekaserver
+  cache:
+    type: none
 
 server:
   port: 8761
@@ -10,6 +12,10 @@ eureka:
     register-with-eureka: false
     fetch-registry: false
 
+
+ribbon:
+  eureka:
+    enabled: true
 
 logging:
   file:

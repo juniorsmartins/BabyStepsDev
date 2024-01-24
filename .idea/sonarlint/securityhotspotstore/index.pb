@@ -74,8 +74,6 @@ rmicronoticias/src/main/java/microservice/micronoticias/config/exception/http_50
 †
 pmicronoticias/src/test/java/microservice/micronoticias/application/core/usecase/NoticiaCriarUseCaseUnitTest.java,9/6/961518f71f710cee01330e17e79972f0af73d4f3
 ®
-xmicronoticias/src/test/java/microservice/micronoticias/application/core/usecase/EditoriaCriarUseCaseIntegrationTest.java,d/6/d6234ce7c879aee07e7754e0b82afe6a38828737
-®
 xmicronoticias/src/test/java/microservice/micronoticias/application/core/usecase/EditoriaDeletarPorIdUseCaseUnitTest.java,f/8/f8169dd767f94484177f02ba3f6e808be2659a2e
 °
 qmicronoticias/src/test/java/microservice/micronoticias/application/core/usecase/EditoriaCriarUseCaseUnitTest.java,3/c/3cc1f994355a2d78f775ae2c21a2518fdb079b1d
@@ -145,8 +143,6 @@ smicronoticias/src/main/java/microservice/micronoticias/config/exception/http_50
 rmicronoticias/src/test/java/microservice/micronoticias/application/core/usecase/EditoriaUpdateUseCaseUnitTest.java,4/f/4f44455d63ea491a67601410f147a71edd5b0227
 §
 tmicronoticias/src/main/java/microservice/micronoticias/config/exception/http_500/EditoriaUpdateUseCaseException.java,5/0/5057272a212b8a11674c218e0c28db14c48a4732
-§
-tmicronoticias/src/main/java/microservice/micronoticias/config/exception/http_404/EditoriaNaoEncontradaException.java,d/2/d2badd39c0b8045b961e983958eefe0bc98fed65
 ú
 lmicronoticias/src/main/java/microservice/micronoticias/adapter/out/EditoriaBuscarPorNomenclaturaAdapter.java,e/1/e1381707511306bd012c2a9142364d5dfcdb59be
 ¶
@@ -157,8 +153,6 @@ xmicronoticias/src/main/java/microservice/micronoticias/application/core/usecase
 {micronoticias/src/main/java/microservice/micronoticias/application/port/output/EditoriaBuscarPorNomenclaturaOutputPort.java,4/5/45bdb9db61431b45e9ca1b9e373d47b6d5ee837d
 ∏
 ámicronoticias/src/main/java/microservice/micronoticias/application/core/usecase/regras/RuleNomenclaturaUnicaDeEditoriaToCreateNews.java,9/7/97fa502b069ce5340a7faf11dc2992172c3aa304
-®
-xmicronoticias/src/main/java/microservice/micronoticias/application/core/usecase/regras/RuleNoticiaUnicaToCreateNews.java,7/5/750889496b1b88c5b419abd509e03944d4327671
 ´
 {micronoticias/src/test/java/microservice/micronoticias/application/core/usecase/regras/RuleNoticiaUnicaIntegrationTest.java,7/c/7ccbbf563dcfb390e385015525b4cb65c265acb6
 ∏
@@ -249,8 +243,6 @@ tmicronoticias/src/main/java/microservice/micronoticias/application/core/usecase
 zmicronoticias/src/main/java/microservice/micronoticias/config/exception/http_409/RuleWithProhibitedNullValueException.java,9/f/9f65b0122417567d14ab0f02ed206d7535209115
 ú
 lmicronoticias/src/main/java/microservice/micronoticias/application/core/usecase/regras/RuleNoticiaUnica.java,0/b/0be55e62dc1659e1a0ac735117422c4d14a62cec
-®
-xmicronoticias/src/test/java/microservice/micronoticias/application/core/usecase/NoticiaUpdateUseCaseIntegrationTest.java,6/8/68b3320dcf77d1fdc44b5e9d8f9877e335c8d5a3
 ï
 emicronoticias/src/main/java/microservice/micronoticias/adapter/in/dto/request/NoticiaUpdateDtoIn.java,d/4/d41d6363d785462c85105f822d242d24584325cc
 ù
@@ -261,3 +253,6 @@ gmicronoticias/src/main/java/microservice/micronoticias/adapter/in/dto/response/
 ]micronoticias/src/main/java/microservice/micronoticias/adapter/in/mapper/NoticiaMapperIn.java,2/8/28dcd554dfff9cb1486a694a24a1000a9f4e2725
 ú
 lmicronoticias/src/test/java/microservice/micronoticias/adapter/in/dto/request/NoticiaCriarDtoInUnitTest.java,9/e/9e42eadedcea936b33ce0634cfbe50297365a906
+:
+
+jmeter.log,a/b/abbb18722413135ff0321851e6c48788a8ff6fba
