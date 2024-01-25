@@ -21,6 +21,7 @@
         <module>eurekaserver</module>
         <module>microusuarios</module>
         <module>micronoticias</module>
+        <module>microtimes</module>
     </modules>
 
     <properties>
