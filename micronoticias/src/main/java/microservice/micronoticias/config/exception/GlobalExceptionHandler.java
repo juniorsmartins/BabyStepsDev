@@ -4,6 +4,7 @@ import jakarta.persistence.OptimisticLockException;
 import lombok.extern.slf4j.Slf4j;
 import microservice.micronoticias.config.exception.http_400.RequisicaoMalFormuladaException;
 import microservice.micronoticias.config.exception.http_404.RecursoNaoEncontradoException;
+import microservice.micronoticias.config.exception.http_409.RegraDeNegocioVioladaException;
 import microservice.micronoticias.config.exception.http_500.ProblemaInternoNoServidorException;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
@@ -90,6 +91,22 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
         var tipoErroEnum = TipoErrorEnum.RECURSO_NAO_ENCONTRADO;
         var httpStatus = HttpStatus.NOT_FOUND;
+        var detail = ex.getMessage();
+
+        var mensagemDeErro = this.criarMensagemDeRetorno(tipoErroEnum, httpStatus, detail)
+            .build();
+
+        return this.handleExceptionInternal(ex, mensagemDeErro, new HttpHeaders(), httpStatus, webRequest);
+    }
+
+    // -------------------- REGRAS DE NEGÓCIO VIOLADAS --------------------
+    @ExceptionHandler(value = RegraDeNegocioVioladaException.class)
+    public ResponseEntity<Object> tratarRegraDeNegocioViolada(RegraDeNegocioVioladaException ex, WebRequest webRequest) {
+
+        log.error("Error: {}", ex.getMessage(), ex);
+
+        var tipoErroEnum = TipoErrorEnum.REGRA_NEGOCIO_VIOLADA;
+        var httpStatus = HttpStatus.CONFLICT;
         var detail = ex.getMessage();
 
         var mensagemDeErro = this.criarMensagemDeRetorno(tipoErroEnum, httpStatus, detail)
