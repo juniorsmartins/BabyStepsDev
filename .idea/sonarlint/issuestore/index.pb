@@ -263,3 +263,7 @@ lmicronoticias/src/test/java/microservice/micronoticias/adapter/in/dto/request/N
 jmeter.log,a/b/abbb18722413135ff0321851e6c48788a8ff6fba
 B
 microtimes/pom.xml,7/a/7a703cd74d5697d209a36aa4b1846c2f5a378705
+E
+microtimes/Dockerfile,a/d/ad87ba744895f7f8a8973087af3d115ea56be877
+?
+microtimes/.env,a/9/a9b75a17ed579eb0a0e75b973a8b15d11971dc52
