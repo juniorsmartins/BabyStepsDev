@@ -1,4 +1,4 @@
-ARG DIRETORIO_MICRO=micronoticias
+ARG DIRETORIO_MICRO=microtimes
 
 FROM amazoncorretto:21.0.1-al2023-headful AS builder
 
@@ -12,8 +12,8 @@ COPY ./$DIRETORIO_MICRO/.mvn ./.mvn
 COPY ./$DIRETORIO_MICRO/mvnw .
 COPY ./$DIRETORIO_MICRO/pom.xml .
 
-RUN ./mvnw clean package -Dmaven.test.skip -Dmaven.main.skip -Dspring-boot.repackage.skip && rm -r ./target/
-# RUN ./mvnw dependency:go-offline
+# RUN ./mvnw clean package -Dmaven.test.skip -Dmaven.main.skip -Dspring-boot.repackage.skip && rm -r ./target/
+RUN ./mvnw dependency:go-offline
 
 COPY ./$DIRETORIO_MICRO/src ./src
 
@@ -30,11 +30,11 @@ RUN mkdir ./logs
 
 ARG DIRETORIO_TARGET=/app/$DIRETORIO_MICRO/target
 
-COPY --from=builder $DIRETORIO_TARGET/micronoticias-0.0.1-SNAPSHOT.jar .
+COPY --from=builder $DIRETORIO_TARGET/microtimes-0.0.1-SNAPSHOT.jar .
 
-#ARG PORT_APP=8002
+#ARG PORT_APP=8001
 #ENV PORT $PORT_APP
 #EXPOSE $PORT
 
-ENTRYPOINT ["java", "-jar", "micronoticias-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java", "-jar", "microtimes-0.0.1-SNAPSHOT.jar"]
 

@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: microtimes
+  cache:
+    type: none
+
+server:
+  port: 0
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eurekaserver:8761/eureka
+  instance:
+    instance-id: ${spring.application.name}:${spring.cloud.client.hostname}:${spring.application.instance_id:${random.value}}
+
+ribbon:
+  eureka:
+    enabled: true
+
