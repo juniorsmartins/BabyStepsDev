@@ -21,7 +21,7 @@ public class EditoriaInUseAdapter implements EditoriaInUseOutputPort {
 
     @Transactional(readOnly = true)
     @Override
-    public Boolean inUse(final Long id) {
+    public boolean inUse(final Long id) {
 
         log.info("Iniciado adaptador para verificar Editoria em uso.");
 

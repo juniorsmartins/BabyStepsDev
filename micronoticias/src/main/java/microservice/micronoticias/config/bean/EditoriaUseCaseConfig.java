@@ -7,6 +7,7 @@ import microservice.micronoticias.application.core.usecase.EditoriaListarUseCase
 import microservice.micronoticias.application.core.usecase.EditoriaUpdateUseCase;
 import microservice.micronoticias.application.core.usecase.regras.RuleStrategyToCreateEditor;
 import microservice.micronoticias.application.core.usecase.regras.RuleStrategyToUpdateEditor;
+import microservice.micronoticias.application.port.output.EditoriaInUseOutputPort;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -34,8 +35,9 @@ public class EditoriaUseCaseConfig {
     }
 
     @Bean
-    public EditoriaDeletarPorIdUseCase editoriaDeletarPorIdUseCase(EditoriaDeletarPorIdAdapter editoriaDeletarPorIdAdapter) {
-        return new EditoriaDeletarPorIdUseCase(editoriaDeletarPorIdAdapter);
+    public EditoriaDeletarPorIdUseCase editoriaDeletarPorIdUseCase(EditoriaDeletarPorIdAdapter editoriaDeletarPorIdAdapter,
+                                                                   EditoriaInUseAdapter editoriaInUseAdapter) {
+        return new EditoriaDeletarPorIdUseCase(editoriaDeletarPorIdAdapter, editoriaInUseAdapter);
     }
 }
 

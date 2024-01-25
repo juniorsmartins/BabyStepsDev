@@ -2,6 +2,8 @@ package microservice.micronoticias.application.core.usecase;
 
 import microservice.micronoticias.application.port.input.EditoriaDeletarPorIdInputPort;
 import microservice.micronoticias.application.port.output.EditoriaDeletarPorIdOutputPort;
+import microservice.micronoticias.application.port.output.EditoriaInUseOutputPort;
+import microservice.micronoticias.config.exception.http_409.EditorialInUseException;
 import microservice.micronoticias.config.exception.http_500.EditoriaDeletarPorIdUseCaseException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,8 +16,12 @@ public class EditoriaDeletarPorIdUseCase implements EditoriaDeletarPorIdInputPor
 
     private final EditoriaDeletarPorIdOutputPort editoriaDeletarPorIdOutputPort;
 
-    public EditoriaDeletarPorIdUseCase(EditoriaDeletarPorIdOutputPort editoriaDeletarPorIdOutputPort) {
+    private final EditoriaInUseOutputPort editoriaInUseOutputPort;
+
+    public EditoriaDeletarPorIdUseCase(EditoriaDeletarPorIdOutputPort editoriaDeletarPorIdOutputPort,
+                                       EditoriaInUseOutputPort editoriaInUseOutputPort) {
         this.editoriaDeletarPorIdOutputPort = editoriaDeletarPorIdOutputPort;
+        this.editoriaInUseOutputPort = editoriaInUseOutputPort;
     }
 
     @Override
@@ -24,11 +30,21 @@ public class EditoriaDeletarPorIdUseCase implements EditoriaDeletarPorIdInputPor
         log.info("Iniciado serviço para deletar Editoria por Id.");
 
         Optional.ofNullable(id)
-            .ifPresentOrElse(this.editoriaDeletarPorIdOutputPort::deletarPorId,
+            .ifPresentOrElse(key -> {
+                    this.checkInUse(key);
+                    this.editoriaDeletarPorIdOutputPort.deletarPorId(key);
+                },
                 () -> {throw new EditoriaDeletarPorIdUseCaseException();}
             );
 
         log.info("Finalizado serviço para deletar Editoria por id: {}.", id);
+    }
+
+    private void checkInUse(final Long id) {
+        var inUse = this.editoriaInUseOutputPort.inUse(id);
+        if (inUse) {
+            throw new EditorialInUseException(id);
+        }
     }
 }
 
