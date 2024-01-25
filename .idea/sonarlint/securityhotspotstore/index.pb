@@ -264,3 +264,7 @@ E
 microtimes/.env,a/9/a9b75a17ed579eb0a0e75b973a8b15d11971dc52
 {
 Kmicrotimes/src/main/java/microservice/microtimes/MicrotimesApplication.java,1/a/1a6d295b071a35cc2b55edbb3df8c4149ed93ffd
+‘
+amicronoticias/src/main/java/microservice/micronoticias/application/core/useful/UtilityDomain.java,9/1/91792b895761e7d9b36ba0f2f42d4f72bad6f310
+•
+emicronoticias/src/main/java/microservice/micronoticias/adapter/out/repository/EditoriaRepository.java,6/3/63f2a8491005b930f85527c8e8e246b3969f56f6
