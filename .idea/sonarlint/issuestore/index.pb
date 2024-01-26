@@ -285,3 +285,9 @@ Smicrotimes/src/main/java/microservice/microtimes/adapter/out/entity/TimeEntity.
 [microtimes/src/test/java/microservice/microtimes/adapter/out/entity/TimeEntityUnitTest.java,4/3/437e4976fa5993597e34b43c67bd9976fc0fccc0
 Å
 Qmicrotimes/src/test/java/microservice/microtimes/utility/FactoryObjectMother.java,4/6/4675eabaa0bc23693d54479caecb5598d121d10d
+É
+Smicrotimes/src/main/java/microservice/microtimes/adapter/out/entity/SedeEntity.java,8/c/8c304a119ebda720a726ad0567bc2d52fe60d78b
+á
+Wmicrotimes/src/main/java/microservice/microtimes/adapter/out/entity/FundacaoEntity.java,0/6/061e137ecff2581534c85ad4840e0862e736f92e
+Ñ
+Tmicrotimes/src/main/java/microservice/microtimes/adapter/out/entity/StaffEntity.java,4/1/41f7aef35fbc9ba6543330b75380b84e592090ba
