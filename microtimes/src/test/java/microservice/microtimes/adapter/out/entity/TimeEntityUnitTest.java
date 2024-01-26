@@ -19,8 +19,8 @@ class TimeEntityUnitTest {
     @Test
     @DisplayName("ids diferentes")
     void dadoTimesEntityValidosComIdsDiferentes_QuandoUsarEquals_RetornarFalse() {
-        var timesIguais =
-        var noticiasIguais = noticiaEntity1.equals(noticiaEntity2);
+        boolean timesIguais = true;
+//        var noticiasIguais = noticiaEntity1.equals(noticiaEntity2);
         Assertions.assertFalse(timesIguais);
     }
 }
