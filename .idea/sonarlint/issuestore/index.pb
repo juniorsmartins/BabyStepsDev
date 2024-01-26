@@ -273,3 +273,15 @@ Kmicrotimes/src/main/java/microservice/microtimes/MicrotimesApplication.java,1/
 amicronoticias/src/main/java/microservice/micronoticias/application/core/useful/UtilityDomain.java,9/1/91792b895761e7d9b36ba0f2f42d4f72bad6f310
 ï
 emicronoticias/src/main/java/microservice/micronoticias/adapter/out/repository/EditoriaRepository.java,6/3/63f2a8491005b930f85527c8e8e246b3969f56f6
+}
+Mmicrotimes/src/main/java/microservice/microtimes/adapter/out/entity/Time.java,5/f/5fadbbbfdf8167d14a54ecf52acfdfaf0ba4d6c9
+î
+dmicronoticias/src/test/java/microservice/micronoticias/adapter/out/entity/NoticiaEntityUnitTest.java,9/c/9c818f93b4aefd6b51c4b7d7f5fb246fb9ce11b3
+Ö
+Umicrotimes/src/test/java/microservice/microtimes/adapter/out/entity/TimeUnitTest.java,3/2/3296a89ab928494ff51b2c51b26c31697effbb5d
+É
+Smicrotimes/src/main/java/microservice/microtimes/adapter/out/entity/TimeEntity.java,b/8/b8a32b2388a0ce1251a25b588298a0357fca03e2
+ã
+[microtimes/src/test/java/microservice/microtimes/adapter/out/entity/TimeEntityUnitTest.java,4/3/437e4976fa5993597e34b43c67bd9976fc0fccc0
+Å
+Qmicrotimes/src/test/java/microservice/microtimes/utility/FactoryObjectMother.java,4/6/4675eabaa0bc23693d54479caecb5598d121d10d
