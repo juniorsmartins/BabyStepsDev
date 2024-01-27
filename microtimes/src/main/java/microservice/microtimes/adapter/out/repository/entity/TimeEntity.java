@@ -1,4 +1,4 @@
-package microservice.microtimes.adapter.out.entity;
+package microservice.microtimes.adapter.out.repository.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -39,6 +39,9 @@ public final class TimeEntity implements Serializable {
 
     @Column(name = "cnpj")
     private String cnpj;
+
+    @Column(name = "activity_status", length = 7, nullable = false)
+    private String activityStatus;
 
 
     // ---------- SEDE ----------
