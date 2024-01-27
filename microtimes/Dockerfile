@@ -12,8 +12,8 @@ COPY ./$DIRETORIO_MICRO/.mvn ./.mvn
 COPY ./$DIRETORIO_MICRO/mvnw .
 COPY ./$DIRETORIO_MICRO/pom.xml .
 
-# RUN ./mvnw clean package -Dmaven.test.skip -Dmaven.main.skip -Dspring-boot.repackage.skip && rm -r ./target/
-RUN ./mvnw dependency:go-offline
+RUN ./mvnw clean package -Dmaven.test.skip -Dmaven.main.skip -Dspring-boot.repackage.skip && rm -r ./target/
+#RUN ./mvnw dependency:go-offline
 
 COPY ./$DIRETORIO_MICRO/src ./src
 
