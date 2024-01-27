@@ -37,8 +37,8 @@ spring:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
     generate-ddl: true
     show-sql: true
-  kafka:
-    bootstrap-servers: microkafka:9092
+#  kafka:
+#    bootstrap-servers: microkafka:9092
 
 server:
   port: 0
