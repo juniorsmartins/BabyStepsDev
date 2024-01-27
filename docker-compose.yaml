@@ -42,7 +42,7 @@ services:
 
   mariadb10microtimes:
     container_name: mariadb10microtimes
-    image: mariadb:10.4.4
+    image: mariadb:10.6.16-focal
     ports:
       - "3304:3303"
     environment:
