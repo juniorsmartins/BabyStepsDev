@@ -40,6 +40,21 @@ services:
     networks:
       - babystepsnet
 
+  mariadb10microtimes:
+    container_name: mariadb10microtimes
+    image: mariadb:10.4.4
+    ports:
+      - "3304:3303"
+    environment:
+      - MYSQL_ROOT_PASSWORD=mariadb
+      - MYSQL_DATABASE=mariadb
+      - MYSQL_CHARSET=utf8mb4
+    volumes:
+      - mariadb_data:/var/lib/mysql
+    restart: always
+    networks:
+      - babystepsnet
+
   microusuarios:
     container_name: microusuarios
     build:
@@ -80,13 +95,14 @@ services:
       dockerfile: ./microtimes/Dockerfile
     #    ports:
     #      - "8003:8003"
-#    env_file:
-#      - ./microtimes/.env
+    env_file:
+      - ./microtimes/.env
     networks:
       - babystepsnet
     depends_on:
       - eurekaserver
       - microusuarios
+      - mariadb10microtimes
     restart: always
 
   gateway:
@@ -127,6 +143,8 @@ volumes:
     name: data-mysql
   data-postgres:
     name: data-postgres
+  mariadb_data:
+    name: mariadb_data
   data-docker:
     name: data-docker
 #  jenkins_home:

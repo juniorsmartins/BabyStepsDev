@@ -17,7 +17,7 @@ spring:
     sql-script-encoding: UTF-8
     characterEncoding: UTF-8
   jpa:
-    database: MARIADB
+    database: MYSQL
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MariaDBDialect
