@@ -1,8 +1,8 @@
-package microservice.microtimes.config.bean;
+package microservice.microtimes.config.usecase;
 
+import microservice.microtimes.adapter.out.SendCreatedTimeAdapter;
 import microservice.microtimes.adapter.out.TimeSaveAdapter;
 import microservice.microtimes.application.core.usecase.TimeCreateUseCase;
-import microservice.microtimes.application.port.output.SendCreatedTimeOutputPort;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -11,8 +11,8 @@ public class TimeUseCaseConfig {
 
     @Bean
     public TimeCreateUseCase timeCreateUseCase(TimeSaveAdapter timeSaveAdapter,
-                                               SendCreatedTimeOutputPort sendCreatedTimeOutputPort) {
-        return new TimeCreateUseCase(timeSaveAdapter, sendCreatedTimeOutputPort);
+                                               SendCreatedTimeAdapter sendCreatedTimeAdapter) {
+        return new TimeCreateUseCase(timeSaveAdapter, sendCreatedTimeAdapter);
     }
 }
 
