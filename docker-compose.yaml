@@ -55,6 +55,20 @@ services:
     networks:
       - babystepsnet
 
+  postgres16microtorneios:
+    container_name: postgres16microtorneios
+    image: postgres:16.0
+    ports:
+      - "5534:5432"
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: microtorneios
+    volumes:
+      - data-postgres-microtorneios:/var/lib/postgresql/data
+    restart: always
+    networks:
+      - babystepsnet
+
   microusuarios:
     container_name: microusuarios
     build:
@@ -105,6 +119,23 @@ services:
       - mariadb10microtimes
     restart: always
 
+  microtorneios:
+    container_name: microtorneios
+    build:
+      context: ./
+      dockerfile: ./microtorneios/Dockerfile
+    #    ports:
+    #      - "8004:8004"
+    env_file:
+      - ./microtorneios/.env
+    networks:
+      - babystepsnet
+    depends_on:
+      - eurekaserver
+      - microusuarios
+      - postgres16microtorneios
+    restart: always
+
   gateway:
     container_name: gateway
     build:
@@ -121,6 +152,7 @@ services:
       - microusuarios
       - micronoticias
       - microtimes
+      - microtorneios
     restart: always
 
   jenkins:
@@ -147,6 +179,8 @@ volumes:
     name: mariadb_data
   data-docker:
     name: data-docker
+  data-postgres-microtorneios:
+    name: data-postgres-microtorneios
 #  jenkins_home:
 #    name: jenkins_home
 #    driver: local

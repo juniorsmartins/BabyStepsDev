@@ -340,3 +340,7 @@ E
 microtorneios/pom.xml,5/b/5bdc9b64e10401b8b9e0d6908522935b38d6b1e6
 H
 microtorneios/Dockerfile,0/c/0cffff717099d779f3cefc0e678bc5124286eb0c
+B
+microtorneios/.env,2/e/2e19b5190fa4921bb9e5b391110464a28d61b8d3
+„
+Tmicrotorneios/src/main/java/microservice/microtorneios/MicrotorneiosApplication.java,5/4/54969f7557680647bb55edc178d336892676ecfb
