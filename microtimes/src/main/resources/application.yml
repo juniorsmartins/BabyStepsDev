@@ -5,7 +5,7 @@ spring:
     type: none
   datasource:
     hikari:
-      pool-name: MeuPoolDeConexoes
+      pool-name: poll_microtimes
       maxLifetime: 1800000
       connection-timeout: 40000
       idle-timeout: 300000
