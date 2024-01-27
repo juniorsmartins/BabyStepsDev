@@ -12,7 +12,7 @@ import java.io.Serializable;
     foreignKey = @ForeignKey(name = "fk_time_sede"))
 @SecondaryTable(name = "time_fundacao", pkJoinColumns = @PrimaryKeyJoinColumn(name = "time_id"),
     foreignKey = @ForeignKey(name = "fk_time_fundacao"))
-@SecondaryTable(name = "time_staff", pkJoinColumns = @PrimaryKeyJoinColumn(name = "time_staff"),
+@SecondaryTable(name = "time_staff", pkJoinColumns = @PrimaryKeyJoinColumn(name = "time_id"),
     foreignKey = @ForeignKey(name = "fk_time_staff"))
 @Builder
 @NoArgsConstructor
