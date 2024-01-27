@@ -39,10 +39,6 @@ public final class TimeEntity implements Serializable {
     private String cnpj;
 
     @Embedded
-//    @AttributeOverrides({
-//        @AttributeOverride(name = "estado", column = @Column(name = "estado", table = "time_sede")),
-//        @AttributeOverride(name = "cidade", column = @Column(name = "cidade", table = "time_sede"))
-//    })
     private SedeEntity sede;
 
     @Embedded
