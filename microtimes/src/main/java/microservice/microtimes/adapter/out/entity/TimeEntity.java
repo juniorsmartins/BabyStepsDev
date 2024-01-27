@@ -2,9 +2,11 @@ package microservice.microtimes.adapter.out.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.Length;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "times")
@@ -38,13 +40,32 @@ public final class TimeEntity implements Serializable {
     @Column(name = "cnpj")
     private String cnpj;
 
-    @Embedded
-    private SedeEntity sede;
 
-    @Embedded
-    private FundacaoEntity fundacao;
+    // ---------- SEDE ----------
+    @Column(name = "estado", table = "time_sede")
+    private String estado;
 
-    @Embedded
-    private StaffEntity staff;
+    @Column(name = "cidade", table = "time_sede")
+    private String cidade;
+
+
+    // ---------- Fundação ----------
+    @Column(name = "data", table = "time_fundacao")
+    private LocalDate data;
+
+    @Lob
+    @Column(name = "descricao", length = Length.LOB_DEFAULT, table = "time_fundacao")
+    private String descricao;
+
+
+    // ---------- Staff ----------
+    @Column(name = "presidente", table = "time_staff")
+    private String presidente;
+
+    @Column(name = "vice_presidente", table = "time_staff")
+    private String vicePresidente;
+
+    @Column(name = "head_coach", table = "time_staff")
+    private String headCoach;
 }
 
