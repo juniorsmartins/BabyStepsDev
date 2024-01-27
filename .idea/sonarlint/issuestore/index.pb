@@ -341,3 +341,7 @@ cmicrotimes/src/main/java/microservice/microtimes/adapter/in/dto/response/TimeCr
 Ymicrotimes/src/main/java/microservice/microtimes/adapter/in/mapper/TimeRequestMapper.java,1/c/1c0ec9d0110064ec2e5899f357fd674c74c0de6b
 †
 Vmicrotimes/src/main/java/microservice/microtimes/config/usecase/TimeUseCaseConfig.java,d/b/dba8f6573d2723e7f8bc3432d8d38507df9161a4
+E
+microtorneios/pom.xml,5/b/5bdc9b64e10401b8b9e0d6908522935b38d6b1e6
+H
+microtorneios/Dockerfile,0/c/0cffff717099d779f3cefc0e678bc5124286eb0c
