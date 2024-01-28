@@ -329,3 +329,7 @@ Tmicrotorneios/src/main/java/microservice/microtorneios/MicrotorneiosApplication
 Pmicrotimes/src/test/java/microservice/microtimes/MicrotimesApplicationTests.java,a/f/affedf9e04740f9ac100f774460ced49170bc2fc
 ‘
 amicrotorneios/src/main/java/microservice/microtorneios/application/core/domain/TimeInventory.java,e/6/e6083fbca4544b287c7cea8b96c73bb06dd46121
+œ
+lmicrotorneios/src/main/java/microservice/microtorneios/application/core/domain/enums/ActivityStatusEnum.java,f/4/f4e041fdf0142d068b4d769004f15d12bad189ab
+—
+gmicrotorneios/src/main/java/microservice/microtorneios/application/core/domain/enums/TimeEventEnum.java,f/0/f0044b05821b57aa99d33143a78d7e49b09722ea

@@ -46,7 +46,7 @@ public class TimeCreateUseCase implements TimeCreateInputPort {
     }
 
     private Time sendCreatedMicrotorneios(Time time) {
-        this.sendCreatedTimeOutputPort.send(time, TimeEventEnum.CREATED_MICROTORNEIOS);
+        this.sendCreatedTimeOutputPort.send(time, TimeEventEnum.CREATED_TIME);
         return time;
     }
 }

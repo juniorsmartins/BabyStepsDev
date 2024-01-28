@@ -1,6 +1,8 @@
 package microservice.microtorneios.application.core.domain;
 
-public class TimeInventory {
+import microservice.microtorneios.application.core.domain.enums.ActivityStatusEnum;
+
+public final class TimeInventory {
 
     private Long id;
 
@@ -8,7 +10,7 @@ public class TimeInventory {
 
     private String status;
 
-    private String estado;
+    private ActivityStatusEnum estado;
 
     public Long getId() {
         return id;
@@ -34,11 +36,11 @@ public class TimeInventory {
         this.status = status;
     }
 
-    public String getEstado() {
+    public ActivityStatusEnum getEstado() {
         return estado;
     }
 
-    public void setEstado(String estado) {
+    public void setEstado(ActivityStatusEnum estado) {
         this.estado = estado;
     }
 }
