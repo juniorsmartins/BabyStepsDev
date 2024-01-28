@@ -1,5 +1,7 @@
 package microservice.microtimes.application.core.domain;
 
+import microservice.microtimes.application.core.domain.enums.ActivityStatusEnum;
+
 import java.time.LocalDate;
 
 public final class Time {
@@ -12,7 +14,7 @@ public final class Time {
 
     private String cnpj;
 
-    private String status;
+    private ActivityStatusEnum status;
 
 
     // ---------- SEDE ----------
@@ -67,11 +69,11 @@ public final class Time {
         this.cnpj = cnpj;
     }
 
-    public String getStatus() {
+    public ActivityStatusEnum getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(ActivityStatusEnum status) {
         this.status = status;
     }
 

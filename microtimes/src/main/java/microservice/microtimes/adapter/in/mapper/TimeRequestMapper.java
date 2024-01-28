@@ -9,7 +9,7 @@ import org.mapstruct.Mapping;
 @Mapper(componentModel = "spring")
 public interface TimeRequestMapper {
 
-//    @Mapping(target = "status", ignore = true)
+    @Mapping(target = "status", ignore = true)
     Time toTime(TimeCreateDtoRequest timeCreateDtoRequest);
 
     TimeCreateDtoResponse toTimeCreateDtoResponse(Time time);

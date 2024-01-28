@@ -2,6 +2,7 @@ package microservice.microtimes.adapter.out.repository.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import microservice.microtimes.application.core.domain.enums.ActivityStatusEnum;
 import org.hibernate.Length;
 
 import java.io.Serial;
@@ -40,8 +41,9 @@ public final class TimeEntity implements Serializable {
     @Column(name = "cnpj")
     private String cnpj;
 
+    @Enumerated(value = EnumType.STRING)
     @Column(name = "status", nullable = false)
-    private String status;
+    private ActivityStatusEnum status;
 
 
     // ---------- SEDE ----------

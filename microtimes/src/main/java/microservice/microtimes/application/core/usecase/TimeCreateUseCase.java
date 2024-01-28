@@ -41,7 +41,7 @@ public class TimeCreateUseCase implements TimeCreateInputPort {
     }
 
     private Time addDefaultActivityStatus(Time time) {
-        time.setStatus(ActivityStatusEnum.ATIVO.getStatus());
+        time.setStatus(ActivityStatusEnum.ATIVO);
         return time;
     }
 
