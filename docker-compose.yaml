@@ -44,11 +44,10 @@ services:
     container_name: mariadb10microtimes
     image: mariadb:10.6.16-focal
     ports:
-      - "3304:3303"
+      - "3305:3306"
     environment:
       - MYSQL_ROOT_PASSWORD=mariadb
-      - MYSQL_DATABASE=mariadb
-      - MYSQL_CHARSET=utf8mb4
+      - MYSQL_DATABASE=microtimes
     volumes:
       - mariadb_data:/var/lib/mysql
     restart: always
@@ -59,7 +58,7 @@ services:
     container_name: postgres16microtorneios
     image: postgres:16.0
     ports:
-      - "5534:5432"
+      - "5431:5432"
     environment:
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: microtorneios

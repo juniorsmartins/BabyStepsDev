@@ -9,8 +9,8 @@ spring:
       maxLifetime: 1800000
       connection-timeout: 40000
       idle-timeout: 300000
-      maximum-pool-size: 8
-    url: jdbc:mariadb://${DB_HOST:mariadb10microtimes:3303}/${DB_DATABASE:microtimes}?createDatabaseIfNotExist=true&serverTimezone=UTC
+      maximum-pool-size: 4
+    url: jdbc:mariadb://${DB_HOST:mariadb10microtimes:3306}/${DB_DATABASE:microtimes}?createDatabaseIfNotExist=true&serverTimezone=UTC
     username: ${DB_USERNAME:root}
     password: ${DB_PASSWORD:mariadb}
     driver-class-name: org.mariadb.jdbc.Driver
