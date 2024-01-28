@@ -1,7 +1,5 @@
 package microservice.microtimes.application.core.domain;
 
-import microservice.microtimes.application.core.domain.enums.ActivityStatusEnum;
-
 import java.time.LocalDate;
 
 public final class Time {

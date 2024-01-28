@@ -327,3 +327,5 @@ B
 Tmicrotorneios/src/main/java/microservice/microtorneios/MicrotorneiosApplication.java,5/4/54969f7557680647bb55edc178d336892676ecfb
 €
 Pmicrotimes/src/test/java/microservice/microtimes/MicrotimesApplicationTests.java,a/f/affedf9e04740f9ac100f774460ced49170bc2fc
+‘
+amicrotorneios/src/main/java/microservice/microtorneios/application/core/domain/TimeInventory.java,e/6/e6083fbca4544b287c7cea8b96c73bb06dd46121
