@@ -2,28 +2,25 @@ package microservice.microtimes.adapter.out.repository.mapper;
 
 import microservice.microtimes.adapter.out.repository.entity.TimeEntity;
 import microservice.microtimes.application.core.domain.Time;
-import microservice.microtimes.application.core.domain.enums.ActivityStatusEnum;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
-import org.mapstruct.Named;
 
 @Mapper(componentModel = "spring")
 public interface TimeEntityMapper {
 
-    @Mapping(source = "activityStatus", target = "activityStatus", qualifiedByName = "setActivityStatus")
+//    @Mapping(source = "activityStatus", target = "activityStatus", qualifiedByName = "setActivityStatusString")
     TimeEntity toTimeEntity(Time time);
 
-    @Named("setActivityStatus")
-    default String setActivityStatus(ActivityStatusEnum activityStatusEnum) {
-        return activityStatusEnum.getStatus();
-    }
+//    @Named("setActivityStatusString")
+//    default String setActivityStatusString(ActivityStatusEnum activityStatus) {
+//        return activityStatus.getStatus();
+//    }
 
-    @Mapping(source = "activityStatus", target = "activityStatus", qualifiedByName = "setStatus")
+//    @Mapping(source = "activityStatus", target = "activityStatus", qualifiedByName = "setActivityStatusEnum")
     Time toTime(TimeEntity timeEntity);
 
-    @Named("setStatus")
-    default ActivityStatusEnum setStatus(String activityStatusEnum) {
-        return ActivityStatusEnum.toEnum(activityStatusEnum);
-    }
+//    @Named("setActivityStatusEnum")
+//    default ActivityStatusEnum setActivityStatusEnum(String activityStatus) {
+//        return ActivityStatusEnum.toEnum(activityStatus);
+//    }
 }
 

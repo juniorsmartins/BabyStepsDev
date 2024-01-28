@@ -14,7 +14,7 @@ public final class Time {
 
     private String cnpj;
 
-    private ActivityStatusEnum activityStatus;
+    private String status;
 
 
     // ---------- SEDE ----------
@@ -69,12 +69,12 @@ public final class Time {
         this.cnpj = cnpj;
     }
 
-    public ActivityStatusEnum getActivityStatus() {
-        return activityStatus;
+    public String getStatus() {
+        return status;
     }
 
-    public void setActivityStatus(ActivityStatusEnum activityStatus) {
-        this.activityStatus = activityStatus;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public String getEstado() {

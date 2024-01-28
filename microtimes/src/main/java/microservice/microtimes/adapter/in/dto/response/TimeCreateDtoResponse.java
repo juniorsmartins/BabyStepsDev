@@ -1,7 +1,5 @@
 package microservice.microtimes.adapter.in.dto.response;
 
-import microservice.microtimes.application.core.domain.enums.ActivityStatusEnum;
-
 import java.time.LocalDate;
 
 public record TimeCreateDtoResponse(
@@ -14,7 +12,7 @@ public record TimeCreateDtoResponse(
 
     String cnpj,
 
-    ActivityStatusEnum activityStatus,
+    String status,
 
 
     // ---------- SEDE ----------
