@@ -1,7 +1,9 @@
 package microservice.microtorneios.application.core.domain;
 
+import lombok.ToString;
 import microservice.microtorneios.application.core.domain.enums.ActivityStatusEnum;
 
+@ToString
 public final class TimeInventory {
 
     private Long id;

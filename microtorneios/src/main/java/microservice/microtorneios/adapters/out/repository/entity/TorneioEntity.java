@@ -15,6 +15,7 @@ import java.util.Set;
 @AllArgsConstructor
 @Getter
 @Setter
+@ToString
 @EqualsAndHashCode(of = {"id"})
 public final class TorneioEntity implements Serializable {
 

@@ -372,3 +372,7 @@ smicrotorneios/src/main/java/microservice/microtorneios/adapters/in/dto/response
 qmicrotorneios/src/main/java/microservice/microtorneios/adapters/out/repository/mapper/TimeInventoryOutMapper.java,2/0/204ae00b2956f4c0ac94d188a6745b31de182c6c
 ›
 kmicrotorneios/src/main/java/microservice/microtorneios/adapters/out/repository/TimeInventoryRepository.java,2/a/2ada328f64d0a9f87b4c24f95da96a8466c584a8
+£
+smicrotorneios/src/test/java/microservice/microtorneios/adapters/in/controller/TorneioControllerIntegrationTest.java,6/8/68a3f17436bcb24917283803caafb3a62d23fda2
+‡
+Wmicrotorneios/src/test/java/microservice/microtorneios/utility/FactoryObjectMother.java,e/8/e83326a834cd97078a89762ccc91c1589c791616

@@ -1,15 +1,28 @@
 package microservice.microtorneios.application.core.domain;
 
+import lombok.ToString;
+
 import java.time.Year;
 import java.util.Set;
 
+@ToString
 public final class Torneio {
+
+    private Long id;
 
     private String nome;
 
     private Year ano;
 
     private Set<TimeInventory> times;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getNome() {
         return nome;

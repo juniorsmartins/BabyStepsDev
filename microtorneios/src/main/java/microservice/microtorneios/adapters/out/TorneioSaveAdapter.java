@@ -34,10 +34,26 @@ public class TorneioSaveAdapter implements TorneioSaveOutputPort {
         log.info("Iniciado adaptador para salvar Torneio.");
 
         var torneioSaved = Optional.ofNullable(torneio)
+                .map(torn -> {
+                    System.out.println("\n\n ----- 2 ----- " + torn + " -----\n");
+                    return torn;
+                })
             .map(this.torneioOutMapper::toTorneioEntity)
+                .map(torn -> {
+                    System.out.println("\n\n ----- 3 ----- " + torn + " -----\n");
+                    return torn;
+                })
             .map(entity -> this.linkarTorneioAosTimes(entity, torneio))
             .map(this.torneioRepository::save)
+                .map(torn -> {
+                    System.out.println("\n\n ----- 4 ----- " + torn + " -----\n");
+                    return torn;
+                })
             .map(this.torneioOutMapper::toTorneio)
+                .map(torn -> {
+                    System.out.println("\n\n ----- 5 ----- " + torn + " -----\n");
+                    return torn;
+                })
             .orElseThrow();
 
         log.info("Finalizado adaptador para salvar Torneio, com nome: {}.", torneioSaved.getNome());

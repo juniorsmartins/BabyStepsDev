@@ -1,0 +1,8 @@
+
+e
+java:S1192&"HDefine a constant instead of duplicating this literal " -----
+" 4 times.(·Ì÷ 8¬†­»Õ1
+G	java:S106&"+Replace this use of System.out by a logger.(·Ì÷ 8ãê¨»Õ1
+F	java:S106+"+Replace this use of System.out by a logger.(‰Øå_8§‚©»Õ1
+L	java:S1061"+Replace this use of System.out by a logger.(¯º…‡şÿÿÿÿ8³†­»Õ1
+G	java:S1066"+Replace this use of System.out by a logger.(ºìŞ8Ğ³³»Õ1
