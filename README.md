@@ -63,6 +63,18 @@ em construção.....
 3. Spring Web;
 4. Spring Cloud (versão 2022.0.4);
 
+#### MICROTIMES
+1. Java (versão 21 LTS);
+2. Spring Boot (versão 3.0.12);
+3. Spring Web;
+4. Spring Cloud (versão 2022.0.4);
+
+#### MICROTORNEIOS
+1. Java (versão 21 LTS);
+2. Spring Boot (versão 3.0.12);
+3. Spring Web;
+4. Spring Cloud (versão 2022.0.4);
+
 
 ### 6 - ARQUITETURA
 
