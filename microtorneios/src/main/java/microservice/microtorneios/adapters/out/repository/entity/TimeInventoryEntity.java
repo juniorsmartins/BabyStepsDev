@@ -1,8 +1,8 @@
-package microservice.microtorneios.application.core.domain;
+package microservice.microtorneios.adapters.out.repository.entity;
 
 import microservice.microtorneios.application.core.domain.enums.ActivityStatusEnum;
 
-public final class TimeInventory {
+public final class TimeInventoryEntity {
 
     private Long id;
 

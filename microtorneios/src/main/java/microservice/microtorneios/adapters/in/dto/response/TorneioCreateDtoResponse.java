@@ -1,6 +1,7 @@
 package microservice.microtorneios.adapters.in.dto.response;
 
 import java.time.Year;
+import java.util.Set;
 
 public record TorneioCreateDtoResponse(
 
@@ -8,7 +9,9 @@ public record TorneioCreateDtoResponse(
 
     String nome,
 
-    Year ano
+    Year ano,
+
+    Set<TimeInventoryCreateDtoResponse> times
 
 ) { }
 

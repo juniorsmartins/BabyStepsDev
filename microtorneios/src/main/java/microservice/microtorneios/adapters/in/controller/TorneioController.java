@@ -5,7 +5,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import microservice.microtorneios.adapters.in.dto.request.TorneioCreateDtoRequest;
 import microservice.microtorneios.adapters.in.dto.response.TorneioCreateDtoResponse;
-import microservice.microtorneios.adapters.in.mapper.TorneioRequestMapper;
+import microservice.microtorneios.adapters.in.mapper.TorneioInMapper;
 import microservice.microtorneios.application.port.input.TorneioCreateInputPort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,15 +24,15 @@ public class TorneioController {
 
     private final TorneioCreateInputPort torneioCreateInputPort;
 
-    private final TorneioRequestMapper torneioRequestMapper;
+    private final TorneioInMapper torneioInMapper;
 
     @PostMapping
     public ResponseEntity<TorneioCreateDtoResponse> create(@RequestBody @Valid TorneioCreateDtoRequest torneioCreateDtoRequest) {
 
         var response = Optional.of(torneioCreateDtoRequest)
-            .map(this.torneioRequestMapper::toTorneio)
+            .map(this.torneioInMapper::toTorneio)
             .map(this.torneioCreateInputPort::create)
-            .map(this.torneioRequestMapper::toTorneioCreateDtoResponse)
+            .map(this.torneioInMapper::toTorneioCreateDtoResponse)
             .orElseThrow();
 
         return ResponseEntity

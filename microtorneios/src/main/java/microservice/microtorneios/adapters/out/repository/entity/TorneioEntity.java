@@ -6,6 +6,7 @@ import lombok.*;
 import java.io.Serial;
 import java.io.Serializable;
 import java.time.Year;
+import java.util.Set;
 
 @Entity
 @Table(name = "torneios")
@@ -29,5 +30,12 @@ public final class TorneioEntity implements Serializable {
 
     @Column(name = "ano", nullable = false)
     private Year ano;
+
+    @ManyToMany
+    @JoinTable(name = "torneio_time",
+        joinColumns = @JoinColumn(name = "torneio_id"),
+        inverseJoinColumns = @JoinColumn(name = "time_id")
+    )
+    private Set<TimeInventoryEntity> times;
 }
 
