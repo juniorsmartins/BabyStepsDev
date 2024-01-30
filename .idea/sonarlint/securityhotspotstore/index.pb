@@ -298,8 +298,6 @@ dmicrotimes/src/main/java/microservice/microtimes/adapter/out/repository/mapper/
 Umicrotimes/src/main/java/microservice/microtimes/adapter/out/message/TimeMessage.java,b/2/b2013365482809d84355aee5ea874fc263bb2aa6
 ƒ
 Smicrotimes/src/main/java/microservice/microtimes/config/kafka/CustomSerializer.java,8/1/81b5ffa4b017d116ef5bcbad0e36606f5eefa147
-Š
-Zmicrotimes/src/main/java/microservice/microtimes/config/kafka/KafkaTimeProducerConfig.java,0/7/07eac07cf8b91d461d45ad3be71e698eef1d5db5
 ˆ
 Xmicrotimes/src/main/java/microservice/microtimes/adapter/out/SendCreatedTimeAdapter.java,4/7/47472dad907ae75f14ccbd1d70999bdd10b17ad4
 Š
@@ -370,8 +368,6 @@ kmicrotorneios/src/main/java/microservice/microtorneios/adapters/out/repository/
 smicrotorneios/src/test/java/microservice/microtorneios/adapters/in/controller/TorneioControllerIntegrationTest.java,6/8/68a3f17436bcb24917283803caafb3a62d23fda2
 ‡
 Wmicrotorneios/src/test/java/microservice/microtorneios/utility/FactoryObjectMother.java,e/8/e83326a834cd97078a89762ccc91c1589c791616
-š
-jmicrotorneios/src/main/java/microservice/microtorneios/adapters/in/consumer/ReceiveTimeCreateConsumer.java,6/9/698dd12687eedbd6a11201f3ed7480f405441fc6
 ›
 kmicrotorneios/src/main/java/microservice/microtorneios/adapters/in/consumer/ReceiveCreatedTimeConsumer.java,8/8/883a7e123a49b32704bc5c3fffde506d2a0aafa7
 ‹
