@@ -351,14 +351,8 @@ kmicrotorneios/src/main/java/microservice/microtorneios/adapters/in/dto/request/
 mmicrotorneios/src/main/java/microservice/microtorneios/adapters/in/dto/response/TorneioCreateDtoResponse.java,a/6/a6de15c835a697d855687a74f590ab59ae267b59
 ˜
 hmicrotorneios/src/main/java/microservice/microtorneios/adapters/out/repository/entity/TorneioEntity.java,0/4/047bbd4377317a371af8948f855bc7837ddd84f8
-“
-cmicrotorneios/src/main/java/microservice/microtorneios/adapters/in/mapper/TorneioRequestMapper.java,9/a/9aad01765cccf5ddfd3e867d6790714529b434fd
-Ž
-^microtimes/src/main/java/microservice/microtimes/adapter/out/repository/TorneioRepository.java,4/f/4f32098fffab6280985a3cb950143027820531de
 •
 emicrotorneios/src/main/java/microservice/microtorneios/adapters/out/repository/TorneioRepository.java,b/9/b9f46dab384d2c5d365f472f5a5ad928cf744845
-ž
-nmicrotorneios/src/main/java/microservice/microtorneios/adapters/out/repository/mapper/TorneioEntityMapper.java,3/1/316e792c404de72afb957a0d6f36b6365b9f9168
 ›
 kmicrotorneios/src/main/java/microservice/microtorneios/adapters/out/repository/mapper/TorneioOutMapper.java,5/d/5d9aa9acc2d2d10ef39ce50c91035a3b132f0ed2
 ˆ
