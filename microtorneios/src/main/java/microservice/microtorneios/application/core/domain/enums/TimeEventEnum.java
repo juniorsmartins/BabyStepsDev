@@ -1,4 +1,4 @@
-package microservice.microtimes.application.core.domain.enums;
+package microservice.microtorneios.application.core.domain.enums;
 
 public enum TimeEventEnum {
 
