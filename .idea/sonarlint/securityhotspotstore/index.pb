@@ -384,3 +384,13 @@ kmicrotorneios/src/main/java/microservice/microtorneios/adapters/in/consumer/Rec
 Vmicrotimes/src/main/java/microservice/microtimes/config/kafka/KafkaProducerConfig.java,f/4/f4ad70372d465d07beb9942edf0a1f924b228818
 ˆ
 Xmicrotorneios/src/main/java/microservice/microtorneios/application/core/domain/Time.java,f/e/fe89c753dcce3e461152f038e2bd0dd9b2e887fc
+Ÿ
+omicrotorneios/src/main/java/microservice/microtorneios/application/port/input/TimeInventoryCreateInputPort.java,2/5/25a60097c9e4dc35aefec4e2c48c4f8e2c6bad12
+Ÿ
+omicrotorneios/src/main/java/microservice/microtorneios/application/core/usecase/TimeInventoryCreateUseCase.java,1/3/13330e81e2bdaa82a35c46faa9fd7d34e54e842b
+Ÿ
+omicrotorneios/src/main/java/microservice/microtorneios/application/port/output/TimeInventorySaveOutputPort.java,6/f/6ff94ebce7d39314b2cd02a97e511a4c4be9e977
+‘
+amicrotorneios/src/main/java/microservice/microtorneios/adapters/out/TimeInventorySaveAdapter.java,0/e/0ed16e34ad96f3f9ac50befb914020dce9d72676
+Ž
+^microtorneios/src/main/java/microservice/microtorneios/config/usecase/TimeInventoryConfig.java,d/a/da70db00b99390fd03e3f3f014fee45cb051ef86
