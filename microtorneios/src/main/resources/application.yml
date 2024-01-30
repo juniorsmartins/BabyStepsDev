@@ -38,8 +38,7 @@ spring:
     generate-ddl: true
     show-sql: true
   kafka:
-    bootstrap-servers: http://eurekaserver:8761/eureka
-#    bootstrap-servers: microkafka:9092
+    bootstrap-servers: microkafka:9092
 
 server:
   port: 0
