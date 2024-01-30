@@ -1,17 +1,37 @@
-package microservice.microtorneios.application.core.domain;
+package microservice.microtorneios.adapters.out.repository.entity;
 
-import lombok.ToString;
+import jakarta.persistence.*;
+import lombok.*;
 import microservice.microtorneios.application.core.domain.enums.ActivityStatusEnum;
 
-@ToString
-public final class TimeInventory {
+import java.io.Serial;
+import java.io.Serializable;
 
+@Entity
+@Table(name = "times")
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@EqualsAndHashCode(of = {"id"})
+public final class TimeInventoryEntity implements Serializable {
+
+    @Serial
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "nome_fantasia")
     private String nomeFantasia;
 
+    @Column(name = "estado")
     private String estado;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "status")
     private ActivityStatusEnum status;
 
     public Long getId() {
