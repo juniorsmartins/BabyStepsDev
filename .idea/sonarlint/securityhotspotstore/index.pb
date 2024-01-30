@@ -370,3 +370,17 @@ kmicrotorneios/src/main/java/microservice/microtorneios/adapters/out/repository/
 smicrotorneios/src/test/java/microservice/microtorneios/adapters/in/controller/TorneioControllerIntegrationTest.java,6/8/68a3f17436bcb24917283803caafb3a62d23fda2
 ‡
 Wmicrotorneios/src/test/java/microservice/microtorneios/utility/FactoryObjectMother.java,e/8/e83326a834cd97078a89762ccc91c1589c791616
+š
+jmicrotorneios/src/main/java/microservice/microtorneios/adapters/in/consumer/ReceiveTimeCreateConsumer.java,6/9/698dd12687eedbd6a11201f3ed7480f405441fc6
+›
+kmicrotorneios/src/main/java/microservice/microtorneios/adapters/in/consumer/ReceiveCreatedTimeConsumer.java,8/8/883a7e123a49b32704bc5c3fffde506d2a0aafa7
+‹
+[microtorneios/src/main/java/microservice/microtorneios/config/kafka/CustomDeserializer.java,b/0/b0ba9badf87029a4b2f37ba9056cdf16de39c21e
+Œ
+\microtorneios/src/main/java/microservice/microtorneios/adapters/out/message/TimeMessage.java,6/d/6d1df0091b52cf68791d166d81635ce9cef946db
+Œ
+\microtorneios/src/main/java/microservice/microtorneios/config/kafka/KafkaConsumerConfig.java,4/6/46d3756359e344e6cc7d72430501e54a253e160a
+†
+Vmicrotimes/src/main/java/microservice/microtimes/config/kafka/KafkaProducerConfig.java,f/4/f4ad70372d465d07beb9942edf0a1f924b228818
+ˆ
+Xmicrotorneios/src/main/java/microservice/microtorneios/application/core/domain/Time.java,f/e/fe89c753dcce3e461152f038e2bd0dd9b2e887fc
