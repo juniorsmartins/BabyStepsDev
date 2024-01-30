@@ -38,7 +38,7 @@ spring:
     generate-ddl: true
     show-sql: true
   kafka:
-    bootstrap-servers: kafka:9092
+    bootstrap-servers: ${KAFKA_BROKER:localhost:9092}
     consumer:
       group-id: time-inventory
 
