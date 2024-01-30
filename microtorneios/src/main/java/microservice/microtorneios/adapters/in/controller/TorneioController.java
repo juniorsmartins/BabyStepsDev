@@ -31,20 +31,8 @@ public class TorneioController {
 
         var response = Optional.of(torneioCreateDtoRequest)
             .map(this.torneioInMapper::toTorneio)
-            .map(torneio -> {
-                System.out.println("\n\n ----- 1 ----- " + torneio + " -----\n");
-                return torneio;
-            })
             .map(this.torneioCreateInputPort::create)
-            .map(torneio -> {
-                System.out.println("\n\n ----- 6 ----- " + torneio + " -----\n");
-                return torneio;
-            })
             .map(this.torneioInMapper::toTorneioCreateDtoResponse)
-            .map(torneio -> {
-                System.out.println("\n\n ----- 7 ----- " + torneio + " -----\n");
-                return torneio;
-            })
             .orElseThrow();
 
         return ResponseEntity

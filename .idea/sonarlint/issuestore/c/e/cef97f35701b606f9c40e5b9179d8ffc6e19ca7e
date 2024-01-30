@@ -1,7 +1,0 @@
-
-j
-java:S1192#"HDefine a constant instead of duplicating this literal " -----
-" 3 times.(‚õ„†üÿÿÿÿ8´ÕíºÕ1
-L	java:S106#"+Replace this use of System.out by a logger.(‚õ„†üÿÿÿÿ8•âèºÕ1
-L	java:S106("+Replace this use of System.out by a logger.(»çåÒÿÿÿÿÿ8‘íºÕ1
-L	java:S106-"+Replace this use of System.out by a logger.(Øú’ñÿÿÿÿÿ8ÀÕíºÕ1
