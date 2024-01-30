@@ -39,7 +39,8 @@ spring:
     show-sql: true
   kafka:
     bootstrap-servers: kafka:9092
-    group-id: time-inventory
+    consumer:
+      group-id: time-inventory
 
 topic:
   name: tp-saga-time

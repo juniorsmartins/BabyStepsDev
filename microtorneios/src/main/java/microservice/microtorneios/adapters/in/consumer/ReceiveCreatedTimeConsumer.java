@@ -17,13 +17,13 @@ public class ReceiveCreatedTimeConsumer {
 
     private final TimeInventoryCreateInputPort timeInventoryCreateInputPort;
 
-    @Value("${spring.kafka.group-id}")
+    @Value("${spring.kafka.consumer.group-id}")
     private String groupId;
 
     @Value("${topic.name}")
     private String topic;
 
-    @KafkaListener(topics = "${topic.name}", groupId = "${spring.kafka.group-id}", containerFactory = "kafkaListenerContainerFactory")
+    @KafkaListener(topics = "${topic.name}", groupId = "${spring.kafka.consumer.group-id}", containerFactory = "kafkaListenerContainerFactory")
     public void receive(ConsumerRecord<String, TimeMessage> record) {
 
         if (TimeEventEnum.CREATED_TIME.equals(record.value().getEvent())) {
