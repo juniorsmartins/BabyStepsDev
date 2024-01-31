@@ -396,3 +396,7 @@ J
 microinscricoes/Dockerfile,9/3/93bd7f29c9be492311e6ac97cf6701b604093a06
 D
 microinscricoes/.env,6/9/6920deab7860bcac99908202a150fb9728cae059
+D
+orchestrator/pom.xml,b/f/bf2f6265fbb83e310ae080b1502a2722b525e842
+G
+orchestrator/Dockerfile,1/d/1d27518fa1d5c7459350b3997bf7d2b4418aae8b
