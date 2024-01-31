@@ -81,7 +81,7 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
     ports:
-      - 5432:5432
+      - 5433:5432
     volumes:
       - data-postgresql:/var/lib/postgresql/data
 
@@ -112,7 +112,7 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
     ports:
-      - 5433:5432
+      - 5434:5432
     volumes:
       - data-postgresq:/var/lib/postgresql/data
 
@@ -142,7 +142,7 @@ services:
       - MARIADB_DATABASE=microtimes
       - MARIADB_ROOT_PASSWORD=mariadb
     ports:
-      - 3306:3306
+      - 3305:3306
     volumes:
       - data-mariadb:/var/lib/mysql
 
@@ -172,7 +172,7 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: micronoticias
     ports:
-      - 5534:5432
+      - 5535:5432
     volumes:
       - data-postgres:/var/lib/postgresql/data
 
