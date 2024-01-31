@@ -151,6 +151,38 @@ services:
       - microusuarios
     restart: always
 
+  orchestrator:
+    container_name: orchestrator
+    build:
+      context: ./
+      dockerfile: ./orchestrator/Dockerfile
+    #    ports:
+    #      - "8004:8004"
+    #    env_file:
+    #      - ./microinscricoes/.env
+    networks:
+      - babystepsnet
+    depends_on:
+      - eurekaserver
+      - microusuarios
+    restart: always
+
+  micropagamentos:
+    container_name: micropagamentos
+    build:
+      context: ./
+      dockerfile: ./micropagamentos/Dockerfile
+    #    ports:
+    #      - "8004:8004"
+    #    env_file:
+    #      - ./microinscricoes/.env
+    networks:
+      - babystepsnet
+    depends_on:
+      - eurekaserver
+      - microusuarios
+    restart: always
+
   gateway:
     container_name: gateway
     build:
