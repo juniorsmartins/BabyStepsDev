@@ -15,8 +15,8 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class SendCreatedTimeAdapter implements SendCreatedTimeOutputPort {
 
-    @Value("${topic.name}")
-    public String topico;
+//    @Value("${topic.name}")
+//    public String topico;
 
     private final KafkaTemplate<String, TimeMessage> kafkaTemplate;
 
@@ -30,7 +30,7 @@ public class SendCreatedTimeAdapter implements SendCreatedTimeOutputPort {
             .event(event)
             .build();
 
-        this.kafkaTemplate.send(this.topico, timeMessage);
+//        this.kafkaTemplate.send(this.topico, timeMessage);
 
         log.info("Finalizado envio de mensagem via Kafka. Devido ao cadastro do Time, com nome fantasia: {}.", time.getNomeFantasia());
     }
