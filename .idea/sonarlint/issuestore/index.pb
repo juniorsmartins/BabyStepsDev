@@ -401,3 +401,15 @@ J
 microinscricoes/Dockerfile,9/3/93bd7f29c9be492311e6ac97cf6701b604093a06
 D
 microinscricoes/.env,6/9/6920deab7860bcac99908202a150fb9728cae059
+D
+orchestrator/pom.xml,b/f/bf2f6265fbb83e310ae080b1502a2722b525e842
+G
+orchestrator/Dockerfile,1/d/1d27518fa1d5c7459350b3997bf7d2b4418aae8b
+G
+micropagamentos/pom.xml,8/c/8ce04fe61cbf7f4e7237a423ffa5f2070a81cced
+J
+micropagamentos/Dockerfile,a/d/ad69b101df4d52c53d0763045a99ce97b6437060
+D
+micropagamentos/.env,a/b/ab7042ff5b420a4c7a4e438289194f22ecc10dcc
+A
+orchestrator/.env,d/4/d45af4e2a0753697e23429e448073b417d8f313d
