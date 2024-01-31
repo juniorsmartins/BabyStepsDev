@@ -395,3 +395,9 @@ omicrotorneios/src/main/java/microservice/microtorneios/application/port/output/
 amicrotorneios/src/main/java/microservice/microtorneios/adapters/out/TimeInventorySaveAdapter.java,0/e/0ed16e34ad96f3f9ac50befb914020dce9d72676
 Ž
 ^microtorneios/src/main/java/microservice/microtorneios/config/usecase/TimeInventoryConfig.java,d/a/da70db00b99390fd03e3f3f014fee45cb051ef86
+G
+microinscricoes/pom.xml,c/5/c5de086e31eeb7b6662f939f56b82c0c6d8d43f0
+J
+microinscricoes/Dockerfile,9/3/93bd7f29c9be492311e6ac97cf6701b604093a06
+D
+microinscricoes/.env,6/9/6920deab7860bcac99908202a150fb9728cae059

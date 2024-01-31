@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
 		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
@@ -11,17 +11,15 @@
 	</parent>
 
 	<groupId>microservice</groupId>
-	<artifactId>microtorneios</artifactId>
+	<artifactId>microinscricoes</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>microtorneios</name>
+	<name>microinscricoes</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
 		<java.version>21</java.version>
 		<spring-cloud.version>2022.0.4</spring-cloud.version>
 		<mapstruct.version>1.5.5.Final</mapstruct.version>
-		<jackson.databind.version>2.16.1</jackson.databind.version>
-		<data.faker.version>2.0.2</data.faker.version>
 	</properties>
 
 	<dependencies>
@@ -37,11 +35,6 @@
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.kafka</groupId>
-			<artifactId>spring-kafka</artifactId>
 		</dependency>
 
 
@@ -66,33 +59,6 @@
 		</dependency>
 
 
-		<!-- CONTENT NEGOTIATION -->
-		<dependency>
-			<groupId>com.fasterxml.jackson.dataformat</groupId>
-			<artifactId>jackson-dataformat-xml</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>com.fasterxml.jackson.dataformat</groupId>
-			<artifactId>jackson-dataformat-yaml</artifactId>
-		</dependency>
-
-
-		<!-- AUDITORIA -->
-		<dependency>
-			<groupId>org.springframework.data</groupId>
-			<artifactId>spring-data-envers</artifactId>
-		</dependency>
-
-
-		<!-- DOCUMENTAÇÃO -->
-		<dependency>
-			<groupId>org.springdoc</groupId>
-			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-			<version>2.3.0</version>
-		</dependency>
-
-
 		<!-- FERRAMENTAS -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
@@ -101,65 +67,10 @@
 		</dependency>
 
 
-		<!-- BANCO DE DADOS -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.postgresql</groupId>
-			<artifactId>postgresql</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-
-
 		<!-- TESTES AUTOMATIZADOS -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-webflux</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.kafka</groupId>
-			<artifactId>spring-kafka-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-
-		<!-- Parametrização de Testes -->
-		<dependency>
-			<groupId>org.junit.jupiter</groupId>
-			<artifactId>junit-jupiter-params</artifactId>
-			<version>5.10.1</version>
-			<scope>test</scope>
-		</dependency>
-
-		<!-- Simular Objetos - Mocks -->
-		<dependency>
-			<groupId>org.mockito</groupId>
-			<artifactId>mockito-junit-jupiter</artifactId>
-			<version>5.8.0</version>
-			<scope>test</scope>
-		</dependency>
-
-		<!-- Gerar dados falsos para Testes -->
-		<dependency>
-			<groupId>net.datafaker</groupId>
-			<artifactId>datafaker</artifactId>
-			<version>${data.faker.version}</version>
-		</dependency>
-
-		<!-- Banco de dados para testes -->
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<version>2.2.220</version>
 			<scope>test</scope>
 		</dependency>
 
@@ -205,7 +116,6 @@
 							<groupId>org.projectlombok</groupId>
 							<artifactId>lombok</artifactId>
 							<version>1.18.30</version>
-<!--							<version>1.18.24</version>-->
 						</path>
 						<!--  This is needed when using Lombok 1.18.16 and above  -->
 						<path>

@@ -23,6 +23,7 @@
         <module>micronoticias</module>
         <module>microtimes</module>
         <module>microtorneios</module>
+        <module>microinscricoes</module>
     </modules>
 
     <properties>

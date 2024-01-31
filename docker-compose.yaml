@@ -135,6 +135,22 @@ services:
       - postgres16microtorneios
     restart: always
 
+  microinscricoes:
+    container_name: microinscricoes
+    build:
+      context: ./
+      dockerfile: ./microinscricoes/Dockerfile
+    #    ports:
+    #      - "8004:8004"
+#    env_file:
+#      - ./microinscricoes/.env
+    networks:
+      - babystepsnet
+    depends_on:
+      - eurekaserver
+      - microusuarios
+    restart: always
+
   gateway:
     container_name: gateway
     build:
