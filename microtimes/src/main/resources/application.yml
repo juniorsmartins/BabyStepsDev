@@ -38,7 +38,7 @@ spring:
     generate-ddl: true
     show-sql: true
   kafka:
-    bootstrap-servers: ${KAFKA_BROKER:localhost:9092}
+    bootstrap-servers: ${KAFKA_BROKER:kafka:9092}
     group-id: live
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
