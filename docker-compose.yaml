@@ -135,6 +135,22 @@ services:
       - postgres16microtorneios
     restart: always
 
+  microinscricoes:
+    container_name: microinscricoes
+    build:
+      context: ./
+      dockerfile: ./microinscricoes/Dockerfile
+    #    ports:
+    #      - "8004:8004"
+#    env_file:
+#      - ./microinscricoes/.env
+    networks:
+      - babystepsnet
+    depends_on:
+      - eurekaserver
+      - microusuarios
+    restart: always
+
   gateway:
     container_name: gateway
     build:
@@ -153,6 +169,47 @@ services:
       - microtimes
       - microtorneios
     restart: always
+
+#  zookeeper:
+#    container_name: zookeeper
+#    hostname: zookeeper
+#    image: confluentinc/cp-zookeeper:7.5.3
+#    ports:
+#      - "2181:2181"
+#    environment:
+#      ZOOKEEPER_CLIENT_PORT: 2181
+#      ZOOKEEPER_TICK_TIME: 2000
+
+  kafka:
+    container_name: kafka
+    image: confluentinc/cp-kafka:7.5.3
+    restart: "no"
+    ports:
+      - "2181:2181"
+      - "9092:9092"
+    networks:
+      - babystepsnet
+    environment:
+      KAFKA_LISTENERS: "INTERNAL://:29092,EXTERNAL://:9092"
+      KAFKA_ADVERTISED_LISTENERS: "INTERNAL://kafka:29092,EXTERNAL://kafka:9092"
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: "INTERNAL:PLAINTEXT,EXTERNAL:PLAINTEXT"
+      KAFKA_INTER_BROKER_LISTENER_NAME: "INTERNAL"
+      KAFKA_ZOOKEEPER_SESSION_TIMEOUT: "6000"
+      KAFKA_RESTART_ATTEMPTS: "10"
+      KAFKA_RESTART_DELAY: "5"
+      ZOOKEEPER_AUTOPURGE_PURGE_INTERVAL: "0"
+    volumes:
+      - ./data/kafka/data:/var/lib/kafka/data
+
+#  kafdrop:
+#    image: obsidiandynamics/kafdrop
+#    ports:
+#      - "9000:9000"
+#    environment:
+#      KAFKA_BROKERCONNECT: "kafka1:19091"
+#    depends_on:
+#      - kafka1
+#    restart: "no"
 
   jenkins:
     container_name: jenkins
@@ -180,6 +237,9 @@ volumes:
     name: data-docker
   data-postgres-microtorneios:
     name: data-postgres-microtorneios
+  kafka-data:
+    name: kafka-data
+
 #  jenkins_home:
 #    name: jenkins_home
 #    driver: local
