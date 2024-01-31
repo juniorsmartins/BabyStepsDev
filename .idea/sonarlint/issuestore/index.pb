@@ -409,3 +409,7 @@ G
 micropagamentos/pom.xml,8/c/8ce04fe61cbf7f4e7237a423ffa5f2070a81cced
 J
 micropagamentos/Dockerfile,a/d/ad69b101df4d52c53d0763045a99ce97b6437060
+D
+micropagamentos/.env,a/b/ab7042ff5b420a4c7a4e438289194f22ecc10dcc
+A
+orchestrator/.env,d/4/d45af4e2a0753697e23429e448073b417d8f313d

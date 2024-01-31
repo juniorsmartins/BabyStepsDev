@@ -1,16 +1,16 @@
 spring:
   application:
     name: microtimes
-  cache:
-    type: none
+#  cache:
+#    type: none
   datasource:
     hikari:
       pool-name: poll_microtimes
       maxLifetime: 1800000
       connection-timeout: 40000
       idle-timeout: 300000
-      maximum-pool-size: 4
-    url: jdbc:mariadb://${DB_HOST:mariadb10microtimes:3306}/${DB_DATABASE:microtimes}?createDatabaseIfNotExist=true&serverTimezone=UTC
+      maximum-pool-size: 2
+    url: jdbc:mariadb://${DB_HOST:microtimes10mariadb:3306}/${DB_DATABASE:microtimes}?createDatabaseIfNotExist=true&serverTimezone=UTC
     username: ${DB_USERNAME:root}
     password: ${DB_PASSWORD:mariadb}
     driver-class-name: org.mariadb.jdbc.Driver
@@ -37,15 +37,15 @@ spring:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
     generate-ddl: true
     show-sql: true
-  kafka:
-    bootstrap-servers: ${KAFKA_BROKER:kafka:9092}
-    group-id: live
-    producer:
-      key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+#  kafka:
+#    bootstrap-servers: ${KAFKA_BROKER:kafka:9092}
+#    group-id: live
+#    producer:
+#      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+#      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
 
-topic:
-  name: tp-saga-time
+#topic:
+#  name: tp-saga-time
 
 server:
   port: 0
@@ -57,9 +57,9 @@ eureka:
   instance:
     instance-id: ${spring.application.name}:${spring.cloud.client.hostname}:${spring.application.instance_id:${random.value}}
 
-ribbon:
-  eureka:
-    enabled: true
+#ribbon:
+#  eureka:
+#    enabled: true
 
 logging:
   file:
