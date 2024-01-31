@@ -19,12 +19,13 @@
     <modules>
         <module>gateway</module>
         <module>eurekaserver</module>
+        <module>orchestrator</module>
         <module>microusuarios</module>
-        <module>micronoticias</module>
+        <module>microinscricoes</module>
         <module>microtimes</module>
         <module>microtorneios</module>
-        <module>microinscricoes</module>
-        <module>orchestrator</module>
+        <module>micropagamentos</module>
+        <module>micronoticias</module>
     </modules>
 
     <properties>

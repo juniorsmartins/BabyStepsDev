@@ -405,3 +405,7 @@ D
 orchestrator/pom.xml,b/f/bf2f6265fbb83e310ae080b1502a2722b525e842
 G
 orchestrator/Dockerfile,1/d/1d27518fa1d5c7459350b3997bf7d2b4418aae8b
+G
+micropagamentos/pom.xml,8/c/8ce04fe61cbf7f4e7237a423ffa5f2070a81cced
+J
+micropagamentos/Dockerfile,a/d/ad69b101df4d52c53d0763045a99ce97b6437060
