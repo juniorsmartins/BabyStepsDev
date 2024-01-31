@@ -3,6 +3,7 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/eurekaserver/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microinscricoes/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/micronoticias/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/microtimes/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/microtorneios/src/main/java" charset="UTF-8" />

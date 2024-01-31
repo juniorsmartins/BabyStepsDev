@@ -6,6 +6,7 @@ import microservice.microtimes.adapter.out.message.TimeMessage;
 import microservice.microtimes.application.core.domain.Time;
 import microservice.microtimes.application.core.domain.enums.TimeEventEnum;
 import microservice.microtimes.application.port.output.SendCreatedTimeOutputPort;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
 
@@ -13,6 +14,9 @@ import org.springframework.stereotype.Component;
 @Component
 @RequiredArgsConstructor
 public class SendCreatedTimeAdapter implements SendCreatedTimeOutputPort {
+
+    @Value("${topic.name}")
+    public String topico;
 
     private final KafkaTemplate<String, TimeMessage> kafkaTemplate;
 
@@ -26,7 +30,7 @@ public class SendCreatedTimeAdapter implements SendCreatedTimeOutputPort {
             .event(event)
             .build();
 
-        this.kafkaTemplate.send("tp-saga-time", timeMessage);
+        this.kafkaTemplate.send(this.topico, timeMessage);
 
         log.info("Finalizado envio de mensagem via Kafka. Devido ao cadastro do Time, com nome fantasia: {}.", time.getNomeFantasia());
     }
