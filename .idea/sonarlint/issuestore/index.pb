@@ -405,3 +405,5 @@ w
 Gmicroinscricoes/src/main/java/microservice/microinscricoes/ETopics.java,d/4/d4f5f49757a109adc6c356a1a3d6b6f897c4f8e3
 q
 Aorchestrator/src/main/java/microservice/orchestrator/ETopics.java,2/8/28b6f687f5009ff0fb29872a00324db4bd6a456f
+ˆ
+Xmicroinscricoes/src/main/java/microservice/microinscricoes/config/kafka/KafkaConfig.java,3/e/3ec98cc17c01123a68ac4ea63eb6a04abfa5a3e4
