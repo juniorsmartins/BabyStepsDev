@@ -8,7 +8,7 @@ spring:
 
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://${DB_HOST:microtimes10mariadb}:${DB_PORT:3305}/${DB_NAME:microtimes}?createDatabaseIfNotExist=true&serverTimezone=UTC
+    url: jdbc:mariadb://${DB_HOST:microtimes10mariadb}:${DB_PORT:3306}/${DB_NAME:microtimes}?createDatabaseIfNotExist=true&serverTimezone=UTC
     username: ${DB_USERNAME:root}
     password: ${DB_PASSWORD:mariadb}
     sql-script-encoding: UTF-8
