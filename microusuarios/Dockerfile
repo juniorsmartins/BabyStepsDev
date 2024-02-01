@@ -25,7 +25,7 @@ FROM amazoncorretto:21.0.1-al2023-headful
 ARG DIRETORIO_MICRO
 WORKDIR /app
 
-# add logging.file.path=/app/logs no application.properties
+# add logging.file.path=/app/logs no application.yml
 RUN mkdir ./logs
 
 ARG DIRETORIO_TARGET=/app/$DIRETORIO_MICRO/target
