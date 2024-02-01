@@ -1,23 +1,31 @@
+server:
+  port: 0
+
 spring:
+
   application:
     name: micronoticias
-  cache:
-    type: none
+
   datasource:
+    url: jdbc:postgresql://${DB_HOST:micronoticias16postgres}:${DB_PORT:5535}/${DB_NAME:micronoticias}?serverTimezone=UTC
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:postgres}
+    driver-class-name: org.postgresql.Driver
+    sql-script-encoding: UTF-8
+    characterEncoding: UTF-8
     hikari:
       pool-name: poll_micronoticias
       maxLifetime: 1800000
       connection-timeout: 40000
       idle-timeout: 300000
       maximum-pool-size: 2
-    url: jdbc:postgresql://${DB_HOST:micronoticias16postgres:5432}/${DB_DATABASE:micronoticias}?serverTimezone=UTC
-    username: ${DB_USERNAME:postgres}
-    password: ${DB_PASSWORD:postgres}
-    driver-class-name: org.postgresql.Driver
-    sql-script-encoding: UTF-8
-    characterEncoding: UTF-8
+
   jpa:
     database: POSTGRESQL
+    hibernate:
+      ddl-auto: create-drop
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
@@ -31,17 +39,8 @@ spring:
             non_contextual_creation: true
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     open-in-view: false
-    hibernate:
-      ddl-auto: create-drop
-      naming:
-        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
     generate-ddl: true
     show-sql: true
-
-#spring.datasource.url=jdbc:postgresql://${DB_HOST:localhost:5432}/${DB_DATABASE:micronoticias}?serverTimezone=UTC
-
-server:
-  port: 0
 
 eureka:
   client:
@@ -50,9 +49,9 @@ eureka:
   instance:
     instance-id: ${spring.application.name}:${spring.cloud.client.hostname}:${spring.application.instance_id:${random.value}}
 
-ribbon:
-  eureka:
-    enabled: true
+#ribbon:
+#  eureka:
+#    enabled: true
 
 logging:
   file:

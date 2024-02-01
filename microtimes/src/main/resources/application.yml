@@ -1,23 +1,31 @@
+server:
+  port: 0
+
 spring:
+
   application:
     name: microtimes
-#  cache:
-#    type: none
+
   datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://${DB_HOST:microtimes10mariadb}:${DB_PORT:3305}/${DB_NAME:microtimes}?createDatabaseIfNotExist=true&serverTimezone=UTC
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:mariadb}
+    sql-script-encoding: UTF-8
+    characterEncoding: UTF-8
     hikari:
       pool-name: poll_microtimes
       maxLifetime: 1800000
       connection-timeout: 40000
       idle-timeout: 300000
       maximum-pool-size: 2
-    url: jdbc:mariadb://${DB_HOST:microtimes10mariadb:3306}/${DB_DATABASE:microtimes}?createDatabaseIfNotExist=true&serverTimezone=UTC
-    username: ${DB_USERNAME:root}
-    password: ${DB_PASSWORD:mariadb}
-    driver-class-name: org.mariadb.jdbc.Driver
-    sql-script-encoding: UTF-8
-    characterEncoding: UTF-8
+
   jpa:
     database: MYSQL
+    hibernate:
+      ddl-auto: create-drop
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MariaDBDialect
@@ -31,10 +39,6 @@ spring:
             non_contextual_creation: true
     database-platform: org.hibernate.dialect.MariaDBDialect
     open-in-view: false
-    hibernate:
-      ddl-auto: create-drop
-      naming:
-        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
     generate-ddl: true
     show-sql: true
 
@@ -47,9 +51,6 @@ spring:
 
 #topic:
 #  name: tp-saga-time
-
-server:
-  port: 0
 
 eureka:
   client:

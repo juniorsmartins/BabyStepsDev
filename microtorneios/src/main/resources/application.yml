@@ -1,23 +1,31 @@
+server:
+  port: 0
+
 spring:
+
   application:
     name: microtorneios
-#  cache:
-#    type: none
+
   datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://${DB_HOST:microtorneios16postgres}:${DB_PORT:5433}/${DB_NAME:microtorneios}?serverTimezone=UTC
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:postgres}
+    sql-script-encoding: UTF-8
+    characterEncoding: UTF-8
     hikari:
       pool-name: poll_microtorneios
       maxLifetime: 1800000
       connection-timeout: 40000
       idle-timeout: 300000
       maximum-pool-size: 2
-    url: jdbc:postgresql://${DB_HOST:microtorneios16postgres:5432}/${DB_DATABASE:microtorneios}?serverTimezone=UTC
-    username: ${DB_USERNAME:postgres}
-    password: ${DB_PASSWORD:postgres}
-    driver-class-name: org.postgresql.Driver
-    sql-script-encoding: UTF-8
-    characterEncoding: UTF-8
+
   jpa:
     database: POSTGRESQL
+    hibernate:
+      ddl-auto: create-drop
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
@@ -31,12 +39,9 @@ spring:
             non_contextual_creation: true
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     open-in-view: false
-    hibernate:
-      ddl-auto: create-drop
-      naming:
-        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
     generate-ddl: true
     show-sql: true
+
 #  kafka:
 #    bootstrap-servers: ${KAFKA_BROKER:kafka:9092}
 #    consumer:
@@ -45,19 +50,12 @@ spring:
 #topic:
 #  name: tp-saga-time
 
-server:
-  port: 0
-
 eureka:
   client:
     service-url:
       defaultZone: http://eurekaserver:8761/eureka
   instance:
     instance-id: ${spring.application.name}:${spring.cloud.client.hostname}:${spring.application.instance_id:${random.value}}
-
-#ribbon:
-#  eureka:
-#    enabled: true
 
 logging:
   file:
@@ -66,3 +64,4 @@ logging:
     org:
       hibernate:
         sql: Debug
+
