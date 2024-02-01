@@ -1,6 +1,8 @@
 package microservice.orchestrator.config.kafka;
 
 import lombok.RequiredArgsConstructor;
+import microservice.orchestrator.application.core.domain.enums.ETopics;
+import org.apache.kafka.clients.admin.NewTopic;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
@@ -9,6 +11,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.annotation.EnableKafka;
+import org.springframework.kafka.config.TopicBuilder;
 import org.springframework.kafka.core.*;
 
 import java.util.HashMap;
@@ -18,6 +21,10 @@ import java.util.Map;
 @Configuration
 @RequiredArgsConstructor
 public class KafkaConfig {
+
+    private static final Integer PARTITION_COUNT = 1;
+
+    private static final Integer REPLICA_COUNT = 1;
 
     @Value("${spring.kafka.bootstrap-servers}")
     private String bootstrapServers;
@@ -63,6 +70,70 @@ public class KafkaConfig {
     @Bean
     public KafkaTemplate<String, String> kafkaTemplate(ProducerFactory<String, String> producerFactory) {
         return new KafkaTemplate<>(producerFactory);
+    }
+
+    @Bean
+    public NewTopic startSagaTopic() {
+        return buildTopic(ETopics.START_SAGA.getTopic());
+    }
+
+    @Bean
+    public NewTopic orchestratorTopic() {
+        return buildTopic(ETopics.BASE_ORCHESTRATOR.getTopic());
+    }
+
+    @Bean
+    public NewTopic finishSuccessTopic() {
+        return buildTopic(ETopics.FINISH_SUCCESS.getTopic());
+    }
+
+    @Bean
+    public NewTopic finishFailTopic() {
+        return buildTopic(ETopics.FINISH_FAIL.getTopic());
+    }
+
+    @Bean
+    public NewTopic timeValidationSuccessTopic() {
+        return buildTopic(ETopics.TIME_VALIDATION_SUCCESS.getTopic());
+    }
+
+    @Bean
+    public NewTopic timeValidationFailTopic() {
+        return buildTopic(ETopics.TIME_VALIDATION_FAIL.getTopic());
+    }
+
+    @Bean
+    public NewTopic pagamentoSuccessTopic() {
+        return buildTopic(ETopics.PAGAMENTO_SUCCESS.getTopic());
+    }
+
+    @Bean
+    public NewTopic pagamentoFailTopic() {
+        return buildTopic(ETopics.PAGAMENTO_FAIL.getTopic());
+    }
+
+    @Bean
+    public NewTopic torneioSuccessTopic() {
+        return buildTopic(ETopics.TORNEIO_SUCCESS.getTopic());
+    }
+
+    @Bean
+    public NewTopic torneioFailTopic() {
+        return buildTopic(ETopics.TORNEIO_FAIL.getTopic());
+    }
+
+    @Bean
+    public NewTopic notifyEndingTopic() {
+        return buildTopic(ETopics.NOTIFY_ENDING.getTopic());
+    }
+
+    private NewTopic buildTopic(String name) {
+
+        return TopicBuilder
+                .name(name)
+                .replicas(REPLICA_COUNT)
+                .partitions(PARTITION_COUNT)
+                .build();
     }
 }
 
