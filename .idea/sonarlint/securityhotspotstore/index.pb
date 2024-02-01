@@ -396,3 +396,7 @@ J
 micropagamentos/Dockerfile,a/d/ad69b101df4d52c53d0763045a99ce97b6437060
 D
 micropagamentos/.env,a/b/ab7042ff5b420a4c7a4e438289194f22ecc10dcc
+w
+Gmicroinscricoes/src/main/java/microservice/microinscricoes/ETopics.java,d/4/d4f5f49757a109adc6c356a1a3d6b6f897c4f8e3
+q
+Aorchestrator/src/main/java/microservice/orchestrator/ETopics.java,2/8/28b6f687f5009ff0fb29872a00324db4bd6a456f

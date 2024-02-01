@@ -1,9 +1,22 @@
+server:
+  port: 0
+
 spring:
+
   application:
     name: orchestrator
 
-server:
-  port: 0
+  kafka:
+    bootstrap-servers: ${KAFKA_BROKER:kafka:9092}
+    consumer:
+      group-id: ${spring.application.name}:-group
+      auto-offset-reset: latest
+
+logging:
+  level:
+    org:
+      apache:
+        kafka: OFF
 
 eureka:
   client:
