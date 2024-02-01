@@ -1,11 +1,14 @@
+server:
+  port: 0
+
 spring:
+
   application:
     name: microinscricoes
-  cache:
-    type: none
+
   data:
     mongodb:
-      uri: mongodb://${DB_HOST:microinscricoes6mongo:27017}/${DB_DATABASE:microinscricoes}
+      uri: mongodb://${DB_HOST:microinscricoes6mongo}:${DB_PORT:27017}/${DB_NAME:microinscricoes}
       username: ${DB_USERNAME:admin}
       password: ${DB_PASSWORD:mongo}
       # Pool de Conexões
@@ -27,9 +30,6 @@ spring:
 #topic:
 #  name: tp-saga-time
 
-server:
-  port: 0
-
 eureka:
   client:
     service-url:
@@ -41,3 +41,4 @@ eureka:
 logging:
   level:
     org.springframework.data.mongodb: DEBUG
+

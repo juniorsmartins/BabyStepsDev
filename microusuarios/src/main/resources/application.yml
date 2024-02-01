@@ -3,32 +3,35 @@ server:
 
 spring:
 
+  cache:
+    type: none
+
   application:
-    name: microtorneios
+    name: microusuarios
 
   datasource:
-    driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://${DB_HOST:microtorneios16postgres}:${DB_PORT:5432}/${DB_NAME:microtorneios}?serverTimezone=UTC
-    username: ${DB_USERNAME:postgres}
-    password: ${DB_PASSWORD:postgres}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${DB_HOST:microusuarios8mysql}:${DB_PORT:3306}/${DB_NAME:microusuarios}?createDatabaseIfNotExist=true&serverTimezone=UTC
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:mysql}
     sql-script-encoding: UTF-8
     characterEncoding: UTF-8
     hikari:
-      pool-name: poll_microtorneios
+      pool-name: poll_microusuarios
       maxLifetime: 1800000
       connection-timeout: 40000
       idle-timeout: 300000
       maximum-pool-size: 2
 
   jpa:
-    database: POSTGRESQL
+    database: MYSQL
     hibernate:
       ddl-auto: create-drop
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
+        dialect: org.hibernate.dialect.MySQLDialect
         format_sql: true
         use_sql_comments: true
         type:
@@ -37,18 +40,10 @@ spring:
         jdbc:
           log:
             non_contextual_creation: true
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    database-platform: org.hibernate.dialect.MySQLDialect
     open-in-view: false
     generate-ddl: true
     show-sql: true
-
-#  kafka:
-#    bootstrap-servers: ${KAFKA_BROKER:kafka:9092}
-#    consumer:
-#      group-id: time-inventory
-
-#topic:
-#  name: tp-saga-time
 
 eureka:
   client:
@@ -56,6 +51,10 @@ eureka:
       defaultZone: http://eurekaserver:8761/eureka
   instance:
     instance-id: ${spring.application.name}:${spring.cloud.client.hostname}:${spring.application.instance_id:${random.value}}
+
+ribbon:
+  eureka:
+    enabled: true
 
 logging:
   file:

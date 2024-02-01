@@ -301,8 +301,6 @@ dmicrotimes/src/main/java/microservice/microtimes/adapter/out/repository/mapper/
 ^microtimes/src/main/java/microservice/microtimes/adapter/out/repository/entity/TimeEntity.java,a/5/a50ff50dcd9dd371be4487f2f95ad245e558c232
 …
 Umicrotimes/src/main/java/microservice/microtimes/adapter/out/message/TimeMessage.java,b/2/b2013365482809d84355aee5ea874fc263bb2aa6
-ƒ
-Smicrotimes/src/main/java/microservice/microtimes/config/kafka/CustomSerializer.java,8/1/81b5ffa4b017d116ef5bcbad0e36606f5eefa147
 ˆ
 Xmicrotimes/src/main/java/microservice/microtimes/adapter/out/SendCreatedTimeAdapter.java,4/7/47472dad907ae75f14ccbd1d70999bdd10b17ad4
 Š
@@ -373,16 +371,8 @@ kmicrotorneios/src/main/java/microservice/microtorneios/adapters/out/repository/
 smicrotorneios/src/test/java/microservice/microtorneios/adapters/in/controller/TorneioControllerIntegrationTest.java,6/8/68a3f17436bcb24917283803caafb3a62d23fda2
 ‡
 Wmicrotorneios/src/test/java/microservice/microtorneios/utility/FactoryObjectMother.java,e/8/e83326a834cd97078a89762ccc91c1589c791616
-›
-kmicrotorneios/src/main/java/microservice/microtorneios/adapters/in/consumer/ReceiveCreatedTimeConsumer.java,8/8/883a7e123a49b32704bc5c3fffde506d2a0aafa7
-‹
-[microtorneios/src/main/java/microservice/microtorneios/config/kafka/CustomDeserializer.java,b/0/b0ba9badf87029a4b2f37ba9056cdf16de39c21e
 Œ
 \microtorneios/src/main/java/microservice/microtorneios/adapters/out/message/TimeMessage.java,6/d/6d1df0091b52cf68791d166d81635ce9cef946db
-Œ
-\microtorneios/src/main/java/microservice/microtorneios/config/kafka/KafkaConsumerConfig.java,4/6/46d3756359e344e6cc7d72430501e54a253e160a
-†
-Vmicrotimes/src/main/java/microservice/microtimes/config/kafka/KafkaProducerConfig.java,f/4/f4ad70372d465d07beb9942edf0a1f924b228818
 ˆ
 Xmicrotorneios/src/main/java/microservice/microtorneios/application/core/domain/Time.java,f/e/fe89c753dcce3e461152f038e2bd0dd9b2e887fc
 Ÿ
@@ -411,5 +401,3 @@ J
 micropagamentos/Dockerfile,a/d/ad69b101df4d52c53d0763045a99ce97b6437060
 D
 micropagamentos/.env,a/b/ab7042ff5b420a4c7a4e438289194f22ecc10dcc
-A
-orchestrator/.env,d/4/d45af4e2a0753697e23429e448073b417d8f313d
