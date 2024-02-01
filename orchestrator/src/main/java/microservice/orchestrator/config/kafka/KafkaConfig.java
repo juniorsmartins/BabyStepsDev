@@ -130,10 +130,10 @@ public class KafkaConfig {
     private NewTopic buildTopic(String name) {
 
         return TopicBuilder
-                .name(name)
-                .replicas(REPLICA_COUNT)
-                .partitions(PARTITION_COUNT)
-                .build();
+            .name(name)
+            .replicas(REPLICA_COUNT)
+            .partitions(PARTITION_COUNT)
+            .build();
     }
 }
 

@@ -40,7 +40,7 @@ services:
         kafka:
           brokers: ["kafka:29092"]
     depends_on:
-      - kafka
+      - "kafka"
 
   eurekaserver:
     container_name: eurekaserver

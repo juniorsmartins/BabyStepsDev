@@ -20,7 +20,6 @@
 		<java.version>21</java.version>
 		<spring-cloud.version>2022.0.4</spring-cloud.version>
 		<mapstruct.version>1.5.5.Final</mapstruct.version>
-		<commons.lang.version>3.14.0</commons.lang.version>
 		<data.faker.version>2.0.2</data.faker.version>
 	</properties>
 
@@ -150,12 +149,6 @@
 		</dependency>
 
 		<!-- Gerar dados falsos para Testes -->
-		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-lang3</artifactId>
-			<version>${commons.lang.version}</version>
-		</dependency>
-
 		<dependency>
 			<groupId>net.datafaker</groupId>
 			<artifactId>datafaker</artifactId>
