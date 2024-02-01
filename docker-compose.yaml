@@ -10,7 +10,7 @@ services:
       context: ./
       dockerfile: ./eurekaserver/Dockerfile
     ports:
-      - 8761:8761
+      - "8761:8761"
 
   microusuarios8mysql:
     container_name: microusuarios8mysql
@@ -22,7 +22,7 @@ services:
       - MYSQL_DATABASE=microusuarios
       - MYSQL_ROOT_PASSWORD=mysql
     ports:
-      - 3307:3306
+      - "3307:3306"
     volumes:
       - data-mysql:/var/lib/mysql
 
@@ -50,7 +50,7 @@ services:
       - MONGO_INITDB_ROOT_USERNAME=admin
       - MONGO_INITDB_ROOT_PASSWORD=mongo
     ports:
-      - 27017:27017
+      - "27017:27017"
     volumes:
       - data-mongodb:/data/db
 
@@ -81,7 +81,7 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
     ports:
-      - 5433:5432
+      - "5433:5432"
     volumes:
       - data-postgresql:/var/lib/postgresql/data
 
@@ -112,7 +112,7 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
     ports:
-      - 5434:5432
+      - "5434:5432"
     volumes:
       - data-postgresq:/var/lib/postgresql/data
 
@@ -142,7 +142,7 @@ services:
       - MARIADB_DATABASE=microtimes
       - MARIADB_ROOT_PASSWORD=mariadb
     ports:
-      - 3305:3306
+      - "3305:3306"
     volumes:
       - data-mariadb:/var/lib/mysql
 
@@ -172,7 +172,7 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: micronoticias
     ports:
-      - 5535:5432
+      - "5535:5432"
     volumes:
       - data-postgres:/var/lib/postgresql/data
 
@@ -217,16 +217,9 @@ services:
     networks:
       - babystepsnet
     ports:
-      - 8000:8000
+      - "8000:8000"
     depends_on:
       - eurekaserver
-      - microusuarios
-      - micronoticias
-      - microinscricoes
-      - microtorneios
-      - micropagamentos
-      - microtimes
-      - orchestrator
 
   kafka:
     container_name: kafka
@@ -266,7 +259,7 @@ services:
         kafka:
           brokers: ["kafka:29092"]
     depends_on:
-      - "kafka"
+      - kafka
 
   jenkins:
     container_name: jenkins
@@ -299,40 +292,8 @@ volumes:
   data-docker:
     name: data-docker
 
-#  kafka-data:
-#    name: kafka-data
-
 networks:
   babystepsnet:
     name: babystepsnet
     driver: bridge
-
-#  postgres16microtorneios:
-#    container_name: postgres16microtorneios
-#    image: postgres:16.0
-#    ports:
-#      - "5431:5432"
-#    environment:
-#      POSTGRES_PASSWORD: postgres
-#      POSTGRES_DB: microtorneios
-#    volumes:
-#      - data-postgres-microtorneios:/var/lib/postgresql/data
-#    restart: always
-#    networks:
-#      - babystepsnet
-
-#  mariadb10microtimes:
-#    container_name: mariadb10microtimes
-#    image: mariadb:10.6.16-focal
-#    ports:
-#      - "3305:3306"
-#    environment:
-#      - MYSQL_ROOT_PASSWORD=mariadb
-#      - MYSQL_DATABASE=microtimes
-#    volumes:
-#      - mariadb_data:/var/lib/mysql
-#    restart: always
-#    networks:
-#      - babystepsnet
-
 
