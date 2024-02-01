@@ -411,3 +411,7 @@ Xmicroinscricoes/src/main/java/microservice/microinscricoes/config/kafka/KafkaCo
 Xmicropagamentos/src/main/java/microservice/micropagamentos/config/kafka/KafkaConfig.java,4/8/48713e702a9ca7e4c0dd2d4dcbf85ed988d10479
 ~
 Nmicrotimes/src/main/java/microservice/microtimes/config/kafka/KafkaConfig.java,e/5/e53e692dabbda73b3cf1fd7a1e8e49babeadd924
+„
+Tmicrotorneios/src/main/java/microservice/microtorneios/config/kafka/KafkaConfig.java,7/0/70d6e98e0e581c999cdadc30ad13899ab5995dd1
+‚
+Rorchestrator/src/main/java/microservice/orchestrator/config/kafka/KafkaConfig.java,1/f/1f5097fa1144cc674ee44de0c30fe8dae98f0b77
