@@ -407,3 +407,7 @@ q
 Aorchestrator/src/main/java/microservice/orchestrator/ETopics.java,2/8/28b6f687f5009ff0fb29872a00324db4bd6a456f
 ˆ
 Xmicroinscricoes/src/main/java/microservice/microinscricoes/config/kafka/KafkaConfig.java,3/e/3ec98cc17c01123a68ac4ea63eb6a04abfa5a3e4
+ˆ
+Xmicropagamentos/src/main/java/microservice/micropagamentos/config/kafka/KafkaConfig.java,4/8/48713e702a9ca7e4c0dd2d4dcbf85ed988d10479
+~
+Nmicrotimes/src/main/java/microservice/microtimes/config/kafka/KafkaConfig.java,e/5/e53e692dabbda73b3cf1fd7a1e8e49babeadd924
