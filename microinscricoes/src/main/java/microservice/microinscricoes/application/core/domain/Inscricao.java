@@ -1,6 +1,7 @@
 package microservice.microinscricoes.application.core.domain;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 public final class Inscricao {
 
@@ -8,9 +9,9 @@ public final class Inscricao {
 
     private Long torneioId;
 
-    private String dataInicio;
+    private LocalDate dataInicio;
 
-    private String dataFim;
+    private LocalDate dataFim;
 
     private BigDecimal valor;
 
@@ -30,19 +31,19 @@ public final class Inscricao {
         this.torneioId = torneioId;
     }
 
-    public String getDataInicio() {
+    public LocalDate getDataInicio() {
         return dataInicio;
     }
 
-    public void setDataInicio(String dataInicio) {
+    public void setDataInicio(LocalDate dataInicio) {
         this.dataInicio = dataInicio;
     }
 
-    public String getDataFim() {
+    public LocalDate getDataFim() {
         return dataFim;
     }
 
-    public void setDataFim(String dataFim) {
+    public void setDataFim(LocalDate dataFim) {
         this.dataFim = dataFim;
     }
 
