@@ -394,3 +394,5 @@ Tmicrotorneios/src/main/java/microservice/microtorneios/config/kafka/KafkaConfig
 Rorchestrator/src/main/java/microservice/orchestrator/config/kafka/KafkaConfig.java,1/f/1f5097fa1144cc674ee44de0c30fe8dae98f0b77
 è
 _orchestrator/src/main/java/microservice/orchestrator/application/core/domain/enums/ETopics.java,4/9/495071894383172cae4fd3ef10bad70e09ed917c
+è
+_microinscricoes/src/test/java/microservice/microinscricoes/MicroinscricoesApplicationTests.java,b/7/b713fe2fcd33e289fecf0e80895f55e0fc6a3a61
