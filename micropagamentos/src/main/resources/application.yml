@@ -42,6 +42,22 @@ spring:
     generate-ddl: true
     show-sql: true
 
+  kafka:
+    bootstrap-servers: ${KAFKA_BROKER:kafka:9092}
+    topic:
+      orchestrator: orchestrator
+      pagamento-success: pagamento-success
+      pagamento-fail: pagamento-fail
+    consumer:
+      group-id: ${spring.application.name}:-group
+      auto-offset-reset: latest
+
+logging:
+  level:
+    org:
+      apache:
+        kafka: OFF
+
 eureka:
   client:
     service-url:

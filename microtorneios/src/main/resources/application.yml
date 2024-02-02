@@ -42,13 +42,21 @@ spring:
     generate-ddl: true
     show-sql: true
 
-#  kafka:
-#    bootstrap-servers: ${KAFKA_BROKER:kafka:9092}
-#    consumer:
-#      group-id: time-inventory
+  kafka:
+    bootstrap-servers: ${KAFKA_BROKER:kafka:9092}
+    topic:
+      orchestrator: orchestrator
+      torneio-success: torneio-success
+      torneio-fail: torneio-fail
+    consumer:
+      group-id: ${spring.application.name}:-group
+      auto-offset-reset: latest
 
-#topic:
-#  name: tp-saga-time
+logging:
+  level:
+    org:
+      apache:
+        kafka: OFF
 
 eureka:
   client:
@@ -56,12 +64,4 @@ eureka:
       defaultZone: http://eurekaserver:8761/eureka
   instance:
     instance-id: ${spring.application.name}:${spring.cloud.client.hostname}:${spring.application.instance_id:${random.value}}
-
-logging:
-  file:
-    path: /app/logs
-  level:
-    org:
-      hibernate:
-        sql: Debug
 

@@ -42,15 +42,21 @@ spring:
     generate-ddl: true
     show-sql: true
 
-#  kafka:
-#    bootstrap-servers: ${KAFKA_BROKER:kafka:9092}
-#    group-id: live
-#    producer:
-#      key-serializer: org.apache.kafka.common.serialization.StringSerializer
-#      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+  kafka:
+    bootstrap-servers: ${KAFKA_BROKER:kafka:9092}
+    topic:
+      orchestrator: orchestrator
+      time-validation-success: time-validation-success
+      time-validation-fail: time-validation-fail
+    consumer:
+      group-id: ${spring.application.name}:-group
+      auto-offset-reset: latest
 
-#topic:
-#  name: tp-saga-time
+logging:
+  level:
+    org:
+      apache:
+        kafka: OFF
 
 eureka:
   client:
@@ -58,16 +64,4 @@ eureka:
       defaultZone: http://eurekaserver:8761/eureka
   instance:
     instance-id: ${spring.application.name}:${spring.cloud.client.hostname}:${spring.application.instance_id:${random.value}}
-
-#ribbon:
-#  eureka:
-#    enabled: true
-
-logging:
-  file:
-    path: /app/logs
-  level:
-    org:
-      hibernate:
-        sql: Debug
 

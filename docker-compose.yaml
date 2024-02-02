@@ -1,16 +1,6 @@
 version: "3.9"
 
 services:
-  eurekaserver:
-    container_name: eurekaserver
-    restart: always
-    networks:
-      - babystepsnet
-    build:
-      context: ./
-      dockerfile: ./eurekaserver/Dockerfile
-    ports:
-      - "8761:8761"
 
   microusuarios8mysql:
     container_name: microusuarios8mysql
@@ -26,20 +16,6 @@ services:
     volumes:
       - data-mysql:/var/lib/mysql
 
-  microusuarios:
-    container_name: microusuarios
-    build:
-      context: ./
-      dockerfile: ./microusuarios/Dockerfile
-    restart: always
-    networks:
-      - babystepsnet
-    env_file:
-      - ./microusuarios/.env
-    depends_on:
-      - eurekaserver
-      - microusuarios8mysql
-
   microinscricoes6mongo:
     container_name: microinscricoes6mongo
     image: mongo:latest
@@ -53,22 +29,6 @@ services:
       - "27018:27017"
     volumes:
       - data-mongodb:/data/db
-
-  microinscricoes:
-    container_name: microinscricoes
-    build:
-      context: ./
-      dockerfile: ./microinscricoes/Dockerfile
-    restart: always
-    networks:
-      - babystepsnet
-    env_file:
-      - ./microinscricoes/.env
-    depends_on:
-      - eurekaserver
-      - microusuarios8mysql
-      - microusuarios
-      - microinscricoes6mongo
 
   microtorneios16postgres:
     container_name: microtorneios16postgres
@@ -85,22 +45,6 @@ services:
     volumes:
       - data-postgresql:/var/lib/postgresql/data
 
-  microtorneios:
-    container_name: microtorneios
-    build:
-      context: ./
-      dockerfile: ./microtorneios/Dockerfile
-    restart: always
-    networks:
-      - babystepsnet
-    env_file:
-      - ./microtorneios/.env
-    depends_on:
-      - eurekaserver
-      - microusuarios8mysql
-      - microusuarios
-      - microtorneios16postgres
-
   micropagamentos16postgres:
     container_name: micropagamentos16postgres
     image: postgres:16.0
@@ -116,22 +60,6 @@ services:
     volumes:
       - data-postgresq:/var/lib/postgresql/data
 
-  micropagamentos:
-    container_name: micropagamentos
-    build:
-      context: ./
-      dockerfile: ./micropagamentos/Dockerfile
-    restart: always
-    networks:
-      - babystepsnet
-    env_file:
-      - ./micropagamentos/.env
-    depends_on:
-      - eurekaserver
-      - microusuarios8mysql
-      - microusuarios
-      - micropagamentos16postgres
-
   microtimes10mariadb:
     container_name: microtimes10mariadb
     image: mariadb:10.6.16-focal
@@ -145,22 +73,6 @@ services:
       - "3305:3306"
     volumes:
       - data-mariadb:/var/lib/mysql
-
-  microtimes:
-    container_name: microtimes
-    build:
-      context: ./
-      dockerfile: ./microtimes/Dockerfile
-    restart: always
-    networks:
-      - babystepsnet
-    env_file:
-      - ./microtimes/.env
-    depends_on:
-      - eurekaserver
-      - microusuarios8mysql
-      - microusuarios
-      - microtimes10mariadb
 
   micronoticias16postgres:
     container_name: micronoticias16postgres
@@ -176,54 +88,10 @@ services:
     volumes:
       - data-postgres:/var/lib/postgresql/data
 
-  micronoticias:
-    container_name: micronoticias
-    build:
-      context: ./
-      dockerfile: ./micronoticias/Dockerfile
-    restart: always
-    networks:
-      - babystepsnet
-    env_file:
-      - ./micronoticias/.env
-    depends_on:
-      - eurekaserver
-      - microusuarios8mysql
-      - microusuarios
-      - micronoticias16postgres
-
-  orchestrator:
-    container_name: orchestrator
-    build:
-      context: ./
-      dockerfile: ./orchestrator/Dockerfile
-    restart: always
-    networks:
-      - babystepsnet
-    depends_on:
-      - eurekaserver
-      - microusuarios
-      - microinscricoes
-      - microtorneios
-      - micropagamentos
-      - microtimes
-
-  gateway:
-    container_name: gateway
-    build:
-      context: ./
-      dockerfile: ./gateway/Dockerfile
-    restart: always
-    networks:
-      - babystepsnet
-    ports:
-      - "8000:8000"
-    depends_on:
-      - eurekaserver
 
   kafka:
     container_name: kafka
-#    image: confluentinc/cp-kafka:7.5.3
+    #    image: confluentinc/cp-kafka:7.5.3
     image: obsidiandynamics/kafka
     restart: "no"
     ports:
@@ -259,7 +127,140 @@ services:
         kafka:
           brokers: ["kafka:29092"]
     depends_on:
+      - "kafka"
+
+
+  eurekaserver:
+    container_name: eurekaserver
+    restart: always
+    networks:
+      - babystepsnet
+    build:
+      context: ./
+      dockerfile: ./eurekaserver/Dockerfile
+    ports:
+      - "8761:8761"
+
+  gateway:
+    container_name: gateway
+    build:
+      context: ./
+      dockerfile: ./gateway/Dockerfile
+    restart: always
+    networks:
+      - babystepsnet
+    ports:
+      - "8000:8000"
+    depends_on:
+      - eurekaserver
+
+
+  microusuarios:
+    container_name: microusuarios
+    build:
+      context: ./
+      dockerfile: ./microusuarios/Dockerfile
+    restart: always
+    networks:
+      - babystepsnet
+    env_file:
+      - ./microusuarios/.env
+    depends_on:
+      - eurekaserver
+      - microusuarios8mysql
+
+  microinscricoes:
+    container_name: microinscricoes
+    build:
+      context: ./
+      dockerfile: ./microinscricoes/Dockerfile
+    restart: always
+    networks:
+      - babystepsnet
+    env_file:
+      - ./microinscricoes/.env
+    depends_on:
+      - eurekaserver
+      - microinscricoes6mongo
       - kafka
+
+  microtorneios:
+    container_name: microtorneios
+    build:
+      context: ./
+      dockerfile: ./microtorneios/Dockerfile
+    restart: always
+    networks:
+      - babystepsnet
+    env_file:
+      - ./microtorneios/.env
+    depends_on:
+      - eurekaserver
+      - microtorneios16postgres
+      - kafka
+
+  micropagamentos:
+    container_name: micropagamentos
+    build:
+      context: ./
+      dockerfile: ./micropagamentos/Dockerfile
+    restart: always
+    networks:
+      - babystepsnet
+    env_file:
+      - ./micropagamentos/.env
+    depends_on:
+      - eurekaserver
+      - micropagamentos16postgres
+      - kafka
+
+  microtimes:
+    container_name: microtimes
+    build:
+      context: ./
+      dockerfile: ./microtimes/Dockerfile
+    restart: always
+    networks:
+      - babystepsnet
+    env_file:
+      - ./microtimes/.env
+    depends_on:
+      - eurekaserver
+      - microtimes10mariadb
+      - kafka
+
+  orchestrator:
+    container_name: orchestrator
+    build:
+      context: ./
+      dockerfile: ./orchestrator/Dockerfile
+    restart: always
+    networks:
+      - babystepsnet
+    environment:
+      - KAFKA_BROKER=kafka:29092
+    depends_on:
+      - eurekaserver
+      - microinscricoes
+      - microtimes
+      - micropagamentos
+      - microtorneios
+      - kafka
+
+  micronoticias:
+    container_name: micronoticias
+    build:
+      context: ./
+      dockerfile: ./micronoticias/Dockerfile
+    restart: always
+    networks:
+      - babystepsnet
+    env_file:
+      - ./micronoticias/.env
+    depends_on:
+      - eurekaserver
+      - micronoticias16postgres
+
 
   jenkins:
     container_name: jenkins
@@ -275,6 +276,7 @@ services:
       - data-docker:/usr/local/bin/docker
     networks:
       - babystepsnet
+
 
 volumes:
   data-mysql:
