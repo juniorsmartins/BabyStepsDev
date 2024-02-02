@@ -270,8 +270,6 @@ amicronoticias/src/main/java/microservice/micronoticias/application/core/useful/
 emicronoticias/src/main/java/microservice/micronoticias/adapter/out/repository/EditoriaRepository.java,6/3/63f2a8491005b930f85527c8e8e246b3969f56f6
 î
 dmicronoticias/src/test/java/microservice/micronoticias/adapter/out/entity/NoticiaEntityUnitTest.java,9/c/9c818f93b4aefd6b51c4b7d7f5fb246fb9ce11b3
-Å
-Qmicrotimes/src/test/java/microservice/microtimes/utility/FactoryObjectMother.java,4/6/4675eabaa0bc23693d54479caecb5598d121d10d
 ñ
 fmicrotimes/src/main/java/microservice/microtimes/application/core/domain/enums/ActivityStatusEnum.java,9/0/90b6c04f0f22d3c2121255a2b8412df82ab1cd93
 Ç
@@ -282,10 +280,6 @@ Rmicrotimes/src/main/java/microservice/microtimes/application/core/domain/Time.j
 `microtimes/src/main/java/microservice/microtimes/application/core/usecase/TimeCreateUseCase.java,b/f/bf10a08f2dc8283d37961dc133f16163425dc3e6
 ê
 `microtimes/src/main/java/microservice/microtimes/application/port/output/TimeSaveOutputPort.java,4/0/40466d174cf7c45b1092f4697d499efff3b31cf8
-ó
-gmicrotimes/src/main/java/microservice/microtimes/application/port/output/SendCreatedTimeOutputPort.java,5/d/5dff100a6029e157f767118e990289b58851852d
-ë
-amicrotimes/src/main/java/microservice/microtimes/application/core/domain/enums/TimeEventEnum.java,9/c/9c02f14287a7092473339cded1d72eee877fb909
 ã
 [microtimes/src/main/java/microservice/microtimes/adapter/out/repository/TimeRepository.java,2/7/278b452a3eed30983b0aa04414b842738337bf4c
 Å
@@ -296,8 +290,6 @@ dmicrotimes/src/main/java/microservice/microtimes/adapter/out/repository/mapper/
 ^microtimes/src/main/java/microservice/microtimes/adapter/out/repository/entity/TimeEntity.java,a/5/a50ff50dcd9dd371be4487f2f95ad245e558c232
 Ö
 Umicrotimes/src/main/java/microservice/microtimes/adapter/out/message/TimeMessage.java,b/2/b2013365482809d84355aee5ea874fc263bb2aa6
-à
-Xmicrotimes/src/main/java/microservice/microtimes/adapter/out/SendCreatedTimeAdapter.java,4/7/47472dad907ae75f14ccbd1d70999bdd10b17ad4
 ä
 Zmicrotimes/src/main/java/microservice/microtimes/adapter/in/controller/TimeController.java,2/5/2595f044b2b810e4b3fead1cc70fa48303cdfbf7
 ë
@@ -316,8 +308,6 @@ B
 microtorneios/.env,2/e/2e19b5190fa4921bb9e5b391110464a28d61b8d3
 Ñ
 Tmicrotorneios/src/main/java/microservice/microtorneios/MicrotorneiosApplication.java,5/4/54969f7557680647bb55edc178d336892676ecfb
-Ä
-Pmicrotimes/src/test/java/microservice/microtimes/MicrotimesApplicationTests.java,a/f/affedf9e04740f9ac100f774460ced49170bc2fc
 ë
 amicrotorneios/src/main/java/microservice/microtorneios/application/core/domain/TimeInventory.java,e/6/e6083fbca4544b287c7cea8b96c73bb06dd46121
 ú
@@ -362,10 +352,6 @@ smicrotorneios/src/main/java/microservice/microtorneios/adapters/in/dto/response
 qmicrotorneios/src/main/java/microservice/microtorneios/adapters/out/repository/mapper/TimeInventoryOutMapper.java,2/0/204ae00b2956f4c0ac94d188a6745b31de182c6c
 õ
 kmicrotorneios/src/main/java/microservice/microtorneios/adapters/out/repository/TimeInventoryRepository.java,2/a/2ada328f64d0a9f87b4c24f95da96a8466c584a8
-£
-smicrotorneios/src/test/java/microservice/microtorneios/adapters/in/controller/TorneioControllerIntegrationTest.java,6/8/68a3f17436bcb24917283803caafb3a62d23fda2
-á
-Wmicrotorneios/src/test/java/microservice/microtorneios/utility/FactoryObjectMother.java,e/8/e83326a834cd97078a89762ccc91c1589c791616
 å
 \microtorneios/src/main/java/microservice/microtorneios/adapters/out/message/TimeMessage.java,6/d/6d1df0091b52cf68791d166d81635ce9cef946db
 à
@@ -396,10 +382,6 @@ J
 micropagamentos/Dockerfile,a/d/ad69b101df4d52c53d0763045a99ce97b6437060
 D
 micropagamentos/.env,a/b/ab7042ff5b420a4c7a4e438289194f22ecc10dcc
-w
-Gmicroinscricoes/src/main/java/microservice/microinscricoes/ETopics.java,d/4/d4f5f49757a109adc6c356a1a3d6b6f897c4f8e3
-q
-Aorchestrator/src/main/java/microservice/orchestrator/ETopics.java,2/8/28b6f687f5009ff0fb29872a00324db4bd6a456f
 à
 Xmicroinscricoes/src/main/java/microservice/microinscricoes/config/kafka/KafkaConfig.java,3/e/3ec98cc17c01123a68ac4ea63eb6a04abfa5a3e4
 à

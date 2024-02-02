@@ -2,6 +2,93 @@ version: "3.9"
 
 services:
 
+  microusuarios8mysql:
+    container_name: microusuarios8mysql
+    image: mysql:8.0.17
+    restart: always
+    networks:
+      - babystepsnet
+    environment:
+      - MYSQL_DATABASE=microusuarios
+      - MYSQL_ROOT_PASSWORD=mysql
+    ports:
+      - "3307:3306"
+    volumes:
+      - data-mysql:/var/lib/mysql
+
+  microinscricoes6mongo:
+    container_name: microinscricoes6mongo
+    image: mongo:latest
+    restart: always
+    networks:
+      - babystepsnet
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=mongo
+    ports:
+      - "27018:27017"
+    volumes:
+      - data-mongodb:/data/db
+
+  microtorneios16postgres:
+    container_name: microtorneios16postgres
+    image: postgres:16.0
+    restart: always
+    networks:
+      - babystepsnet
+    environment:
+      - POSTGRES_DB=microtorneios
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "5433:5432"
+    volumes:
+      - data-postgresql:/var/lib/postgresql/data
+
+  micropagamentos16postgres:
+    container_name: micropagamentos16postgres
+    image: postgres:16.0
+    restart: always
+    networks:
+      - babystepsnet
+    environment:
+      - POSTGRES_DB=micropagamentos
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "5434:5432"
+    volumes:
+      - data-postgresq:/var/lib/postgresql/data
+
+  microtimes10mariadb:
+    container_name: microtimes10mariadb
+    image: mariadb:10.6.16-focal
+    restart: always
+    networks:
+      - babystepsnet
+    environment:
+      - MARIADB_DATABASE=microtimes
+      - MARIADB_ROOT_PASSWORD=mariadb
+    ports:
+      - "3305:3306"
+    volumes:
+      - data-mariadb:/var/lib/mysql
+
+  micronoticias16postgres:
+    container_name: micronoticias16postgres
+    image: postgres:16.0
+    restart: always
+    networks:
+      - babystepsnet
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: micronoticias
+    ports:
+      - "5535:5432"
+    volumes:
+      - data-postgres:/var/lib/postgresql/data
+
+
   kafka:
     container_name: kafka
     #    image: confluentinc/cp-kafka:7.5.3
@@ -42,6 +129,7 @@ services:
     depends_on:
       - "kafka"
 
+
   eurekaserver:
     container_name: eurekaserver
     restart: always
@@ -53,19 +141,19 @@ services:
     ports:
       - "8761:8761"
 
-  microusuarios8mysql:
-    container_name: microusuarios8mysql
-    image: mysql:8.0.17
+  gateway:
+    container_name: gateway
+    build:
+      context: ./
+      dockerfile: ./gateway/Dockerfile
     restart: always
     networks:
       - babystepsnet
-    environment:
-      - MYSQL_DATABASE=microusuarios
-      - MYSQL_ROOT_PASSWORD=mysql
     ports:
-      - "3307:3306"
-    volumes:
-      - data-mysql:/var/lib/mysql
+      - "8000:8000"
+    depends_on:
+      - eurekaserver
+
 
   microusuarios:
     container_name: microusuarios
@@ -81,20 +169,6 @@ services:
       - eurekaserver
       - microusuarios8mysql
 
-  microinscricoes6mongo:
-    container_name: microinscricoes6mongo
-    image: mongo:latest
-    restart: always
-    networks:
-      - babystepsnet
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=admin
-      - MONGO_INITDB_ROOT_PASSWORD=mongo
-    ports:
-      - "27018:27017"
-    volumes:
-      - data-mongodb:/data/db
-
   microinscricoes:
     container_name: microinscricoes
     build:
@@ -107,25 +181,8 @@ services:
       - ./microinscricoes/.env
     depends_on:
       - eurekaserver
-      - microusuarios8mysql
-      - microusuarios
       - microinscricoes6mongo
       - kafka
-
-  microtorneios16postgres:
-    container_name: microtorneios16postgres
-    image: postgres:16.0
-    restart: always
-    networks:
-      - babystepsnet
-    environment:
-      - POSTGRES_DB=microtorneios
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-    ports:
-      - "5433:5432"
-    volumes:
-      - data-postgresql:/var/lib/postgresql/data
 
   microtorneios:
     container_name: microtorneios
@@ -139,24 +196,8 @@ services:
       - ./microtorneios/.env
     depends_on:
       - eurekaserver
-      - microusuarios8mysql
-      - microusuarios
       - microtorneios16postgres
-
-  micropagamentos16postgres:
-    container_name: micropagamentos16postgres
-    image: postgres:16.0
-    restart: always
-    networks:
-      - babystepsnet
-    environment:
-      - POSTGRES_DB=micropagamentos
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-    ports:
-      - "5434:5432"
-    volumes:
-      - data-postgresq:/var/lib/postgresql/data
+      - kafka
 
   micropagamentos:
     container_name: micropagamentos
@@ -170,23 +211,8 @@ services:
       - ./micropagamentos/.env
     depends_on:
       - eurekaserver
-      - microusuarios8mysql
-      - microusuarios
       - micropagamentos16postgres
-
-  microtimes10mariadb:
-    container_name: microtimes10mariadb
-    image: mariadb:10.6.16-focal
-    restart: always
-    networks:
-      - babystepsnet
-    environment:
-      - MARIADB_DATABASE=microtimes
-      - MARIADB_ROOT_PASSWORD=mariadb
-    ports:
-      - "3305:3306"
-    volumes:
-      - data-mariadb:/var/lib/mysql
+      - kafka
 
   microtimes:
     container_name: microtimes
@@ -200,23 +226,26 @@ services:
       - ./microtimes/.env
     depends_on:
       - eurekaserver
-      - microusuarios8mysql
-      - microusuarios
       - microtimes10mariadb
+      - kafka
 
-  micronoticias16postgres:
-    container_name: micronoticias16postgres
-    image: postgres:16.0
+  orchestrator:
+    container_name: orchestrator
+    build:
+      context: ./
+      dockerfile: ./orchestrator/Dockerfile
     restart: always
     networks:
       - babystepsnet
     environment:
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: micronoticias
-    ports:
-      - "5535:5432"
-    volumes:
-      - data-postgres:/var/lib/postgresql/data
+      - KAFKA_BROKER=kafka:29092
+    depends_on:
+      - eurekaserver
+      - microinscricoes
+      - microtimes
+      - micropagamentos
+      - microtorneios
+      - kafka
 
   micronoticias:
     container_name: micronoticias
@@ -230,38 +259,8 @@ services:
       - ./micronoticias/.env
     depends_on:
       - eurekaserver
-      - microusuarios8mysql
-      - microusuarios
       - micronoticias16postgres
 
-  orchestrator:
-    container_name: orchestrator
-    build:
-      context: ./
-      dockerfile: ./orchestrator/Dockerfile
-    restart: always
-    networks:
-      - babystepsnet
-    depends_on:
-      - eurekaserver
-      - microusuarios
-      - microinscricoes
-      - microtorneios
-      - micropagamentos
-      - microtimes
-
-  gateway:
-    container_name: gateway
-    build:
-      context: ./
-      dockerfile: ./gateway/Dockerfile
-    restart: always
-    networks:
-      - babystepsnet
-    ports:
-      - "8000:8000"
-    depends_on:
-      - eurekaserver
 
   jenkins:
     container_name: jenkins
@@ -277,6 +276,7 @@ services:
       - data-docker:/usr/local/bin/docker
     networks:
       - babystepsnet
+
 
 volumes:
   data-mysql:
