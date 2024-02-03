@@ -18,13 +18,13 @@ public record InscricaoOpenDtoIn(
     Long torneioId,
 
     @NotNull
-    @CheckedDate
+//    @CheckedDate
 //    @Pattern(regexp = "\\d{2}/\\d{2}/\\d{4}", message = "Formato de data inválido. Utilize o formato dd/MM/yyyy.")
 //    @DateTimeFormat(pattern = "dd/MM/yyyy")
     String dataInicio,
 
     @NotNull
-    @CheckedDate
+//    @CheckedDate
 //    @Pattern(regexp = "\\d{2}/\\d{2}/\\d{4}", message = "Formato de data inválido. Utilize o formato dd/MM/yyyy.")
 //    @DateTimeFormat(pattern = "dd/MM/yyyy")
     String dataFim,

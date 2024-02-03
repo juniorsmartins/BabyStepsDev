@@ -37,7 +37,7 @@ public class InscricaoController {
 
     private final InscricaoMapperIn inscricaoMapperIn;
 
-    @PostMapping(path = {"/open"},
+    @PostMapping(
         consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_JSON_VALUE, APPLICATION_YAML_VALUE},
         produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, APPLICATION_YAML_VALUE})
     @Operation(summary = "Abrir Período", description = "Recurso para abrir período de inscrições.",
@@ -69,7 +69,7 @@ public class InscricaoController {
             .map(this.inscricaoMapperIn::toInscricaoOpenDtoOut)
             .orElseThrow();
 
-        log.info("Período de Inscrições criado com sucesso: {}", response.id());
+        log.info("Período de Inscrições criado com sucesso, com Id: {}", response.id());
 
         return ResponseEntity
             .created(URI.create("/api/v1/inscricoes/open/" + response.id()))
