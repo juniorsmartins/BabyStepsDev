@@ -34,7 +34,7 @@ public class InscricaoSaveAdapter implements InscricaoSaveOutputPort {
 
         log.info("Finalizado adaptador para salvar abertura de período de inscrições, com Id: {}.", inscricaoOpenSave.getId());
 
-        return null;
+        return inscricaoOpenSave;
     }
 }
 

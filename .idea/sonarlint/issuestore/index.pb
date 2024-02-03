@@ -445,3 +445,11 @@ wmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/in/custom_an
 hmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/in/custom_annotation/CheckedDate.java,5/d/5dcfc64907be800199dcdfc506120664e49d9f91
 °
 qmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/in/custom_annotation/CheckedDateValidator.java,f/5/f59552c70b6872ef730d70358908332bf0e5eff3
+Ä
+Pmicroinscricoes/src/main/java/microservice/microinscricoes/config/WebConfig.java,9/2/92b78d15c4e54922f213946b10de7792fd049abb
+ó
+gmicroinscricoes/src/main/java/microservice/microinscricoes/config/YamlJackson2HttpMessageConverter.java,e/c/ecd837dfcac98b16abc7cec87efd72ba0272f86f
+ç
+]microinscricoes/src/main/java/microservice/microinscricoes/config/SpringDocOpenApiConfig.java,b/f/bff60c295e4fc2c52a1d9e4b4616540020f269ad
+ì
+cmicroinscricoes/src/main/java/microservice/microinscricoes/config/beans/SpringDocOpenApiConfig.java,2/5/25453726d28d75f9b18a269e60c8ca02aed62919
