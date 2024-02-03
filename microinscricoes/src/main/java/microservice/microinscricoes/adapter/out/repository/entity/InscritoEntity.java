@@ -1,8 +1,8 @@
-package microservice.microinscricoes.adapter.out.entity;
+package microservice.microinscricoes.adapter.out.repository.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-import microservice.microinscricoes.application.core.domain.Pagamento;
+import microservice.microinscricoes.application.core.domain.enums.ETipoPagamento;
 import org.springframework.data.annotation.Id;
 
 import java.io.Serial;
@@ -34,8 +34,17 @@ public final class InscritoEntity implements Serializable {
     @Column(name = "time_id")
     private Long timeId;
 
-    @Embedded
-    private Pagamento pagamento;
+    @Column(name = "numero_banco", table = "inscrito_pagamento")
+    private Integer numeroBanco;
+
+    @Column(name = "numero_agencia", table = "inscrito_pagamento")
+    private Integer numeroAgencia;
+
+    @Column(name = "numero_cartao", table = "inscrito_pagamento")
+    private Integer numeroCartao;
+
+    @Column(name = "tipo", table = "inscrito_pagamento")
+    private ETipoPagamento tipo;
 
 }
 

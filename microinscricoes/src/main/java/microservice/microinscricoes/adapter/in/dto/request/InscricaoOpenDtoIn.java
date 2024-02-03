@@ -13,7 +13,7 @@ import java.time.LocalDate;
 @Builder
 public record InscricaoOpenDtoIn(
 
-    @Schema(name = "torneioId", description = "Identificador Exclusivo - para identificar um torneio no banco de dados.", type = "Long", example = "22", required = true)
+    @Schema(name = "torneioId", description = "Identificador Exclusivo - para identificar um torneio no banco de dados.", type = "Long", example = "22")
     @NotNull
     @Positive
     Long torneioId,

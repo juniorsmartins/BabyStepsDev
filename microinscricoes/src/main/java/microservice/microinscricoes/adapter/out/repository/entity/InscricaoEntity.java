@@ -1,4 +1,4 @@
-package microservice.microinscricoes.adapter.out.entity;
+package microservice.microinscricoes.adapter.out.repository.entity;
 
 import jakarta.persistence.*;
 import lombok.*;

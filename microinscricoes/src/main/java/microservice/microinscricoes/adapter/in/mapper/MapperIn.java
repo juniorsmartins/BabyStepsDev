@@ -1,14 +1,12 @@
 package microservice.microinscricoes.adapter.in.mapper;
 
 import microservice.microinscricoes.adapter.in.dto.InscricaoIdDto;
-import microservice.microinscricoes.adapter.in.dto.PagamentoDto;
 import microservice.microinscricoes.adapter.in.dto.request.InscricaoOpenDtoIn;
 import microservice.microinscricoes.adapter.in.dto.request.InscritoRegisterDtoIn;
 import microservice.microinscricoes.adapter.in.dto.response.InscricaoOpenDtoOut;
 import microservice.microinscricoes.adapter.in.dto.response.InscritoRegisterDtoOut;
 import microservice.microinscricoes.application.core.domain.Inscricao;
 import microservice.microinscricoes.application.core.domain.Inscrito;
-import microservice.microinscricoes.application.core.domain.Pagamento;
 import org.mapstruct.Mapper;
 import org.mapstruct.Named;
 

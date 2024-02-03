@@ -467,3 +467,17 @@ nmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/in/dto/respo
 Zmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/in/mapper/MapperIn.java,0/1/01a9e252dd093b9b6119b9ded71966828084d101
 †
 pmicroinscricoes/src/main/java/microservice/microinscricoes/application/port/input/InscritoRegisterInputPort.java,7/3/73d5127c6966b577f54f21c8395ffe8dd0c60814
+†
+pmicroinscricoes/src/main/java/microservice/microinscricoes/application/core/usecase/InscritoRegisterUseCase.java,5/1/5140d216fbe930ab2682db7f52ef5220fd255e6f
+û
+nmicroinscricoes/src/main/java/microservice/microinscricoes/application/port/output/InscritoSaveOutputPort.java,1/8/184c3a8a59ace6257593f727277377381a75df6f
+è
+_microinscricoes/src/main/java/microservice/microinscricoes/adapter/out/InscritoSaveAdapter.java,8/8/88b5808c73bfb514f34b11e344cd62f4aa9867e8
+ù
+mmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/out/repository/entity/InscricaoEntity.java,4/6/469cfef6d98d11a7c9c854d12c4a8ca71254a1e7
+ú
+lmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/out/repository/entity/InscritoEntity.java,4/8/481853574b808b436461eb4a4338b0daea481383
+ô
+imicroinscricoes/src/main/java/microservice/microinscricoes/adapter/out/repository/InscritoRepository.java,b/6/b6fe7a22926f410ffd6bb6d1812fd10cbc309da8
+†
+pmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/out/repository/mapper/InscricaoMapperOut.java,7/b/7bd05eb90f3cda766f985ef04dd259d8f8f7c675
