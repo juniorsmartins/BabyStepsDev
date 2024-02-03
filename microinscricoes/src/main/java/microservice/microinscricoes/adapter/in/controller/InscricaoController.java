@@ -27,7 +27,7 @@ import java.util.Optional;
 @Tag(name = "Inscrições", description = "Contém os recursos de Abrir, Cadastrar, Consultar, Listar, Atualizar e Deletar.")
 @Slf4j
 @RestController
-@RequestMapping(path = {"/api/v1/inscricoes"})
+@RequestMapping(path = "/api/v1/inscricoes")
 @RequiredArgsConstructor
 public class InscricaoController {
 
@@ -37,7 +37,7 @@ public class InscricaoController {
 
     private final InscricaoMapperIn inscricaoMapperIn;
 
-    @PostMapping(path = "/open",
+    @PostMapping(path = {"/open"},
         consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_JSON_VALUE, APPLICATION_YAML_VALUE},
         produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, APPLICATION_YAML_VALUE})
     @Operation(summary = "Abrir Período", description = "Recurso para abrir período de inscrições.",
