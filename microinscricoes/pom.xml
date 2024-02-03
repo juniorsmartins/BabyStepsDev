@@ -20,11 +20,12 @@
 		<java.version>21</java.version>
 		<spring-cloud.version>2022.0.4</spring-cloud.version>
 		<mapstruct.version>1.5.5.Final</mapstruct.version>
+		<swagger.version>2.3.0</swagger.version>
 		<rest-assured.version>5.4.0</rest-assured.version>
 		<junit.params.version>5.10.1</junit.params.version>
 		<mockito.version>5.8.0</mockito.version>
 		<data.faker.version>2.0.2</data.faker.version>
-		<embed.mongo.version>2.3.0</embed.mongo.version>
+		<h2.version>2.2.220</h2.version>
 	</properties>
 
 	<dependencies>
@@ -92,7 +93,7 @@
 		<dependency>
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-			<version>2.3.0</version>
+			<version>${swagger.version}</version>
 		</dependency>
 
 
@@ -113,7 +114,13 @@
 		<!-- BANCO DE DADOS -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-mongodb</artifactId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<scope>runtime</scope>
 		</dependency>
 
 
@@ -162,9 +169,9 @@
 
 		<!-- Banco de dados para testes -->
 		<dependency>
-			<groupId>de.flapdoodle.embed</groupId>
-			<artifactId>de.flapdoodle.embed.mongo</artifactId>
-			<version>3.3.1</version>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>${h2.version}</version>
 			<scope>test</scope>
 		</dependency>
 
