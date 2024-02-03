@@ -16,19 +16,20 @@ services:
     volumes:
       - data-mysql:/var/lib/mysql
 
-  microinscricoes6mongo:
-    container_name: microinscricoes6mongo
-    image: mongo:latest
+  microinscricoes16postgres:
+    container_name: microinscricoes16postgres
+    image: postgres:16.0
     restart: always
     networks:
       - babystepsnet
     environment:
-      - MONGO_INITDB_ROOT_USERNAME=admin
-      - MONGO_INITDB_ROOT_PASSWORD=mongo
+      - POSTGRES_DB=microinscricoes
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
     ports:
-      - "27018:27017"
+      - "5433:5432"
     volumes:
-      - data-mongodb:/data/db
+      - data-postgre:/var/lib/postgresql/data
 
   microtorneios16postgres:
     container_name: microtorneios16postgres
@@ -41,7 +42,7 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
     ports:
-      - "5433:5432"
+      - "5434:5432"
     volumes:
       - data-postgresql:/var/lib/postgresql/data
 
@@ -56,7 +57,7 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
     ports:
-      - "5434:5432"
+      - "5435:5432"
     volumes:
       - data-postgresq:/var/lib/postgresql/data
 
@@ -84,7 +85,7 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: micronoticias
     ports:
-      - "5535:5432"
+      - "5536:5432"
     volumes:
       - data-postgres:/var/lib/postgresql/data
 
@@ -181,7 +182,7 @@ services:
       - ./microinscricoes/.env
     depends_on:
       - eurekaserver
-      - microinscricoes6mongo
+      - microinscricoes16postgres
       - kafka
 
   microtorneios:
@@ -281,8 +282,8 @@ services:
 volumes:
   data-mysql:
     name: data-mysql
-  data-mongodb:
-    name: data-mongodb
+  data-postgre:
+    name: data-postgre
   data-postgresql:
     name: data-postgresql
   data-postgresq:

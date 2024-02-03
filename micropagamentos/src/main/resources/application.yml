@@ -14,7 +14,7 @@ spring:
     sql-script-encoding: UTF-8
     characterEncoding: UTF-8
     hikari:
-      pool-name: poll_microinscricoes
+      pool-name: poll_micropagamentos
       maxLifetime: 1800000
       connection-timeout: 40000
       idle-timeout: 300000
