@@ -20,6 +20,11 @@
 		<java.version>21</java.version>
 		<spring-cloud.version>2022.0.4</spring-cloud.version>
 		<mapstruct.version>1.5.5.Final</mapstruct.version>
+		<rest-assured.version>5.4.0</rest-assured.version>
+		<junit.params.version>5.10.1</junit.params.version>
+		<mockito.version>5.8.0</mockito.version>
+		<data.faker.version>2.0.2</data.faker.version>
+		<embed.mongo.version>2.3.0</embed.mongo.version>
 	</properties>
 
 	<dependencies>
@@ -124,6 +129,45 @@
 			<artifactId>spring-kafka-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>rest-assured</artifactId>
+			<version>${rest-assured.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- Parametrização de Testes -->
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-params</artifactId>
+			<version>${junit.params.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- Simular Objetos - Mocks -->
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-junit-jupiter</artifactId>
+			<version>${mockito.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- Gerar dados falsos para Testes -->
+		<dependency>
+			<groupId>net.datafaker</groupId>
+			<artifactId>datafaker</artifactId>
+			<version>${data.faker.version}</version>
+		</dependency>
+
+		<!-- Banco de dados para testes -->
+		<dependency>
+			<groupId>de.flapdoodle.embed</groupId>
+			<artifactId>de.flapdoodle.embed.mongo</artifactId>
+			<version>3.3.1</version>
+			<scope>test</scope>
+		</dependency>
+
 
 	</dependencies>
 
