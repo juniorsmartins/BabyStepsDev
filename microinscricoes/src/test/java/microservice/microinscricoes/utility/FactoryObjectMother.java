@@ -27,8 +27,8 @@ public final class FactoryObjectMother {
     public InscricaoOpenDtoIn.InscricaoOpenDtoInBuilder gerarInscricaoOpenDtoInBuilder() {
 
         return InscricaoOpenDtoIn.builder()
-            .dataInicio("01/01/2024")
-            .dataFim("01/02/2024")
+//            .dataInicio("01/01/2024")
+//            .dataFim("01/02/2024")
             .valor(BigDecimal.valueOf(50));
     }
 

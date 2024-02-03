@@ -8,9 +8,11 @@ spring:
 
   data:
     mongodb:
-      uri: mongodb://${DB_HOST:microinscricoes6mongo}:${DB_PORT:27017}/${DB_NAME:microinscricoes}
-      username: ${DB_USERNAME:admin}
-      password: ${DB_PASSWORD:mongo}
+#      uri: mongodb://${DB_HOST:microinscricoes6mongo}:${DB_PORT:27017}/${DB_NAME:microinscricoes}
+      database: admin
+      uri: ${MONGO_DB_URI:mongodb://admin:123456@microinscricoes6mongo:27017}
+#      username: ${DB_USERNAME:admin}
+#      password: ${DB_PASSWORD:mongo}
       # Pool de Conexões
       pool:
         # Tamanho máximo do pool

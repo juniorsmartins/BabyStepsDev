@@ -11,7 +11,7 @@ import java.time.LocalDate;
 public final class InscricaoEntity {
 
     @Id
-    private Long id;
+    private String id;
 
     @Field(name = "torneio_id")
     private Long torneioId;

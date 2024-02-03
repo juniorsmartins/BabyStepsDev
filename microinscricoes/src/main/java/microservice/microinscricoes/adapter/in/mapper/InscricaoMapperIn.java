@@ -13,32 +13,32 @@ import java.time.format.DateTimeFormatter;
 @Mapper(componentModel = "spring")
 public interface InscricaoMapperIn {
 
-    @Mapping(source = "dataInicio", target = "dataInicio", qualifiedByName = "setDataLocalDate")
-    @Mapping(source = "dataFim", target = "dataFim", qualifiedByName = "setDataLocalDate")
+//    @Mapping(source = "dataInicio", target = "dataInicio", qualifiedByName = "setDataLocalDate")
+//    @Mapping(source = "dataFim", target = "dataFim", qualifiedByName = "setDataLocalDate")
     Inscricao toInscricao(InscricaoOpenDtoIn inscricaoOpenDtoIn);
 
     @Named("setDataLocalDate")
-    default LocalDate setDataLocalDate(String dataInicio) {
+    default LocalDate setDataLocalDate(String data) {
 
         // Formatador para o padrão da data
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
         // Conversão da String para LocalDate
-        return LocalDate.parse(dataInicio, formatter);
+        return LocalDate.parse(data, formatter);
     }
 
-    @Mapping(source = "dataInicio", target = "dataInicio", qualifiedByName = "setDataString")
-    @Mapping(source = "dataFim", target = "dataFim", qualifiedByName = "setDataString")
+//    @Mapping(source = "dataInicio", target = "dataInicio", qualifiedByName = "setDataString")
+//    @Mapping(source = "dataFim", target = "dataFim", qualifiedByName = "setDataString")
     InscricaoOpenDtoOut toInscricaoOpenDtoOut(Inscricao inscricao);
 
     @Named("setDataString")
-    default String setDataString(LocalDate dataInicio) {
+    default String setDataString(LocalDate data) {
 
         // Formatador para o padrão da data
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
         // Conversão de LocalDate para String
-        return dataInicio.format(formatter);
+        return data.format(formatter);
     }
 }
 

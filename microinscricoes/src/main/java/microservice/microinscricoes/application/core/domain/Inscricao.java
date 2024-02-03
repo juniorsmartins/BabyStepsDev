@@ -5,7 +5,7 @@ import java.time.LocalDate;
 
 public final class Inscricao {
 
-    private Long id;
+    private String id;
 
     private Long torneioId;
 
@@ -15,11 +15,11 @@ public final class Inscricao {
 
     private BigDecimal valor;
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

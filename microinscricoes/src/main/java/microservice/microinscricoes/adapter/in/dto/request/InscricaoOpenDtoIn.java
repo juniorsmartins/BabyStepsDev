@@ -7,6 +7,7 @@ import lombok.Builder;
 import microservice.microinscricoes.adapter.in.custom_annotation.CheckedDate;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 @Schema(name = "InscricaoOpenDtoIn", description = "Objeto de transporte de dados.")
 @Builder
@@ -21,13 +22,13 @@ public record InscricaoOpenDtoIn(
 //    @CheckedDate
 //    @Pattern(regexp = "\\d{2}/\\d{2}/\\d{4}", message = "Formato de data inválido. Utilize o formato dd/MM/yyyy.")
 //    @DateTimeFormat(pattern = "dd/MM/yyyy")
-    String dataInicio,
+    LocalDate dataInicio,
 
     @NotNull
 //    @CheckedDate
 //    @Pattern(regexp = "\\d{2}/\\d{2}/\\d{4}", message = "Formato de data inválido. Utilize o formato dd/MM/yyyy.")
 //    @DateTimeFormat(pattern = "dd/MM/yyyy")
-    String dataFim,
+    LocalDate dataFim,
 
     BigDecimal valor
 

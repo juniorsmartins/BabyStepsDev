@@ -3,17 +3,18 @@ package microservice.microinscricoes.adapter.in.dto.response;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public record InscricaoOpenDtoOut(
 
-    Long id,
+    String id,
 
     Long torneioId,
 
-    String dataInicio,
+    LocalDate dataInicio,
 
-    String dataFim,
+    LocalDate dataFim,
 
     BigDecimal valor
 

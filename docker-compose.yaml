@@ -177,8 +177,11 @@ services:
     restart: always
     networks:
       - babystepsnet
-    env_file:
-      - ./microinscricoes/.env
+#    env_file:
+#      - ./microinscricoes/.env
+    environment:
+      - KAFKA_BROKER=kafka:29092
+      - MONGO_DB_URI=mongodb://admin:123456@microinscricoes6mongo:27017
     depends_on:
       - eurekaserver
       - microinscricoes6mongo
