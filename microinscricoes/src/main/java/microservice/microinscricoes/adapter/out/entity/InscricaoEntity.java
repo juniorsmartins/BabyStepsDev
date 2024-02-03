@@ -7,6 +7,7 @@ import java.io.Serial;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Set;
 
 @Entity
 @Table(name = "inscricoes")
@@ -36,6 +37,9 @@ public final class InscricaoEntity implements Serializable {
 
     @Column(name = "valor")
     private BigDecimal valor;
+
+    @OneToMany(mappedBy = "inscricao")
+    private Set<InscritoEntity> inscritos;
 
 }
 

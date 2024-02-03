@@ -1,7 +1,9 @@
 package microservice.microinscricoes.application.core.domain;
 
+import jakarta.persistence.Embeddable;
 import microservice.microinscricoes.application.core.domain.enums.ETipoPagamento;
 
+@Embeddable
 public final class Pagamento {
 
     private Integer numeroBanco;

@@ -12,8 +12,10 @@ import lombok.extern.slf4j.Slf4j;
 import microservice.microinscricoes.adapter.in.dto.request.InscricaoOpenDtoIn;
 import microservice.microinscricoes.adapter.in.dto.request.InscritoRegisterDtoIn;
 import microservice.microinscricoes.adapter.in.dto.response.InscricaoOpenDtoOut;
-import microservice.microinscricoes.adapter.in.mapper.InscricaoMapperIn;
+import microservice.microinscricoes.adapter.in.dto.response.InscritoRegisterDtoOut;
+import microservice.microinscricoes.adapter.in.mapper.MapperIn;
 import microservice.microinscricoes.application.port.input.InscricaoOpenInputPort;
+import microservice.microinscricoes.application.port.input.InscritoRegisterInputPort;
 import org.apache.kafka.common.requests.ApiError;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -33,7 +35,9 @@ public class InscricaoController {
 
     private final InscricaoOpenInputPort inscricaoOpenInputPort;
 
-    private final InscricaoMapperIn inscricaoMapperIn;
+    private final InscritoRegisterInputPort inscritoRegisterInputPort;
+
+    private final MapperIn mapperIn;
 
     @PostMapping(
         consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_JSON_VALUE, APPLICATION_YAML_VALUE},
@@ -62,9 +66,9 @@ public class InscricaoController {
         log.info("Recebida requisição para abrir período de Inscrições.");
 
         var response = Optional.of(inscricaoOpenDtoIn)
-            .map(this.inscricaoMapperIn::toInscricao)
+            .map(this.mapperIn::toInscricao)
             .map(this.inscricaoOpenInputPort::open)
-            .map(this.inscricaoMapperIn::toInscricaoOpenDtoOut)
+            .map(this.mapperIn::toInscricaoOpenDtoOut)
             .orElseThrow();
 
         log.info("Período de Inscrições criado com sucesso, com Id: {}", response.id());
@@ -77,23 +81,40 @@ public class InscricaoController {
     @PutMapping(
         consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_JSON_VALUE, APPLICATION_YAML_VALUE},
         produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, APPLICATION_YAML_VALUE})
-    public ResponseEntity<?> register(
+    @Operation(summary = "Registrar Inscrito", description = "Recurso para registrar Inscrito.",
+        responses = {
+            @ApiResponse(responseCode = "200", description = "Requisição bem sucedida e com retorno.",
+                content = @Content(mediaType = "application/json", schema = @Schema(implementation = InscritoRegisterDtoOut.class))),
+            @ApiResponse(responseCode = "400", description = "Requisição mal formulada.",
+                content = @Content(mediaType = "application/json", schema = @Schema(implementation = ApiError.class))),
+            @ApiResponse(responseCode = "403", description = "Usuário sem permissão para acessar recurso.",
+                content = @Content(mediaType = "application/json", schema = @Schema(implementation = ApiError.class))),
+            @ApiResponse(responseCode = "404", description = "Recurso não encontrado.",
+                content = @Content(mediaType = "application/json", schema = @Schema(implementation = ApiError.class))),
+            @ApiResponse(responseCode = "409", description = "Conflito com regras de negócio.",
+                content = @Content(mediaType = "application/json", schema = @Schema(implementation = ApiError.class))),
+            @ApiResponse(responseCode = "422", description = "Recurso não processado por dados de entrada inválidos.",
+                content = @Content(mediaType = "application/json", schema = @Schema(implementation = ApiError.class))),
+            @ApiResponse(responseCode = "500", description = "Situação inesperada no servidor.",
+                content = @Content(mediaType = "application/json", schema = @Schema(implementation = ApiError.class))),
+        })
+    public ResponseEntity<InscritoRegisterDtoOut> register(
         @Parameter(name = "InscricaoOpenDtoIn", description = "Objeto para Transporte de Dados de entrada.", required = true)
         @RequestBody @Valid InscritoRegisterDtoIn inscritoRegisterDtoIn) {
 
-        log.info("Requisição recebida para atualizar Editoria.");
+        log.info("Requisição recebida para registrar um Inscrito.");
 
         var response = Optional.of(inscritoRegisterDtoIn)
-            .map()
-            .map()
-            .map()
+            .map(this.mapperIn::toInscrito)
+            .map(this.inscritoRegisterInputPort::register)
+            .map(this.mapperIn::toInscritoRegisterDtoOut)
             .orElseThrow();
 
-        log.info("Sucesso ao atualizar Editoria com Id: {}.", response.id());
+        log.info("Sucesso ao registrar um Inscrito, com Id: {}.", response.id());
 
         return ResponseEntity
             .ok()
-            .body(null);
+            .body(response);
     }
 }
 

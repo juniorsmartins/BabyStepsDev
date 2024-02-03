@@ -455,3 +455,15 @@ emicroinscricoes/src/main/java/microservice/microinscricoes/adapter/in/dto/reque
 ]microinscricoes/src/main/java/microservice/microinscricoes/adapter/in/dto/PagamentoDtoIn.java,a/6/a6615d201a378e9be072899cb857d2964516b6e8
 ‘
 amicroinscricoes/src/main/java/microservice/microinscricoes/application/core/domain/Pagamento.java,e/b/eb35e03b0b49e4e3ba864c736ec4d0d5e2286561
+‘
+amicroinscricoes/src/main/java/microservice/microinscricoes/adapter/out/entity/InscritoEntity.java,9/9/9938977c9463083cabc4a0c93ae8dcdc3adf9c96
+’
+bmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/out/entity/PagamentoEntity.java,3/9/39b504abbe1efc9fc4529447b589715430f8a833
+ž
+nmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/in/dto/response/InscritoRegisterDtoOut.java,2/7/275c42ec8bcd42e66838135214a2518153109923
+‹
+[microinscricoes/src/main/java/microservice/microinscricoes/adapter/in/dto/PagamentoDto.java,2/a/2afacf4f02d06e429d51bedd99fad35906b39037
+Š
+Zmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/in/mapper/MapperIn.java,0/1/01a9e252dd093b9b6119b9ded71966828084d101
+ 
+pmicroinscricoes/src/main/java/microservice/microinscricoes/application/port/input/InscritoRegisterInputPort.java,7/3/73d5127c6966b577f54f21c8395ffe8dd0c60814
