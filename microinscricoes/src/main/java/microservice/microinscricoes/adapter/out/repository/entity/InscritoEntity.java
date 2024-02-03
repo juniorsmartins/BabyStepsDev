@@ -42,6 +42,7 @@ public final class InscritoEntity implements Serializable {
     @Column(name = "numero_cartao", table = "inscrito_pagamento")
     private Integer numeroCartao;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "tipo", table = "inscrito_pagamento")
     private ETipoPagamento tipo;
 
