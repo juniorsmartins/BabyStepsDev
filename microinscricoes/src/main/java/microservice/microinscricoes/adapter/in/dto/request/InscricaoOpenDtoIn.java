@@ -30,6 +30,7 @@ public record InscricaoOpenDtoIn(
 //    @DateTimeFormat(pattern = "dd/MM/yyyy")
     LocalDate dataFim,
 
+    @NotNull
     BigDecimal valor
 
 ) { }

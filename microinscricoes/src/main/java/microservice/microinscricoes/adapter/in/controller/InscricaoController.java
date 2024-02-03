@@ -10,16 +10,14 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import microservice.microinscricoes.adapter.in.dto.request.InscricaoOpenDtoIn;
+import microservice.microinscricoes.adapter.in.dto.request.InscritoRegisterDtoIn;
 import microservice.microinscricoes.adapter.in.dto.response.InscricaoOpenDtoOut;
 import microservice.microinscricoes.adapter.in.mapper.InscricaoMapperIn;
 import microservice.microinscricoes.application.port.input.InscricaoOpenInputPort;
 import org.apache.kafka.common.requests.ApiError;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.util.Optional;
@@ -74,6 +72,28 @@ public class InscricaoController {
         return ResponseEntity
             .created(URI.create("/api/v1/inscricoes/open/" + response.id()))
             .body(response);
+    }
+
+    @PutMapping(
+        consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_JSON_VALUE, APPLICATION_YAML_VALUE},
+        produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, APPLICATION_YAML_VALUE})
+    public ResponseEntity<?> register(
+        @Parameter(name = "InscricaoOpenDtoIn", description = "Objeto para Transporte de Dados de entrada.", required = true)
+        @RequestBody @Valid InscritoRegisterDtoIn inscritoRegisterDtoIn) {
+
+        log.info("Requisição recebida para atualizar Editoria.");
+
+        var response = Optional.of(inscritoRegisterDtoIn)
+            .map()
+            .map()
+            .map()
+            .orElseThrow();
+
+        log.info("Sucesso ao atualizar Editoria com Id: {}.", response.id());
+
+        return ResponseEntity
+            .ok()
+            .body(null);
     }
 }
 
