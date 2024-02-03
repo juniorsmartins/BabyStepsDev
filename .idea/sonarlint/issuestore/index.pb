@@ -481,3 +481,5 @@ lmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/out/reposito
 imicroinscricoes/src/main/java/microservice/microinscricoes/adapter/out/repository/InscritoRepository.java,b/6/b6fe7a22926f410ffd6bb6d1812fd10cbc309da8
  
 pmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/out/repository/mapper/InscricaoMapperOut.java,7/b/7bd05eb90f3cda766f985ef04dd259d8f8f7c675
+—
+gmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/out/repository/mapper/MapperOut.java,7/f/7f8697abe40a67d894ac66c30e6eda9a8621e1bc

@@ -51,9 +51,5 @@ public interface MapperIn {
     Inscricao toInscricao(InscricaoIdDto inscricaoIdDto);
 
     InscricaoIdDto toInscricaoIdDto(Inscricao inscricao);
-
-    Pagamento toPagamento(PagamentoDto pagamentoDto);
-
-    PagamentoDto toPagamentoDto(Pagamento pagamento);
 }
 

@@ -3,7 +3,6 @@ package microservice.microinscricoes.adapter.out.repository.entity;
 import jakarta.persistence.*;
 import lombok.*;
 import microservice.microinscricoes.application.core.domain.enums.ETipoPagamento;
-import org.springframework.data.annotation.Id;
 
 import java.io.Serial;
 import java.io.Serializable;
