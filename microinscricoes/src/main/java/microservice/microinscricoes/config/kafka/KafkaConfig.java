@@ -40,6 +40,9 @@ public class KafkaConfig {
     @Value("${spring.kafka.topic.notify-ending}")
     private String notifyEndingTopic;
 
+    @Value("${spring.kafka.topic.find-id-torneio}")
+    private String findIdTorneio;
+
     @Bean
     public ConsumerFactory<String, String> consumerFactory() {
         return new DefaultKafkaConsumerFactory<>(consumerProperties());
@@ -85,6 +88,11 @@ public class KafkaConfig {
     @Bean
     public NewTopic notifyEndingTopic() {
         return buildTopic(notifyEndingTopic);
+    }
+
+    @Bean
+    public NewTopic findIdTorneio() {
+        return buildTopic(findIdTorneio);
     }
 
     private NewTopic buildTopic(String name) {

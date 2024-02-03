@@ -45,6 +45,7 @@ spring:
   kafka:
     bootstrap-servers: ${KAFKA_BROKER:kafka:9092}
     topic:
+      find-id-torneio: find-id-torneio
       orchestrator: orchestrator
       torneio-success: torneio-success
       torneio-fail: torneio-fail
