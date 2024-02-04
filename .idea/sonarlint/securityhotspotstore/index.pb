@@ -514,3 +514,5 @@ cmicrotorneios/src/main/java/microservice/microtorneios/application/core/produce
 `orchestrator/src/main/java/microservice/orchestrator/application/core/producer/SagaProducer.java,9/d/9deeafa2e731999ca60686623d5ea2b4de578141
 —
 gmicroinscricoes/src/main/java/microservice/microinscricoes/application/core/consumer/EventConsumer.java,3/c/3c41b21da3d084492368a40ff96a1ff1b831437c
+œ
+lorchestrator/src/main/java/microservice/orchestrator/application/core/consumer/SagaOrchestratorConsumer.java,a/c/ac119409f71f16a8af500b12bf35adedeaf6e1fa
