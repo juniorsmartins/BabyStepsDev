@@ -523,3 +523,7 @@ gmicroinscricoes/src/main/java/microservice/microinscricoes/application/core/con
 lorchestrator/src/main/java/microservice/orchestrator/application/core/consumer/SagaOrchestratorConsumer.java,a/c/ac119409f71f16a8af500b12bf35adedeaf6e1fa
 –
 fmicrotimes/src/main/java/microservice/microtimes/application/core/consumer/TimeValidationConsumer.java,f/8/f8a39ca39e6a0a6f7b700afc31ff417870d7dcc2
+ 
+pmicropagamentos/src/main/java/microservice/micropagamentos/application/core/consumer/TimeValidationConsumer.java,d/d/ddb4bfe749a1b24f90ddb96ad3aa919a2193695e
+¥
+umicropagamentos/src/main/java/microservice/micropagamentos/application/core/consumer/PagamentoValidationConsumer.java,0/6/0662133a4d99f32dbeac8d2419bdb8421a11f13c
