@@ -526,3 +526,11 @@ umicropagamentos/src/main/java/microservice/micropagamentos/application/core/con
 kmicropagamentos/src/main/java/microservice/micropagamentos/application/core/consumer/PagamentoConsumer.java,2/3/23d1130364a6029453ef019940b23bd2f651fd04
 ï
 emicrotorneios/src/main/java/microservice/microtorneios/application/core/consumer/TorneioConsumer.java,d/d/dd4a159eb6a92543b9ad28a5f87e9b342c4cd37f
+ç
+]micropagamentos/src/main/java/microservice/micropagamentos/application/core/domain/Event.java,a/4/a46bab8840a93ce993e8d8fb7201f33b23b74db8
+è
+_micropagamentos/src/main/java/microservice/micropagamentos/application/core/domain/History.java,1/d/1d0d1989f16a14cf8757f8f3be90c2d18702241c
+ë
+amicropagamentos/src/main/java/microservice/micropagamentos/application/core/domain/Inscricao.java,9/d/9ddec6fd3d0189729059190cb90facd89014b8d8
+ê
+`micropagamentos/src/main/java/microservice/micropagamentos/application/core/domain/Inscrito.java,1/e/1eea19854147bd47c56d217d3af11be14c8df776

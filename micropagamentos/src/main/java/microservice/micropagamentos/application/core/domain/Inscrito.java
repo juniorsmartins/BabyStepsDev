@@ -1,6 +1,6 @@
 package microservice.micropagamentos.application.core.domain;
 
-import microservice.microinscricoes.application.core.domain.enums.ETipoPagamento;
+import microservice.micropagamentos.application.core.domain.enums.ETipoPagamento;
 
 public final class Inscrito {
 
