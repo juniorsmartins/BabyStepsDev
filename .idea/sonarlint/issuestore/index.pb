@@ -505,3 +505,9 @@ amicroinscricoes/src/main/java/microservice/microinscricoes/config/exception/Exc
 gmicroinscricoes/src/main/java/microservice/microinscricoes/config/exception/ExceptionGlobalHandler.java,4/c/4c82de8202ee7d09e7edd3e152fb09c3f00573e2
 ñ
 fmicroinscricoes/src/main/java/microservice/microinscricoes/application/core/producer/SagaProducer.java,f/5/f5a38f143edc54c106852a0c28809c402376ed3d
+É
+Smicrotimes/src/main/java/microservice/microtimes/application/core/SagaProducer.java,d/0/d0a4a31a97088fcabe369bd96eda8b321d08a6b6
+å
+\microtimes/src/main/java/microservice/microtimes/application/core/producer/SagaProducer.java,c/1/c12247d5bcb22e582b185d84047af704c0bc7866
+ç
+]microtimes/src/main/java/microservice/microtimes/application/core/producer/KafkaProducer.java,7/c/7c99f1368b42647862666a1c11fc9cf0871b9232
