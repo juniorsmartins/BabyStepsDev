@@ -8,6 +8,11 @@ spring:
 
   kafka:
     bootstrap-servers: ${KAFKA_BROKER:kafka:9092}
+    topic:
+      start-saga: start-saga
+      orchestrator: orchestrator
+      finish-success: finish-success
+      finish-fail: finish-fail
     consumer:
       group-id: ${spring.application.name}:-group
       auto-offset-reset: latest
@@ -24,5 +29,6 @@ eureka:
       defaultZone: http://eurekaserver:8761/eureka
   instance:
     instance-id: ${spring.application.name}:${spring.cloud.client.hostname}:${spring.application.instance_id:${random.value}}
+    leaseRenewalIntervalInSeconds: 30
 
 

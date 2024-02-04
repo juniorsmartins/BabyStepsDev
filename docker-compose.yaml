@@ -168,6 +168,7 @@ services:
       - ./microusuarios/.env
     depends_on:
       - eurekaserver
+      - gateway
       - microusuarios8mysql
 
   microinscricoes:
@@ -182,6 +183,7 @@ services:
       - ./microinscricoes/.env
     depends_on:
       - eurekaserver
+      - gateway
       - microinscricoes16postgres
       - kafka
 
@@ -197,6 +199,7 @@ services:
       - ./microtorneios/.env
     depends_on:
       - eurekaserver
+      - gateway
       - microtorneios16postgres
       - kafka
 
@@ -212,6 +215,7 @@ services:
       - ./micropagamentos/.env
     depends_on:
       - eurekaserver
+      - gateway
       - micropagamentos16postgres
       - kafka
 
@@ -227,6 +231,7 @@ services:
       - ./microtimes/.env
     depends_on:
       - eurekaserver
+      - gateway
       - microtimes10mariadb
       - kafka
 
@@ -242,6 +247,7 @@ services:
       - KAFKA_BROKER=kafka:29092
     depends_on:
       - eurekaserver
+      - gateway
       - microinscricoes
       - microtimes
       - micropagamentos
@@ -260,6 +266,7 @@ services:
       - ./micronoticias/.env
     depends_on:
       - eurekaserver
+      - gateway
       - micronoticias16postgres
 
 
