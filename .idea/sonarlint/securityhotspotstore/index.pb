@@ -522,3 +522,7 @@ fmicrotimes/src/main/java/microservice/microtimes/application/core/consumer/Time
 pmicropagamentos/src/main/java/microservice/micropagamentos/application/core/consumer/TimeValidationConsumer.java,d/d/ddb4bfe749a1b24f90ddb96ad3aa919a2193695e
 ¥
 umicropagamentos/src/main/java/microservice/micropagamentos/application/core/consumer/PagamentoValidationConsumer.java,0/6/0662133a4d99f32dbeac8d2419bdb8421a11f13c
+›
+kmicropagamentos/src/main/java/microservice/micropagamentos/application/core/consumer/PagamentoConsumer.java,2/3/23d1130364a6029453ef019940b23bd2f651fd04
+•
+emicrotorneios/src/main/java/microservice/microtorneios/application/core/consumer/TorneioConsumer.java,d/d/dd4a159eb6a92543b9ad28a5f87e9b342c4cd37f
