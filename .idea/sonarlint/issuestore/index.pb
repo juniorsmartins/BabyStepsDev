@@ -493,3 +493,7 @@ Oorchestrator/src/main/java/microservice/orchestrator/config/utils/JsonUtil.java
 Kmicrotimes/src/main/java/microservice/microtimes/config/utils/JsonUtil.java,0/6/0642c30ab56af89ef81059e9b75ae152b6ebfc90
 Ö
 Umicropagamentos/src/main/java/microservice/micropagamentos/config/utils/JsonUtil.java,8/f/8f9265c0b9659cfdd21b10b5e219cf9e34c47306
+{
+Kmicrotorneios/src/main/java/microservice/microtorneios/config/JsonUtil.java,a/4/a4327460e5fedcdb4c9f06ff6872437d8cd7fa1c
+Å
+Qmicrotorneios/src/main/java/microservice/microtorneios/config/utils/JsonUtil.java,7/c/7c13f9e45b0dfb3102529f9a8fc48d3f1366d2ba
