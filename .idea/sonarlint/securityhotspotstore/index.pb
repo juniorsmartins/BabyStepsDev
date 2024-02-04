@@ -498,3 +498,5 @@ dmicroinscricoes/src/main/java/microservice/microinscricoes/config/exception/Val
 amicroinscricoes/src/main/java/microservice/microinscricoes/config/exception/ExceptionDetails.java,4/f/4f6b597f8c54ac05a75d21a7735332172dfa9dbb
 —
 gmicroinscricoes/src/main/java/microservice/microinscricoes/config/exception/ExceptionGlobalHandler.java,4/c/4c82de8202ee7d09e7edd3e152fb09c3f00573e2
+–
+fmicroinscricoes/src/main/java/microservice/microinscricoes/application/core/producer/SagaProducer.java,f/5/f5a38f143edc54c106852a0c28809c402376ed3d
