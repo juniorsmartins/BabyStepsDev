@@ -497,3 +497,9 @@ Umicropagamentos/src/main/java/microservice/micropagamentos/config/utils/JsonUti
 Kmicrotorneios/src/main/java/microservice/microtorneios/config/JsonUtil.java,a/4/a4327460e5fedcdb4c9f06ff6872437d8cd7fa1c
 Å
 Qmicrotorneios/src/main/java/microservice/microtorneios/config/utils/JsonUtil.java,7/c/7c13f9e45b0dfb3102529f9a8fc48d3f1366d2ba
+î
+dmicroinscricoes/src/main/java/microservice/microinscricoes/config/exception/ValidationException.java,8/1/81ad3302830cbe2a2a4d962fc92109cd960789dc
+ë
+amicroinscricoes/src/main/java/microservice/microinscricoes/config/exception/ExceptionDetails.java,4/f/4f6b597f8c54ac05a75d21a7735332172dfa9dbb
+ó
+gmicroinscricoes/src/main/java/microservice/microinscricoes/config/exception/ExceptionGlobalHandler.java,4/c/4c82de8202ee7d09e7edd3e152fb09c3f00573e2
