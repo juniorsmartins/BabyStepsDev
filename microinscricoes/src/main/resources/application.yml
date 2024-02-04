@@ -45,6 +45,7 @@ spring:
   kafka:
     bootstrap-servers: ${KAFKA_BROKER:kafka:9092}
     topic:
+      find-id-torneio: find-id-torneio
       start-saga: start-saga
       notify-ending: notify-ending
     consumer:
@@ -63,4 +64,5 @@ eureka:
       defaultZone: http://eurekaserver:8761/eureka
   instance:
     instance-id: ${spring.application.name}:${spring.cloud.client.hostname}:${spring.application.instance_id:${random.value}}
+    leaseRenewalIntervalInSeconds: 30
 

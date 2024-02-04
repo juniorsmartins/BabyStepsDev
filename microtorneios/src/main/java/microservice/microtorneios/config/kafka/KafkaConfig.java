@@ -43,6 +43,9 @@ public class KafkaConfig {
     @Value("${spring.kafka.topic.torneio-fail}")
     private String torneioFailTopic;
 
+    @Value("${spring.kafka.topic.find-id-torneio}")
+    private String findIdTorneio;
+
     @Bean
     public ConsumerFactory<String, String> consumerFactory() {
         return new DefaultKafkaConsumerFactory<>(consumerProperties());
@@ -93,6 +96,11 @@ public class KafkaConfig {
     @Bean
     public NewTopic torneioFailTopic() {
         return buildTopic(torneioFailTopic);
+    }
+
+    @Bean
+    public NewTopic findIdTorneio() {
+        return buildTopic(findIdTorneio);
     }
 
     private NewTopic buildTopic(String name) {
