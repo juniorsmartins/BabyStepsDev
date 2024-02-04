@@ -506,3 +506,5 @@ Smicrotimes/src/main/java/microservice/microtimes/application/core/SagaProducer.
 \microtimes/src/main/java/microservice/microtimes/application/core/producer/SagaProducer.java,c/1/c12247d5bcb22e582b185d84047af704c0bc7866
 ç
 ]microtimes/src/main/java/microservice/microtimes/application/core/producer/KafkaProducer.java,7/c/7c99f1368b42647862666a1c11fc9cf0871b9232
+ó
+gmicropagamentos/src/main/java/microservice/micropagamentos/application/core/producer/KafkaProducer.java,c/5/c563b3f98f6d13c64c37ea71a01ee6caa446a872
