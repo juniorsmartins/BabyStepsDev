@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class KafkaProducerFindIdTorneio implements KafkaProducerFindIdTorneioOutputPort {
 
-    private final KafkaTemplate<String, Long> kafkaTemplateFindIdTorneio;
+    private final KafkaTemplate<String, String> kafkaTemplate;
 
     @Value("${spring.kafka.topic.find-id-torneio}")
     private String findIdTorneioTopic;
@@ -21,7 +21,7 @@ public class KafkaProducerFindIdTorneio implements KafkaProducerFindIdTorneioOut
     public void sendFindIdTorneioEvent(Long id) {
         try {
             log.info("Enviado evento para o tópico {}, com id {}", findIdTorneioTopic, id);
-            kafkaTemplateFindIdTorneio.send(findIdTorneioTopic, id);
+            kafkaTemplate.send(findIdTorneioTopic, id.toString());
 
         } catch (Exception ex) {
             log.error("Erro ao enviar evento para o tópico {}", findIdTorneioTopic, ex);

@@ -65,10 +65,10 @@ public class KafkaConfig {
         return new DefaultKafkaProducerFactory<>(producerProperties());
     }
 
-    @Bean
-    public ProducerFactory<String, Long> producerFactoryFindIdTorneio() {
-        return new DefaultKafkaProducerFactory<>(producerProperties());
-    }
+//    @Bean
+//    public ProducerFactory<String, Long> producerFactoryFindIdTorneio() {
+//        return new DefaultKafkaProducerFactory<>(producerProperties());
+//    }
 
     private Map<String, Object> producerProperties() {
 
@@ -85,10 +85,10 @@ public class KafkaConfig {
         return new KafkaTemplate<>(producerFactory);
     }
 
-    @Bean
-    public KafkaTemplate<String, Long> kafkaTemplateFindIdTorneio(ProducerFactory<String, Long> producerFactory) {
-        return new KafkaTemplate<>(producerFactory);
-    }
+//    @Bean
+//    public KafkaTemplate<String, Long> kafkaTemplateFindIdTorneio(ProducerFactory<String, Long> producerFactory) {
+//        return new KafkaTemplate<>(producerFactory);
+//    }
 
     @Bean
     public NewTopic startSagaTopic() {
