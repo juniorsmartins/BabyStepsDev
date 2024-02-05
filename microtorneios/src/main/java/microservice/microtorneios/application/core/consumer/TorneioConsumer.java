@@ -32,5 +32,15 @@ public class TorneioConsumer {
         var event = jsonUtil.toEvent(payload);
         log.info(event.toString());
     }
+
+    @KafkaListener(
+        groupId = "${spring.kafka.consumer.group-id}",
+        topics = "${spring.kafka.topic.find-id-torneio}"
+    )
+    public void consumeFindIdTorneioEvent(String payload) {
+        log.info("Bem-sucedida recebimento de evento para o tópico find-id-torneio, com id {}.", payload);
+        var event = jsonUtil.toEvent(payload);
+        log.info(event.toString());
+    }
 }
 
