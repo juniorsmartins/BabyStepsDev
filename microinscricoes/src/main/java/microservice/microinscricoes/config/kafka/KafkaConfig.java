@@ -65,6 +65,11 @@ public class KafkaConfig {
         return new DefaultKafkaProducerFactory<>(producerProperties());
     }
 
+    @Bean
+    public ProducerFactory<String, Long> producerFactoryFindIdTorneio() {
+        return new DefaultKafkaProducerFactory<>(producerProperties());
+    }
+
     private Map<String, Object> producerProperties() {
 
         var properties = new HashMap<String, Object>();
@@ -77,6 +82,11 @@ public class KafkaConfig {
 
     @Bean
     public KafkaTemplate<String, String> kafkaTemplate(ProducerFactory<String, String> producerFactory) {
+        return new KafkaTemplate<>(producerFactory);
+    }
+
+    @Bean
+    public KafkaTemplate<String, Long> kafkaTemplateFindIdTorneio(ProducerFactory<String, Long> producerFactory) {
         return new KafkaTemplate<>(producerFactory);
     }
 
