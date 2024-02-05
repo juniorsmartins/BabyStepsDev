@@ -79,7 +79,7 @@ em construção.....
 ### 6 - ARQUITETURA
 
 Em construção...
-<img width=800 src=https://github.com/juniorsmartins/BabyStepsDev/blob/master/documentacao/ArquiteturaMicroservices-22-01-24.png>
+<img width=800 src=https://github.com/juniorsmartins/BabyStepsDev/blob/master/documentacao/ArquiteturaMicroservices-02-02-24.png>
 
 ### 7 - DIAGRAMAS UML
 
