@@ -2,7 +2,7 @@ package microservice.microinscricoes.adapter.out.producer;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import microservice.microinscricoes.adapter.out.dto.EventFindIdTorneio;
+import microservice.microinscricoes.adapter.out.event.EventFindIdTorneio;
 import microservice.microinscricoes.adapter.out.utils.JsonUtil;
 import microservice.microinscricoes.application.core.domain.Inscricao;
 import microservice.microinscricoes.application.port.output.KafkaProducerFindIdTorneioOutputPort;
