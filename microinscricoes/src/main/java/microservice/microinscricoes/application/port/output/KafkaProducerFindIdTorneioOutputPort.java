@@ -1,7 +1,9 @@
 package microservice.microinscricoes.application.port.output;
 
+import microservice.microinscricoes.application.core.domain.Inscricao;
+
 public interface KafkaProducerFindIdTorneioOutputPort {
 
-    void sendFindIdTorneioEvent(Long id);
+    void sendFindIdTorneioEvent(Inscricao inscricao);
 }
 

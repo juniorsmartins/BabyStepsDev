@@ -1,5 +1,6 @@
 package microservice.microinscricoes.application.core.usecase;
 
+import microservice.microinscricoes.adapter.out.dto.EventFindIdTorneio;
 import microservice.microinscricoes.application.core.domain.Inscricao;
 import microservice.microinscricoes.application.port.input.InscricaoOpenInputPort;
 import microservice.microinscricoes.application.port.output.InscricaoSaveOutputPort;
@@ -39,7 +40,7 @@ public class InscricaoOpenUseCase implements InscricaoOpenInputPort {
     }
 
     private Inscricao checkTournamentId(Inscricao inscricao) {
-        this.kafkaProducerFindIdTorneioOutputPort.sendFindIdTorneioEvent(inscricao.getTorneioId());
+        this.kafkaProducerFindIdTorneioOutputPort.sendFindIdTorneioEvent(inscricao);
         return inscricao;
     }
 }
