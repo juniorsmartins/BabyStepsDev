@@ -1,4 +1,4 @@
-package microservice.microinscricoes.config.utils;
+package microservice.microinscricoes.adapter.out.utils;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
@@ -9,10 +9,11 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @Component
 @AllArgsConstructor
-public class JsonUtil {
+public class JsonUtilImpl implements JsonUtil {
 
     private final ObjectMapper objectMapper;
 
+    @Override
     public String toJson(Object object) {
         try {
             return objectMapper.writeValueAsString(object);
@@ -24,6 +25,7 @@ public class JsonUtil {
         }
     }
 
+    @Override
     public Event toEvent(String json) {
         try {
             return objectMapper.readValue(json, Event.class);

@@ -2,7 +2,7 @@ package microservice.microinscricoes.application.core.consumer;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import microservice.microinscricoes.config.utils.JsonUtil;
+import microservice.microinscricoes.adapter.out.utils.JsonUtilImpl;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 @AllArgsConstructor
 public class EventConsumer {
 
-    private final JsonUtil jsonUtil;
+    private final JsonUtilImpl jsonUtilImpl;
 
     @KafkaListener(
         groupId = "${spring.kafka.consumer.group-id}",
@@ -19,7 +19,7 @@ public class EventConsumer {
     )
     public void consumeNotifyEndingEvent(String payload) {
         log.info("Receiving ending notification event {} from notify-ending topic.", payload);
-        var event = jsonUtil.toEvent(payload);
+        var event = jsonUtilImpl.toEvent(payload);
         log.info(event.toString());
     }
 }
