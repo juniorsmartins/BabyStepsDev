@@ -414,8 +414,6 @@ mmicroinscricoes/src/main/java/microservice/microinscricoes/application/core/use
 omicroinscricoes/src/main/java/microservice/microinscricoes/application/port/output/InscricaoSaveOutputPort.java,3/1/3175683c12125b0aee5c08e1a0ab3a8b0a15c470
 ê
 `microinscricoes/src/main/java/microservice/microinscricoes/adapter/out/InscricaoSaveAdapter.java,0/a/0a2850bc97e0f23426eef2213262dc1affcb154f
-ï
-emicroinscricoes/src/main/java/microservice/microinscricoes/config/usecase/InscricaoUseCaseConfig.java,c/5/c5ef1b61d98c781eef1eb7a2e8e433be5aaa29f3
 ö
 jmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/out/repository/InscricaoRepository.java,1/5/156485acf8c22167dfe3eaa74f815d88a5717f5b
 Ä
@@ -488,8 +486,6 @@ dmicroinscricoes/src/main/java/microservice/microinscricoes/config/exception/Val
 amicroinscricoes/src/main/java/microservice/microinscricoes/config/exception/ExceptionDetails.java,4/f/4f6b597f8c54ac05a75d21a7735332172dfa9dbb
 ó
 gmicroinscricoes/src/main/java/microservice/microinscricoes/config/exception/ExceptionGlobalHandler.java,4/c/4c82de8202ee7d09e7edd3e152fb09c3f00573e2
-ñ
-fmicroinscricoes/src/main/java/microservice/microinscricoes/application/core/producer/SagaProducer.java,f/5/f5a38f143edc54c106852a0c28809c402376ed3d
 ç
 ]microtimes/src/main/java/microservice/microtimes/application/core/producer/KafkaProducer.java,7/c/7c99f1368b42647862666a1c11fc9cf0871b9232
 ó
@@ -498,8 +494,6 @@ gmicropagamentos/src/main/java/microservice/micropagamentos/application/core/pro
 cmicrotorneios/src/main/java/microservice/microtorneios/application/core/producer/KafkaProducer.java,b/f/bfdbb7173effd8afb8a37ac149a2d8ffb31868aa
 ê
 `orchestrator/src/main/java/microservice/orchestrator/application/core/producer/SagaProducer.java,9/d/9deeafa2e731999ca60686623d5ea2b4de578141
-ó
-gmicroinscricoes/src/main/java/microservice/microinscricoes/application/core/consumer/EventConsumer.java,3/c/3c41b21da3d084492368a40ff96a1ff1b831437c
 ú
 lorchestrator/src/main/java/microservice/orchestrator/application/core/consumer/SagaOrchestratorConsumer.java,a/c/ac119409f71f16a8af500b12bf35adedeaf6e1fa
 ñ
@@ -520,8 +514,6 @@ amicropagamentos/src/main/java/microservice/micropagamentos/application/core/dom
 |microinscricoes/src/main/java/microservice/microinscricoes/application/port/output/KafkaProducerFindIdTorneioOutputPort.java,8/6/8611f474642ca45c12dbd34ac824ecc2f76e94d8
 ü
 omicroinscricoes/src/main/java/microservice/microinscricoes/adapter/out/producer/KafkaProducerFindIdTorneio.java,a/a/aadab391bed6e4b682f3f8769202b2bbca0e6a5f
-í
-bmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/out/dto/EventFindIdTorneio.java,6/0/609dc83ac7dee169b5a71fd0a44406c974789b0a
 ä
 Zmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/out/utils/JsonUtil.java,2/b/2bc47250e3ee777533af019b26ea7a60309d64d3
 é
