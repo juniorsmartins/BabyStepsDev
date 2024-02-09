@@ -530,3 +530,5 @@ nmicroinscricoes/src/main/java/microservice/microinscricoes/application/core/dom
 nmicroinscricoes/src/main/java/microservice/microinscricoes/application/core/domain/enums/EInscricaoStatus.java,2/d/2da9e3b7ad0320438091fc9ebc0799f754956041
 ”
 dmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/out/event/EventFindIdTorneio.java,1/9/198893fb9c6b8c7a2986de2c3dd4ad6ad3330eca
+œ
+lmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/out/kafka/KafkaProducerFindIdTorneio.java,2/7/27026e86047d18a280a33566bae3fa27f8d663fa
