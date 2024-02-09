@@ -1,4 +1,4 @@
-package microservice.microtorneios.application.core.producer;
+package microservice.microtorneios.adapters.out.producer;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

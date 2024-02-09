@@ -2,6 +2,7 @@ package microservice.microinscricoes.adapter.out.repository.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import microservice.microinscricoes.application.core.domain.enums.EInscricaoStatus;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -40,6 +41,10 @@ public final class InscricaoEntity implements Serializable {
 
     @OneToMany(mappedBy = "inscricao")
     private Set<InscritoEntity> inscritos;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "inscricao_status")
+    private EInscricaoStatus inscricaoStatus;
 
 }
 
