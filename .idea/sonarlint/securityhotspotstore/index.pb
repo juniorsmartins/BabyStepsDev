@@ -540,3 +540,9 @@ xmicrotorneios/src/main/java/microservice/microtorneios/application/core/usecase
 imicrotorneios/src/main/java/microservice/microtorneios/application/port/input/FindIdTorneioInputPort.java,d/7/d7ff4a06d35820ff5be962215e665b3ae06f9afe
 ™
 imicrotorneios/src/main/java/microservice/microtorneios/application/core/usecase/FindIdTorneioUseCase.java,3/c/3cd9f708cf2f3bf7655416733d53389bd2b94de7
+›
+kmicrotorneios/src/main/java/microservice/microtorneios/application/port/output/FindIdTorneioOutputPort.java,d/a/da25fcdc5c9c73b126e5ff3faa165a3f87ca6fbc
+œ
+lmicrotorneios/src/main/java/microservice/microtorneios/application/port/output/ExistIdTorneioOutputPort.java,3/4/34e74817a19a90a8ddd9a53ea5eb77b184921121
+Ž
+^microtorneios/src/main/java/microservice/microtorneios/adapters/out/ExistIdTorneioAdapter.java,c/3/c3fadccb8d7df5775eb8c67c1f8dd6f2afc52b0c
