@@ -2,7 +2,7 @@ package microservice.microinscricoes.config.usecase;
 
 import microservice.microinscricoes.adapter.out.InscricaoSaveAdapter;
 import microservice.microinscricoes.adapter.out.InscritoSaveAdapter;
-import microservice.microinscricoes.adapter.out.kafka.producer.KafkaProducerFindIdTorneio;
+import microservice.microinscricoes.adapter.out.producer.KafkaProducerFindIdTorneio;
 import microservice.microinscricoes.application.core.usecase.InscricaoOpenUseCase;
 import microservice.microinscricoes.application.core.usecase.InscritoRegisterUseCase;
 import org.springframework.context.annotation.Bean;

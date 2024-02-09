@@ -1,4 +1,4 @@
-package microservice.microtorneios.application.core.producer;
+package microservice.microinscricoes.adapter.out.producer;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -9,20 +9,20 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @Component
 @RequiredArgsConstructor
-public class KafkaProducer {
+public class SagaProducer {
 
     private final KafkaTemplate<String, String> kafkaTemplate;
 
-    @Value("${spring.kafka.topic.orchestrator}")
-    private String orchestratorTopic;
+    @Value("${spring.kafka.topic.start-saga}")
+    private String startSagaTopic;
 
     public void sendEvent(String payload) {
         try {
-            log.info("Sending event to topic {} with data {}", orchestratorTopic, payload);
-            kafkaTemplate.send(orchestratorTopic, payload);
+            log.info("Sending event to topic {} with data {}", startSagaTopic, payload);
+            kafkaTemplate.send(startSagaTopic, payload);
 
         } catch (Exception ex) {
-            log.error("Error trying to send data to topic {} with data {}", orchestratorTopic, payload, ex);
+            log.error("Error trying to send data to topic {} with data {}", startSagaTopic, payload, ex);
         }
     }
 }

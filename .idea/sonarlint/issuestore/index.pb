@@ -537,3 +537,7 @@ nmicroinscricoes/src/main/java/microservice/microinscricoes/application/core/dom
 dmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/out/event/EventFindIdTorneio.java,1/9/198893fb9c6b8c7a2986de2c3dd4ad6ad3330eca
 ú
 lmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/out/kafka/KafkaProducerFindIdTorneio.java,2/7/27026e86047d18a280a33566bae3fa27f8d663fa
+ó
+gmicrotorneios/src/main/java/microservice/microtorneios/adapters/out/kafka/consumer/TorneioConsumer.java,6/9/69abc53f9b61a317b2150a34c444a45a531b3a77
+ê
+`microtorneios/src/main/java/microservice/microtorneios/adapters/in/consumer/TorneioConsumer.java,e/e/eea7ba2e33a0e206fa9b80e43504e98dc68e5d03
