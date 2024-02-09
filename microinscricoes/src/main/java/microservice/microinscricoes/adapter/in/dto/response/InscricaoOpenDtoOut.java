@@ -1,6 +1,7 @@
 package microservice.microinscricoes.adapter.in.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import microservice.microinscricoes.application.core.domain.enums.EInscricaoStatus;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -16,7 +17,9 @@ public record InscricaoOpenDtoOut(
 
     LocalDate dataFim,
 
-    BigDecimal valor
+    BigDecimal valor,
+
+    EInscricaoStatus inscricaoStatus
 
 ) { }
 

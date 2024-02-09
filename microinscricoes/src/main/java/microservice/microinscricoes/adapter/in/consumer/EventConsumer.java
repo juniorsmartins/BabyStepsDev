@@ -1,4 +1,4 @@
-package microservice.microinscricoes.adapter.out.consumer;
+package microservice.microinscricoes.adapter.in.consumer;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

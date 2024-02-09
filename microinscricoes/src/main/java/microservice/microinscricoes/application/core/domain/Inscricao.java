@@ -1,5 +1,7 @@
 package microservice.microinscricoes.application.core.domain;
 
+import microservice.microinscricoes.application.core.domain.enums.EInscricaoStatus;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
@@ -14,6 +16,8 @@ public final class Inscricao {
     private LocalDate dataFim;
 
     private BigDecimal valor;
+
+    private EInscricaoStatus inscricaoStatus;
 
     public Long getId() {
         return id;
@@ -53,6 +57,14 @@ public final class Inscricao {
 
     public void setValor(BigDecimal valor) {
         this.valor = valor;
+    }
+
+    public EInscricaoStatus getInscricaoStatus() {
+        return inscricaoStatus;
+    }
+
+    public void setInscricaoStatus(EInscricaoStatus inscricaoStatus) {
+        this.inscricaoStatus = inscricaoStatus;
     }
 }
 

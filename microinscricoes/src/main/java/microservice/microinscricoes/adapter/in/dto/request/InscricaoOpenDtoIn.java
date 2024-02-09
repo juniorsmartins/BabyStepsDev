@@ -4,7 +4,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import lombok.Builder;
-import microservice.microinscricoes.adapter.in.custom_annotation.CheckedDate;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

@@ -1,6 +1,7 @@
 package microservice.microinscricoes.application.core.usecase;
 
 import microservice.microinscricoes.application.core.domain.Inscricao;
+import microservice.microinscricoes.application.core.domain.enums.EInscricaoStatus;
 import microservice.microinscricoes.application.port.input.InscricaoOpenInputPort;
 import microservice.microinscricoes.application.port.output.InscricaoSaveOutputPort;
 import microservice.microinscricoes.application.port.output.KafkaProducerFindIdTorneioOutputPort;
@@ -29,8 +30,9 @@ public class InscricaoOpenUseCase implements InscricaoOpenInputPort {
         log.info("Iniciado serviço para abrir período de inscrições.");
 
         var inscricaoOpen = Optional.ofNullable(inscricao)
-            .map(this::checkTournamentId)
+            .map(this::assignDefaultStatus)
             .map(this.inscricaoSaveOutputPort::save)
+            .map(this::checkTournamentId)
             .orElseThrow();
 
         log.info("Finalizado serviço para abrir período de inscrições, com Id: {}.", inscricaoOpen.getId());
@@ -40,6 +42,11 @@ public class InscricaoOpenUseCase implements InscricaoOpenInputPort {
 
     private Inscricao checkTournamentId(Inscricao inscricao) {
         this.kafkaProducerFindIdTorneioOutputPort.sendFindIdTorneioEvent(inscricao);
+        return inscricao;
+    }
+
+    private Inscricao assignDefaultStatus(Inscricao inscricao) {
+        inscricao.setInscricaoStatus(EInscricaoStatus.INATIVO);
         return inscricao;
     }
 }
