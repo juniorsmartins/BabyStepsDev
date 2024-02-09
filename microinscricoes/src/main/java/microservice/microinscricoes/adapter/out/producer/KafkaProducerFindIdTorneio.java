@@ -24,10 +24,11 @@ public class KafkaProducerFindIdTorneio implements KafkaProducerFindIdTorneioOut
 
     @Override
     public void sendFindIdTorneioEvent(Inscricao inscricao) {
-        var event = new EventFindIdTorneio(inscricao.getTorneioId());
+        var event = new EventFindIdTorneio(inscricao.getId(), inscricao.getTorneioId());
 
         try {
-            log.info("Enviado evento para o tópico {}, com id {}", findIdTorneioTopic, event.id());
+            log.info("Enviado evento para o tópico {}, com inscricaoId {} e torneioId {}", findIdTorneioTopic,
+                event.inscricaoId(), event.torneioId());
             var payload = this.jsonUtil.toJson(event);
             kafkaTemplate.send(findIdTorneioTopic, payload);
 

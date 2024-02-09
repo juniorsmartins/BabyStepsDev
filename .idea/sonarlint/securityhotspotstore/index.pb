@@ -528,3 +528,5 @@ Wmicrotorneios/src/main/java/microservice/microtorneios/adapters/out/utils/JsonU
 nmicroinscricoes/src/main/java/microservice/microinscricoes/application/core/domain/enums/EStatusInscricao.java,9/3/930a48e4fa6104bd8c2b9ccaae9379af8a81c5d7
 ž
 nmicroinscricoes/src/main/java/microservice/microinscricoes/application/core/domain/enums/EInscricaoStatus.java,2/d/2da9e3b7ad0320438091fc9ebc0799f754956041
+”
+dmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/out/event/EventFindIdTorneio.java,1/9/198893fb9c6b8c7a2986de2c3dd4ad6ad3330eca

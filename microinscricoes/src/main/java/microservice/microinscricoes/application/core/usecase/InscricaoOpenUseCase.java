@@ -30,9 +30,9 @@ public class InscricaoOpenUseCase implements InscricaoOpenInputPort {
         log.info("Iniciado serviço para abrir período de inscrições.");
 
         var inscricaoOpen = Optional.ofNullable(inscricao)
-            .map(this::checkTournamentId)
             .map(this::assignDefaultStatus)
             .map(this.inscricaoSaveOutputPort::save)
+            .map(this::checkTournamentId)
             .orElseThrow();
 
         log.info("Finalizado serviço para abrir período de inscrições, com Id: {}.", inscricaoOpen.getId());
