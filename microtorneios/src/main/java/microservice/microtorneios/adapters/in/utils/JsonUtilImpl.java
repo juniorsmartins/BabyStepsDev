@@ -1,10 +1,10 @@
-package microservice.microtorneios.adapters.out.utils;
+package microservice.microtorneios.adapters.in.utils;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import microservice.microtorneios.adapters.out.dto.EventFindIdTorneio;
+import microservice.microtorneios.adapters.in.event.EventFindIdTorneioDto;
 import microservice.microtorneios.application.core.domain.Event;
 import org.springframework.stereotype.Component;
 
@@ -40,9 +40,9 @@ public class JsonUtilImpl implements JsonUtil {
     }
 
     @Override
-    public EventFindIdTorneio toEventFindIdTorneio(String json) {
+    public EventFindIdTorneioDto toEventFindIdTorneio(String json) {
         try {
-            return objectMapper.readValue(json, EventFindIdTorneio.class);
+            return objectMapper.readValue(json, EventFindIdTorneioDto.class);
 
         } catch (Exception ex) {
 

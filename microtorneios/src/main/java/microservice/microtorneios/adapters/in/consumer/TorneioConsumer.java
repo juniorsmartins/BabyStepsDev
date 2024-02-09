@@ -2,9 +2,13 @@ package microservice.microtorneios.adapters.in.consumer;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import microservice.microtorneios.adapters.out.utils.JsonUtil;
+import microservice.microtorneios.adapters.in.mapper.EventMapperIn;
+import microservice.microtorneios.adapters.in.utils.JsonUtil;
+import microservice.microtorneios.application.port.input.FindIdTorneioInputPort;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
+
+import java.util.Optional;
 
 @Slf4j
 @Component
@@ -12,6 +16,10 @@ import org.springframework.stereotype.Component;
 public class TorneioConsumer {
 
     private final JsonUtil jsonUtil;
+
+    private EventMapperIn eventMapperIn;
+
+    private FindIdTorneioInputPort findIdTorneioInputPort;
 
     @KafkaListener(
         groupId = "${spring.kafka.consumer.group-id}",
@@ -39,8 +47,14 @@ public class TorneioConsumer {
     )
     public void consumeFindIdTorneioEvent(String payload) {
         log.info("Bem-sucedida recebimento de evento para o tópico find-id-torneio, com id {}.", payload);
-        var eventFindIdTorneio = jsonUtil.toEventFindIdTorneio(payload);
-        log.info(eventFindIdTorneio.toString());
+
+        Optional.ofNullable(payload)
+            .map(this.jsonUtil::toEventFindIdTorneio)
+            .map(this.eventMapperIn::toEventFindIdTorneio)
+            .map(this.findIdTorneioInputPort::findId)
+            .orElseThrow();
+
+        log.info(payload);
     }
 }
 

@@ -10,7 +10,7 @@ import org.mapstruct.Named;
 import java.time.Year;
 
 @Mapper(componentModel = "spring")
-public interface TorneioInMapper {
+public interface TorneioMapperIn {
 
     @Mapping(source = "ano", target = "ano", qualifiedByName = "setAno")
     Torneio toTorneio(TorneioCreateDtoRequest torneioCreateDtoRequest);
