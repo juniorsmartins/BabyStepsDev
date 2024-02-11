@@ -27,8 +27,9 @@ public final class InscricaoEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "torneio_id")
-    private Long torneioId;
+    @OneToOne
+    @JoinColumn(name = "torneio_id")
+    private TorneioEntity torneio;
 
     @Column(name = "data_inicio")
     private LocalDate dataInicio;
@@ -39,12 +40,12 @@ public final class InscricaoEntity implements Serializable {
     @Column(name = "valor")
     private BigDecimal valor;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "status")
+    private EInscricaoStatus status;
+
     @OneToMany(mappedBy = "inscricao")
     private Set<InscritoEntity> inscritos;
-
-    @Enumerated(EnumType.STRING)
-    @Column(name = "inscricao_status")
-    private EInscricaoStatus inscricaoStatus;
 
 }
 

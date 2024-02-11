@@ -4,6 +4,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import lombok.Builder;
+import microservice.microinscricoes.adapter.in.dto.TorneioIdDto;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -15,7 +16,7 @@ public record InscricaoOpenDtoIn(
     @Schema(name = "torneioId", description = "Identificador Exclusivo - para identificar um torneio no banco de dados.", type = "Long", example = "22")
     @NotNull
     @Positive
-    Long torneioId,
+    TorneioIdDto torneio,
 
     @NotNull
 //    @CheckedDate

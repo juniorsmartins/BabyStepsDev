@@ -3,8 +3,9 @@ package microservice.microinscricoes.application.core.usecase;
 import microservice.microinscricoes.application.core.domain.Inscricao;
 import microservice.microinscricoes.application.core.domain.enums.EInscricaoStatus;
 import microservice.microinscricoes.application.port.input.InscricaoOpenInputPort;
+import microservice.microinscricoes.application.port.output.FindByTorneioIdOutputPort;
 import microservice.microinscricoes.application.port.output.InscricaoSaveOutputPort;
-import microservice.microinscricoes.application.port.output.KafkaProducerFindIdTorneioOutputPort;
+import microservice.microinscricoes.config.exception.http_404.TorneioNotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,12 +17,12 @@ public class InscricaoOpenUseCase implements InscricaoOpenInputPort {
 
     private final InscricaoSaveOutputPort inscricaoSaveOutputPort;
 
-    private final KafkaProducerFindIdTorneioOutputPort kafkaProducerFindIdTorneioOutputPort;
+    private final FindByTorneioIdOutputPort findByTorneioIdOutputPort;
 
     public InscricaoOpenUseCase(InscricaoSaveOutputPort inscricaoSaveOutputPort,
-                                KafkaProducerFindIdTorneioOutputPort kafkaProducerFindIdTorneioOutputPort) {
+                                FindByTorneioIdOutputPort findByTorneioIdOutputPort) {
         this.inscricaoSaveOutputPort = inscricaoSaveOutputPort;
-        this.kafkaProducerFindIdTorneioOutputPort = kafkaProducerFindIdTorneioOutputPort;
+        this.findByTorneioIdOutputPort = findByTorneioIdOutputPort;
     }
 
     @Override
@@ -30,9 +31,9 @@ public class InscricaoOpenUseCase implements InscricaoOpenInputPort {
         log.info("Iniciado serviço para abrir período de inscrições.");
 
         var inscricaoOpen = Optional.ofNullable(inscricao)
+            .map(this::checkTournamentId)
             .map(this::assignDefaultStatus)
             .map(this.inscricaoSaveOutputPort::save)
-            .map(this::checkTournamentId)
             .orElseThrow();
 
         log.info("Finalizado serviço para abrir período de inscrições, com Id: {}.", inscricaoOpen.getId());
@@ -41,12 +42,18 @@ public class InscricaoOpenUseCase implements InscricaoOpenInputPort {
     }
 
     private Inscricao checkTournamentId(Inscricao inscricao) {
-        this.kafkaProducerFindIdTorneioOutputPort.sendFindIdTorneioEvent(inscricao);
+        var torneioId = inscricao.getTorneio().getId();
+
+        var torneio = this.findByTorneioIdOutputPort.findById(torneioId)
+            .orElseThrow(() -> new TorneioNotFoundException(torneioId));
+
+        inscricao.setTorneio(torneio);
+
         return inscricao;
     }
 
     private Inscricao assignDefaultStatus(Inscricao inscricao) {
-        inscricao.setInscricaoStatus(EInscricaoStatus.INATIVO);
+        inscricao.setStatus(EInscricaoStatus.ATIVO);
         return inscricao;
     }
 }
