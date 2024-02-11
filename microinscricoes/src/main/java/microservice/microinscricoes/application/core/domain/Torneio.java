@@ -33,5 +33,14 @@ public final class Torneio {
     public void setAno(Year ano) {
         this.ano = ano;
     }
+
+    @Override
+    public String toString() {
+        return "Torneio{" +
+            "id=" + id +
+            ", nome='" + nome + '\'' +
+            ", ano=" + ano +
+            '}';
+    }
 }
 
