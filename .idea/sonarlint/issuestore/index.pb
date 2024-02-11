@@ -593,3 +593,7 @@ xmicrotorneios/src/main/java/microservice/microtorneios/application/port/output/
 _microtorneios/src/main/java/microservice/microtorneios/adapters/out/producer/KafkaProducer.java,2/3/23b0132fced3d7395395067c45b9837840503a69
 ©
 ymicrotorneios/src/main/java/microservice/microtorneios/adapters/out/producer/NotifyCreationOfNewTorneioKafkaProducer.java,c/3/c3975766250915e153aee79b843067e8301e664e
+–
+fmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/in/dto/response/TorneioSaveDto.java,3/4/347942d111c86ed87df0743e45a575a7933bb9fb
+“
+cmicrotorneios/src/main/java/microservice/microtorneios/adapters/in/dto/response/TorneioSaveDto.java,5/8/587dfda1761c43a64feef3e9855549cfd20b8347

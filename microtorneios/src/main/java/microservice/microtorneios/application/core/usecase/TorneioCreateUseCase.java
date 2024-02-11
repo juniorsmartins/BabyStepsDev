@@ -1,10 +1,12 @@
 package microservice.microtorneios.application.core.usecase;
 
+import microservice.microtorneios.adapters.in.dto.response.TorneioSaveDto;
 import microservice.microtorneios.adapters.in.utils.JsonUtil;
 import microservice.microtorneios.application.core.domain.Torneio;
 import microservice.microtorneios.application.port.input.TorneioCreateInputPort;
 import microservice.microtorneios.application.port.output.NotifyCreationOfNewTorneioOutputPort;
 import microservice.microtorneios.application.port.output.TorneioSaveOutputPort;
+import org.apache.kafka.common.quota.ClientQuotaAlteration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -44,8 +46,16 @@ public class TorneioCreateUseCase implements TorneioCreateInputPort {
     }
 
     private Torneio notifyCreationOfNewTorneio(Torneio torneio) {
-        var payload = this.jsonUtil.toJson(torneio);
-        this.notifyCreationOfNewTorneioOutputPort.sendEvent(payload);
+
+        Optional.ofNullable(torneio)
+            .map(tournament -> new TorneioSaveDto(tournament.getId(), tournament.getNome(), tournament.getAno()))
+            .map(this.jsonUtil::toJson)
+            .map(tournament -> {
+                this.notifyCreationOfNewTorneioOutputPort.sendEvent(tournament);
+                return true;
+            })
+            .orElseThrow();
+
         return torneio;
     }
 }
