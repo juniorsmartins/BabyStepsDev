@@ -43,8 +43,8 @@ public class KafkaConfig {
     @Value("${spring.kafka.topic.torneio-fail}")
     private String torneioFailTopic;
 
-    @Value("${spring.kafka.topic.find-id-torneio}")
-    private String findIdTorneio;
+    @Value("${spring.kafka.topic.torneio-save}")
+    private String torneioSave;
 
     @Bean
     public ConsumerFactory<String, String> consumerFactory() {
@@ -99,8 +99,8 @@ public class KafkaConfig {
     }
 
     @Bean
-    public NewTopic findIdTorneio() {
-        return buildTopic(findIdTorneio);
+    public NewTopic torneioSave() {
+        return buildTopic(torneioSave);
     }
 
     private NewTopic buildTopic(String name) {
