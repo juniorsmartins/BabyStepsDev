@@ -9,7 +9,7 @@ public final class Inscricao {
 
     private Long id;
 
-    private Long torneioId;
+    private Torneio torneio;
 
     private LocalDate dataInicio;
 
@@ -17,7 +17,7 @@ public final class Inscricao {
 
     private BigDecimal valor;
 
-    private EInscricaoStatus inscricaoStatus;
+    private EInscricaoStatus status;
 
     public Long getId() {
         return id;
@@ -27,12 +27,12 @@ public final class Inscricao {
         this.id = id;
     }
 
-    public Long getTorneioId() {
-        return torneioId;
+    public Torneio getTorneio() {
+        return torneio;
     }
 
-    public void setTorneioId(Long torneioId) {
-        this.torneioId = torneioId;
+    public void setTorneio(Torneio torneio) {
+        this.torneio = torneio;
     }
 
     public LocalDate getDataInicio() {
@@ -59,12 +59,12 @@ public final class Inscricao {
         this.valor = valor;
     }
 
-    public EInscricaoStatus getInscricaoStatus() {
-        return inscricaoStatus;
+    public EInscricaoStatus getStatus() {
+        return status;
     }
 
-    public void setInscricaoStatus(EInscricaoStatus inscricaoStatus) {
-        this.inscricaoStatus = inscricaoStatus;
+    public void setStatus(EInscricaoStatus status) {
+        this.status = status;
     }
 }
 

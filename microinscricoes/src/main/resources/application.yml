@@ -45,7 +45,7 @@ spring:
   kafka:
     bootstrap-servers: ${KAFKA_BROKER:kafka:9092}
     topic:
-      find-id-torneio: find-id-torneio
+      torneio-save: torneio-save
       start-saga: start-saga
       notify-ending: notify-ending
     consumer:

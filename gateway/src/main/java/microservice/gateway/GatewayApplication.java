@@ -23,8 +23,9 @@ public class GatewayApplication {
 				.route(rota -> rota.path("/api/v1/noticias/**").uri("lb://micronoticias")) // lb = Load Balance
 				.route(rota -> rota.path("/api/v1/editorias/**").uri("lb://micronoticias"))
 				.route(rota -> rota.path("/api/v1/persons/**").uri("lb://microusuarios"))
-				.route(rota -> rota.path("/api/v1/times/**").uri("lb://microtimes"))
 				.route(rota -> rota.path("/api/v1/inscricoes/**").uri("lb://microinscricoes"))
+				.route(rota -> rota.path("/api/v1/torneios/**").uri("lb://microtorneios"))
+				.route(rota -> rota.path("/api/v1/times/**").uri("lb://microtimes"))
 			.build();
 	}
 }
