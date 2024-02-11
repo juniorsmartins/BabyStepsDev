@@ -1,4 +1,4 @@
-package microservice.microinscricoes.adapter.out.utils;
+package microservice.microinscricoes.adapter.utils;
 
 import microservice.microinscricoes.application.core.domain.Event;
 

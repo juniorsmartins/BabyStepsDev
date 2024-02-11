@@ -563,3 +563,5 @@ wmicroinscricoes/src/main/java/microservice/microinscricoes/config/exception/htt
 rmicroinscricoes/src/main/java/microservice/microinscricoes/config/exception/http_404/NoticiaNotFoundException.java,7/1/71f5ebd4dd05ac2ef167522bd67711af0c8fcd03
 ¢
 rmicroinscricoes/src/main/java/microservice/microinscricoes/config/exception/http_404/TorneioNotFoundException.java,0/6/0640e132d9810cc73e126ae88550f4a1d58318a0
+‘
+amicroinscricoes/src/main/java/microservice/microinscricoes/adapter/in/consumer/EventConsumer.java,2/3/2338eeb907a5c9815c17d16a6e9e727ace4c98f6

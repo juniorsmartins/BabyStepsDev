@@ -1,4 +1,4 @@
-package microservice.microinscricoes.adapter.out.utils;
+package microservice.microinscricoes.adapter.utils;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
