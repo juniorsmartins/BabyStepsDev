@@ -6,7 +6,6 @@ import microservice.microtorneios.application.core.domain.Torneio;
 import microservice.microtorneios.application.port.input.TorneioCreateInputPort;
 import microservice.microtorneios.application.port.output.NotifyCreationOfNewTorneioOutputPort;
 import microservice.microtorneios.application.port.output.TorneioSaveOutputPort;
-import org.apache.kafka.common.quota.ClientQuotaAlteration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

@@ -48,13 +48,17 @@ public class TorneioSaveAdapter implements TorneioSaveOutputPort {
     private TorneioEntity linkarTorneioAosTimes(TorneioEntity torneioEntity, Torneio torneio) {
         Set<TimeInventoryEntity> timesEntity = new HashSet<>();
 
-        torneio.getTimes().forEach(time -> {
-            var timeIntentoryEntity = this.timeInventoryRepository.findById(time.getId())
-                .orElseThrow();
-            timesEntity.add(timeIntentoryEntity);
-        });
+        if (torneio.getTimes() != null) {
 
-        torneioEntity.setTimes(timesEntity);
+            torneio.getTimes().forEach(time -> {
+                var timeIntentoryEntity = this.timeInventoryRepository.findById(time.getId())
+                    .orElseThrow();
+                timesEntity.add(timeIntentoryEntity);
+            });
+
+            torneioEntity.setTimes(timesEntity);
+        }
+
         return torneioEntity;
     }
 }
