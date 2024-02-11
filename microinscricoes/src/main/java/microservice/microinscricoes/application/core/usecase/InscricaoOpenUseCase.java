@@ -3,7 +3,7 @@ package microservice.microinscricoes.application.core.usecase;
 import microservice.microinscricoes.application.core.domain.Inscricao;
 import microservice.microinscricoes.application.core.domain.enums.EInscricaoStatus;
 import microservice.microinscricoes.application.port.input.InscricaoOpenInputPort;
-import microservice.microinscricoes.application.port.output.FindByTorneioIdOutputPort;
+import microservice.microinscricoes.application.port.output.TorneioFindByIdOutputPort;
 import microservice.microinscricoes.application.port.output.InscricaoSaveOutputPort;
 import microservice.microinscricoes.config.exception.http_404.TorneioNotFoundException;
 import org.slf4j.Logger;
@@ -17,12 +17,12 @@ public class InscricaoOpenUseCase implements InscricaoOpenInputPort {
 
     private final InscricaoSaveOutputPort inscricaoSaveOutputPort;
 
-    private final FindByTorneioIdOutputPort findByTorneioIdOutputPort;
+    private final TorneioFindByIdOutputPort torneioFindByIdOutputPort;
 
     public InscricaoOpenUseCase(InscricaoSaveOutputPort inscricaoSaveOutputPort,
-                                FindByTorneioIdOutputPort findByTorneioIdOutputPort) {
+                                TorneioFindByIdOutputPort torneioFindByIdOutputPort) {
         this.inscricaoSaveOutputPort = inscricaoSaveOutputPort;
-        this.findByTorneioIdOutputPort = findByTorneioIdOutputPort;
+        this.torneioFindByIdOutputPort = torneioFindByIdOutputPort;
     }
 
     @Override
@@ -44,7 +44,7 @@ public class InscricaoOpenUseCase implements InscricaoOpenInputPort {
     private Inscricao checkTournamentId(Inscricao inscricao) {
         var torneioId = inscricao.getTorneio().getId();
 
-        var torneio = this.findByTorneioIdOutputPort.findById(torneioId)
+        var torneio = this.torneioFindByIdOutputPort.findById(torneioId)
             .orElseThrow(() -> new TorneioNotFoundException(torneioId));
 
         inscricao.setTorneio(torneio);

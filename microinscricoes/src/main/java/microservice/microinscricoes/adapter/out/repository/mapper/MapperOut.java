@@ -19,6 +19,8 @@ public interface MapperOut {
 
     Inscrito toInscrito(InscritoEntity inscritoEntity);
 
+    TorneioEntity toTorneioEntity(Torneio torneio);
+
     Torneio toTorneio(TorneioEntity torneioEntity);
 }
 

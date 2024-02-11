@@ -4,6 +4,7 @@ import microservice.microinscricoes.adapter.in.dto.InscricaoIdDto;
 import microservice.microinscricoes.adapter.in.dto.TorneioIdDto;
 import microservice.microinscricoes.adapter.in.dto.request.InscricaoOpenDtoIn;
 import microservice.microinscricoes.adapter.in.dto.request.InscritoRegisterDtoIn;
+import microservice.microinscricoes.adapter.in.dto.request.TorneioSaveDto;
 import microservice.microinscricoes.adapter.in.dto.response.InscricaoOpenDtoOut;
 import microservice.microinscricoes.adapter.in.dto.response.InscritoRegisterDtoOut;
 import microservice.microinscricoes.application.core.domain.Inscricao;
@@ -57,5 +58,7 @@ public interface MapperIn {
     Torneio toTorneio(TorneioIdDto torneioIdDto);
 
     TorneioIdDto toTorneioIdDto(Torneio torneio);
+
+    Torneio toTorneio(TorneioSaveDto torneioSaveDto);
 }
 

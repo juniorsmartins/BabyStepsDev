@@ -2,10 +2,8 @@ package microservice.microinscricoes.application.port.output;
 
 import microservice.microinscricoes.application.core.domain.Torneio;
 
-import java.util.Optional;
+public interface TorneioSaveOutputPort {
 
-public interface FindByTorneioIdOutputPort {
-
-    Optional<Torneio> findById(Long torneioId);
+    void save(Torneio torneio);
 }
 

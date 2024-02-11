@@ -1,6 +1,6 @@
 package microservice.microinscricoes.config.usecase;
 
-import microservice.microinscricoes.adapter.out.FindByTorneioIdAdapter;
+import microservice.microinscricoes.adapter.out.TorneioFindByIdAdapter;
 import microservice.microinscricoes.adapter.out.InscricaoSaveAdapter;
 import microservice.microinscricoes.adapter.out.InscritoSaveAdapter;
 import microservice.microinscricoes.application.core.usecase.InscricaoOpenUseCase;
@@ -13,8 +13,8 @@ public class InscricaoConfig {
 
     @Bean
     public InscricaoOpenUseCase inscricaoOpenUseCase(InscricaoSaveAdapter inscricaoSaveAdapter,
-                                                     FindByTorneioIdAdapter findByTorneioIdAdapter) {
-        return new InscricaoOpenUseCase(inscricaoSaveAdapter, findByTorneioIdAdapter);
+                                                     TorneioFindByIdAdapter torneioFindByIdAdapter) {
+        return new InscricaoOpenUseCase(inscricaoSaveAdapter, torneioFindByIdAdapter);
     }
 
     @Bean

@@ -40,8 +40,8 @@ public class KafkaConfig {
     @Value("${spring.kafka.topic.notify-ending}")
     private String notifyEndingTopic;
 
-    @Value("${spring.kafka.topic.find-id-torneio}")
-    private String findIdTorneio;
+    @Value("${spring.kafka.topic.torneio-save}")
+    private String torneioSave;
 
     @Bean
     public ConsumerFactory<String, String> consumerFactory() {
@@ -65,11 +65,6 @@ public class KafkaConfig {
         return new DefaultKafkaProducerFactory<>(producerProperties());
     }
 
-//    @Bean
-//    public ProducerFactory<String, Long> producerFactoryFindIdTorneio() {
-//        return new DefaultKafkaProducerFactory<>(producerProperties());
-//    }
-
     private Map<String, Object> producerProperties() {
 
         var properties = new HashMap<String, Object>();
@@ -85,11 +80,6 @@ public class KafkaConfig {
         return new KafkaTemplate<>(producerFactory);
     }
 
-//    @Bean
-//    public KafkaTemplate<String, Long> kafkaTemplateFindIdTorneio(ProducerFactory<String, Long> producerFactory) {
-//        return new KafkaTemplate<>(producerFactory);
-//    }
-
     @Bean
     public NewTopic startSagaTopic() {
         return buildTopic(startSagaTopic);
@@ -101,8 +91,8 @@ public class KafkaConfig {
     }
 
     @Bean
-    public NewTopic findIdTorneio() {
-        return buildTopic(findIdTorneio);
+    public NewTopic torneioSave() {
+        return buildTopic(torneioSave);
     }
 
     private NewTopic buildTopic(String name) {
