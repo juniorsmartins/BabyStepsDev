@@ -587,3 +587,9 @@ mmicroinscricoes/src/main/java/microservice/microinscricoes/application/port/out
 bmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/out/TorneioFindByIdAdapter.java,6/f/6ff2c0082670f50ebe8f36899a03f7f43545ef93
 °
 qmicroinscricoes/src/main/java/microservice/microinscricoes/application/port/output/TorneioFindByIdOutputPort.java,9/1/91727f486c0a5ba55fdd3f437cf7ba61ceb399fa
+®
+xmicrotorneios/src/main/java/microservice/microtorneios/application/port/output/NotifyCreationOfNewTorneioOutputPort.java,8/9/89eb30c7eda4b5f3df871d3d1ef81ab0dec40ab3
+è
+_microtorneios/src/main/java/microservice/microtorneios/adapters/out/producer/KafkaProducer.java,2/3/23b0132fced3d7395395067c45b9837840503a69
+©
+ymicrotorneios/src/main/java/microservice/microtorneios/adapters/out/producer/NotifyCreationOfNewTorneioKafkaProducer.java,c/3/c3975766250915e153aee79b843067e8301e664e
