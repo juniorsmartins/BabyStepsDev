@@ -1,4 +1,6 @@
 package microservice.microinscricoes.adapter.in.dto;
 
-public record TorneioIdDto(Long id) { }
+import jakarta.validation.constraints.Positive;
+
+public record TorneioIdDto(@Positive Long id) { }
 

@@ -1,8 +1,8 @@
 package microservice.microinscricoes.adapter.in.dto.request;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Positive;
 import lombok.Builder;
 import microservice.microinscricoes.adapter.in.dto.TorneioIdDto;
 
@@ -15,7 +15,7 @@ public record InscricaoOpenDtoIn(
 
     @Schema(name = "torneioId", description = "Identificador Exclusivo - para identificar um torneio no banco de dados.", type = "Long", example = "22")
     @NotNull
-    @Positive
+    @Valid
     TorneioIdDto torneio,
 
     @NotNull
