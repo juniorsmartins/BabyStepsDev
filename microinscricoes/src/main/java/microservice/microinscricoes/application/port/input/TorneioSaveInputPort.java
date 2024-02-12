@@ -4,6 +4,6 @@ import microservice.microinscricoes.application.core.domain.Torneio;
 
 public interface TorneioSaveInputPort {
 
-    void save(Torneio torneio);
+    Torneio save(Torneio torneio);
 }
 
