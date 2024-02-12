@@ -2,9 +2,11 @@ package microservice.microinscricoes.adapter.out.repository.mapper;
 
 import microservice.microinscricoes.adapter.out.repository.entity.InscricaoEntity;
 import microservice.microinscricoes.adapter.out.repository.entity.InscritoEntity;
+import microservice.microinscricoes.adapter.out.repository.entity.TimeEntity;
 import microservice.microinscricoes.adapter.out.repository.entity.TorneioEntity;
 import microservice.microinscricoes.application.core.domain.Inscricao;
 import microservice.microinscricoes.application.core.domain.Inscrito;
+import microservice.microinscricoes.application.core.domain.Time;
 import microservice.microinscricoes.application.core.domain.Torneio;
 import org.mapstruct.Mapper;
 
@@ -22,5 +24,9 @@ public interface MapperOut {
     TorneioEntity toTorneioEntity(Torneio torneio);
 
     Torneio toTorneio(TorneioEntity torneioEntity);
+
+    TimeEntity toTimeEntity(Time time);
+
+    Time toTime(TimeEntity timeEntity);
 }
 
