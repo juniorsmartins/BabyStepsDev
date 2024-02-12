@@ -5,7 +5,7 @@ import microservice.microtorneios.application.core.domain.Torneio;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")
-public interface TorneioOutMapper {
+public interface TorneioMapperOut {
 
     TorneioEntity toTorneioEntity(Torneio torneio);
 

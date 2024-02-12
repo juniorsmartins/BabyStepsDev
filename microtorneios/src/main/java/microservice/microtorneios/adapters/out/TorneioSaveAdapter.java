@@ -6,7 +6,7 @@ import microservice.microtorneios.adapters.out.repository.TimeInventoryRepositor
 import microservice.microtorneios.adapters.out.repository.TorneioRepository;
 import microservice.microtorneios.adapters.out.repository.entity.TimeInventoryEntity;
 import microservice.microtorneios.adapters.out.repository.entity.TorneioEntity;
-import microservice.microtorneios.adapters.out.repository.mapper.TorneioOutMapper;
+import microservice.microtorneios.adapters.out.repository.mapper.TorneioMapperOut;
 import microservice.microtorneios.application.core.domain.Torneio;
 import microservice.microtorneios.application.port.output.TorneioSaveOutputPort;
 import org.springframework.stereotype.Repository;
@@ -25,7 +25,7 @@ public class TorneioSaveAdapter implements TorneioSaveOutputPort {
 
     private final TimeInventoryRepository timeInventoryRepository;
 
-    private final TorneioOutMapper torneioOutMapper;
+    private final TorneioMapperOut torneioMapperOut;
 
     @Transactional
     @Override
@@ -34,10 +34,10 @@ public class TorneioSaveAdapter implements TorneioSaveOutputPort {
         log.info("Iniciado adaptador para salvar Torneio.");
 
         var torneioSaved = Optional.ofNullable(torneio)
-            .map(this.torneioOutMapper::toTorneioEntity)
+            .map(this.torneioMapperOut::toTorneioEntity)
             .map(entity -> this.linkarTorneioAosTimes(entity, torneio))
             .map(this.torneioRepository::save)
-            .map(this.torneioOutMapper::toTorneio)
+            .map(this.torneioMapperOut::toTorneio)
             .orElseThrow();
 
         log.info("Finalizado adaptador para salvar Torneio, com nome: {}.", torneioSaved.getNome());
@@ -46,9 +46,9 @@ public class TorneioSaveAdapter implements TorneioSaveOutputPort {
     }
 
     private TorneioEntity linkarTorneioAosTimes(TorneioEntity torneioEntity, Torneio torneio) {
-        Set<TimeInventoryEntity> timesEntity = new HashSet<>();
 
         if (torneio.getTimes() != null) {
+            Set<TimeInventoryEntity> timesEntity = new HashSet<>();
 
             torneio.getTimes().forEach(time -> {
                 var timeIntentoryEntity = this.timeInventoryRepository.findById(time.getId())

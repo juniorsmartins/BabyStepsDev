@@ -5,7 +5,7 @@ import microservice.microtorneios.application.core.domain.TimeInventory;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")
-public interface TimeInventoryOutMapper {
+public interface TimeInventoryMapperOut {
 
     TimeInventoryEntity toTimeInventoryEntity(TimeInventory timeInventory);
 }
