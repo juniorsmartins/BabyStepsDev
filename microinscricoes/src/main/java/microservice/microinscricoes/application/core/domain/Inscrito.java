@@ -8,7 +8,7 @@ public final class Inscrito {
 
     private Inscricao inscricao;
 
-    private Long timeId;
+    private Time time;
 
     private Integer numeroBanco;
 
@@ -34,12 +34,12 @@ public final class Inscrito {
         this.inscricao = inscricao;
     }
 
-    public Long getTimeId() {
-        return timeId;
+    public Time getTime() {
+        return time;
     }
 
-    public void setTimeId(Long timeId) {
-        this.timeId = timeId;
+    public void setTime(Time time) {
+        this.time = time;
     }
 
     public Integer getNumeroBanco() {

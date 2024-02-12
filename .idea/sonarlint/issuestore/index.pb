@@ -581,3 +581,5 @@ Ymicroinscricoes/src/main/java/microservice/microinscricoes/config/usecase/TimeC
 hmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/out/repository/entity/TimeEntity.java,6/3/630c184ce4ef93a5a27dda407722940ee5145f1a
 •
 emicroinscricoes/src/main/java/microservice/microinscricoes/adapter/out/repository/TimeRepository.java,3/f/3f603b4e67f9df187d12b3b94596be810748d0f4
+ˆ
+Xmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/in/dto/TimeIdDto.java,a/f/aff8712ac002fa834e9772462972faf424004aac

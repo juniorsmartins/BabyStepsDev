@@ -6,21 +6,22 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import lombok.Builder;
 import microservice.microinscricoes.adapter.in.dto.InscricaoIdDto;
+import microservice.microinscricoes.adapter.in.dto.TimeIdDto;
 import microservice.microinscricoes.application.core.domain.enums.ETipoPagamento;
 
 @Schema(name = "InscrictoRegisterDtoIn", description = "Objeto de transporte de dados.")
 @Builder
 public record InscritoRegisterDtoIn(
 
-    @Schema(name = "inscricaoId", description = "Identificador Exclusivo - para identificar uma inscrição no banco de dados.", type = "Long", example = "22")
+    @Schema(name = "inscricao", description = "Estrutura de transporte de informações sobre inscrição.", type = "InscricaoIdDto")
     @NotNull
     @Valid
     InscricaoIdDto inscricao,
 
-    @Schema(name = "timeId", description = "Identificador Exclusivo - para identificar um time no banco de dados.", type = "Long", example = "22")
+    @Schema(name = "time", description = "Estrutura de transporte de informações sobre time.", type = "TimeIdDto")
     @NotNull
-    @Positive
-    Long timeId,
+    @Valid
+    TimeIdDto time,
 
     @Schema(name = "numeroBanco", description = "Informação sobre número do banco para pagamento da inscrição.", type = "Integer", example = "103")
     @NotNull
