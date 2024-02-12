@@ -22,16 +22,19 @@ public class TorneioSaveAdapter implements TorneioSaveOutputPort {
 
     @Transactional
     @Override
-    public void save(Torneio torneio) {
+    public Torneio save(Torneio torneio) {
 
         log.info("Iniciado adaptador para salvar Torneio.");
 
-        Optional.ofNullable(torneio)
+        var torneioSaved = Optional.ofNullable(torneio)
             .map(this.mapper::toTorneioEntity)
             .map(this.torneioRepository::save)
+            .map(this.mapper::toTorneio)
             .orElseThrow();
 
-        log.info("Finalizado adaptador para salvar Torneio {}.", torneio);
+        log.info("Finalizado adaptador para salvar Torneio {}.", torneioSaved);
+
+        return torneioSaved;
     }
 }
 

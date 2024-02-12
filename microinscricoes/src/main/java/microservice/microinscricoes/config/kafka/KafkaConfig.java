@@ -43,6 +43,9 @@ public class KafkaConfig {
     @Value("${spring.kafka.topic.torneio-save}")
     private String torneioSave;
 
+    @Value("${spring.kafka.topic.time-save}")
+    private String timeSave;
+
     @Bean
     public ConsumerFactory<String, String> consumerFactory() {
         return new DefaultKafkaConsumerFactory<>(consumerProperties());
@@ -93,6 +96,11 @@ public class KafkaConfig {
     @Bean
     public NewTopic torneioSave() {
         return buildTopic(torneioSave);
+    }
+
+    @Bean
+    public NewTopic timeSave() {
+        return buildTopic(timeSave);
     }
 
     private NewTopic buildTopic(String name) {
