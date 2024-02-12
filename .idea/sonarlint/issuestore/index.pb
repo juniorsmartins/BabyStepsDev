@@ -511,8 +511,6 @@ amicropagamentos/src/main/java/microservice/micropagamentos/application/core/dom
 `micropagamentos/src/main/java/microservice/micropagamentos/application/core/domain/Inscrito.java,1/e/1eea19854147bd47c56d217d3af11be14c8df776
 û
 nmicroinscricoes/src/main/java/microservice/microinscricoes/application/core/domain/enums/EInscricaoStatus.java,2/d/2da9e3b7ad0320438091fc9ebc0799f754956041
-î
-dmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/out/event/EventFindIdTorneio.java,1/9/198893fb9c6b8c7a2986de2c3dd4ad6ad3330eca
 ê
 `microtorneios/src/main/java/microservice/microtorneios/adapters/in/consumer/TorneioConsumer.java,e/e/eea7ba2e33a0e206fa9b80e43504e98dc68e5d03
 Ü
@@ -567,3 +565,5 @@ _microtorneios/src/main/java/microservice/microtorneios/adapters/out/producer/Ka
 ymicrotorneios/src/main/java/microservice/microtorneios/adapters/out/producer/NotifyCreationOfNewTorneioKafkaProducer.java,c/3/c3975766250915e153aee79b843067e8301e664e
 ì
 cmicrotorneios/src/main/java/microservice/microtorneios/adapters/in/dto/response/TorneioSaveDto.java,5/8/587dfda1761c43a64feef3e9855549cfd20b8347
+ä
+Zmicrotorneios/src/main/java/microservice/microtorneios/adapters/in/utils/JsonUtilImpl.java,b/2/b2c0b18670a32cbebdbf563377c799997d2e0744

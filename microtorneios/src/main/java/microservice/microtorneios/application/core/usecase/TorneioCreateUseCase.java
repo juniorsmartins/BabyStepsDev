@@ -52,8 +52,7 @@ public class TorneioCreateUseCase implements TorneioCreateInputPort {
             .map(tournament -> {
                 this.notifyCreationOfNewTorneioOutputPort.sendEvent(tournament);
                 return true;
-            })
-            .orElseThrow();
+            });
 
         return torneio;
     }
