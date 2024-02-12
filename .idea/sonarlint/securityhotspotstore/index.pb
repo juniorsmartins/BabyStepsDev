@@ -334,8 +334,6 @@ mmicrotorneios/src/main/java/microservice/microtorneios/adapters/in/dto/response
 hmicrotorneios/src/main/java/microservice/microtorneios/adapters/out/repository/entity/TorneioEntity.java,0/4/047bbd4377317a371af8948f855bc7837ddd84f8
 •
 emicrotorneios/src/main/java/microservice/microtorneios/adapters/out/repository/TorneioRepository.java,b/9/b9f46dab384d2c5d365f472f5a5ad928cf744845
-›
-kmicrotorneios/src/main/java/microservice/microtorneios/adapters/out/repository/mapper/TorneioOutMapper.java,5/d/5d9aa9acc2d2d10ef39ce50c91035a3b132f0ed2
 ˆ
 Xmicrotorneios/src/main/java/microservice/microtorneios/config/usecase/TorneioConfig.java,a/2/a290135368931c5f54b2afea2831e99c596967c8
 ž
@@ -346,8 +344,6 @@ fmicrotorneios/src/main/java/microservice/microtorneios/adapters/in/dto/request/
 dmicrotorneios/src/main/java/microservice/microtorneios/adapters/in/mapper/TimeInventoryInMapper.java,f/8/f8e4f605720fee40bf760ba1b5abd23726291865
 £
 smicrotorneios/src/main/java/microservice/microtorneios/adapters/in/dto/response/TimeInventoryCreateDtoResponse.java,9/d/9ddd22eda91b4c10f7149ff4ee3c5580f0a3b013
-¡
-qmicrotorneios/src/main/java/microservice/microtorneios/adapters/out/repository/mapper/TimeInventoryOutMapper.java,2/0/204ae00b2956f4c0ac94d188a6745b31de182c6c
 ›
 kmicrotorneios/src/main/java/microservice/microtorneios/adapters/out/repository/TimeInventoryRepository.java,2/a/2ada328f64d0a9f87b4c24f95da96a8466c584a8
 Œ

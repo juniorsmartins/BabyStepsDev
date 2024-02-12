@@ -50,5 +50,18 @@ public class EventConsumer {
 
         log.info("Finalizada mensageria, via tópico torneio-save, para salvar Torneio {}.", payload);
     }
+
+    @KafkaListener(
+        groupId = "${spring.kafka.consumer.group-id}",
+        topics = "${spring.kafka.topic.time-save}"
+    )
+    public void consumeTimeSaveEvent(String payload) {
+
+        log.info("Iniciada mensageria, via tópico time-save, para salvar Time.");
+
+
+
+        log.info("Finalizada mensageria, via tópico time-save, para salvar Time {}.", payload);
+    }
 }
 
