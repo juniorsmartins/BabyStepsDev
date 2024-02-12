@@ -6,6 +6,8 @@ import microservice.microinscricoes.application.port.output.TorneioSaveOutputPor
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Optional;
+
 public class TorneioSaveUseCase implements TorneioSaveInputPort {
 
     private static final Logger log = LoggerFactory.getLogger(TorneioSaveUseCase.class);
@@ -17,13 +19,17 @@ public class TorneioSaveUseCase implements TorneioSaveInputPort {
     }
 
     @Override
-    public void save(final Torneio torneio) {
+    public Torneio save(final Torneio torneio) {
 
         log.info("Iniciado serviço para salvar Torneio.");
 
-        this.torneioSaveOutputPort.save(torneio);
+        var torneioRegister = Optional.ofNullable(torneio)
+            .map(this.torneioSaveOutputPort::save)
+            .orElseThrow();
 
-        log.info("Finalizado serviço para salvar Torneio {}.", torneio);
+        log.info("Finalizado serviço para salvar Torneio {}.", torneioRegister);
+
+        return torneioRegister;
     }
 }
 

@@ -42,16 +42,13 @@ public class EventConsumer {
 
         log.info("Iniciada mensageria, via tópico torneio-save, para salvar Torneio.");
 
-        Optional.ofNullable(payload)
+        var response = Optional.ofNullable(payload)
             .map(this.jsonUtil::toTorneioSaveDto)
             .map(this.mapper::toTorneio)
-            .map(tournament -> {
-                this.torneioSaveInputPort.save(tournament);
-                return true;
-            })
+            .map(this.torneioSaveInputPort::save)
             .orElseThrow();
 
-        log.info("Finalizada mensageria, via tópico torneio-save, para salvar Torneio {}.", payload);
+        log.info("Finalizada mensageria, via tópico torneio-save, para salvar Torneio {}.", response);
     }
 
     @KafkaListener(
