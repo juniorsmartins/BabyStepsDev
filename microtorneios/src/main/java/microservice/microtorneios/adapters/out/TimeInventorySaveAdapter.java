@@ -3,7 +3,7 @@ package microservice.microtorneios.adapters.out;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import microservice.microtorneios.adapters.out.repository.TimeInventoryRepository;
-import microservice.microtorneios.adapters.out.repository.mapper.TimeInventoryOutMapper;
+import microservice.microtorneios.adapters.out.repository.mapper.TimeInventoryMapperOut;
 import microservice.microtorneios.application.core.domain.TimeInventory;
 import microservice.microtorneios.application.port.output.TimeInventorySaveOutputPort;
 import org.springframework.stereotype.Component;
@@ -18,7 +18,7 @@ public class TimeInventorySaveAdapter implements TimeInventorySaveOutputPort {
 
     private final TimeInventoryRepository timeInventoryRepository;
 
-    private final TimeInventoryOutMapper timeInventoryOutMapper;
+    private final TimeInventoryMapperOut timeInventoryMapperOut;
 
     @Transactional
     @Override
@@ -27,7 +27,7 @@ public class TimeInventorySaveAdapter implements TimeInventorySaveOutputPort {
         log.info("Iniciado adaptador para salvar TimeInventory.");
 
         var timeInventorySaved = Optional.ofNullable(timeInventory)
-            .map(this.timeInventoryOutMapper::toTimeInventoryEntity)
+            .map(this.timeInventoryMapperOut::toTimeInventoryEntity)
             .map(this.timeInventoryRepository::save)
             .orElseThrow();
 
