@@ -23,8 +23,9 @@
 		<swagger.version>2.3.0</swagger.version>
 		<rest-assured.version>5.4.0</rest-assured.version>
 		<junit.params.version>5.10.1</junit.params.version>
-		<mockito.version>5.8.0</mockito.version>
-		<data.faker.version>2.0.2</data.faker.version>
+		<mockito.core.version>5.10.0</mockito.core.version>
+		<mockito.jupiter.version>5.10.0</mockito.jupiter.version>
+		<data.faker.version>2.1.0</data.faker.version>
 		<h2.version>2.2.220</h2.version>
 	</properties>
 
@@ -144,6 +145,13 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!-- Solução de compatibilidade do Byte Buddy com o Java 21 -->
+		<dependency>
+			<groupId>net.bytebuddy</groupId>
+			<artifactId>byte-buddy</artifactId>
+			<version>1.14.11</version>
+		</dependency>
+
 		<!-- Parametrização de Testes -->
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
@@ -155,8 +163,15 @@
 		<!-- Simular Objetos - Mocks -->
 		<dependency>
 			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>${mockito.core.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mockito</groupId>
 			<artifactId>mockito-junit-jupiter</artifactId>
-			<version>${mockito.version}</version>
+			<version>${mockito.jupiter.version}</version>
 			<scope>test</scope>
 		</dependency>
 
