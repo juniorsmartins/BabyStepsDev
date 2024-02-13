@@ -1,6 +1,7 @@
 package microservice.microinscricoes.utility;
 
 import microservice.microinscricoes.adapter.in.dto.request.InscricaoOpenDtoIn;
+import microservice.microinscricoes.adapter.out.repository.entity.TorneioEntity;
 import microservice.microinscricoes.application.core.domain.Inscricao;
 import microservice.microinscricoes.application.core.domain.Torneio;
 import net.datafaker.Faker;
@@ -62,6 +63,13 @@ public final class FactoryObjectMother {
         torneio.setAno(Year.of(faker.number().numberBetween(1900, 2024)));
 
         return torneio;
+    }
+
+    public TorneioEntity.TorneioEntityBuilder gerarTorneioEntityBuilder() {
+
+        return TorneioEntity.builder()
+            .nome(faker.lorem().characters(10, 30))
+            .ano(Year.of(faker.number().numberBetween(1900, 2024)));
     }
 
 }
