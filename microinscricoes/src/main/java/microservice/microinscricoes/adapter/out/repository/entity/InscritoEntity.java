@@ -30,8 +30,9 @@ public final class InscritoEntity implements Serializable {
     @JoinColumn(name = "inscricao_id")
     private InscricaoEntity inscricao;
 
-    @Column(name = "time_id")
-    private Long timeId;
+    @OneToOne
+    @JoinColumn(name = "time_id")
+    private TimeEntity time;
 
     @Column(name = "numero_banco", table = "inscrito_pagamento")
     private Integer numeroBanco;

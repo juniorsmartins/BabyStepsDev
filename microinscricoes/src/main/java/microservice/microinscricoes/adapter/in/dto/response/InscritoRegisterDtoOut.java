@@ -3,6 +3,7 @@ package microservice.microinscricoes.adapter.in.dto.response;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import io.swagger.v3.oas.annotations.media.Schema;
 import microservice.microinscricoes.adapter.in.dto.InscricaoIdDto;
+import microservice.microinscricoes.adapter.in.dto.TimeIdDto;
 import microservice.microinscricoes.application.core.domain.enums.ETipoPagamento;
 
 @Schema(name = "InscrictoRegisterDtoOut", description = "Objeto de transporte de dados.")
@@ -16,7 +17,7 @@ public record InscritoRegisterDtoOut(
     InscricaoIdDto inscricao,
 
     @Schema(name = "timeId", description = "Identificador Exclusivo - para identificar um time no banco de dados.", type = "Long", example = "22")
-    Long timeId,
+    TimeIdDto time,
 
     @Schema(name = "numeroBanco", description = "Informação sobre número do banco para pagamento da inscrição.", type = "Integer", example = "103")
     Integer numeroBanco,

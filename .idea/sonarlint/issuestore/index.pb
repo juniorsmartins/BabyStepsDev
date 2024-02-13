@@ -581,3 +581,17 @@ Ymicroinscricoes/src/main/java/microservice/microinscricoes/config/usecase/TimeC
 hmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/out/repository/entity/TimeEntity.java,6/3/630c184ce4ef93a5a27dda407722940ee5145f1a
 ï
 emicroinscricoes/src/main/java/microservice/microinscricoes/adapter/out/repository/TimeRepository.java,3/f/3f603b4e67f9df187d12b3b94596be810748d0f4
+à
+Xmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/in/dto/TimeIdDto.java,a/f/aff8712ac002fa834e9772462972faf424004aac
+ù
+mmicroinscricoes/src/test/java/microservice/microinscricoes/adapter/in/controller/InscricaoControllerTest.java,3/2/32cd5268fa0b52f6dd2032aaf5cf09be75288e9c
+î
+dmicroinscricoes/src/test/java/microservice/microinscricoes/adapter/out/InscricaoSaveAdapterTest.java,a/8/a8408dc09fcf4f9d03a979ca63d23f878d0e9afa
+°
+qmicroinscricoes/src/test/java/microservice/microinscricoes/application/core/usecase/InscricaoOpenUseCaseTest.java,a/e/aeaf194662ea477393724902d07c599ec0aed7a8
+î
+dmicronoticias/src/test/java/microservice/micronoticias/application/core/domain/EditoriaUnitTest.java,3/f/3f312946e1bc86c25df8625f5b39fe9e5d567203
+ì
+cmicronoticias/src/test/java/microservice/micronoticias/application/core/domain/NoticiaUnitTest.java,2/4/24e96a1fa016017a3cd3321620d1afd9c4d7cc21
+ú
+lmicronoticias/src/test/java/microservice/micronoticias/adapter/out/mapper/EditoriaMapperOutImplUnitTest.java,0/e/0e59af3208a97e3bfa3dd3519fb24573f1cdcb53

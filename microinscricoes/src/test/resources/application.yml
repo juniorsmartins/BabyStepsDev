@@ -3,8 +3,11 @@ server:
 
 spring:
 
+  application:
+    name: microinscricoes
+
   datasource:
-    url: jdbc:h2:mem:testdb
+    url: jdbc:h2:mem:microinscricoes
     username: sa
     password:
 
@@ -22,6 +25,8 @@ spring:
   kafka:
     bootstrap-servers: localhost:9092
     topic:
+      torneio-save: torneio-save
+      time-save: time-save
       start-saga: start-saga
       notify-ending: notify-ending
     consumer:
