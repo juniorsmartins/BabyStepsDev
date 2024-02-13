@@ -31,10 +31,14 @@ public final class FactoryObjectMother {
     // Padrão Builder
     public InscricaoOpenDtoIn.InscricaoOpenDtoInBuilder gerarInscricaoOpenDtoInBuilder() {
 
+        var ano = faker.number().numberBetween(1900, 2024);
+        var mes = faker.number().numberBetween(1, 12);
+        var dia = faker.number().numberBetween(1, 28);
+
         return InscricaoOpenDtoIn.builder()
-//            .dataInicio("01/01/2024")
-//            .dataFim("01/02/2024")
-            .valor(BigDecimal.valueOf(50));
+            .dataInicio(LocalDate.of(ano, mes, dia))
+            .dataFim(LocalDate.of(ano, mes, dia))
+            .valor(BigDecimal.valueOf(100));
     }
 
     // Padrão JavaBeans
@@ -56,6 +60,7 @@ public final class FactoryObjectMother {
         return inscricao;
     }
 
+    // Padrão JavaBeans
     public Torneio gerarTorneio() {
 
         var torneio = new Torneio();
@@ -65,6 +70,7 @@ public final class FactoryObjectMother {
         return torneio;
     }
 
+    // Padrão Builder
     public TorneioEntity.TorneioEntityBuilder gerarTorneioEntityBuilder() {
 
         return TorneioEntity.builder()
