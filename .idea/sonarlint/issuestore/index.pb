@@ -595,3 +595,15 @@ dmicronoticias/src/test/java/microservice/micronoticias/application/core/domain/
 cmicronoticias/src/test/java/microservice/micronoticias/application/core/domain/NoticiaUnitTest.java,2/4/24e96a1fa016017a3cd3321620d1afd9c4d7cc21
 ú
 lmicronoticias/src/test/java/microservice/micronoticias/adapter/out/mapper/EditoriaMapperOutImplUnitTest.java,0/e/0e59af3208a97e3bfa3dd3519fb24573f1cdcb53
+ô
+imicroinscricoes/src/test/java/microservice/microinscricoes/adapter/out/unit/InscricaoSaveAdapterTest.java,e/d/ed677fa576ecbcce260f3210f4f043dd6b9551be
+†
+pmicroinscricoes/src/test/java/microservice/microinscricoes/adapter/out/integration/InscricaoSaveAdapterTest.java,d/1/d1d100a68b09fabf6fda3cf55a14569c6df63ee2
+Ç
+Rmicroinscricoes/src/test/java/microservice/microinscricoes/utility/TestConfig.java,5/d/5dd4c65b5a771f3a710154d1ed8933a42d771576
+É
+Smicroinscricoes/src/test/java/microservice/microinscricoes/utility/TestConfigs.java,d/3/d34306439466dbbfc4f103336c173635433e4be8
+è
+_microinscricoes/src/test/java/microservice/microinscricoes/utility/AbstractIntegrationTest.java,9/0/90eb136bf96a3e54d49738aa271586123fc33a5c
+é
+^microinscricoes/src/test/java/microservice/microinscricoes/swagger/SwaggerIntegrationTest.java,7/a/7a5be27816d085b772e717ac4a76836b0473a3c1

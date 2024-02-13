@@ -26,6 +26,7 @@
 		<mockito.core.version>5.10.0</mockito.core.version>
 		<mockito.jupiter.version>5.10.0</mockito.jupiter.version>
 		<data.faker.version>2.1.0</data.faker.version>
+		<testcontainers.version>1.19.5</testcontainers.version>
 		<h2.version>2.2.220</h2.version>
 	</properties>
 
@@ -184,9 +185,9 @@
 
 		<!-- Banco de dados para testes -->
 		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<version>${h2.version}</version>
+			<groupId>org.testcontainers</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>${testcontainers.version}</version>
 			<scope>test</scope>
 		</dependency>
 
