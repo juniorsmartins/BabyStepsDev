@@ -410,8 +410,6 @@ omicroinscricoes/src/main/java/microservice/microinscricoes/application/port/out
 `microinscricoes/src/main/java/microservice/microinscricoes/adapter/out/InscricaoSaveAdapter.java,0/a/0a2850bc97e0f23426eef2213262dc1affcb154f
 ö
 jmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/out/repository/InscricaoRepository.java,1/5/156485acf8c22167dfe3eaa74f815d88a5717f5b
-Ä
-Pmicroinscricoes/src/test/java/microservice/microinscricoes/utility/BaseTest.java,6/5/65e21ebf6caf5fff127446edc080296f0d394bdd
 ã
 [microinscricoes/src/test/java/microservice/microinscricoes/utility/FactoryObjectMother.java,8/5/85c361efc404ccac76c00bbfdef23fc245d321c6
 ò
@@ -580,8 +578,6 @@ emicroinscricoes/src/main/java/microservice/microinscricoes/adapter/out/reposito
 Xmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/in/dto/TimeIdDto.java,a/f/aff8712ac002fa834e9772462972faf424004aac
 ù
 mmicroinscricoes/src/test/java/microservice/microinscricoes/adapter/in/controller/InscricaoControllerTest.java,3/2/32cd5268fa0b52f6dd2032aaf5cf09be75288e9c
-î
-dmicroinscricoes/src/test/java/microservice/microinscricoes/adapter/out/InscricaoSaveAdapterTest.java,a/8/a8408dc09fcf4f9d03a979ca63d23f878d0e9afa
 °
 qmicroinscricoes/src/test/java/microservice/microinscricoes/application/core/usecase/InscricaoOpenUseCaseTest.java,a/e/aeaf194662ea477393724902d07c599ec0aed7a8
 î
@@ -594,11 +590,11 @@ lmicronoticias/src/test/java/microservice/micronoticias/adapter/out/mapper/Edito
 imicroinscricoes/src/test/java/microservice/microinscricoes/adapter/out/unit/InscricaoSaveAdapterTest.java,e/d/ed677fa576ecbcce260f3210f4f043dd6b9551be
 †
 pmicroinscricoes/src/test/java/microservice/microinscricoes/adapter/out/integration/InscricaoSaveAdapterTest.java,d/1/d1d100a68b09fabf6fda3cf55a14569c6df63ee2
-Ç
-Rmicroinscricoes/src/test/java/microservice/microinscricoes/utility/TestConfig.java,5/d/5dd4c65b5a771f3a710154d1ed8933a42d771576
 É
 Smicroinscricoes/src/test/java/microservice/microinscricoes/utility/TestConfigs.java,d/3/d34306439466dbbfc4f103336c173635433e4be8
 è
 _microinscricoes/src/test/java/microservice/microinscricoes/utility/AbstractIntegrationTest.java,9/0/90eb136bf96a3e54d49738aa271586123fc33a5c
 é
 ^microinscricoes/src/test/java/microservice/microinscricoes/swagger/SwaggerIntegrationTest.java,7/a/7a5be27816d085b772e717ac4a76836b0473a3c1
+Ü
+Vmicroinscricoes/src/main/java/microservice/microinscricoes/config/beans/WebConfig.java,f/8/f85f6db113be2e706488ccf6e0c5b2023f331592
