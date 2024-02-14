@@ -4,6 +4,7 @@ import microservice.microinscricoes.adapter.out.InscricaoSaveAdapter;
 import microservice.microinscricoes.adapter.out.repository.InscricaoRepository;
 import microservice.microinscricoes.adapter.out.repository.TorneioRepository;
 import microservice.microinscricoes.application.core.domain.Inscricao;
+import microservice.microinscricoes.utility.AbstractIntegrationTest;
 import microservice.microinscricoes.utility.FactoryObjectMother;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -15,7 +16,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @SpringBootTest
 @ExtendWith({SpringExtension.class, MockitoExtension.class})
 @DisplayName("Integration - InscricaoOpenAdapter")
-class InscricaoSaveAdapterTest {
+class InscricaoSaveAdapterTest extends AbstractIntegrationTest {
 
     private final FactoryObjectMother factory = FactoryObjectMother.singleton();
 

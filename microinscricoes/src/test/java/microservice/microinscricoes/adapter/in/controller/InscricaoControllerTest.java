@@ -5,17 +5,18 @@ import microservice.microinscricoes.adapter.in.dto.TorneioIdDto;
 import microservice.microinscricoes.adapter.in.dto.request.InscricaoOpenDtoIn;
 import microservice.microinscricoes.adapter.out.repository.InscricaoRepository;
 import microservice.microinscricoes.adapter.out.repository.TorneioRepository;
+import microservice.microinscricoes.utility.AbstractIntegrationTest;
 import microservice.microinscricoes.utility.FactoryObjectMother;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 //@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@SpringBootTest
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 @DisplayName("Integration - InscricaoController")
-class InscricaoControllerTest {
+class InscricaoControllerTest extends AbstractIntegrationTest {
 
-    private static final int SERVER_PORT = 8000;
+//    private static final int SERVER_PORT = 8000;
 
     public static final String APPLICATION_JSON = "application/json";
 
@@ -60,7 +61,8 @@ class InscricaoControllerTest {
                     .contentType(APPLICATION_JSON)
                     .body(inscricaoOpenDtoIn)
                 .when()
-                    .post("http://localhost:8000/api/v1/inscricoes")
+//                    .post("http://localhost:8000/api/v1/inscricoes")
+                    .post("/api/v1/inscricoes")
                 .then()
                     .log().all()
                     .statusCode(201);

@@ -6,6 +6,7 @@ import microservice.microinscricoes.application.core.domain.Inscricao;
 import microservice.microinscricoes.application.core.domain.Torneio;
 import microservice.microinscricoes.application.port.output.InscricaoSaveOutputPort;
 import microservice.microinscricoes.application.port.output.TorneioFindByIdOutputPort;
+import microservice.microinscricoes.utility.AbstractIntegrationTest;
 import microservice.microinscricoes.utility.FactoryObjectMother;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -22,7 +23,7 @@ import java.util.Optional;
 @SpringBootTest
 @ExtendWith({SpringExtension.class, MockitoExtension.class})
 @DisplayName("Unit - InscricaoOpenUseCase")
-class InscricaoOpenUseCaseTest {
+class InscricaoOpenUseCaseTest extends AbstractIntegrationTest {
 
     private final FactoryObjectMother factory = FactoryObjectMother.singleton();
 

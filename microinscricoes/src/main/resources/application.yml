@@ -67,3 +67,5 @@ eureka:
     instance-id: ${spring.application.name}:${spring.cloud.client.hostname}:${spring.application.instance_id:${random.value}}
     leaseRenewalIntervalInSeconds: 30
 
+
+
