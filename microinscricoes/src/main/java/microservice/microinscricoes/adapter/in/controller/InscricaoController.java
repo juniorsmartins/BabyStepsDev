@@ -39,6 +39,7 @@ public class InscricaoController {
 
     private final MapperIn mapperIn;
 
+    @CrossOrigin(origins = {"http://localhost:8080", "https://babystepsdev.com"})
     @PostMapping(
         consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_JSON_VALUE, APPLICATION_YAML_VALUE},
         produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, APPLICATION_YAML_VALUE})

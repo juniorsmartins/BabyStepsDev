@@ -21,13 +21,11 @@
 		<spring-cloud.version>2022.0.4</spring-cloud.version>
 		<mapstruct.version>1.5.5.Final</mapstruct.version>
 		<swagger.version>2.3.0</swagger.version>
-		<rest-assured.version>5.4.0</rest-assured.version>
 		<junit.params.version>5.10.1</junit.params.version>
 		<mockito.core.version>5.10.0</mockito.core.version>
 		<mockito.jupiter.version>5.10.0</mockito.jupiter.version>
 		<data.faker.version>2.1.0</data.faker.version>
 		<testcontainers.version>1.19.5</testcontainers.version>
-		<h2.version>2.2.220</h2.version>
 	</properties>
 
 	<dependencies>
@@ -142,7 +140,6 @@
 		<dependency>
 			<groupId>io.rest-assured</groupId>
 			<artifactId>rest-assured</artifactId>
-			<version>${rest-assured.version}</version>
 			<scope>test</scope>
 		</dependency>
 
