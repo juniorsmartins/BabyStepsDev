@@ -67,5 +67,7 @@ eureka:
     instance-id: ${spring.application.name}:${spring.cloud.client.hostname}:${spring.application.instance_id:${random.value}}
     leaseRenewalIntervalInSeconds: 30
 
-
+spring-doc:
+  pathsToMatch: /api/v1/**
+  packagesToScan: microservice.microinscricoes.adapter.in.controller
 
