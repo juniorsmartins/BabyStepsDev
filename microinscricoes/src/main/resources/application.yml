@@ -1,6 +1,13 @@
 server:
   port: 0
 
+cors:
+  originPatterns: http://localhost:8000,http://localhost:8080,https://babystepsdev.com
+
+spring-doc:
+  pathsToMatch: /api/v1/**
+  packagesToScan: microservice.microinscricoes.adapter.in.controller
+
 spring:
 
   application:
@@ -67,7 +74,4 @@ eureka:
     instance-id: ${spring.application.name}:${spring.cloud.client.hostname}:${spring.application.instance_id:${random.value}}
     leaseRenewalIntervalInSeconds: 30
 
-spring-doc:
-  pathsToMatch: /api/v1/**
-  packagesToScan: microservice.microinscricoes.adapter.in.controller
 

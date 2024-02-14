@@ -596,3 +596,5 @@ Smicroinscricoes/src/test/java/microservice/microinscricoes/utility/TestConfigs.
 _microinscricoes/src/test/java/microservice/microinscricoes/utility/AbstractIntegrationTest.java,9/0/90eb136bf96a3e54d49738aa271586123fc33a5c
 Ž
 ^microinscricoes/src/test/java/microservice/microinscricoes/swagger/SwaggerIntegrationTest.java,7/a/7a5be27816d085b772e717ac4a76836b0473a3c1
+†
+Vmicroinscricoes/src/main/java/microservice/microinscricoes/config/beans/WebConfig.java,f/8/f85f6db113be2e706488ccf6e0c5b2023f331592

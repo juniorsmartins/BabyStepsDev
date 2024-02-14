@@ -1,6 +1,7 @@
 package microservice.microinscricoes.adapter.in.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.Builder;
 import microservice.microinscricoes.adapter.in.dto.TorneioIdDto;
 import microservice.microinscricoes.application.core.domain.enums.EInscricaoStatus;
 
@@ -8,6 +9,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
+@Builder
 public record InscricaoOpenDtoOut(
 
     Long id,

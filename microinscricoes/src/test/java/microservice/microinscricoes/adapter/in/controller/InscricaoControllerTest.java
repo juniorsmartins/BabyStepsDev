@@ -1,24 +1,37 @@
 package microservice.microinscricoes.adapter.in.controller;
 
 import io.restassured.RestAssured;
+import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.filter.log.LogDetail;
+import io.restassured.filter.log.RequestLoggingFilter;
+import io.restassured.filter.log.ResponseLoggingFilter;
+import io.restassured.specification.RequestSpecification;
 import microservice.microinscricoes.adapter.in.dto.TorneioIdDto;
 import microservice.microinscricoes.adapter.in.dto.request.InscricaoOpenDtoIn;
+import microservice.microinscricoes.adapter.in.dto.response.InscricaoOpenDtoOut;
 import microservice.microinscricoes.adapter.out.repository.InscricaoRepository;
 import microservice.microinscricoes.adapter.out.repository.TorneioRepository;
 import microservice.microinscricoes.utility.AbstractIntegrationTest;
 import microservice.microinscricoes.utility.FactoryObjectMother;
+import microservice.microinscricoes.utility.TestConfigs;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.testcontainers.shaded.com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.IOException;
 
 //@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @DisplayName("Integration - InscricaoController")
 class InscricaoControllerTest extends AbstractIntegrationTest {
 
-//    private static final int SERVER_PORT = 8000;
+    public static final String BASE_PATH = "/api/v1/inscricoes";
 
-    public static final String APPLICATION_JSON = "application/json";
+    private static RequestSpecification requestSpecification;
+
+    private static ObjectMapper objectMapper;
 
     private final FactoryObjectMother factory = FactoryObjectMother.singleton();
 
@@ -32,6 +45,9 @@ class InscricaoControllerTest extends AbstractIntegrationTest {
 
     @BeforeEach
     void setUp() {
+        objectMapper = new ObjectMapper();
+//        objectMapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES); // Usar somente nos testes para manter a segurança da API - Isso é usado quanto temos Hateoas
+
         var torneioIdDto = new TorneioIdDto(1L);
         this.inscricaoOpenDtoIn = this.factory.gerarInscricaoOpenDtoInBuilder()
             .torneio(torneioIdDto)
@@ -55,17 +71,31 @@ class InscricaoControllerTest extends AbstractIntegrationTest {
 
         @Test
         @DisplayName("dados válidos")
-        void dadoInscricaoOpenDtoInValido_QuandoOpen_EntaoRetornarHttp201() {
+        void dadoInscricaoOpenDtoInValido_QuandoOpen_EntaoRetornarHttp201() throws IOException {
 
-            RestAssured.given()
-                    .contentType(APPLICATION_JSON)
+            requestSpecification = new RequestSpecBuilder()
+                .addHeader(TestConfigs.HEADER_PARAM_ORIGIN, TestConfigs.ORIGIN_BABYSTEPS)
+                .setBasePath(BASE_PATH)
+                .setPort(TestConfigs.SERVER_PORT)
+                    .addFilter(new RequestLoggingFilter(LogDetail.ALL))
+                    .addFilter(new ResponseLoggingFilter(LogDetail.ALL))
+                .build();
+
+            var response = RestAssured.given().spec(requestSpecification)
+                .contentType(TestConfigs.CONTENT_TYPE_JSON)
                     .body(inscricaoOpenDtoIn)
-                .when()
-//                    .post("http://localhost:8000/api/v1/inscricoes")
-                    .post("/api/v1/inscricoes")
+                    .when()
+                    .post()
                 .then()
                     .log().all()
-                    .statusCode(201);
+                    .statusCode(201)
+                .extract()
+                    .body()
+                        .asString();
+
+            var dtoOut = objectMapper.readValue(response, InscricaoOpenDtoOut.class);
+
+            Assertions.assertTrue(dtoOut.id() > 0);
         }
     }
 }
