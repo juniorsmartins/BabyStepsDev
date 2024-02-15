@@ -66,5 +66,17 @@ public final class Inscricao {
     public void setStatus(EInscricaoStatus status) {
         this.status = status;
     }
+
+    @Override
+    public String toString() {
+        return "Inscricao{" +
+            "id=" + id +
+            ", torneio=" + torneio +
+            ", dataInicio=" + dataInicio +
+            ", dataFim=" + dataFim +
+            ", valor=" + valor +
+            ", status=" + status +
+            '}';
+    }
 }
 

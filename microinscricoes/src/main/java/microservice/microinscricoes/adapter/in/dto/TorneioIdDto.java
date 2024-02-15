@@ -1,6 +1,24 @@
 package microservice.microinscricoes.adapter.in.dto;
 
 import jakarta.validation.constraints.Positive;
+import lombok.*;
 
-public record TorneioIdDto(@Positive Long id) { }
+import java.io.Serial;
+import java.io.Serializable;
+
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@ToString
+@EqualsAndHashCode(of = {"id"})
+public final class TorneioIdDto implements Serializable {
+
+    @Serial
+    private static final long serialVersionUID = 1L;
+
+    @Positive
+    private Long id;
+}
 

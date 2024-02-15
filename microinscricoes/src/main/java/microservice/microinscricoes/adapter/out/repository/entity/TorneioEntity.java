@@ -14,6 +14,7 @@ import java.time.Year;
 @AllArgsConstructor
 @Getter
 @Setter
+@ToString
 @EqualsAndHashCode(of = {"id"})
 public final class TorneioEntity implements Serializable {
 
