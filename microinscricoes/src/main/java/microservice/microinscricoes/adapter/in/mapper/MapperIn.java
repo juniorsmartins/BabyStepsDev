@@ -14,6 +14,7 @@ import microservice.microinscricoes.application.core.domain.Inscrito;
 import microservice.microinscricoes.application.core.domain.Time;
 import microservice.microinscricoes.application.core.domain.Torneio;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.Named;
 
 import java.time.LocalDate;
@@ -36,8 +37,8 @@ public interface MapperIn {
         return LocalDate.parse(data, formatter);
     }
 
-//    @Mapping(source = "dataInicio", target = "dataInicio", qualifiedByName = "setDataString")
-//    @Mapping(source = "dataFim", target = "dataFim", qualifiedByName = "setDataString")
+    @Mapping(source = "dataInicio", target = "dataInicio", qualifiedByName = "setDataString")
+    @Mapping(source = "dataFim", target = "dataFim", qualifiedByName = "setDataString")
     InscricaoOpenDtoOut toInscricaoOpenDtoOut(Inscricao inscricao);
 
     @Named("setDataString")
