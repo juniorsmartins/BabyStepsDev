@@ -72,10 +72,10 @@ public class InscricaoController {
             .map(this.mapperIn::toInscricaoOpenDtoOut)
             .orElseThrow();
 
-        log.info("Período de Inscrições criado com sucesso, com Id: {}", response.id());
+        log.info("Período de Inscrições criado com sucesso, com Id: {}", response.getId());
 
         return ResponseEntity
-            .created(URI.create("/api/v1/inscricoes/open/" + response.id()))
+            .created(URI.create("/api/v1/inscricoes/open/" + response.getId()))
             .body(response);
     }
 

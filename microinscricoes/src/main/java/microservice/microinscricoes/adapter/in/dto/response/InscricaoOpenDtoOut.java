@@ -1,28 +1,37 @@
 package microservice.microinscricoes.adapter.in.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import lombok.Builder;
+import lombok.*;
 import microservice.microinscricoes.adapter.in.dto.TorneioIdDto;
 import microservice.microinscricoes.application.core.domain.enums.EInscricaoStatus;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.math.BigDecimal;
-import java.time.LocalDate;
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
 @Builder
-public record InscricaoOpenDtoOut(
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@ToString
+@EqualsAndHashCode(of = {"id"})
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public final class InscricaoOpenDtoOut implements Serializable {
 
-    Long id,
+    @Serial
+    private static final long serialVersionUID = 1L;
 
-    TorneioIdDto torneio,
+    private Long id;
 
-    LocalDate dataInicio,
+    private TorneioIdDto torneio;
 
-    LocalDate dataFim,
+    private String dataInicio;
 
-    BigDecimal valor,
+    private String dataFim;
 
-    EInscricaoStatus inscricaoStatus
+    private BigDecimal valor;
 
-) { }
+    private EInscricaoStatus inscricaoStatus;
+}
 

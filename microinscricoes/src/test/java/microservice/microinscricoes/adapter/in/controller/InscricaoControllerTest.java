@@ -17,6 +17,7 @@ import microservice.microinscricoes.utility.TestConfigs;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.testcontainers.shaded.com.fasterxml.jackson.databind.DeserializationFeature;
 import org.testcontainers.shaded.com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
@@ -46,7 +47,7 @@ class InscricaoControllerTest extends AbstractIntegrationTest {
     @BeforeEach
     void setUp() {
         objectMapper = new ObjectMapper();
-//        objectMapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES); // Usar somente nos testes para manter a segurança da API - Isso é usado quanto temos Hateoas
+        objectMapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES); // Usar somente nos testes para manter a segurança da API - Isso é usado quanto temos Hateoas
 
         var torneioIdDto = new TorneioIdDto(1L);
         this.inscricaoOpenDtoIn = this.factory.gerarInscricaoOpenDtoInBuilder()
@@ -95,7 +96,7 @@ class InscricaoControllerTest extends AbstractIntegrationTest {
 
             var dtoOut = objectMapper.readValue(response, InscricaoOpenDtoOut.class);
 
-            Assertions.assertTrue(dtoOut.id() > 0);
+            Assertions.assertTrue(dtoOut.getId() > 0);
         }
     }
 }
