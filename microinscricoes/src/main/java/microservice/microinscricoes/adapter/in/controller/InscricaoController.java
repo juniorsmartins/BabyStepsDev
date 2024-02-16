@@ -69,7 +69,15 @@ public class InscricaoController {
         var response = Optional.of(inscricaoOpenDtoIn)
             .map(this.mapperIn::toInscricao)
             .map(this.inscricaoOpenInputPort::open)
+                .map(tor -> {
+                    System.out.println("\n\n----- 1 -----" + tor);
+                    return tor;
+                })
             .map(this.mapperIn::toInscricaoOpenDtoOut)
+                .map(tor -> {
+                    System.out.println("\n\n----- 2 -----" + tor);
+                    return tor;
+                })
             .orElseThrow();
 
         log.info("Período de Inscrições criado com sucesso, com Id: {}", response.getId());
