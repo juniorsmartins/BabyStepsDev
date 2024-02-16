@@ -21,8 +21,8 @@ import org.testcontainers.shaded.com.fasterxml.jackson.databind.DeserializationF
 import org.testcontainers.shaded.com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
+import java.time.format.DateTimeFormatter;
 
-//@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @DisplayName("Integration - InscricaoController")
@@ -58,6 +58,14 @@ class InscricaoControllerTest extends AbstractIntegrationTest {
             .id(1L)
             .build();
         this.torneioRepository.save(torneioEntity);
+
+        requestSpecification = new RequestSpecBuilder()
+            .addHeader(TestConfigs.HEADER_PARAM_ORIGIN, TestConfigs.ORIGIN_BABYSTEPS)
+            .setBasePath(BASE_PATH)
+            .setPort(TestConfigs.SERVER_PORT)
+                .addFilter(new RequestLoggingFilter(LogDetail.ALL))
+                .addFilter(new ResponseLoggingFilter(LogDetail.ALL))
+            .build();
     }
 
     @AfterEach
@@ -71,21 +79,57 @@ class InscricaoControllerTest extends AbstractIntegrationTest {
     class Post {
 
         @Test
-        @DisplayName("dados válidos")
-        void dadoInscricaoOpenDtoInValido_QuandoOpen_EntaoRetornarHttp201() throws IOException {
+        @DisplayName("http 201")
+        void dadoInscricaoOpenDtoInValido_QuandoOpen_EntaoRetornarHttp201() {
+
+            RestAssured
+                .given().spec(requestSpecification)
+                    .contentType(TestConfigs.CONTENT_TYPE_JSON)
+                    .body(inscricaoOpenDtoIn)
+                .when()
+                    .post()
+                .then()
+                    .log().all()
+                    .statusCode(201);
+        }
+
+        @Test
+        @DisplayName("http 403")
+        void dadoTesteDeCors_QuandoCorsNaoPermitido_EntaoRetornarHttp403() {
 
             requestSpecification = new RequestSpecBuilder()
-                .addHeader(TestConfigs.HEADER_PARAM_ORIGIN, TestConfigs.ORIGIN_BABYSTEPS)
+                .addHeader(TestConfigs.HEADER_PARAM_ORIGIN, TestConfigs.ORIGIN_NAO_PERMITIDA)
                 .setBasePath(BASE_PATH)
                 .setPort(TestConfigs.SERVER_PORT)
                     .addFilter(new RequestLoggingFilter(LogDetail.ALL))
                     .addFilter(new ResponseLoggingFilter(LogDetail.ALL))
                 .build();
 
-            var response = RestAssured.given().spec(requestSpecification)
-                .contentType(TestConfigs.CONTENT_TYPE_JSON)
+            var response = RestAssured
+                .given().spec(requestSpecification)
+                    .contentType(TestConfigs.CONTENT_TYPE_JSON)
                     .body(inscricaoOpenDtoIn)
-                    .when()
+                .when()
+                    .post()
+                .then()
+                    .log().all()
+                    .statusCode(403)
+                        .extract()
+                            .body()
+                                .asString();
+
+            Assertions.assertEquals("Invalid CORS request", response);
+        }
+
+        @Test
+        @DisplayName("persistência")
+        void dadoInscricaoOpenDtoInValido_QuandoOpen_EntaoRetornarDadosPersistidos() throws IOException {
+
+            var response = RestAssured
+                .given().spec(requestSpecification)
+                    .contentType(TestConfigs.CONTENT_TYPE_JSON)
+                    .body(inscricaoOpenDtoIn)
+                .when()
                     .post()
                 .then()
                     .log().all()
@@ -95,8 +139,14 @@ class InscricaoControllerTest extends AbstractIntegrationTest {
                         .asString();
 
             var dtoOut = objectMapper.readValue(response, InscricaoOpenDtoOut.class);
+            var persistido = inscricaoRepository.findById(dtoOut.getId()).orElseThrow();
 
-            Assertions.assertTrue(dtoOut.getId() > 0);
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+            Assertions.assertEquals(dtoOut.getDataInicio(), persistido.getDataInicio().format(formatter));
+            Assertions.assertEquals(dtoOut.getDataFim(), persistido.getDataFim().format(formatter));
+            Assertions.assertEquals(dtoOut.getStatus(), persistido.getStatus());
+            Assertions.assertEquals(dtoOut.getTorneio().getId(), persistido.getTorneio().getId());
         }
     }
 }

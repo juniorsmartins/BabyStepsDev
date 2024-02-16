@@ -32,6 +32,6 @@ public final class InscricaoOpenDtoOut implements Serializable {
 
     private BigDecimal valor;
 
-    private EInscricaoStatus inscricaoStatus;
+    private EInscricaoStatus status;
 }
 
