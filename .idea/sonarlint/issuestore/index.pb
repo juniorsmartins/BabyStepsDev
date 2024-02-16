@@ -609,3 +609,9 @@ Vmicroinscricoes/src/main/java/microservice/microinscricoes/config/beans/WebConf
 ^microinscricoes/src/test/java/microservice/microinscricoes/configs/SwaggerIntegrationTest.java,4/a/4a1ec4a9843b725caed0feba74df16b16c0ac527
 ‹
 [microinscricoes/src/test/java/microservice/microinscricoes/configs/CorsIntegrationTest.java,5/1/51a62f179e42e98f3e77a9e527473e9f8dd2b6cc
+™
+imicroinscricoes/src/main/java/microservice/microinscricoes/adapter/in/dto/request/InscricaoFiltroDto.java,9/1/91f7b7f17315b8f2971d98f13dbc0c5c8de96692
+—
+gmicroinscricoes/src/main/java/microservice/microinscricoes/application/core/domain/InscricaoFiltro.java,c/3/c3b604b35a903ee91d269de1522bdf521e68ccf7
+¢
+rmicroinscricoes/src/main/java/microservice/microinscricoes/application/port/input/InscricaoPesquisarInputPort.java,1/4/14fe60dfdaadc915e3e64e5cb73f98da4389dc31
