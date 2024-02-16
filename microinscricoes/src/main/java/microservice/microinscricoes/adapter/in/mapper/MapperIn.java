@@ -23,15 +23,15 @@ import java.time.format.DateTimeFormatter;
 @Mapper(componentModel = "spring")
 public interface MapperIn {
 
-//    @Mapping(source = "dataInicio", target = "dataInicio", qualifiedByName = "setDataLocalDate")
-//    @Mapping(source = "dataFim", target = "dataFim", qualifiedByName = "setDataLocalDate")
+    @Mapping(source = "dataInicio", target = "dataInicio", qualifiedByName = "setDataStringParaLocalDate")
+    @Mapping(source = "dataFim", target = "dataFim", qualifiedByName = "setDataStringParaLocalDate")
     Inscricao toInscricao(InscricaoOpenDtoIn inscricaoOpenDtoIn);
 
-    @Named("setDataLocalDate")
-    default LocalDate setDataLocalDate(String data) {
+    @Named("setDataStringParaLocalDate")
+    default LocalDate setDataStringParaLocalDate(String data) {
 
         // Formatador para o padrão da data
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
         // Conversão da String para LocalDate
         return LocalDate.parse(data, formatter);
