@@ -102,9 +102,9 @@ public class InscricaoController {
                 content = @Content(mediaType = "application/json", schema = @Schema(implementation = ApiError.class))),
         })
     public ResponseEntity<Page<InscricaoOpenDtoOut>> pesquisar(
-        @Parameter(name = "", description = "", required = false)
+        @Parameter(name = "InscricaoFiltroDto", description = "Objeto para transporte de dados usados como filtros de pesquisa", required = false)
         @Valid final InscricaoFiltroDto filtroDto,
-        @PageableDefault(sort = "", direction = Sort.Direction.ASC, page = 0, size = 5) final Pageable paginacao) {
+        @PageableDefault(sort = "id", direction = Sort.Direction.ASC, page = 0, size = 5) final Pageable paginacao) {
 
         log.info("Requisição recebida para pesquisar Inscrições.");
 

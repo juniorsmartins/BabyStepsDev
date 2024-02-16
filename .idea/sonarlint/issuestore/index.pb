@@ -615,3 +615,13 @@ imicroinscricoes/src/main/java/microservice/microinscricoes/adapter/in/dto/reque
 gmicroinscricoes/src/main/java/microservice/microinscricoes/application/core/domain/InscricaoFiltro.java,c/3/c3b604b35a903ee91d269de1522bdf521e68ccf7
 ¢
 rmicroinscricoes/src/main/java/microservice/microinscricoes/application/port/input/InscricaoPesquisarInputPort.java,1/4/14fe60dfdaadc915e3e64e5cb73f98da4389dc31
+¢
+rmicroinscricoes/src/main/java/microservice/microinscricoes/application/core/usecase/InscricaoPesquisarUseCase.java,2/8/284783f3657368a9e2e803d878a913e2de409057
+¤
+tmicroinscricoes/src/main/java/microservice/microinscricoes/application/port/output/InscricaoPesquisarOutputPort.java,6/7/67d6c67e5b85194dff16a04bf9e4704115fdccf7
+•
+emicroinscricoes/src/main/java/microservice/microinscricoes/adapter/out/InscricaoPesquisarAdapter.java,e/b/ebe5b53d488f22ebc0e73a00c33d73914ff59cd4
+Œ
+\microinscricoes/src/main/java/microservice/microinscricoes/adapter/out/mapper/MapperOut.java,a/4/a46a0690813cd2df461e876fb5988179c6266ae8
+™
+imicroinscricoes/src/main/java/microservice/microinscricoes/adapter/out/specs/InscricoesSpecification.java,1/4/14f8ec4d78bef6c4baec98be45cb00f96ae74dad
