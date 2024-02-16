@@ -82,10 +82,11 @@ class InscricaoControllerTest extends AbstractIntegrationTest {
         @DisplayName("http 201")
         void dadoInscricaoOpenDtoInValido_QuandoOpen_EntaoRetornarHttp201() {
 
-            RestAssured.given().spec(requestSpecification)
-                .contentType(TestConfigs.CONTENT_TYPE_JSON)
+            RestAssured
+                .given().spec(requestSpecification)
+                    .contentType(TestConfigs.CONTENT_TYPE_JSON)
                     .body(inscricaoOpenDtoIn)
-                    .when()
+                .when()
                     .post()
                 .then()
                     .log().all()
@@ -93,13 +94,42 @@ class InscricaoControllerTest extends AbstractIntegrationTest {
         }
 
         @Test
+        @DisplayName("http 403")
+        void dadoTesteDeCors_QuandoCorsNaoPermitido_EntaoRetornarHttp403() {
+
+            requestSpecification = new RequestSpecBuilder()
+                .addHeader(TestConfigs.HEADER_PARAM_ORIGIN, TestConfigs.ORIGIN_NAO_PERMITIDA)
+                .setBasePath(BASE_PATH)
+                .setPort(TestConfigs.SERVER_PORT)
+                    .addFilter(new RequestLoggingFilter(LogDetail.ALL))
+                    .addFilter(new ResponseLoggingFilter(LogDetail.ALL))
+                .build();
+
+            var response = RestAssured
+                .given().spec(requestSpecification)
+                    .contentType(TestConfigs.CONTENT_TYPE_JSON)
+                    .body(inscricaoOpenDtoIn)
+                .when()
+                    .post()
+                .then()
+                    .log().all()
+                    .statusCode(403)
+                        .extract()
+                            .body()
+                                .asString();
+
+            Assertions.assertEquals("Invalid CORS request", response);
+        }
+
+        @Test
         @DisplayName("persistência")
         void dadoInscricaoOpenDtoInValido_QuandoOpen_EntaoRetornarDadosPersistidos() throws IOException {
 
-            var response = RestAssured.given().spec(requestSpecification)
-                .contentType(TestConfigs.CONTENT_TYPE_JSON)
+            var response = RestAssured
+                .given().spec(requestSpecification)
+                    .contentType(TestConfigs.CONTENT_TYPE_JSON)
                     .body(inscricaoOpenDtoIn)
-                    .when()
+                .when()
                     .post()
                 .then()
                     .log().all()

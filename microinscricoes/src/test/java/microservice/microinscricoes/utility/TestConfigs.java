@@ -10,6 +10,8 @@ public class TestConfigs {
 
     public static final String ORIGIN_BABYSTEPS = "https://babystepsdev.com";
 
+    public static final String ORIGIN_NAO_PERMITIDA = "https://naopermitido.com";
+
     public static final String CONTENT_TYPE_JSON = "application/json";
 
     public static final String CONTENT_TYPE_XML = "application/xml";
