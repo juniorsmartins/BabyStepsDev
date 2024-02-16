@@ -36,7 +36,8 @@ public final class FactoryObjectMother {
         var dia = faker.number().numberBetween(1, 28);
 
         return InscricaoOpenDtoIn.builder()
-            .dataInicio(LocalDate.of(ano, mes, dia))
+//            .dataInicio(LocalDate.of(ano, mes, dia))
+                .dataInicio("10/10/2023")
             .dataFim(LocalDate.of(ano, mes, dia))
             .valor(BigDecimal.valueOf(100));
     }
