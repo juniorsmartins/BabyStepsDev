@@ -9,7 +9,6 @@ import net.datafaker.Faker;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.Year;
-import java.util.Set;
 
 // Padrão Object Mother
 public final class FactoryObjectMother {
@@ -31,14 +30,9 @@ public final class FactoryObjectMother {
     // Padrão Builder
     public InscricaoOpenDtoIn.InscricaoOpenDtoInBuilder gerarInscricaoOpenDtoInBuilder() {
 
-        var ano = faker.number().numberBetween(1900, 2024);
-        var mes = faker.number().numberBetween(1, 12);
-        var dia = faker.number().numberBetween(1, 28);
-
         return InscricaoOpenDtoIn.builder()
-//            .dataInicio(LocalDate.of(ano, mes, dia))
-                .dataInicio("10/10/2023")
-            .dataFim(LocalDate.of(ano, mes, dia))
+            .dataInicio("10/10/2023")
+            .dataFim("10/11/2023")
             .valor(BigDecimal.valueOf(100));
     }
 

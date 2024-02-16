@@ -24,7 +24,7 @@ import java.time.format.DateTimeFormatter;
 public interface MapperIn {
 
     @Mapping(source = "dataInicio", target = "dataInicio", qualifiedByName = "setDataStringParaLocalDate")
-//    @Mapping(source = "dataFim", target = "dataFim", qualifiedByName = "setDataStringParaLocalDate")
+    @Mapping(source = "dataFim", target = "dataFim", qualifiedByName = "setDataStringParaLocalDate")
     Inscricao toInscricao(InscricaoOpenDtoIn inscricaoOpenDtoIn);
 
     @Named("setDataStringParaLocalDate")
