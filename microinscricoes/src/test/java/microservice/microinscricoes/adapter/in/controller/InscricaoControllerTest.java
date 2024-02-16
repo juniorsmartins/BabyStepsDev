@@ -7,10 +7,12 @@ import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.specification.RequestSpecification;
 import microservice.microinscricoes.adapter.in.dto.TorneioIdDto;
+import microservice.microinscricoes.adapter.in.dto.request.InscricaoFiltroDto;
 import microservice.microinscricoes.adapter.in.dto.request.InscricaoOpenDtoIn;
 import microservice.microinscricoes.adapter.in.dto.response.InscricaoOpenDtoOut;
 import microservice.microinscricoes.adapter.out.repository.InscricaoRepository;
 import microservice.microinscricoes.adapter.out.repository.TorneioRepository;
+import microservice.microinscricoes.adapter.out.repository.entity.TorneioEntity;
 import microservice.microinscricoes.utility.AbstractIntegrationTest;
 import microservice.microinscricoes.utility.FactoryObjectMother;
 import microservice.microinscricoes.utility.TestConfigs;
@@ -44,6 +46,8 @@ class InscricaoControllerTest extends AbstractIntegrationTest {
 
     private InscricaoOpenDtoIn inscricaoOpenDtoIn;
 
+    private TorneioEntity torneioEntity1;
+
     @BeforeEach
     void setUp() {
         objectMapper = new ObjectMapper();
@@ -54,10 +58,10 @@ class InscricaoControllerTest extends AbstractIntegrationTest {
             .torneio(torneioIdDto)
             .build();
 
-        var torneioEntity = this.factory.gerarTorneioEntityBuilder()
+        torneioEntity1 = this.factory.gerarTorneioEntityBuilder()
             .id(1L)
             .build();
-        this.torneioRepository.save(torneioEntity);
+        this.torneioRepository.save(torneioEntity1);
 
         requestSpecification = new RequestSpecBuilder()
             .addHeader(TestConfigs.HEADER_PARAM_ORIGIN, TestConfigs.ORIGIN_BABYSTEPS)
@@ -104,6 +108,57 @@ class InscricaoControllerTest extends AbstractIntegrationTest {
             Assertions.assertEquals(dtoOut.getDataFim(), persistido.getDataFim().format(formatter));
             Assertions.assertEquals(dtoOut.getStatus(), persistido.getStatus());
             Assertions.assertEquals(dtoOut.getTorneio().getId(), persistido.getTorneio().getId());
+        }
+    }
+
+    @Nested
+    @DisplayName("Pesquisar")
+    class Pesquisar {
+
+        @Test
+        @DisplayName("http 200")
+        void dadoGetValido_QuandoPesquisar_EntaoRetornarHttp200() throws IOException {
+
+            var inscricaoEntity1 = factory.gerarInscricaoEntityBuilder()
+                .torneio(torneioEntity1)
+                .build();
+            inscricaoRepository.save(inscricaoEntity1);
+
+            var torneioEntity2 = factory.gerarTorneioEntityBuilder()
+                .id(2L)
+                .build();
+            torneioRepository.save(torneioEntity2);
+
+            var inscricaoEntity2 = factory.gerarInscricaoEntityBuilder()
+                .torneio(torneioEntity2)
+                .build();
+            inscricaoRepository.save(inscricaoEntity2);
+
+            var filtro = new InscricaoFiltroDto();
+            filtro.setId("2");
+
+            var response = RestAssured
+                .given().spec(requestSpecification)
+                    .contentType(TestConfigs.CONTENT_TYPE_JSON)
+                    .queryParam("filtro", filtro)
+                .when()
+                    .get()
+                .then()
+                    .log().all()
+                    .statusCode(200)
+                .extract()
+                    .body()
+                        .asString();
+
+//            var dtoOut = objectMapper.readValue(response, InscricaoOpenDtoOut.class);
+//            var persistido = inscricaoRepository.findById(dtoOut.getId()).orElseThrow();
+//
+//            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+//
+//            Assertions.assertEquals(dtoOut.getDataInicio(), persistido.getDataInicio().format(formatter));
+//            Assertions.assertEquals(dtoOut.getDataFim(), persistido.getDataFim().format(formatter));
+//            Assertions.assertEquals(dtoOut.getStatus(), persistido.getStatus());
+//            Assertions.assertEquals(dtoOut.getTorneio().getId(), persistido.getTorneio().getId());
         }
     }
 }
