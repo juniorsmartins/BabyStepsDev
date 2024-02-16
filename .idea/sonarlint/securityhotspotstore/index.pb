@@ -598,3 +598,9 @@ _microinscricoes/src/test/java/microservice/microinscricoes/utility/AbstractInte
 ^microinscricoes/src/test/java/microservice/microinscricoes/swagger/SwaggerIntegrationTest.java,7/a/7a5be27816d085b772e717ac4a76836b0473a3c1
 †
 Vmicroinscricoes/src/main/java/microservice/microinscricoes/config/beans/WebConfig.java,f/8/f85f6db113be2e706488ccf6e0c5b2023f331592
+‹
+[microinscricoes/src/test/java/microservice/microinscricoes/swagger/CorsIntegrationTest.java,e/8/e81ab00e9aea28c96801cf3d761df3adfeaa1939
+Ž
+^microinscricoes/src/test/java/microservice/microinscricoes/configs/SwaggerIntegrationTest.java,4/a/4a1ec4a9843b725caed0feba74df16b16c0ac527
+‹
+[microinscricoes/src/test/java/microservice/microinscricoes/configs/CorsIntegrationTest.java,5/1/51a62f179e42e98f3e77a9e527473e9f8dd2b6cc
