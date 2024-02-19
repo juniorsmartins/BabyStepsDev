@@ -616,3 +616,5 @@ emicroinscricoes/src/main/java/microservice/microinscricoes/adapter/out/Inscrica
 imicroinscricoes/src/main/java/microservice/microinscricoes/adapter/out/specs/InscricoesSpecification.java,1/4/14f8ec4d78bef6c4baec98be45cb00f96ae74dad
 Œ
 \microinscricoes/src/test/java/microservice/microinscricoes/utility/InscricaoOpenDtoPage.java,8/e/8e2d54f4f2ef20979221a58f0d99f809bffcc2f9
+Ÿ
+omicroinscricoes/src/main/java/microservice/microinscricoes/application/port/input/InscricaoDeleteInputPort.java,9/2/92fd51139a9e5dfa01086d924545d058d3408b21
