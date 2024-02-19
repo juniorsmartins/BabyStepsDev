@@ -1,5 +1,6 @@
 package microservice.microinscricoes.adapter.in.mapper;
 
+import microservice.microinscricoes.adapter.in.consumer.TimeSaveDto;
 import microservice.microinscricoes.adapter.in.dto.InscricaoIdDto;
 import microservice.microinscricoes.adapter.in.dto.TimeIdDto;
 import microservice.microinscricoes.adapter.in.dto.TorneioIdDto;

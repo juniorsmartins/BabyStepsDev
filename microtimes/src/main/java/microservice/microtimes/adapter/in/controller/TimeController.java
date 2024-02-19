@@ -5,7 +5,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import microservice.microtimes.adapter.in.dto.request.TimeCreateDtoRequest;
 import microservice.microtimes.adapter.in.dto.response.TimeCreateDtoResponse;
-import microservice.microtimes.adapter.in.mapper.TimeRequestMapper;
+import microservice.microtimes.adapter.in.mapper.MapperIn;
 import microservice.microtimes.application.port.input.TimeCreateInputPort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,7 +24,7 @@ public class TimeController {
 
     private final TimeCreateInputPort timeCreateInputPort;
 
-    private final TimeRequestMapper requestMapper;
+    private final MapperIn mapperIn;
 
     @PostMapping
     public ResponseEntity<TimeCreateDtoResponse> create(@RequestBody @Valid TimeCreateDtoRequest timeCreateDtoRequest) {
@@ -32,9 +32,9 @@ public class TimeController {
         log.info("Recebida requisição para criar Time.");
 
         var response = Optional.of(timeCreateDtoRequest)
-            .map(this.requestMapper::toTime)
+            .map(this.mapperIn::toTime)
             .map(this.timeCreateInputPort::create)
-            .map(this.requestMapper::toTimeCreateDtoResponse)
+            .map(this.mapperIn::toTimeCreateDtoResponse)
             .orElseThrow();
 
         log.info("Time criado com sucesso, com nome fantasia: {}", response.nomeFantasia());

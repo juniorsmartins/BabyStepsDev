@@ -1,10 +1,12 @@
 package microservice.microinscricoes.config.usecase;
 
-import microservice.microinscricoes.adapter.out.*;
+import microservice.microinscricoes.adapter.out.InscricaoDeleteAdapter;
+import microservice.microinscricoes.adapter.out.InscricaoPesquisarAdapter;
+import microservice.microinscricoes.adapter.out.InscricaoSaveAdapter;
+import microservice.microinscricoes.adapter.out.TorneioFindByIdAdapter;
 import microservice.microinscricoes.application.core.usecase.InscricaoDeleteUseCase;
 import microservice.microinscricoes.application.core.usecase.InscricaoOpenUseCase;
 import microservice.microinscricoes.application.core.usecase.InscricaoPesquisarUseCase;
-import microservice.microinscricoes.application.core.usecase.InscritoRegisterUseCase;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -25,11 +27,6 @@ public class InscricaoConfig {
     @Bean
     public InscricaoDeleteUseCase inscricaoDeleteUseCase(InscricaoDeleteAdapter inscricaoDeleteAdapter) {
         return new InscricaoDeleteUseCase(inscricaoDeleteAdapter);
-    }
-
-    @Bean
-    public InscritoRegisterUseCase inscritoRegisterUseCase(InscritoSaveAdapter inscritoSaveAdapter) {
-        return new InscritoRegisterUseCase(inscritoSaveAdapter);
     }
 }
 

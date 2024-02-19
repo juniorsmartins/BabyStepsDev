@@ -2,7 +2,7 @@ package microservice.microinscricoes.adapter.in.consumer;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import microservice.microinscricoes.adapter.in.dto.kafka.EventCreate;
+import microservice.microinscricoes.adapter.in.dto.kafka.EventCreateTorneio;
 import microservice.microinscricoes.adapter.in.mapper.MapperIn;
 import microservice.microinscricoes.adapter.utils.JsonUtil;
 import microservice.microinscricoes.application.port.input.TimeSaveInputPort;
@@ -39,13 +39,13 @@ public class EventConsumer {
         groupId = "${spring.kafka.consumer.group-id}",
         topics = "${spring.kafka.topic.torneio-save}"
     )
-    public void consumeEventCreate(String payload) {
+    public void consumeEventCreateTorneio(String payload) {
 
         log.info("Iniciada mensageria, via tópico torneio-save, para salvar Torneio.");
 
         var response = Optional.ofNullable(payload)
-            .map(this.jsonUtil::toEventCreate)
-            .map(EventCreate::torneio)
+            .map(this.jsonUtil::toEventCreateTorneio)
+            .map(EventCreateTorneio::torneio)
             .map(this.mapper::toTorneio)
             .map(this.torneioSaveInputPort::save)
             .orElseThrow();
@@ -57,12 +57,13 @@ public class EventConsumer {
         groupId = "${spring.kafka.consumer.group-id}",
         topics = "${spring.kafka.topic.time-save}"
     )
-    public void consumeTimeSaveEvent(String payload) {
+    public void consumeEventCreateTime(String payload) {
 
         log.info("Iniciada mensageria, via tópico time-save, para salvar Time.");
 
         var response = Optional.ofNullable(payload)
-            .map(this.jsonUtil::toTimeSaveDto)
+            .map(this.jsonUtil::toEventCreateTime)
+            .map(EventCreateTime::time)
             .map(this.mapper::toTime)
             .map(this.timeSaveInputPort::save)
             .orElseThrow();
