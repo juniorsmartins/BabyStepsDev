@@ -3,7 +3,7 @@ package microservice.microtimes.adapter.out;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import microservice.microtimes.adapter.out.repository.TimeRepository;
-import microservice.microtimes.adapter.out.repository.mapper.TimeEntityMapper;
+import microservice.microtimes.adapter.out.repository.mapper.MapperOut;
 import microservice.microtimes.application.core.domain.Time;
 import microservice.microtimes.application.port.output.TimeSaveOutputPort;
 import org.springframework.stereotype.Component;
@@ -18,7 +18,7 @@ public class TimeSaveAdapter implements TimeSaveOutputPort {
 
     private final TimeRepository timeRepository;
 
-    private final TimeEntityMapper timeEntityMapper;
+    private final MapperOut mapperOut;
 
     @Transactional
     @Override
@@ -27,9 +27,9 @@ public class TimeSaveAdapter implements TimeSaveOutputPort {
         log.info("Iniciado adaptador para salvar Time.");
 
         var timeSave = Optional.ofNullable(time)
-            .map(this.timeEntityMapper::toTimeEntity)
+            .map(this.mapperOut::toTimeEntity)
             .map(this.timeRepository::save)
-            .map(this.timeEntityMapper::toTime)
+            .map(this.mapperOut::toTime)
             .orElseThrow();
 
         log.info("Finalizado adaptador para salvar Time, com nome fantasia: {}.", timeSave.getNomeFantasia());

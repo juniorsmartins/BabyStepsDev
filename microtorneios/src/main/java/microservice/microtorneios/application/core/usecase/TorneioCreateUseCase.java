@@ -1,14 +1,13 @@
 package microservice.microtorneios.application.core.usecase;
 
-import microservice.microtorneios.adapters.in.dto.response.TorneioSaveDto;
 import microservice.microtorneios.application.core.domain.Torneio;
-import microservice.microtorneios.application.core.domain.kafka.EncapsulateEvent;
 import microservice.microtorneios.application.port.input.TorneioCreateInputPort;
 import microservice.microtorneios.application.port.output.NotifyCreationOfNewTorneioOutputPort;
 import microservice.microtorneios.application.port.output.TorneioSaveOutputPort;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 public class TorneioCreateUseCase implements TorneioCreateInputPort {
@@ -19,14 +18,10 @@ public class TorneioCreateUseCase implements TorneioCreateInputPort {
 
     private final NotifyCreationOfNewTorneioOutputPort notifyCreationOfNewTorneioOutputPort;
 
-    private final EncapsulateEvent encapsulateEvent;
-
     public TorneioCreateUseCase(TorneioSaveOutputPort torneioSaveOutputPort,
-                                NotifyCreationOfNewTorneioOutputPort notifyCreationOfNewTorneioOutputPort,
-                                EncapsulateEvent encapsulateEvent) {
+                                NotifyCreationOfNewTorneioOutputPort notifyCreationOfNewTorneioOutputPort) {
         this.torneioSaveOutputPort = torneioSaveOutputPort;
         this.notifyCreationOfNewTorneioOutputPort = notifyCreationOfNewTorneioOutputPort;
-        this.encapsulateEvent = encapsulateEvent;
     }
 
     @Override
@@ -47,13 +42,9 @@ public class TorneioCreateUseCase implements TorneioCreateInputPort {
     private Torneio notifyCreationOfNewTorneio(Torneio torneio) {
 
         Optional.ofNullable(torneio)
-            .map(tournament -> new TorneioSaveDto(tournament.getId(), tournament.getNome(), tournament.getAno()))
-            .map(this.encapsulateEvent::toEventCreate)
-            .map(tournament -> {
-                this.notifyCreationOfNewTorneioOutputPort.sendEvent(tournament);
-                return true;
-            })
-            .orElseThrow();
+            .ifPresentOrElse(this.notifyCreationOfNewTorneioOutputPort::sendEvent,
+                () -> {throw new NoSuchElementException();}
+            );
 
         return torneio;
     }

@@ -43,6 +43,9 @@ public class KafkaConfig {
     @Value("${spring.kafka.topic.time-validation-fail}")
     private String timeValidationFailTopic;
 
+    @Value("${spring.kafka.topic.time-save}")
+    private String timeSaveTopic;
+
     @Bean
     public ConsumerFactory<String, String> consumerFactory() {
         return new DefaultKafkaConsumerFactory<>(consumerProperties());
@@ -93,6 +96,11 @@ public class KafkaConfig {
     @Bean
     public NewTopic timeValidationFailTopic() {
         return buildTopic(timeValidationFailTopic);
+    }
+
+    @Bean
+    public NewTopic timeSaveTopic() {
+        return buildTopic(timeSaveTopic);
     }
 
     private NewTopic buildTopic(String name) {

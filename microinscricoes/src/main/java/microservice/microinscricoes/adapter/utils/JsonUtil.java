@@ -1,8 +1,7 @@
 package microservice.microinscricoes.adapter.utils;
 
-import microservice.microinscricoes.adapter.in.dto.kafka.EventCreate;
-import microservice.microinscricoes.adapter.in.dto.request.TimeSaveDto;
-import microservice.microinscricoes.adapter.in.dto.request.TorneioSaveDto;
+import microservice.microinscricoes.adapter.in.consumer.EventCreateTime;
+import microservice.microinscricoes.adapter.in.dto.kafka.EventCreateTorneio;
 import microservice.microinscricoes.application.core.domain.Event;
 
 public interface JsonUtil {
@@ -11,10 +10,8 @@ public interface JsonUtil {
 
     Event toEvent(String json);
 
-    TorneioSaveDto toTorneioSaveDto(String json);
+    EventCreateTorneio toEventCreateTorneio(String json);
 
-    TimeSaveDto toTimeSaveDto(String json);
-
-    EventCreate toEventCreate(String json);
+    EventCreateTime toEventCreateTime(String json);
 }
 
