@@ -2,8 +2,7 @@ package microservice.microinscricoes.adapter.out.unit;
 
 import microservice.microinscricoes.adapter.out.InscricaoSaveAdapter;
 import microservice.microinscricoes.adapter.out.repository.InscricaoRepository;
-import microservice.microinscricoes.adapter.out.repository.mapper.MapperOut;
-import microservice.microinscricoes.application.core.domain.Inscricao;
+import microservice.microinscricoes.adapter.out.mapper.MapperOut;
 import microservice.microinscricoes.utility.AbstractIntegrationTest;
 import microservice.microinscricoes.utility.FactoryObjectMother;
 import org.junit.jupiter.api.*;
