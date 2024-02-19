@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import microservice.microinscricoes.adapter.out.repository.InscricaoRepository;
 import microservice.microinscricoes.application.port.output.InscricaoDeleteOutputPort;
+import microservice.microinscricoes.config.exception.http_404.InscricaoNotFoundException;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -24,7 +25,7 @@ public class InscricaoDeleteAdapter implements InscricaoDeleteOutputPort {
 
         this.inscricaoRepository.findById(id)
             .ifPresentOrElse(this.inscricaoRepository::delete,
-                () -> {throw new NoSuchElementException();}
+                () -> {throw new InscricaoNotFoundException(id);}
             );
 
         log.info("Finalizado adaptador para deletar Inscrição, com Id: {}.", id);

@@ -11,7 +11,7 @@ public final class TorneioNotFoundException extends RecursoNaoEncontradoExceptio
     super(message);
   }
 
-  public TorneioNotFoundException(Long id) {
+  public TorneioNotFoundException(final Long id) {
     this(String.format("O Torneio %d não foi encontrado.", id));
   }
 }

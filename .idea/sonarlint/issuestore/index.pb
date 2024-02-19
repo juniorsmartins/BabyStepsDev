@@ -629,3 +629,5 @@ omicroinscricoes/src/main/java/microservice/microinscricoes/application/core/use
 qmicroinscricoes/src/main/java/microservice/microinscricoes/application/port/output/InscricaoDeleteOutputPort.java,e/4/e4bc20b7d55be4e2b58c0c203e495788e4836003
 ’
 bmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/out/InscricaoDeleteAdapter.java,f/a/fa6c0069c1f2a6c4387fad3e6cc3c3ed28db09a0
+¤
+tmicroinscricoes/src/main/java/microservice/microinscricoes/config/exception/http_404/InscricaoNotFoundException.java,7/4/7446036388424b0c37d4fc695f00dfe71fa7d37d
