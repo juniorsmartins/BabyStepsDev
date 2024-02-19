@@ -6,6 +6,6 @@ import java.util.Optional;
 
 public interface TorneioFindByIdOutputPort {
 
-    Optional<Torneio> findById(Long torneioId);
+    Optional<Torneio> findById(Long id);
 }
 

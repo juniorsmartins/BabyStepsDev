@@ -682,3 +682,13 @@ _microinscricoes/src/main/java/microservice/microinscricoes/adapter/in/consumer/
 _microtorneios/src/main/java/microservice/microtorneios/adapters/utils/EncapsulateEventImpl.java,1/a/1a5d276c9cdc376108e690d7c5df7f60f23ffc00
 ê
 `microtorneios/src/main/java/microservice/microtorneios/adapters/out/producer/TorneioSaveDto.java,d/f/dfee52f5b820378ae97bae4d2ee7ef485e40ad82
+ò
+hmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/in/controller/InscritoController.java,5/7/57a8df9648af17f328913fe8165605ffc1b3e838
+û
+nmicroinscricoes/src/main/java/microservice/microinscricoes/application/port/output/TimeFindByIdOutputPort.java,d/b/db851948147efc8e92bf8763d539a88bb34c0a8e
+ç
+]microinscricoes/src/main/java/microservice/microinscricoes/config/usecase/InscritoConfig.java,0/6/06852d93f223a03c44f35615addbefecd0e09063
+è
+_microinscricoes/src/main/java/microservice/microinscricoes/adapter/out/TimeFindByIdAdapter.java,4/0/40225b8ea5244540032c185a990fac484f278cf9
+ü
+omicroinscricoes/src/main/java/microservice/microinscricoes/config/exception/http_404/TimeNotFoundException.java,f/2/f2fd8f787c0610bb236f0ca9661b25911b79a9d5
