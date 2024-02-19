@@ -1,8 +1,8 @@
 package microservice.microtorneios.application.core.usecase;
 
 import microservice.microtorneios.adapters.in.dto.response.TorneioSaveDto;
-import microservice.microtorneios.adapters.in.utils.JsonUtil;
 import microservice.microtorneios.application.core.domain.Torneio;
+import microservice.microtorneios.application.core.domain.kafka.EncapsulateEvent;
 import microservice.microtorneios.application.port.input.TorneioCreateInputPort;
 import microservice.microtorneios.application.port.output.NotifyCreationOfNewTorneioOutputPort;
 import microservice.microtorneios.application.port.output.TorneioSaveOutputPort;
@@ -19,14 +19,14 @@ public class TorneioCreateUseCase implements TorneioCreateInputPort {
 
     private final NotifyCreationOfNewTorneioOutputPort notifyCreationOfNewTorneioOutputPort;
 
-    private final JsonUtil jsonUtil;
+    private final EncapsulateEvent encapsulateEvent;
 
     public TorneioCreateUseCase(TorneioSaveOutputPort torneioSaveOutputPort,
                                 NotifyCreationOfNewTorneioOutputPort notifyCreationOfNewTorneioOutputPort,
-                                JsonUtil jsonUtil) {
+                                EncapsulateEvent encapsulateEvent) {
         this.torneioSaveOutputPort = torneioSaveOutputPort;
         this.notifyCreationOfNewTorneioOutputPort = notifyCreationOfNewTorneioOutputPort;
-        this.jsonUtil = jsonUtil;
+        this.encapsulateEvent = encapsulateEvent;
     }
 
     @Override
@@ -48,11 +48,12 @@ public class TorneioCreateUseCase implements TorneioCreateInputPort {
 
         Optional.ofNullable(torneio)
             .map(tournament -> new TorneioSaveDto(tournament.getId(), tournament.getNome(), tournament.getAno()))
-            .map(this.jsonUtil::toJson)
+            .map(this.encapsulateEvent::toEventCreate)
             .map(tournament -> {
                 this.notifyCreationOfNewTorneioOutputPort.sendEvent(tournament);
                 return true;
-            });
+            })
+            .orElseThrow();
 
         return torneio;
     }

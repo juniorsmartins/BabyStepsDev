@@ -2,7 +2,7 @@ package microservice.microtorneios.adapters.in.consumer;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import microservice.microtorneios.adapters.in.utils.JsonUtil;
+import microservice.microtorneios.adapters.utils.JsonUtil;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 

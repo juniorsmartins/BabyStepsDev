@@ -1,4 +1,4 @@
-package microservice.microtorneios.adapters.in.utils;
+package microservice.microtorneios.adapters.utils;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
