@@ -642,3 +642,9 @@ _microinscricoes/src/main/java/microservice/microinscricoes/adapter/in/consumer/
 `microinscricoes/src/main/java/microservice/microinscricoes/adapter/in/dto/kafka/EventCreate.java,7/6/76636c411a7770e1456ac8e19081624ce8c67c7f
 ‘
 amicrotorneios/src/main/java/microservice/microtorneios/config/usecase/EncapsulateEventConfig.java,4/4/44db04d6277110e8978d0ae182afced6d5507ff7
+ƒ
+Smicrotorneios/src/main/java/microservice/microtorneios/adapters/utils/JsonUtil.java,e/1/e1244d9a8dc351302fb579cc20a9de53d6feace0
+‡
+Wmicrotorneios/src/main/java/microservice/microtorneios/adapters/utils/JsonUtilImpl.java,7/9/79526a05a14bb99eac539bff497da779ed5052aa
+—
+gmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/in/dto/kafka/EventCreateTorneio.java,f/f/ff83636d62df7434cc57c09ff42a4bdbf991d982

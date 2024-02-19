@@ -5,8 +5,8 @@ import microservice.microtorneios.adapters.in.dto.response.TorneioSaveDto;
 public class EncapsulateEventImpl implements EncapsulateEvent {
 
     @Override
-    public EventCreate toEventCreate(TorneioSaveDto torneioSaveDto) {
-        return new EventCreate(torneioSaveDto);
+    public EventCreateTorneio toEventCreateTorneio(TorneioSaveDto torneioSaveDto) {
+        return new EventCreateTorneio(torneioSaveDto);
     }
 }
 

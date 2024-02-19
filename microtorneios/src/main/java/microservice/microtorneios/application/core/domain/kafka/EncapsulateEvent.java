@@ -4,6 +4,6 @@ import microservice.microtorneios.adapters.in.dto.response.TorneioSaveDto;
 
 public interface EncapsulateEvent {
 
-    EventCreate toEventCreate(TorneioSaveDto torneioSaveDto);
+    EventCreateTorneio toEventCreateTorneio(TorneioSaveDto torneioSaveDto);
 }
 

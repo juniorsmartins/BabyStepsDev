@@ -48,7 +48,7 @@ public class TorneioCreateUseCase implements TorneioCreateInputPort {
 
         Optional.ofNullable(torneio)
             .map(tournament -> new TorneioSaveDto(tournament.getId(), tournament.getNome(), tournament.getAno()))
-            .map(this.encapsulateEvent::toEventCreate)
+            .map(this.encapsulateEvent::toEventCreateTorneio)
             .map(tournament -> {
                 this.notifyCreationOfNewTorneioOutputPort.sendEvent(tournament);
                 return true;

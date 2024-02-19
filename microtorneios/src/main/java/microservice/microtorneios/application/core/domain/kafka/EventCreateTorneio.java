@@ -4,7 +4,7 @@ import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import microservice.microtorneios.adapters.in.dto.response.TorneioSaveDto;
 
-public record EventCreate(
+public record EventCreateTorneio(
 
     @NotNull
     @Valid

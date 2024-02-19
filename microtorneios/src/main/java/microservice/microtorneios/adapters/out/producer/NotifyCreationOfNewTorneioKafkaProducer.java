@@ -3,7 +3,7 @@ package microservice.microtorneios.adapters.out.producer;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import microservice.microtorneios.adapters.utils.JsonUtil;
-import microservice.microtorneios.application.core.domain.kafka.EventCreate;
+import microservice.microtorneios.application.core.domain.kafka.EventCreateTorneio;
 import microservice.microtorneios.application.port.output.NotifyCreationOfNewTorneioOutputPort;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -22,7 +22,7 @@ public class NotifyCreationOfNewTorneioKafkaProducer implements NotifyCreationOf
     private String torneioSaveTopic;
 
     @Override
-    public void sendEvent(EventCreate eventCreate) {
+    public void sendEvent(EventCreateTorneio eventCreate) {
         var payload = this.jsonUtil.toJson(eventCreate);
 
         try {
