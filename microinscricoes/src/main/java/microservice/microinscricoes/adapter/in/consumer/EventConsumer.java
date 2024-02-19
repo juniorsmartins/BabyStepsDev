@@ -57,12 +57,13 @@ public class EventConsumer {
         groupId = "${spring.kafka.consumer.group-id}",
         topics = "${spring.kafka.topic.time-save}"
     )
-    public void consumeTimeSaveEvent(String payload) {
+    public void consumeEventCreateTime(String payload) {
 
         log.info("Iniciada mensageria, via tópico time-save, para salvar Time.");
 
         var response = Optional.ofNullable(payload)
-            .map(this.jsonUtil::toTimeSaveDto)
+            .map(this.jsonUtil::toEventCreateTime)
+            .map(EventCreateTime::time)
             .map(this.mapper::toTime)
             .map(this.timeSaveInputPort::save)
             .orElseThrow();

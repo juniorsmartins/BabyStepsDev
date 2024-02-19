@@ -5,7 +5,7 @@ import microservice.microtimes.application.core.domain.Time;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")
-public interface TimeEntityMapper {
+public interface MapperOut {
 
 //    @Mapping(source = "activityStatus", target = "activityStatus", qualifiedByName = "setActivityStatusString")
     TimeEntity toTimeEntity(Time time);

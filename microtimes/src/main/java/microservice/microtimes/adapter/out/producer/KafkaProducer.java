@@ -1,4 +1,4 @@
-package microservice.microtimes.application.core.producer;
+package microservice.microtimes.adapter.out.producer;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

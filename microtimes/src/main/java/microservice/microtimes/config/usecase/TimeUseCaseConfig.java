@@ -1,6 +1,7 @@
 package microservice.microtimes.config.usecase;
 
 import microservice.microtimes.adapter.out.TimeSaveAdapter;
+import microservice.microtimes.adapter.out.producer.NotifyCreationOfNewTimeKafkaProducer;
 import microservice.microtimes.application.core.usecase.TimeCreateUseCase;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,8 +10,9 @@ import org.springframework.context.annotation.Configuration;
 public class TimeUseCaseConfig {
 
     @Bean
-    public TimeCreateUseCase timeCreateUseCase(TimeSaveAdapter timeSaveAdapter) {
-        return new TimeCreateUseCase(timeSaveAdapter);
+    public TimeCreateUseCase timeCreateUseCase(TimeSaveAdapter timeSaveAdapter,
+                                               NotifyCreationOfNewTimeKafkaProducer notifyCreationOfNewTimeKafkaProducer) {
+        return new TimeCreateUseCase(timeSaveAdapter, notifyCreationOfNewTimeKafkaProducer);
     }
 }
 

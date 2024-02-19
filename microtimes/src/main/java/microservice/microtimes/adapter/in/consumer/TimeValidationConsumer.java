@@ -1,8 +1,8 @@
-package microservice.microtimes.application.core.consumer;
+package microservice.microtimes.adapter.in.consumer;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import microservice.microtimes.config.utils.JsonUtil;
+import microservice.microtimes.adapter.utils.JsonUtilImpl;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 @AllArgsConstructor
 public class TimeValidationConsumer {
 
-    private final JsonUtil jsonUtil;
+    private final JsonUtilImpl jsonUtil;
 
     @KafkaListener(
         groupId = "${spring.kafka.consumer.group-id}",

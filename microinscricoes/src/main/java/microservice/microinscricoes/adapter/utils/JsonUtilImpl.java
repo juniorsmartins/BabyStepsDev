@@ -3,9 +3,8 @@ package microservice.microinscricoes.adapter.utils;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import microservice.microinscricoes.adapter.in.consumer.EventCreateTime;
 import microservice.microinscricoes.adapter.in.dto.kafka.EventCreateTorneio;
-import microservice.microinscricoes.adapter.in.dto.request.TimeSaveDto;
-import microservice.microinscricoes.adapter.in.dto.request.TorneioSaveDto;
 import microservice.microinscricoes.application.core.domain.Event;
 import org.springframework.stereotype.Component;
 
@@ -53,21 +52,9 @@ public class JsonUtilImpl implements JsonUtil {
     }
 
     @Override
-    public TorneioSaveDto toTorneioSaveDto(String json) {
+    public EventCreateTime toEventCreateTime(String json) {
         try {
-            return objectMapper.readValue(json, TorneioSaveDto.class);
-
-        } catch (Exception ex) {
-
-            log.error(ex.getMessage());
-            return null;
-        }
-    }
-
-    @Override
-    public TimeSaveDto toTimeSaveDto(String json) {
-        try {
-            return objectMapper.readValue(json, TimeSaveDto.class);
+            return objectMapper.readValue(json, EventCreateTime.class);
 
         } catch (Exception ex) {
 
