@@ -1,9 +1,11 @@
 package microservice.microinscricoes.utility;
 
 import microservice.microinscricoes.adapter.in.dto.request.InscricaoOpenDtoIn;
+import microservice.microinscricoes.adapter.out.repository.entity.InscricaoEntity;
 import microservice.microinscricoes.adapter.out.repository.entity.TorneioEntity;
 import microservice.microinscricoes.application.core.domain.Inscricao;
 import microservice.microinscricoes.application.core.domain.Torneio;
+import microservice.microinscricoes.application.core.domain.enums.EInscricaoStatus;
 import net.datafaker.Faker;
 
 import java.math.BigDecimal;
@@ -53,6 +55,19 @@ public final class FactoryObjectMother {
         inscricao.setValor(BigDecimal.valueOf(100));
 
         return inscricao;
+    }
+
+    public InscricaoEntity.InscricaoEntityBuilder gerarInscricaoEntityBuilder() {
+
+        var ano = faker.number().numberBetween(1900, 2024);
+        var mes = faker.number().numberBetween(1, 12);
+        var dia = faker.number().numberBetween(1, 28);
+
+        return InscricaoEntity.builder()
+            .dataInicio(LocalDate.of(ano, mes, dia))
+            .dataFim(LocalDate.of(ano, mes, dia))
+            .valor(BigDecimal.valueOf(100))
+            .status(EInscricaoStatus.ATIVO);
     }
 
     // Padrão JavaBeans

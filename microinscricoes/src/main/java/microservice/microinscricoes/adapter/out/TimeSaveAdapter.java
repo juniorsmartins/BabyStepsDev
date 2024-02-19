@@ -3,7 +3,7 @@ package microservice.microinscricoes.adapter.out;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import microservice.microinscricoes.adapter.out.repository.TimeRepository;
-import microservice.microinscricoes.adapter.out.repository.mapper.MapperOut;
+import microservice.microinscricoes.adapter.out.mapper.MapperOut;
 import microservice.microinscricoes.application.core.domain.Time;
 import microservice.microinscricoes.application.port.output.TimeSaveOutputPort;
 import org.springframework.stereotype.Repository;

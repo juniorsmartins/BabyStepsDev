@@ -1,4 +1,4 @@
-package microservice.microinscricoes.swagger;
+package microservice.microinscricoes.configs;
 
 import io.restassured.RestAssured;
 import microservice.microinscricoes.utility.AbstractIntegrationTest;
