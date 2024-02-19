@@ -146,7 +146,7 @@ class InscricaoControllerTest extends AbstractIntegrationTest {
         }
 
         @Test
-        @DisplayName("filtro por Id")
+        @DisplayName("filtrar por Id")
         void dadoGetValido_QuandoPesquisarPorId_EntaoRetornarUmItem() throws IOException {
 
             var inscricaoEntity2 = factory.gerarInscricaoEntityBuilder()
@@ -164,6 +164,28 @@ class InscricaoControllerTest extends AbstractIntegrationTest {
                     .log().all()
                     .statusCode(200)
                     .body("totalElements", Matchers.equalTo(1));
+        }
+    }
+
+    @Nested
+    @DisplayName("Delete")
+    class Delete {
+
+        @Test
+        @DisplayName("por id válido")
+        void dadoIdValido_QuandoDelete_EntaoRetornarListaVazia() {
+
+            RestAssured
+                .given().spec(requestSpecification)
+                    .contentType(TestConfigs.CONTENT_TYPE_JSON)
+                .when()
+                    .delete("/" + inscricaoSalva.getId())
+                .then()
+                    .log().all()
+                    .statusCode(204);
+
+            var lista = inscricaoRepository.findAll();
+            Assertions.assertTrue(lista.isEmpty());
         }
     }
 }

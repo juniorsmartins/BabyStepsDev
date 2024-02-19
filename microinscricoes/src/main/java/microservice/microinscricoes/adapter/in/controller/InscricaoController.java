@@ -15,6 +15,7 @@ import microservice.microinscricoes.adapter.in.dto.request.InscritoRegisterDtoIn
 import microservice.microinscricoes.adapter.in.dto.response.InscricaoOpenDtoOut;
 import microservice.microinscricoes.adapter.in.dto.response.InscritoRegisterDtoOut;
 import microservice.microinscricoes.adapter.in.mapper.MapperIn;
+import microservice.microinscricoes.application.port.input.InscricaoDeleteInputPort;
 import microservice.microinscricoes.application.port.input.InscricaoOpenInputPort;
 import microservice.microinscricoes.application.port.input.InscricaoPesquisarInputPort;
 import microservice.microinscricoes.application.port.input.InscritoRegisterInputPort;
@@ -28,6 +29,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @Tag(name = "Inscrições", description = "Contém os recursos de Abrir, Cadastrar, Consultar, Listar, Atualizar e Deletar.")
@@ -44,6 +46,8 @@ public class InscricaoController {
     private final InscritoRegisterInputPort inscritoRegisterInputPort;
 
     private final InscricaoPesquisarInputPort inscricaoPesquisarInputPort;
+
+    private final InscricaoDeleteInputPort inscricaoDeleteInputPort;
 
     private final MapperIn mapperIn;
 
@@ -121,6 +125,38 @@ public class InscricaoController {
             .body(response);
     }
 
+    @DeleteMapping(path = {"/{inscricaoId}"})
+    @Operation(summary = "Deletar", description = "Recurso para apagar Inscrição.",
+//        security = {@SecurityRequirement(name = "security")},
+        responses = {
+            @ApiResponse(responseCode = "204", description = "No Content - Requisição bem sucedida e sem retorno.",
+                content = @Content(mediaType = "application/json")),
+            @ApiResponse(responseCode = "400", description = "Bad Request - Requisição mal formulada.",
+                content = @Content(mediaType = "application/json", schema = @Schema(implementation = ApiError.class))),
+            @ApiResponse(responseCode = "403", description = "Forbidden - Usuário sem permissão para acessar recurso.",
+                content = @Content(mediaType = "application/json", schema = @Schema(implementation = ApiError.class))),
+            @ApiResponse(responseCode = "404", description = "Not Found - Recurso não encontrado.",
+                content = @Content(mediaType = "application/json", schema = @Schema(implementation = ApiError.class))),
+            @ApiResponse(responseCode = "500", description = "Internal Server Error - Situação inesperada no servidor.",
+                content = @Content(mediaType = "application/json", schema = @Schema(implementation = ApiError.class))),
+        })
+    public ResponseEntity<Void> delete(
+            @Parameter(name = "id", description = "Chave de Identificação.", example = "78", required = true)
+            @PathVariable(name = "inscricaoId") final Long id) {
+
+        log.info("Requisição recebida para deletar Inscrição.");
+
+        Optional.ofNullable(id)
+            .ifPresentOrElse(this.inscricaoDeleteInputPort::deleteById,
+                () -> {throw new NoSuchElementException();}
+            );
+
+        log.info("Inscrição deletada com sucesso, por Id: {}.", id);
+
+        return ResponseEntity
+            .noContent()
+            .build();
+    }
 
     @PutMapping(
         consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_JSON_VALUE, APPLICATION_YAML_VALUE},
