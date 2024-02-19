@@ -444,8 +444,6 @@ mmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/out/reposito
 lmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/out/repository/entity/InscritoEntity.java,4/8/481853574b808b436461eb4a4338b0daea481383
 ô
 imicroinscricoes/src/main/java/microservice/microinscricoes/adapter/out/repository/InscritoRepository.java,b/6/b6fe7a22926f410ffd6bb6d1812fd10cbc309da8
-ó
-gmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/out/repository/mapper/MapperOut.java,7/f/7f8697abe40a67d894ac66c30e6eda9a8621e1bc
 è
 _microinscricoes/src/main/java/microservice/microinscricoes/application/core/domain/History.java,d/1/d171970fbbca7d29511ade4d9330c0fa8fd5555a
 ç
@@ -594,12 +592,8 @@ pmicroinscricoes/src/test/java/microservice/microinscricoes/adapter/out/integrat
 Smicroinscricoes/src/test/java/microservice/microinscricoes/utility/TestConfigs.java,d/3/d34306439466dbbfc4f103336c173635433e4be8
 è
 _microinscricoes/src/test/java/microservice/microinscricoes/utility/AbstractIntegrationTest.java,9/0/90eb136bf96a3e54d49738aa271586123fc33a5c
-é
-^microinscricoes/src/test/java/microservice/microinscricoes/swagger/SwaggerIntegrationTest.java,7/a/7a5be27816d085b772e717ac4a76836b0473a3c1
 Ü
 Vmicroinscricoes/src/main/java/microservice/microinscricoes/config/beans/WebConfig.java,f/8/f85f6db113be2e706488ccf6e0c5b2023f331592
-ã
-[microinscricoes/src/test/java/microservice/microinscricoes/swagger/CorsIntegrationTest.java,e/8/e81ab00e9aea28c96801cf3d761df3adfeaa1939
 é
 ^microinscricoes/src/test/java/microservice/microinscricoes/configs/SwaggerIntegrationTest.java,4/a/4a1ec4a9843b725caed0feba74df16b16c0ac527
 ã
@@ -620,3 +614,5 @@ emicroinscricoes/src/main/java/microservice/microinscricoes/adapter/out/Inscrica
 \microinscricoes/src/main/java/microservice/microinscricoes/adapter/out/mapper/MapperOut.java,a/4/a46a0690813cd2df461e876fb5988179c6266ae8
 ô
 imicroinscricoes/src/main/java/microservice/microinscricoes/adapter/out/specs/InscricoesSpecification.java,1/4/14f8ec4d78bef6c4baec98be45cb00f96ae74dad
+å
+\microinscricoes/src/test/java/microservice/microinscricoes/utility/InscricaoOpenDtoPage.java,8/e/8e2d54f4f2ef20979221a58f0d99f809bffcc2f9

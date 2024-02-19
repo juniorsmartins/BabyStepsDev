@@ -1,5 +1,6 @@
 package microservice.microinscricoes.adapter.in.controller;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.filter.log.LogDetail;
@@ -15,10 +16,14 @@ import microservice.microinscricoes.adapter.out.repository.TorneioRepository;
 import microservice.microinscricoes.adapter.out.repository.entity.TorneioEntity;
 import microservice.microinscricoes.utility.AbstractIntegrationTest;
 import microservice.microinscricoes.utility.FactoryObjectMother;
+import microservice.microinscricoes.utility.InscricaoOpenDtoPage;
 import microservice.microinscricoes.utility.TestConfigs;
+import org.hamcrest.Matchers;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.testcontainers.shaded.com.fasterxml.jackson.databind.DeserializationFeature;
 import org.testcontainers.shaded.com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -137,28 +142,16 @@ class InscricaoControllerTest extends AbstractIntegrationTest {
             var filtro = new InscricaoFiltroDto();
             filtro.setId("2");
 
-            var response = RestAssured
+            RestAssured
                 .given().spec(requestSpecification)
                     .contentType(TestConfigs.CONTENT_TYPE_JSON)
-                    .queryParam("filtro", filtro)
+                    .queryParam("filtro.id", "2")
                 .when()
                     .get()
                 .then()
                     .log().all()
                     .statusCode(200)
-                .extract()
-                    .body()
-                        .asString();
-
-//            var dtoOut = objectMapper.readValue(response, InscricaoOpenDtoOut.class);
-//            var persistido = inscricaoRepository.findById(dtoOut.getId()).orElseThrow();
-//
-//            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-//
-//            Assertions.assertEquals(dtoOut.getDataInicio(), persistido.getDataInicio().format(formatter));
-//            Assertions.assertEquals(dtoOut.getDataFim(), persistido.getDataFim().format(formatter));
-//            Assertions.assertEquals(dtoOut.getStatus(), persistido.getStatus());
-//            Assertions.assertEquals(dtoOut.getTorneio().getId(), persistido.getTorneio().getId());
+                    .body("content.size()", Matchers.equalTo(1));
         }
     }
 }
