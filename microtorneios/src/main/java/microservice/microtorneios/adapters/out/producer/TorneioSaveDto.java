@@ -1,4 +1,4 @@
-package microservice.microtorneios.adapters.in.dto.response;
+package microservice.microtorneios.adapters.out.producer;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

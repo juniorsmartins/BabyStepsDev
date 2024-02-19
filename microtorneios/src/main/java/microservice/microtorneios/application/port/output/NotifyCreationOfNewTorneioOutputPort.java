@@ -1,9 +1,9 @@
 package microservice.microtorneios.application.port.output;
 
-import microservice.microtorneios.application.core.domain.kafka.EventCreateTorneio;
+import microservice.microtorneios.application.core.domain.Torneio;
 
 public interface NotifyCreationOfNewTorneioOutputPort {
 
-    void sendEvent(EventCreateTorneio eventCreate);
+    void sendEvent(Torneio torneio);
 }
 

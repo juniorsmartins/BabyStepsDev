@@ -676,3 +676,9 @@ Xmicrotimes/src/main/java/microservice/microtimes/adapter/utils/EncapsulateEvent
 cmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/in/consumer/EventCreateTime.java,1/5/15b716e8006ada1b5e2c3831d071bea7a1b0e836
 è
 _microinscricoes/src/main/java/microservice/microinscricoes/adapter/in/consumer/TimeSaveDto.java,3/7/378ad010632fb8e43190491a834c6e961ad6de17
+ã
+[microtorneios/src/main/java/microservice/microtorneios/adapters/utils/EncapsulateEvent.java,1/7/1726402f7487bf9d675b3d09e4d7fddab9124cce
+è
+_microtorneios/src/main/java/microservice/microtorneios/adapters/utils/EncapsulateEventImpl.java,1/a/1a5d276c9cdc376108e690d7c5df7f60f23ffc00
+ê
+`microtorneios/src/main/java/microservice/microtorneios/adapters/out/producer/TorneioSaveDto.java,d/f/dfee52f5b820378ae97bae4d2ee7ef485e40ad82

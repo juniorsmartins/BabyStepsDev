@@ -1,8 +1,7 @@
-package microservice.microtorneios.application.core.domain.kafka;
+package microservice.microtorneios.adapters.out.producer;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
-import microservice.microtorneios.adapters.in.dto.response.TorneioSaveDto;
 
 public record EventCreateTorneio(
 
