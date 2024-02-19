@@ -139,19 +139,49 @@ class InscricaoControllerTest extends AbstractIntegrationTest {
                 .build();
             inscricaoRepository.save(inscricaoEntity2);
 
+            RestAssured
+                .given().spec(requestSpecification)
+                    .contentType(TestConfigs.CONTENT_TYPE_JSON)
+                .when()
+                    .get()
+                .then()
+                    .log().all()
+                    .statusCode(200)
+                    .body("totalElements", Matchers.equalTo(2));
+        }
+
+        @Test
+        @DisplayName("filtro por Id")
+        void dadoGetValido_QuandoPesquisarPorId_EntaoRetornarUmItem() throws IOException {
+
+            var inscricaoEntity1 = factory.gerarInscricaoEntityBuilder()
+                .torneio(torneioEntity1)
+                .build();
+            inscricaoRepository.save(inscricaoEntity1);
+
+            var torneioEntity2 = factory.gerarTorneioEntityBuilder()
+                .id(2L)
+                .build();
+            torneioRepository.save(torneioEntity2);
+
+            var inscricaoEntity2 = factory.gerarInscricaoEntityBuilder()
+                .torneio(torneioEntity2)
+                .build();
+            var inscricaoSalva = inscricaoRepository.save(inscricaoEntity2);
+
             var filtro = new InscricaoFiltroDto();
             filtro.setId("2");
 
             RestAssured
                 .given().spec(requestSpecification)
                     .contentType(TestConfigs.CONTENT_TYPE_JSON)
-                    .queryParam("filtro.id", "2")
+                    .queryParam("id", inscricaoSalva.getId())
                 .when()
                     .get()
                 .then()
                     .log().all()
                     .statusCode(200)
-                    .body("content.size()", Matchers.equalTo(1));
+                    .body("totalElements", Matchers.equalTo(1));
         }
     }
 }
