@@ -646,3 +646,7 @@ Norchestrator/src/main/java/microservice/orchestrator/config/kafka/ETopics.java
 [orchestrator/src/main/java/microservice/orchestrator/adapter/out/producer/SagaProducer.java,e/6/e6baf88e3ae75484c65339c64f1dc62a015a880c
 –
 forchestrator/src/main/java/microservice/orchestrator/adapter/in/consumer/SagaOrchestratorConsumer.java,f/3/f3e9bb110c01d719f9e1ad41fb69d92cc7287812
+£
+smicroinscricoes/src/main/java/microservice/microinscricoes/application/port/output/InscricaoFindByIdOutputPort.java,f/c/fc253b29c3e35e070b4f006778fa042b235fa678
+”
+dmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/out/InscricaoFindByIdAdapter.java,7/7/77759620e349e98f7d2d8414b725138587152b9d
