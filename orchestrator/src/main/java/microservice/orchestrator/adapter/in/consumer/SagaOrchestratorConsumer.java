@@ -1,8 +1,8 @@
-package microservice.orchestrator.application.core.consumer;
+package microservice.orchestrator.adapter.in.consumer;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import microservice.orchestrator.config.utils.JsonUtil;
+import microservice.orchestrator.adapter.utils.JsonUtil;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 

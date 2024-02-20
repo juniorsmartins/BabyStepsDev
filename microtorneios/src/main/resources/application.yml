@@ -46,8 +46,8 @@ spring:
     bootstrap-servers: ${KAFKA_BROKER:kafka:9092}
     topic:
       torneio-save: torneio-save
-      orchestrator: orchestrator
       torneio-success: torneio-success
+      orchestrator: orchestrator
       torneio-fail: torneio-fail
     consumer:
       group-id: ${spring.application.name}:-group

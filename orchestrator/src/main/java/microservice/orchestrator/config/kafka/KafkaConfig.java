@@ -1,7 +1,6 @@
 package microservice.orchestrator.config.kafka;
 
 import lombok.RequiredArgsConstructor;
-import microservice.orchestrator.application.core.domain.enums.ETopics;
 import org.apache.kafka.clients.admin.NewTopic;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.producer.ProducerConfig;

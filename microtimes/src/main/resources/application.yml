@@ -46,8 +46,8 @@ spring:
     bootstrap-servers: ${KAFKA_BROKER:kafka:9092}
     topic:
       time-save: time-save
-      orchestrator: orchestrator
       time-validation-success: time-validation-success
+      orchestrator: orchestrator
       time-validation-fail: time-validation-fail
     consumer:
       group-id: ${spring.application.name}:-group
