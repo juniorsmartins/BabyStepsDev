@@ -1,4 +1,4 @@
-package microservice.micropagamentos.config.utils;
+package microservice.micropagamentos.adapter.utils;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
