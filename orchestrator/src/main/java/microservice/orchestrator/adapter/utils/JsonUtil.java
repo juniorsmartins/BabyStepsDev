@@ -1,4 +1,4 @@
-package microservice.orchestrator.config.utils;
+package microservice.orchestrator.adapter.utils;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
