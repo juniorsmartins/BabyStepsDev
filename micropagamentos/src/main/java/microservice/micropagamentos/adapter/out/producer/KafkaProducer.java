@@ -1,4 +1,4 @@
-package microservice.micropagamentos.application.core.producer;
+package microservice.micropagamentos.adapter.out.producer;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

@@ -8,6 +8,12 @@ spring:
 
   kafka:
     bootstrap-servers: ${KAFKA_BROKER:kafka:9092}
+    topic:
+      start-saga: start-saga
+      orchestrator: orchestrator
+      finish-success: finish-success
+      finish-fail: finish-fail
+      notify-ending: notify-ending
     consumer:
       group-id: ${spring.application.name}:-group
       auto-offset-reset: latest

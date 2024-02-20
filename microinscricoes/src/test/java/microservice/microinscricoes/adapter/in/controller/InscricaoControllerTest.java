@@ -84,8 +84,8 @@ class InscricaoControllerTest extends AbstractIntegrationTest {
     }
 
     @Nested
-    @DisplayName("PostOpen")
-    class PostOpen {
+    @DisplayName("Post")
+    class Post {
 
         @Test
         @DisplayName("persistência")
