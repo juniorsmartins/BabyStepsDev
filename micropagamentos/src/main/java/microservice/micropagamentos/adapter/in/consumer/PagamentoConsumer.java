@@ -1,9 +1,9 @@
-package microservice.micropagamentos.application.core.consumer;
+package microservice.micropagamentos.adapter.in.consumer;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
-import microservice.micropagamentos.config.utils.JsonUtil;
+import microservice.micropagamentos.adapter.utils.JsonUtil;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
