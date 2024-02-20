@@ -45,8 +45,8 @@ spring:
   kafka:
     bootstrap-servers: ${KAFKA_BROKER:kafka:9092}
     topic:
-      orchestrator: orchestrator
       pagamento-success: pagamento-success
+      orchestrator: orchestrator
       pagamento-fail: pagamento-fail
     consumer:
       group-id: ${spring.application.name}:-group

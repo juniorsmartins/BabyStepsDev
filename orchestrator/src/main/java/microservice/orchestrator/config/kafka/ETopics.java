@@ -1,4 +1,4 @@
-package microservice.orchestrator.application.core.domain.enums;
+package microservice.orchestrator.config.kafka;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
