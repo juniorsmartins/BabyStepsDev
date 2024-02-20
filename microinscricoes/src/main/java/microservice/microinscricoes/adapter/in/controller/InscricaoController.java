@@ -81,7 +81,7 @@ public class InscricaoController {
         log.info("Período de Inscrições criado com sucesso, com Id: {}", response.getId());
 
         return ResponseEntity
-            .created(URI.create("/api/v1/inscricoes/open/" + response.getId()))
+            .created(URI.create("/api/v1/inscricoes/" + response.getId()))
             .body(response);
     }
 

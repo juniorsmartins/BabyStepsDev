@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.net.URI;
 import java.util.Optional;
 
 @Tag(name = "Inscritos", description = "Contém os recursos de Abrir, Cadastrar, Consultar, Listar, Atualizar e Deletar.")
@@ -71,7 +72,7 @@ public class InscritoController {
         log.info("Sucesso ao registrar um Inscrito, com Id: {}.", response.id());
 
         return ResponseEntity
-            .ok()
+            .created(URI.create("/api/v1/inscritos/" + response.id()))
             .body(response);
     }
 }
