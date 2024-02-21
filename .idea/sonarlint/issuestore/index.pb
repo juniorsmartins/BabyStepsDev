@@ -655,3 +655,7 @@ forchestrator/src/main/java/microservice/orchestrator/adapter/in/consumer/SagaOr
 smicroinscricoes/src/main/java/microservice/microinscricoes/application/port/output/InscricaoFindByIdOutputPort.java,f/c/fc253b29c3e35e070b4f006778fa042b235fa678
 î
 dmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/out/InscricaoFindByIdAdapter.java,7/7/77759620e349e98f7d2d8414b725138587152b9d
+Ü
+Vorchestrator/src/test/java/microservice/orchestrator/OrchestratorApplicationTests.java,0/0/00f6f3c7701e73fcddba11791a1f55a680ac5f6f
+è
+_micropagamentos/src/test/java/microservice/micropagamentos/MicropagamentosApplicationTests.java,9/7/970bccad95dce05cfcd09638ab53291c601a704d
