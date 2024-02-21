@@ -1,15 +1,14 @@
-package microservice.microinscricoes.adapter.in.dto.request;
+package microservice.microinscricoes.adapter.in.controller.dto.request;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import lombok.Builder;
-import microservice.microinscricoes.adapter.in.dto.TorneioIdDto;
+import microservice.microinscricoes.adapter.in.controller.dto.TorneioIdDto;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 
 @Schema(name = "InscricaoOpenDtoIn", description = "Objeto de transporte de dados.")
 @Builder

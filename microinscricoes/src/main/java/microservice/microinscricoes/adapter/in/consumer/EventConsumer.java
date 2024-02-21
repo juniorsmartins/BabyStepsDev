@@ -3,7 +3,7 @@ package microservice.microinscricoes.adapter.in.consumer;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import microservice.microinscricoes.adapter.in.consumer.event.EventCreateTime;
-import microservice.microinscricoes.adapter.in.dto.kafka.EventCreateTorneio;
+import microservice.microinscricoes.adapter.in.consumer.event.EventCreateTorneio;
 import microservice.microinscricoes.adapter.in.mapper.MapperIn;
 import microservice.microinscricoes.adapter.utils.JsonUtil;
 import microservice.microinscricoes.application.port.input.TimeSaveInputPort;

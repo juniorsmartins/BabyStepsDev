@@ -1,7 +1,8 @@
-package microservice.microinscricoes.adapter.in.custom_annotation;
+package microservice.microinscricoes.adapter.in.controller.dto.custom_annotation;
 
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;
+import microservice.microinscricoes.adapter.in.dto.CheckedDateValidator;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

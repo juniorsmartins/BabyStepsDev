@@ -1,4 +1,4 @@
-package microservice.microinscricoes.adapter.in.dto.request;
+package microservice.microinscricoes.adapter.in.controller.dto.request;
 
 import lombok.*;
 

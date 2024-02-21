@@ -1,6 +1,6 @@
 package microservice.microinscricoes.adapter.out.mapper;
 
-import microservice.microinscricoes.adapter.in.dto.request.InscricaoFiltroDto;
+import microservice.microinscricoes.adapter.in.controller.dto.request.InscricaoFiltroDto;
 import microservice.microinscricoes.adapter.out.repository.entity.InscricaoEntity;
 import microservice.microinscricoes.adapter.out.repository.entity.InscritoEntity;
 import microservice.microinscricoes.adapter.out.repository.entity.TimeEntity;

@@ -663,3 +663,5 @@ _micropagamentos/src/test/java/microservice/micropagamentos/MicropagamentosAppli
 omicroinscricoes/src/main/java/microservice/microinscricoes/application/port/input/InscricaoCreateInputPort.java,d/f/df21388243c76b5b6ae61a1015408f6d560cf54c
 ü
 omicroinscricoes/src/main/java/microservice/microinscricoes/application/core/usecase/InscricaoCreateUseCase.java,0/8/08d8e0fff23d02fab83b0f8c6319e24b7949685a
+ç
+]microinscricoes/src/main/java/microservice/microinscricoes/adapter/in/EventCreateTorneio.java,e/b/eb701110310232566c72fcab2c1e78a44ee78c2b

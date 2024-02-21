@@ -1,4 +1,4 @@
-package microservice.microinscricoes.adapter.in.custom_annotation;
+package microservice.microinscricoes.adapter.in.controller.dto.custom_annotation;
 
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;

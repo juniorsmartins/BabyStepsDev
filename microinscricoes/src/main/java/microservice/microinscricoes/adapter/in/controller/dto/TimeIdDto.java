@@ -1,4 +1,4 @@
-package microservice.microinscricoes.adapter.in.dto;
+package microservice.microinscricoes.adapter.in.controller.dto;
 
 import jakarta.validation.constraints.Positive;
 

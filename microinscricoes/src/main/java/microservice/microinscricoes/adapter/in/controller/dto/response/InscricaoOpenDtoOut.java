@@ -1,8 +1,8 @@
-package microservice.microinscricoes.adapter.in.dto.response;
+package microservice.microinscricoes.adapter.in.controller.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
-import microservice.microinscricoes.adapter.in.dto.TorneioIdDto;
+import microservice.microinscricoes.adapter.in.controller.dto.TorneioIdDto;
 import microservice.microinscricoes.application.core.domain.enums.EInscricaoStatus;
 
 import java.io.Serial;
