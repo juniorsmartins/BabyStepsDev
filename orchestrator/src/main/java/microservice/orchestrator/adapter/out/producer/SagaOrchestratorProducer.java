@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @Component
 @AllArgsConstructor
-public class SagaProducer {
+public class SagaOrchestratorProducer {
 
     private final KafkaTemplate<String, String> kafkaTemplate;
 
