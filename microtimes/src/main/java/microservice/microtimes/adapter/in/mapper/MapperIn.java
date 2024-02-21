@@ -1,7 +1,7 @@
 package microservice.microtimes.adapter.in.mapper;
 
-import microservice.microtimes.adapter.in.dto.request.TimeCreateDtoRequest;
-import microservice.microtimes.adapter.in.dto.response.TimeCreateDtoResponse;
+import microservice.microtimes.adapter.in.controller.dto.request.TimeCreateDtoRequest;
+import microservice.microtimes.adapter.in.controller.dto.response.TimeCreateDtoResponse;
 import microservice.microtimes.application.core.domain.Time;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

@@ -2,7 +2,7 @@ package microservice.microtimes.adapter.in.consumer;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import microservice.microtimes.adapter.utils.JsonUtilImpl;
+import microservice.microtimes.adapter.utils.JsonUtil;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
@@ -11,15 +11,15 @@ import org.springframework.stereotype.Component;
 @AllArgsConstructor
 public class TimeValidationConsumer {
 
-    private final JsonUtilImpl jsonUtil;
+    private final JsonUtil jsonUtil;
 
     @KafkaListener(
         groupId = "${spring.kafka.consumer.group-id}",
         topics = "${spring.kafka.topic.time-validation-success}"
     )
-    public void consumeSuccessEvent(String payload) {
+    public void consumeSuccessSagaEvent(String payload) {
         log.info("Receiving success event {} from time-validation-success topic.", payload);
-        var event = jsonUtil.toEvent(payload);
+        var event = jsonUtil.toSagaEvent(payload);
         log.info(event.toString());
     }
 
@@ -27,9 +27,9 @@ public class TimeValidationConsumer {
         groupId = "${spring.kafka.consumer.group-id}",
         topics = "${spring.kafka.topic.time-validation-fail}"
     )
-    public void consumeFailEvent(String payload) {
+    public void consumeFailSagaEvent(String payload) {
         log.info("Receiving rollback event {} from time-validation-fail topic.", payload);
-        var event = jsonUtil.toEvent(payload);
+        var event = jsonUtil.toSagaEvent(payload);
         log.info(event.toString());
     }
 }

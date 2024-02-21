@@ -3,7 +3,7 @@ package microservice.orchestrator.adapter.utils;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import microservice.orchestrator.adapter.in.dto.Event;
+import microservice.orchestrator.adapter.in.consumer.SagaEvent;
 import org.springframework.stereotype.Component;
 
 @Slf4j
@@ -24,9 +24,9 @@ public class JsonUtil {
         }
     }
 
-    public Event toEvent(String json) {
+    public SagaEvent toSagaEvent(String json) {
         try {
-            return objectMapper.readValue(json, Event.class);
+            return objectMapper.readValue(json, SagaEvent.class);
 
         } catch (Exception ex) {
 
