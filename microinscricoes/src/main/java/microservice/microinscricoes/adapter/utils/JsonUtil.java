@@ -1,7 +1,7 @@
 package microservice.microinscricoes.adapter.utils;
 
-import microservice.microinscricoes.adapter.in.consumer.EventCreateTime;
-import microservice.microinscricoes.adapter.in.dto.kafka.EventCreateTorneio;
+import microservice.microinscricoes.adapter.in.consumer.event.EventCreateTime;
+import microservice.microinscricoes.adapter.in.consumer.event.EventCreateTorneio;
 import microservice.microinscricoes.application.core.domain.Event;
 
 public interface JsonUtil {

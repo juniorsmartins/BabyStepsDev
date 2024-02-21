@@ -3,7 +3,7 @@ package microservice.microinscricoes.adapter.out.specs;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
-import microservice.microinscricoes.adapter.in.dto.request.InscricaoFiltroDto;
+import microservice.microinscricoes.adapter.in.controller.dto.request.InscricaoFiltroDto;
 import microservice.microinscricoes.adapter.out.repository.entity.InscricaoEntity;
 import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.data.jpa.domain.Specification;

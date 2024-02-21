@@ -28,7 +28,7 @@ class InscricaoOpenUseCaseTest extends AbstractIntegrationTest {
     private final FactoryObjectMother factory = FactoryObjectMother.singleton();
 
     @InjectMocks
-    private InscricaoOpenUseCase inscricaoOpenUseCase;
+    private InscricaoCreateUseCase inscricaoOpenUseCase;
 
     private InscricaoSaveOutputPort inscricaoSaveOutputPort;
 
@@ -42,7 +42,7 @@ class InscricaoOpenUseCaseTest extends AbstractIntegrationTest {
     void setUp() {
         this.inscricaoSaveOutputPort = Mockito.mock(InscricaoSaveAdapter.class);
         this.torneioFindByIdOutputPort = Mockito.mock(TorneioFindByIdAdapter.class);
-        this.inscricaoOpenUseCase = new InscricaoOpenUseCase(inscricaoSaveOutputPort, torneioFindByIdOutputPort);
+        this.inscricaoOpenUseCase = new InscricaoCreateUseCase(inscricaoSaveOutputPort, torneioFindByIdOutputPort);
 
         this.inscricao = this.factory.gerarInscricao();
         this.torneio = inscricao.getTorneio();
@@ -55,7 +55,7 @@ class InscricaoOpenUseCaseTest extends AbstractIntegrationTest {
         @Test
         @DisplayName("nulo")
         void dadoInscricaoNula_QuandoOpen_EntaoLancarException() {
-            Executable acao = () -> inscricaoOpenUseCase.open(null);
+            Executable acao = () -> inscricaoOpenUseCase.create(null);
             Assertions.assertThrows(NoSuchElementException.class, acao);
             Mockito.verifyNoInteractions(torneioFindByIdOutputPort);
             Mockito.verifyNoInteractions(inscricaoSaveOutputPort);
@@ -78,7 +78,7 @@ class InscricaoOpenUseCaseTest extends AbstractIntegrationTest {
             Mockito.when(inscricaoSaveOutputPort.save(Mockito.any()))
                 .thenReturn(inscricao);
 
-            var result = inscricaoOpenUseCase.open(inscricao);
+            var result = inscricaoOpenUseCase.create(inscricao);
 
             Assertions.assertNotNull(result.getId());
         }

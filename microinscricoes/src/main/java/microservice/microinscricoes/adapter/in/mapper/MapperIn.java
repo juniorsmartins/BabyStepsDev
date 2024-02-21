@@ -1,13 +1,17 @@
 package microservice.microinscricoes.adapter.in.mapper;
 
-import microservice.microinscricoes.adapter.in.consumer.TimeSaveDto;
-import microservice.microinscricoes.adapter.in.dto.InscricaoIdDto;
-import microservice.microinscricoes.adapter.in.dto.TimeIdDto;
-import microservice.microinscricoes.adapter.in.dto.TorneioIdDto;
-import microservice.microinscricoes.adapter.in.dto.request.*;
-import microservice.microinscricoes.adapter.in.dto.response.InscricaoOpenDtoOut;
-import microservice.microinscricoes.adapter.in.dto.response.InscritoRegisterDtoOut;
+import microservice.microinscricoes.adapter.in.consumer.dto.TimeSaveDto;
+import microservice.microinscricoes.adapter.in.controller.dto.InscricaoIdDto;
+import microservice.microinscricoes.adapter.in.controller.dto.TimeIdDto;
+import microservice.microinscricoes.adapter.in.controller.dto.TorneioIdDto;
+import microservice.microinscricoes.adapter.in.controller.dto.request.InscricaoFiltroDto;
+import microservice.microinscricoes.adapter.in.controller.dto.request.InscricaoOpenDtoIn;
+import microservice.microinscricoes.adapter.in.controller.dto.request.InscritoRegisterDtoIn;
+import microservice.microinscricoes.adapter.in.consumer.dto.TorneioSaveDto;
+import microservice.microinscricoes.adapter.in.controller.dto.response.InscricaoOpenDtoOut;
+import microservice.microinscricoes.adapter.in.controller.dto.response.InscritoRegisterDtoOut;
 import microservice.microinscricoes.application.core.domain.*;
+import microservice.microinscricoes.application.core.domain.filtro.InscricaoFiltro;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Named;

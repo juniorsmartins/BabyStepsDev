@@ -24,7 +24,14 @@ public class TimeFindByIdAdapter implements TimeFindByIdOutputPort {
     @Override
     public Optional<Time> findById(final Long id) {
 
-        return Optional.empty();
+        log.info("Iniciado adaptador para consultar Time por Id.");
+
+        var timeOptional = this.timeRepository.findById(id)
+            .map(this.mapperOut::toTime);
+
+        log.info("Finalizado adaptador para consultar Time por Id: {}.", id);
+
+        return timeOptional;
     }
 }
 
