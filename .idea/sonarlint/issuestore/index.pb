@@ -735,3 +735,13 @@ aorchestrator/src/main/java/microservice/orchestrator/config/exception/Exception
 gmicropagamentos/src/main/java/microservice/micropagamentos/config/exception/ExceptionGlobalHandler.java,c/2/c2144a3271924dc14c58a4c4c08893e8112040c4
 “
 cmicrotorneios/src/main/java/microservice/microtorneios/config/exception/ExceptionGlobalHandler.java,6/c/6cf5abbe34e2387b032f7db74a4672da715c1495
+œ
+lmicroinscricoes/src/main/java/microservice/microinscricoes/application/port/output/InscritoSagaProducer.java,a/0/a022c3ee73bbb3692c4ce825001570828abfcc74
+Ÿ
+omicroinscricoes/src/main/java/microservice/microinscricoes/application/port/output/NotifyStartSagaProducer.java,0/4/04baeeaa7dde11a267f34232a08cccc54fe3faa1
+¡
+qmicroinscricoes/src/main/java/microservice/microinscricoes/application/port/output/NotifyStartSagaOutputPort.java,0/c/0c3ea4c64d35aa28595a274f67d21e1fae4ee2f5
+›
+kmicroinscricoes/src/main/java/microservice/microinscricoes/application/port/output/StartSagaOutputPort.java,a/7/a7ab713a1bbea69083786c116b69ba3c0ba96a82
+—
+gorchestrator/src/main/java/microservice/orchestrator/adapter/out/producer/SagaOrchestratorProducer.java,1/9/1937eb0ee9e654a952ba628889d002b05a723d2e
