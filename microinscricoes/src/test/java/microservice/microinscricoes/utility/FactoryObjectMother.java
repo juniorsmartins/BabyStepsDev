@@ -1,6 +1,6 @@
 package microservice.microinscricoes.utility;
 
-import microservice.microinscricoes.adapter.in.dto.request.InscricaoOpenDtoIn;
+import microservice.microinscricoes.adapter.in.controller.dto.request.InscricaoOpenDtoIn;
 import microservice.microinscricoes.adapter.out.repository.entity.InscricaoEntity;
 import microservice.microinscricoes.adapter.out.repository.entity.TorneioEntity;
 import microservice.microinscricoes.application.core.domain.Inscricao;

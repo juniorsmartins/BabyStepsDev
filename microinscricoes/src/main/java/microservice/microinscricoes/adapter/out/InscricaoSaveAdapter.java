@@ -26,15 +26,15 @@ public class InscricaoSaveAdapter implements InscricaoSaveOutputPort {
 
         log.info("Iniciado adaptador para salvar abertura de período de inscrições.");
 
-        var inscricaoOpenSave = Optional.ofNullable(inscricao)
+        var inscricaoSaved = Optional.ofNullable(inscricao)
             .map(this.mapperOut::toInscricaoEntity)
             .map(this.inscricaoRepository::save)
             .map(this.mapperOut::toInscricao)
             .orElseThrow();
 
-        log.info("Finalizado adaptador para salvar abertura de período de inscrições, com Id: {}.", inscricaoOpenSave.getId());
+        log.info("Finalizado adaptador para salvar abertura de período de inscrições, com Id: {}.", inscricaoSaved.getId());
 
-        return inscricaoOpenSave;
+        return inscricaoSaved;
     }
 }
 

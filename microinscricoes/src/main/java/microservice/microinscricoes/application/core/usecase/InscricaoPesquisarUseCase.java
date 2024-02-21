@@ -1,7 +1,7 @@
 package microservice.microinscricoes.application.core.usecase;
 
 import microservice.microinscricoes.application.core.domain.Inscricao;
-import microservice.microinscricoes.application.core.domain.InscricaoFiltro;
+import microservice.microinscricoes.application.core.domain.filtro.InscricaoFiltro;
 import microservice.microinscricoes.application.port.input.InscricaoPesquisarInputPort;
 import microservice.microinscricoes.application.port.output.InscricaoPesquisarOutputPort;
 import org.slf4j.Logger;

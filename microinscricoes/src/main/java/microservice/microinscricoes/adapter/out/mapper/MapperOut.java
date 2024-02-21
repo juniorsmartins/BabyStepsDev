@@ -1,11 +1,12 @@
 package microservice.microinscricoes.adapter.out.mapper;
 
-import microservice.microinscricoes.adapter.in.dto.request.InscricaoFiltroDto;
+import microservice.microinscricoes.adapter.in.controller.dto.request.InscricaoFiltroDto;
 import microservice.microinscricoes.adapter.out.repository.entity.InscricaoEntity;
 import microservice.microinscricoes.adapter.out.repository.entity.InscritoEntity;
 import microservice.microinscricoes.adapter.out.repository.entity.TimeEntity;
 import microservice.microinscricoes.adapter.out.repository.entity.TorneioEntity;
 import microservice.microinscricoes.application.core.domain.*;
+import microservice.microinscricoes.application.core.domain.filtro.InscricaoFiltro;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")
