@@ -1,4 +1,4 @@
-package microservice.microtimes.adapter.in.dto.enums;
+package microservice.microtimes.adapter.in.consumer;
 
 public enum ESagaStatus {
     SUCCESS,

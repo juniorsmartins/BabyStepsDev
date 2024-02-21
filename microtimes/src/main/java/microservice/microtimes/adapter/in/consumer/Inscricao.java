@@ -1,4 +1,4 @@
-package microservice.microtimes.adapter.in.dto;
+package microservice.microtimes.adapter.in.consumer;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -7,13 +7,15 @@ public final class Inscricao {
 
     private Long id;
 
-    private Long torneioId;
+    private Torneio torneio;
 
     private LocalDate dataInicio;
 
     private LocalDate dataFim;
 
     private BigDecimal valor;
+
+    private EInscricaoStatus status;
 
     public Long getId() {
         return id;
@@ -23,12 +25,12 @@ public final class Inscricao {
         this.id = id;
     }
 
-    public Long getTorneioId() {
-        return torneioId;
+    public Torneio getTorneio() {
+        return torneio;
     }
 
-    public void setTorneioId(Long torneioId) {
-        this.torneioId = torneioId;
+    public void setTorneio(Torneio torneio) {
+        this.torneio = torneio;
     }
 
     public LocalDate getDataInicio() {
@@ -53,6 +55,14 @@ public final class Inscricao {
 
     public void setValor(BigDecimal valor) {
         this.valor = valor;
+    }
+
+    public EInscricaoStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(EInscricaoStatus status) {
+        this.status = status;
     }
 }
 

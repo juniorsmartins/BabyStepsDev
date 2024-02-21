@@ -1,6 +1,6 @@
 package microservice.orchestrator.adapter.in.consumer;
 
-import microservice.microinscricoes.application.core.domain.enums.ETipoPagamento;
+import microservice.orchestrator.application.core.domain.enums.ETipoPagamento;
 
 public final class Inscrito {
 

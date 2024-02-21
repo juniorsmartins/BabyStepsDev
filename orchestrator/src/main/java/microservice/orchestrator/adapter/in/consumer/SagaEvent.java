@@ -1,25 +1,30 @@
-package microservice.microtimes.adapter.in.dto;
+package microservice.orchestrator.adapter.in.consumer;
 
-import microservice.microtimes.adapter.in.dto.enums.ESagaStatus;
+import microservice.orchestrator.application.core.domain.enums.EEventSource;
+import microservice.orchestrator.application.core.domain.enums.ESagaStatus;
 
-import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.List;
 
-public final class Event {
+public final class SagaEvent {
 
     private Long id;
 
     private Long transactionId;
 
-    private Inscrito payload;
+    private Long inscritoId;
 
-    private String source;
+    private Long inscricaoId;
+
+    private Order payload;
+
+    private EEventSource source;
 
     private ESagaStatus status;
 
     private List<History> eventHistories;
 
-    private Instant createdAt;
+    private LocalDateTime createdAt;
 
     public Long getId() {
         return id;
@@ -37,19 +42,35 @@ public final class Event {
         this.transactionId = transactionId;
     }
 
-    public Inscrito getPayload() {
+    public Long getInscritoId() {
+        return inscritoId;
+    }
+
+    public void setInscritoId(Long inscritoId) {
+        this.inscritoId = inscritoId;
+    }
+
+    public Long getInscricaoId() {
+        return inscricaoId;
+    }
+
+    public void setInscricaoId(Long inscricaoId) {
+        this.inscricaoId = inscricaoId;
+    }
+
+    public Order getPayload() {
         return payload;
     }
 
-    public void setPayload(Inscrito payload) {
+    public void setPayload(Order payload) {
         this.payload = payload;
     }
 
-    public String getSource() {
+    public EEventSource getSource() {
         return source;
     }
 
-    public void setSource(String source) {
+    public void setSource(EEventSource source) {
         this.source = source;
     }
 
@@ -69,11 +90,11 @@ public final class Event {
         this.eventHistories = eventHistories;
     }
 
-    public Instant getCreatedAt() {
+    public LocalDateTime getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Instant createdAt) {
+    public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
 }

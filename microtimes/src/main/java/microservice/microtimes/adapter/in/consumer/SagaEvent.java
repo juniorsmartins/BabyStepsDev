@@ -1,12 +1,9 @@
-package microservice.orchestrator.adapter.in.consumer;
-
-import microservice.orchestrator.application.core.domain.enums.EEventSource;
-import microservice.orchestrator.application.core.domain.enums.ESagaStatus;
+package microservice.microtimes.adapter.in.consumer;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
-public final class EventCreateInscrito {
+public final class SagaEvent {
 
     private Long id;
 
@@ -18,7 +15,7 @@ public final class EventCreateInscrito {
 
     private Order payload;
 
-    private EEventSource source;
+    private String source;
 
     private ESagaStatus status;
 
@@ -66,11 +63,11 @@ public final class EventCreateInscrito {
         this.payload = payload;
     }
 
-    public EEventSource getSource() {
+    public String getSource() {
         return source;
     }
 
-    public void setSource(EEventSource source) {
+    public void setSource(String source) {
         this.source = source;
     }
 

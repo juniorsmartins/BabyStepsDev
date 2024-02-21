@@ -1,4 +1,4 @@
-package microservice.microtimes.adapter.in.dto.response;
+package microservice.microtimes.adapter.in.controller.dto.response;
 
 import microservice.microtimes.application.core.domain.enums.ActivityStatusEnum;
 

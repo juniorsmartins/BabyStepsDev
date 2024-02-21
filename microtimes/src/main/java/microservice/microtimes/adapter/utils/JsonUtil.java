@@ -1,11 +1,11 @@
 package microservice.microtimes.adapter.utils;
 
-import microservice.microtimes.adapter.in.dto.Event;
+import microservice.microtimes.adapter.in.consumer.SagaEvent;
 
 public interface JsonUtil {
 
     String toJson(Object object);
 
-    Event toEvent(String json);
+    SagaEvent toSagaEvent(String json);
 }
 

@@ -1,4 +1,4 @@
-package microservice.orchestrator.adapter.in.consumer;
+package microservice.microtimes.adapter.in.consumer;
 
 public enum EInscricaoStatus {
 

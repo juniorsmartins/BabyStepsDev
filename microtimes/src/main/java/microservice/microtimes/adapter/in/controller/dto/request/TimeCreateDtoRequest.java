@@ -1,4 +1,4 @@
-package microservice.microtimes.adapter.in.dto.request;
+package microservice.microtimes.adapter.in.controller.dto.request;
 
 import jakarta.validation.constraints.NotBlank;
 
