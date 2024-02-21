@@ -6,7 +6,7 @@ import microservice.microinscricoes.application.core.domain.Order;
 import java.time.LocalDateTime;
 import java.util.List;
 
-public final class EventCreateInscrito {
+public final class SagaEvent {
 
     private Long id;
 

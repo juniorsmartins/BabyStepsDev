@@ -32,7 +32,7 @@ public class EventConsumer {
     )
     public void consumeNotifyEndingEvent(String payload) {
         log.info("Receiving ending notification event {} from notify-ending topic.", payload);
-        var event = jsonUtil.toEvent(payload);
+        var event = jsonUtil.toSagaEvent(payload);
         log.info(event.toString());
     }
 

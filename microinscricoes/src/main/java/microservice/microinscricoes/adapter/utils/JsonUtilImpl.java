@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import microservice.microinscricoes.adapter.in.consumer.event.EventCreateTime;
 import microservice.microinscricoes.adapter.in.consumer.event.EventCreateTorneio;
-import microservice.microinscricoes.adapter.out.producer.EventCreateInscrito;
+import microservice.microinscricoes.adapter.out.producer.SagaEvent;
 import org.springframework.stereotype.Component;
 
 @Slf4j
@@ -28,9 +28,9 @@ public class JsonUtilImpl implements JsonUtil {
     }
 
     @Override
-    public EventCreateInscrito toEvent(String json) {
+    public SagaEvent toSagaEvent(String json) {
         try {
-            return objectMapper.readValue(json, EventCreateInscrito.class);
+            return objectMapper.readValue(json, SagaEvent.class);
 
         } catch (Exception ex) {
 
