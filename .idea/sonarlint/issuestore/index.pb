@@ -725,3 +725,5 @@ dmicrotimes/src/main/java/microservice/microtimes/adapter/in/controller/dto/enum
 Rmicrotimes/src/main/java/microservice/microtimes/adapter/in/consumer/Inscrito.java,e/1/e1ef40181a88dc47c1a6bc586eee3d38e7587124
 ~
 Nmicrotimes/src/main/java/microservice/microtimes/adapter/in/consumer/Time.java,a/7/a7bcc2d49f12a3e5a4df63906d0f4880393522b8
+†
+Vmicropagamentos/src/main/java/microservice/micropagamentos/adapter/utils/JsonUtil.java,9/0/9030df700154f4c23b9a226f7f6e9fe24cd28650
