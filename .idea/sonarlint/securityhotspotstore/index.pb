@@ -722,3 +722,11 @@ Rmicrotimes/src/main/java/microservice/microtimes/adapter/in/consumer/Inscrito.j
 Nmicrotimes/src/main/java/microservice/microtimes/adapter/in/consumer/Time.java,a/7/a7bcc2d49f12a3e5a4df63906d0f4880393522b8
 Ü
 Vmicropagamentos/src/main/java/microservice/micropagamentos/adapter/utils/JsonUtil.java,9/0/9030df700154f4c23b9a226f7f6e9fe24cd28650
+ë
+aorchestrator/src/main/java/microservice/orchestrator/config/exception/ExceptionGlobalHandler.java,1/c/1c928b5d8d016fe34d6a33b8dc139e843ff2f5fd
+ç
+]microtimes/src/main/java/microservice/microtimes/config/exception/ExceptionGlobalHandler.java,0/6/0664b54e897873ece45db4bc4925d379cb468122
+ó
+gmicropagamentos/src/main/java/microservice/micropagamentos/config/exception/ExceptionGlobalHandler.java,c/2/c2144a3271924dc14c58a4c4c08893e8112040c4
+ì
+cmicrotorneios/src/main/java/microservice/microtorneios/config/exception/ExceptionGlobalHandler.java,6/c/6cf5abbe34e2387b032f7db74a4672da715c1495
