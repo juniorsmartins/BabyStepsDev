@@ -3,7 +3,7 @@ package microservice.microtimes.adapter.utils;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import microservice.microtimes.adapter.in.dto.Event;
+import microservice.microtimes.adapter.in.consumer.SagaEvent;
 import org.springframework.stereotype.Component;
 
 @Slf4j
@@ -26,9 +26,9 @@ public class JsonUtilImpl implements JsonUtil {
     }
 
     @Override
-    public Event toEvent(String json) {
+    public SagaEvent toSagaEvent(String json) {
         try {
-            return objectMapper.readValue(json, Event.class);
+            return objectMapper.readValue(json, SagaEvent.class);
 
         } catch (Exception ex) {
 
