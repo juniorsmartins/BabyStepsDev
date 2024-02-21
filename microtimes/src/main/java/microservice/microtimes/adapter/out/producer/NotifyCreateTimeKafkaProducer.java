@@ -5,7 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import microservice.microtimes.adapter.utils.EncapsulateEvent;
 import microservice.microtimes.adapter.utils.JsonUtil;
 import microservice.microtimes.application.core.domain.Time;
-import microservice.microtimes.application.port.output.NotifyCreationOfNewTimeOutputPort;
+import microservice.microtimes.application.port.output.NotifyCreateTimeOutputPort;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
@@ -15,7 +15,7 @@ import java.util.Optional;
 @Slf4j
 @Component
 @RequiredArgsConstructor
-public class NotifyCreationOfNewTimeKafkaProducer implements NotifyCreationOfNewTimeOutputPort {
+public class NotifyCreateTimeKafkaProducer implements NotifyCreateTimeOutputPort {
 
     private final KafkaTemplate<String, String> kafkaTemplate;
 

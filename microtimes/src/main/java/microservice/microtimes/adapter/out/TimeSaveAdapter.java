@@ -2,8 +2,8 @@ package microservice.microtimes.adapter.out;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import microservice.microtimes.adapter.out.mapper.MapperOut;
 import microservice.microtimes.adapter.out.repository.TimeRepository;
-import microservice.microtimes.adapter.out.repository.mapper.MapperOut;
 import microservice.microtimes.application.core.domain.Time;
 import microservice.microtimes.application.port.output.TimeSaveOutputPort;
 import org.springframework.stereotype.Component;

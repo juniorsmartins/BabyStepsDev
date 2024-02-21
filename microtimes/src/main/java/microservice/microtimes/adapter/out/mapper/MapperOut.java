@@ -1,4 +1,4 @@
-package microservice.microtimes.adapter.out.repository.mapper;
+package microservice.microtimes.adapter.out.mapper;
 
 import microservice.microtimes.adapter.out.repository.entity.TimeEntity;
 import microservice.microtimes.application.core.domain.Time;

@@ -1,8 +1,7 @@
 package microservice.microtimes.application.core.domain;
 
-import microservice.microtimes.application.core.domain.enums.ActivityStatusEnum;
-
 import java.time.LocalDate;
+import java.util.Objects;
 
 public final class Time {
 
@@ -13,8 +12,6 @@ public final class Time {
     private String razaoSocial;
 
     private String cnpj;
-
-    private ActivityStatusEnum status;
 
 
     // ---------- SEDE ----------
@@ -67,14 +64,6 @@ public final class Time {
 
     public void setCnpj(String cnpj) {
         this.cnpj = cnpj;
-    }
-
-    public ActivityStatusEnum getStatus() {
-        return status;
-    }
-
-    public void setStatus(ActivityStatusEnum status) {
-        this.status = status;
     }
 
     public String getEstado() {
@@ -131,6 +120,36 @@ public final class Time {
 
     public void setHeadCoach(String headCoach) {
         this.headCoach = headCoach;
+    }
+
+    @Override
+    public String toString() {
+        return "Time{" +
+                "id=" + id +
+                ", nomeFantasia='" + nomeFantasia + '\'' +
+                ", razaoSocial='" + razaoSocial + '\'' +
+                ", cnpj='" + cnpj + '\'' +
+                ", estado='" + estado + '\'' +
+                ", cidade='" + cidade + '\'' +
+                ", data=" + data +
+                ", descricao='" + descricao + '\'' +
+                ", presidente='" + presidente + '\'' +
+                ", vicePresidente='" + vicePresidente + '\'' +
+                ", headCoach='" + headCoach + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Time time = (Time) o;
+        return Objects.equals(getId(), time.getId());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId());
     }
 }
 
