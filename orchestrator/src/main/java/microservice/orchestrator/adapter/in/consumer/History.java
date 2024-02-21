@@ -1,30 +1,33 @@
 package microservice.orchestrator.adapter.in.consumer;
 
+import microservice.orchestrator.application.core.domain.enums.EEventSource;
+import microservice.orchestrator.application.core.domain.enums.ESagaStatus;
+
 import java.time.LocalDateTime;
 
 public final class History {
 
-    private String source;
+    private EEventSource source;
 
-    private String status;
+    private ESagaStatus status;
 
     private String message;
 
     private LocalDateTime createdAt;
 
-    public String getSource() {
+    public EEventSource getSource() {
         return source;
     }
 
-    public void setSource(String source) {
+    public void setSource(EEventSource source) {
         this.source = source;
     }
 
-    public String getStatus() {
+    public ESagaStatus getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(ESagaStatus status) {
         this.status = status;
     }
 

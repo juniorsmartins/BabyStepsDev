@@ -1,5 +1,8 @@
 package microservice.orchestrator.adapter.in.consumer;
 
+import microservice.orchestrator.application.core.domain.enums.EEventSource;
+import microservice.orchestrator.application.core.domain.enums.ESagaStatus;
+
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -15,9 +18,9 @@ public final class EventCreateInscrito {
 
     private Order payload;
 
-    private String source;
+    private EEventSource source;
 
-    private String status;
+    private ESagaStatus status;
 
     private List<History> eventHistories;
 
@@ -63,19 +66,19 @@ public final class EventCreateInscrito {
         this.payload = payload;
     }
 
-    public String getSource() {
+    public EEventSource getSource() {
         return source;
     }
 
-    public void setSource(String source) {
+    public void setSource(EEventSource source) {
         this.source = source;
     }
 
-    public String getStatus() {
+    public ESagaStatus getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(ESagaStatus status) {
         this.status = status;
     }
 

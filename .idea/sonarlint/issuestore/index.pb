@@ -683,3 +683,9 @@ kmicroinscricoes/src/main/java/microservice/microinscricoes/application/core/dom
 hmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/out/producer/EventCreateInscrito.java,0/c/0ce0b026d25d2e924f4d7d9ad129481a6685f3bb
 ™
 imicroinscricoes/src/main/java/microservice/microinscricoes/adapter/in/consumer/event/EventCreateTime.java,e/c/ec59fc09b229effc11069f76e48d98b4980a975f
+‘
+aorchestrator/src/main/java/microservice/orchestrator/adapter/in/consumer/EventCreateInscrito.java,c/a/caa8044d749b322ef1db9e902ab68012bc8951ea
+…
+Uorchestrator/src/main/java/microservice/orchestrator/adapter/in/consumer/History.java,c/7/c78ac42fcd070e5420e33ebbd48649b3ee438a90
+‡
+Worchestrator/src/main/java/microservice/orchestrator/adapter/in/consumer/Inscricao.java,d/2/d2e10c2ca698d2b711d1c65dd3eb9d878c020f5f

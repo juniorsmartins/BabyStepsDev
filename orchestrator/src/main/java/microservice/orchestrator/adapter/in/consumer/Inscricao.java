@@ -1,7 +1,5 @@
 package microservice.orchestrator.adapter.in.consumer;
 
-import microservice.microinscricoes.application.core.domain.enums.EInscricaoStatus;
-
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
@@ -65,18 +63,6 @@ public final class Inscricao {
 
     public void setStatus(EInscricaoStatus status) {
         this.status = status;
-    }
-
-    @Override
-    public String toString() {
-        return "Inscricao{" +
-            "id=" + id +
-            ", torneio=" + torneio +
-            ", dataInicio=" + dataInicio +
-            ", dataFim=" + dataFim +
-            ", valor=" + valor +
-            ", status=" + status +
-            '}';
     }
 }
 
