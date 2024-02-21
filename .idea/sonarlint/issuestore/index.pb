@@ -665,3 +665,7 @@ omicroinscricoes/src/main/java/microservice/microinscricoes/application/port/inp
 omicroinscricoes/src/main/java/microservice/microinscricoes/application/core/usecase/InscricaoCreateUseCase.java,0/8/08d8e0fff23d02fab83b0f8c6319e24b7949685a
 ç
 ]microinscricoes/src/main/java/microservice/microinscricoes/adapter/in/EventCreateTorneio.java,e/b/eb701110310232566c72fcab2c1e78a44ee78c2b
+ú
+lmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/in/consumer/event/EventCreateTorneio.java,f/9/f9da81371a580a06a35a8e61bc1e05678f885140
+†
+pmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/in/controller/dto/request/TorneioSaveDto.java,c/3/c32d449fc481c07aab9cb69395cafe4575549081

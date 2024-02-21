@@ -1,4 +1,4 @@
-package microservice.microinscricoes.application.core.domain;
+package microservice.microinscricoes.application.core.domain.filtro;
 
 public final class InscricaoFiltro {
 

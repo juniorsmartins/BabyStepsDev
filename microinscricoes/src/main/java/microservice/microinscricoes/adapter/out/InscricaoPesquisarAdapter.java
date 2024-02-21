@@ -6,7 +6,7 @@ import microservice.microinscricoes.adapter.out.repository.InscricaoRepository;
 import microservice.microinscricoes.adapter.out.mapper.MapperOut;
 import microservice.microinscricoes.adapter.out.specs.InscricoesSpecification;
 import microservice.microinscricoes.application.core.domain.Inscricao;
-import microservice.microinscricoes.application.core.domain.InscricaoFiltro;
+import microservice.microinscricoes.application.core.domain.filtro.InscricaoFiltro;
 import microservice.microinscricoes.application.port.output.InscricaoPesquisarOutputPort;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

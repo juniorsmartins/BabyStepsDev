@@ -6,6 +6,7 @@ import microservice.microinscricoes.adapter.out.repository.entity.InscritoEntity
 import microservice.microinscricoes.adapter.out.repository.entity.TimeEntity;
 import microservice.microinscricoes.adapter.out.repository.entity.TorneioEntity;
 import microservice.microinscricoes.application.core.domain.*;
+import microservice.microinscricoes.application.core.domain.filtro.InscricaoFiltro;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")

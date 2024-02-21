@@ -1,4 +1,4 @@
-package microservice.microinscricoes.adapter.in.controller.dto.request;
+package microservice.microinscricoes.adapter.in.consumer.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
