@@ -14,7 +14,7 @@ import microservice.microinscricoes.adapter.in.dto.request.InscricaoOpenDtoIn;
 import microservice.microinscricoes.adapter.in.dto.response.InscricaoOpenDtoOut;
 import microservice.microinscricoes.adapter.in.mapper.MapperIn;
 import microservice.microinscricoes.application.port.input.InscricaoDeleteInputPort;
-import microservice.microinscricoes.application.port.input.InscricaoOpenInputPort;
+import microservice.microinscricoes.application.port.input.InscricaoCreateInputPort;
 import microservice.microinscricoes.application.port.input.InscricaoPesquisarInputPort;
 import org.apache.kafka.common.requests.ApiError;
 import org.springframework.data.domain.Page;
@@ -38,7 +38,7 @@ public class InscricaoController {
 
     private static final String APPLICATION_YAML_VALUE = "application/x-yaml";
 
-    private final InscricaoOpenInputPort inscricaoOpenInputPort;
+    private final InscricaoCreateInputPort inscricaoCreateInputPort;
 
     private final InscricaoPesquisarInputPort inscricaoPesquisarInputPort;
 
@@ -74,7 +74,7 @@ public class InscricaoController {
 
         var response = Optional.of(inscricaoOpenDtoIn)
             .map(this.mapperIn::toInscricao)
-            .map(this.inscricaoOpenInputPort::open)
+            .map(this.inscricaoCreateInputPort::create)
             .map(this.mapperIn::toInscricaoOpenDtoOut)
             .orElseThrow();
 

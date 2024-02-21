@@ -3,7 +3,7 @@ package microservice.microinscricoes.adapter.utils;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import microservice.microinscricoes.adapter.in.consumer.EventCreateTime;
+import microservice.microinscricoes.adapter.in.consumer.event.EventCreateTime;
 import microservice.microinscricoes.adapter.in.dto.kafka.EventCreateTorneio;
 import microservice.microinscricoes.application.core.domain.Event;
 import org.springframework.stereotype.Component;

@@ -5,7 +5,7 @@ import microservice.microinscricoes.adapter.out.InscricaoPesquisarAdapter;
 import microservice.microinscricoes.adapter.out.InscricaoSaveAdapter;
 import microservice.microinscricoes.adapter.out.TorneioFindByIdAdapter;
 import microservice.microinscricoes.application.core.usecase.InscricaoDeleteUseCase;
-import microservice.microinscricoes.application.core.usecase.InscricaoOpenUseCase;
+import microservice.microinscricoes.application.core.usecase.InscricaoCreateUseCase;
 import microservice.microinscricoes.application.core.usecase.InscricaoPesquisarUseCase;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,9 +14,9 @@ import org.springframework.context.annotation.Configuration;
 public class InscricaoConfig {
 
     @Bean
-    public InscricaoOpenUseCase inscricaoOpenUseCase(InscricaoSaveAdapter inscricaoSaveAdapter,
-                                                     TorneioFindByIdAdapter torneioFindByIdAdapter) {
-        return new InscricaoOpenUseCase(inscricaoSaveAdapter, torneioFindByIdAdapter);
+    public InscricaoCreateUseCase inscricaoCreateUseCase(InscricaoSaveAdapter inscricaoSaveAdapter,
+                                                       TorneioFindByIdAdapter torneioFindByIdAdapter) {
+        return new InscricaoCreateUseCase(inscricaoSaveAdapter, torneioFindByIdAdapter);
     }
 
     @Bean

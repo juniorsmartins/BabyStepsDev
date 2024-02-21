@@ -2,8 +2,8 @@ package microservice.microinscricoes.application.port.input;
 
 import microservice.microinscricoes.application.core.domain.Inscricao;
 
-public interface InscricaoOpenInputPort {
+public interface InscricaoCreateInputPort {
 
-    Inscricao open(Inscricao inscricao);
+    Inscricao create(Inscricao inscricao);
 }
 
