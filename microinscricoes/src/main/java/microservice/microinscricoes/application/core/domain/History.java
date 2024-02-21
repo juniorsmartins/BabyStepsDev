@@ -1,6 +1,6 @@
 package microservice.microinscricoes.application.core.domain;
 
-import java.time.Instant;
+import java.time.LocalDateTime;
 
 public final class History {
 
@@ -10,7 +10,7 @@ public final class History {
 
     private String message;
 
-    private Instant createdAt;
+    private LocalDateTime createdAt;
 
     public String getSource() {
         return source;
@@ -36,11 +36,11 @@ public final class History {
         this.message = message;
     }
 
-    public Instant getCreatedAt() {
+    public LocalDateTime getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Instant createdAt) {
+    public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
 }

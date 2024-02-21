@@ -664,3 +664,17 @@ omicroinscricoes/src/main/java/microservice/microinscricoes/application/core/use
 lmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/in/consumer/event/EventCreateTorneio.java,f/9/f9da81371a580a06a35a8e61bc1e05678f885140
 †
 pmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/in/controller/dto/request/TorneioSaveDto.java,c/3/c32d449fc481c07aab9cb69395cafe4575549081
+ì
+cmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/out/producer/OrderInscricao.java,a/7/a7f55338628cb433d691777dd3612e1dca2837a0
+í
+bmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/out/producer/OrderInscrito.java,2/b/2b672f9a50e4d2fa69610c475237d1448f2153d5
+ï
+emicroinscricoes/src/main/java/microservice/microinscricoes/application/core/domain/OrderInscrito.java,c/2/c2f3de5e4aa55517142f84cb26dbd3c1d1334685
+ç
+]microinscricoes/src/main/java/microservice/microinscricoes/application/core/domain/Order.java,a/2/a23098bcf78b923cbc37554a6f02084c224c874e
+õ
+kmicroinscricoes/src/main/java/microservice/microinscricoes/application/core/domain/EventCreateInscrito.java,2/3/233dfddd34c385565d838979629e329134b12fdf
+ò
+hmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/out/producer/EventCreateInscrito.java,0/c/0ce0b026d25d2e924f4d7d9ad129481a6685f3bb
+ô
+imicroinscricoes/src/main/java/microservice/microinscricoes/adapter/in/consumer/event/EventCreateTime.java,e/c/ec59fc09b229effc11069f76e48d98b4980a975f

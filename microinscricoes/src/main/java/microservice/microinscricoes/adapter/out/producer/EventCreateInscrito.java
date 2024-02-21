@@ -1,9 +1,12 @@
-package microservice.microinscricoes.application.core.domain;
+package microservice.microinscricoes.adapter.out.producer;
 
-import java.time.Instant;
+import microservice.microinscricoes.application.core.domain.History;
+import microservice.microinscricoes.application.core.domain.Order;
+
+import java.time.LocalDateTime;
 import java.util.List;
 
-public final class Event {
+public final class EventCreateInscrito {
 
     private Long id;
 
@@ -11,7 +14,9 @@ public final class Event {
 
     private Long inscritoId;
 
-    private Inscrito payload;
+    private Long inscricaoId;
+
+    private Order payload;
 
     private String source;
 
@@ -19,7 +24,7 @@ public final class Event {
 
     private List<History> eventHistories;
 
-    private Instant createdAt;
+    private LocalDateTime createdAt;
 
     public Long getId() {
         return id;
@@ -45,11 +50,19 @@ public final class Event {
         this.inscritoId = inscritoId;
     }
 
-    public Inscrito getPayload() {
+    public Long getInscricaoId() {
+        return inscricaoId;
+    }
+
+    public void setInscricaoId(Long inscricaoId) {
+        this.inscricaoId = inscricaoId;
+    }
+
+    public Order getPayload() {
         return payload;
     }
 
-    public void setPayload(Inscrito payload) {
+    public void setPayload(Order payload) {
         this.payload = payload;
     }
 
@@ -77,11 +90,11 @@ public final class Event {
         this.eventHistories = eventHistories;
     }
 
-    public Instant getCreatedAt() {
+    public LocalDateTime getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Instant createdAt) {
+    public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
 }
