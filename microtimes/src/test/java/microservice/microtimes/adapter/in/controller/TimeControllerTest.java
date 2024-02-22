@@ -1,7 +1,7 @@
 package microservice.microtimes.adapter.in.controller;
 
 import microservice.microtimes.adapter.in.controller.dto.request.TimeCreateDtoRequest;
-import microservice.microtimes.application.core.domain.Time;
+import microservice.microtimes.adapter.out.repository.TimeRepository;
 import microservice.microtimes.utility.AbstractTestcontainersTest;
 import microservice.microtimes.utility.ConverterUtilTest;
 import microservice.microtimes.utility.FactoryObjectMother;
@@ -32,7 +32,10 @@ class TimeControllerTest extends AbstractTestcontainersTest {
     private final FactoryObjectMother factory = FactoryObjectMother.singleton();
 
     @Autowired
-    private MockMvc mockMvc;
+    MockMvc mockMvc;
+
+    @Autowired
+    private TimeRepository timeRepository;
 
     private TimeCreateDtoRequest.TimeCreateDtoRequestBuilder timeCreateDtoRequestBuilder;
 
@@ -43,7 +46,7 @@ class TimeControllerTest extends AbstractTestcontainersTest {
 
     @AfterEach
     void tearDown() {
-
+        this.timeRepository.deleteAll();
     }
 
     @Nested
