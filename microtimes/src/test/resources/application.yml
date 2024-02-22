@@ -1,18 +1,61 @@
 server:
-  port: 8003
+  port: 8888
 
 spring:
+
+  application:
+    name: microtimes
+
   datasource:
-    url: jdbc:h2:mem:testdb
-    username: sa
-    password:
-  h2:
-    console:
-      enabled: true
-      path: /h2-console
+    driver-class-name: org.mariadb.jdbc.Driver
+    sql-script-encoding: UTF-8
+    characterEncoding: UTF-8
+
   jpa:
-    show-sql: true
+    database: MYSQL
+    hibernate:
+      ddl-auto: create-drop
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
     properties:
       hibernate:
+        dialect: org.hibernate.dialect.MariaDBDialect
         format_sql: true
+        use_sql_comments: true
+        type:
+          enumType:
+            type: pgsql_enum
+        jdbc:
+          log:
+            non_contextual_creation: true
+    database-platform: org.hibernate.dialect.MariaDBDialect
+    open-in-view: false
+    generate-ddl: true
+    show-sql: true
+
+  kafka:
+    bootstrap-servers: localhost:9092
+    topic:
+      time-save: time-save
+      time-validation-success: time-validation-success
+      orchestrator: orchestrator
+      time-validation-fail: time-validation-fail
+    consumer:
+      group-id: ${spring.application.name}:-group
+      auto-offset-reset: latest
+
+logging:
+  level:
+    org:
+      apache:
+        kafka: OFF
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eurekaserver:8761/eureka
+  instance:
+    instance-id: ${spring.application.name}:${spring.cloud.client.hostname}:${spring.application.instance_id:${random.value}}
+    leaseRenewalIntervalInSeconds: 30
+
 
