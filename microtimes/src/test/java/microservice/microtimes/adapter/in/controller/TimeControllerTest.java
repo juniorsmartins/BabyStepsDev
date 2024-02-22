@@ -43,6 +43,7 @@ class TimeControllerTest extends AbstractTestcontainersTest {
 
     @Test
     @Order(1)
+    @DisplayName("http 201")
     void dadoDadosValidos_quandoPostTime_entaoRetornarHttp201() throws Exception {
 
         var time = this.factory.gerarTimeCreateDtoRequestBuilder().build();

@@ -34,7 +34,7 @@ spring:
     show-sql: true
 
   kafka:
-    bootstrap-servers: ${KAFKA_BROKER:kafka:9092}
+    bootstrap-servers: localhost:9092
     topic:
       time-save: time-save
       time-validation-success: time-validation-success
