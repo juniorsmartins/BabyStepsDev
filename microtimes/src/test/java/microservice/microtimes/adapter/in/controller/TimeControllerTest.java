@@ -1,7 +1,6 @@
 package microservice.microtimes.adapter.in.controller;
 
 import microservice.microtimes.adapter.in.controller.dto.request.TimeCreateDtoRequest;
-import microservice.microtimes.application.core.domain.Time;
 import microservice.microtimes.utility.AbstractTestcontainersTest;
 import microservice.microtimes.utility.ConverterUtilTest;
 import microservice.microtimes.utility.FactoryObjectMother;
