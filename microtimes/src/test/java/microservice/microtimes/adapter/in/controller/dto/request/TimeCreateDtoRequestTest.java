@@ -35,7 +35,10 @@ class TimeCreateDtoRequestTest extends AbstractTestcontainersTest {
         @Test
         @DisplayName("nulo")
         void dadoNomeFantasiaNulo_quandoInstanciar_entaoLancarException() {
-            var dtoRequest = factory.gerarTimeCreateDtoRequestBuilder().nomeFantasia(null).build();
+            var dtoRequest = factory.gerarTimeCreateDtoRequestBuilder()
+                .nomeFantasia(null)
+                .build();
+
             Set<ConstraintViolation<TimeCreateDtoRequest>> violations = validator.validate(dtoRequest);
             Assertions.assertEquals(1, violations.size());
         }
@@ -47,6 +50,7 @@ class TimeCreateDtoRequestTest extends AbstractTestcontainersTest {
             var dtoRequest = factory.gerarTimeCreateDtoRequestBuilder()
                 .nomeFantasia(valor)
                 .build();
+
             Set<ConstraintViolation<TimeCreateDtoRequest>> violations = validator.validate(dtoRequest);
             Assertions.assertFalse(violations.isEmpty());
         }
