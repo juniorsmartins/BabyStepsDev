@@ -1,4 +1,4 @@
-package microservice.micropagamentos.application.core.domain;
+package microservice.micropagamentos.adapter.in.consumer;
 
 import java.time.Instant;
 

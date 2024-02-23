@@ -2,7 +2,6 @@ package microservice.micropagamentos.adapter.in.consumer;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-
 import microservice.micropagamentos.adapter.utils.JsonUtil;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
@@ -20,7 +19,7 @@ public class PagamentoConsumer {
     )
     public void consumeSuccessEvent(String payload) {
         log.info("Receiving success event {} from pagamento-success topic.", payload);
-        var event = jsonUtil.toEvent(payload);
+        var event = jsonUtil.toSagaEvent(payload);
         log.info(event.toString());
     }
 
@@ -30,7 +29,7 @@ public class PagamentoConsumer {
     )
     public void consumeFailEvent(String payload) {
         log.info("Receiving rollback event {} from pagamento-fail topic.", payload);
-        var event = jsonUtil.toEvent(payload);
+        var event = jsonUtil.toSagaEvent(payload);
         log.info(event.toString());
     }
 }

@@ -693,3 +693,9 @@ Xmicrotimes/src/main/java/microservice/microtimes/adapter/out/producer/KafkaProd
 amicroinscricoes/src/main/java/microservice/microinscricoes/adapter/in/consumer/ConsumerEvent.java,4/b/4beea961d35750ff669a0cb404f3e7c752fc67d9
 Ñ
 Torchestrator/src/main/java/microservice/orchestrator/adapter/utils/JsonUtilImpl.java,c/7/c7feec58c9a0f31d690a3394154b9c56bc9d36e7
+ï
+emicropagamentos/src/main/java/microservice/micropagamentos/adapter/in/consumer/PagamentoConsumer.java,0/0/00ecc28a71d8bb73a1afd10b37e8d35b503afc26
+ä
+Zmicropagamentos/src/main/java/microservice/micropagamentos/adapter/utils/JsonUtilImpl.java,7/e/7e947735b2fb8c039b1b00fcd863467e4b18d4c2
+ç
+]microtorneios/src/main/java/microservice/microtorneios/application/core/domain/SagaEvent.java,c/3/c35caf8432d78864a1a49520404dc4265e0b08c8

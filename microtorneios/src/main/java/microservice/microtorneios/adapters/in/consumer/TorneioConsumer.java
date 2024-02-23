@@ -19,7 +19,7 @@ public class TorneioConsumer {
     )
     public void consumeSuccessEvent(String payload) {
         log.info("Receiving success event {} from torneio-success topic.", payload);
-        var event = jsonUtil.toEvent(payload);
+        var event = jsonUtil.toSagaEvent(payload);
         log.info(event.toString());
     }
 
@@ -29,7 +29,7 @@ public class TorneioConsumer {
     )
     public void consumeFailEvent(String payload) {
         log.info("Receiving rollback event {} from torneio-fail topic.", payload);
-        var event = jsonUtil.toEvent(payload);
+        var event = jsonUtil.toSagaEvent(payload);
         log.info(event.toString());
     }
 }
