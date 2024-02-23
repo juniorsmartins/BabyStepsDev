@@ -689,3 +689,5 @@ Omicrotimes/src/test/java/microservice/microtimes/utility/ConverterUtilTest.java
 Qmicrotimes/src/test/java/microservice/microtimes/utility/FactoryObjectMother.java,4/6/4675eabaa0bc23693d54479caecb5598d121d10d
 ˆ
 Xmicrotimes/src/main/java/microservice/microtimes/adapter/out/producer/KafkaProducer.java,e/9/e9bd31af05006dcd05ab02a1b5b1eb255ba10b3a
+‘
+amicroinscricoes/src/main/java/microservice/microinscricoes/adapter/in/consumer/ConsumerEvent.java,4/b/4beea961d35750ff669a0cb404f3e7c752fc67d9

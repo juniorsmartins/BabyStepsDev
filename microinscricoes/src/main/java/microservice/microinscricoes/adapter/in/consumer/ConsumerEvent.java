@@ -16,7 +16,7 @@ import java.util.Optional;
 @Slf4j
 @Component
 @RequiredArgsConstructor
-public class EventConsumer {
+public class ConsumerEvent {
 
     private final JsonUtil jsonUtil;
 
