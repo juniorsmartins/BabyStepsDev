@@ -11,7 +11,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import microservice.microinscricoes.adapter.in.controller.dto.request.InscritoRegisterDtoIn;
 import microservice.microinscricoes.adapter.in.controller.dto.response.InscritoRegisterDtoOut;
-import microservice.microinscricoes.adapter.in.mapper.MapperIn;
+import microservice.microinscricoes.adapter.mapper.MapperIn;
 import microservice.microinscricoes.application.port.input.InscritoRegisterInputPort;
 import org.apache.kafka.common.requests.ApiError;
 import org.springframework.http.MediaType;

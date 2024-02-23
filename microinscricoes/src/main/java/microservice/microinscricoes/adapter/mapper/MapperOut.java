@@ -1,4 +1,4 @@
-package microservice.microinscricoes.adapter.out.mapper;
+package microservice.microinscricoes.adapter.mapper;
 
 import microservice.microinscricoes.adapter.in.controller.dto.request.InscricaoFiltroDto;
 import microservice.microinscricoes.adapter.out.repository.entity.InscricaoEntity;

@@ -1,4 +1,4 @@
-package microservice.microinscricoes.adapter.in.mapper;
+package microservice.microinscricoes.adapter.mapper;
 
 import microservice.microinscricoes.adapter.in.consumer.dto.TimeSaveDto;
 import microservice.microinscricoes.adapter.in.controller.dto.InscricaoIdDto;

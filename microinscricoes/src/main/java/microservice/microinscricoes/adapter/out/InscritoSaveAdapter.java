@@ -3,7 +3,7 @@ package microservice.microinscricoes.adapter.out;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import microservice.microinscricoes.adapter.out.repository.InscritoRepository;
-import microservice.microinscricoes.adapter.out.mapper.MapperOut;
+import microservice.microinscricoes.adapter.mapper.MapperOut;
 import microservice.microinscricoes.application.core.domain.Inscrito;
 import microservice.microinscricoes.application.port.output.InscritoSaveOutputPort;
 import org.springframework.stereotype.Repository;

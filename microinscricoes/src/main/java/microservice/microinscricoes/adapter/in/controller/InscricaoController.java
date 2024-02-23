@@ -12,7 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 import microservice.microinscricoes.adapter.in.controller.dto.request.InscricaoFiltroDto;
 import microservice.microinscricoes.adapter.in.controller.dto.request.InscricaoOpenDtoIn;
 import microservice.microinscricoes.adapter.in.controller.dto.response.InscricaoOpenDtoOut;
-import microservice.microinscricoes.adapter.in.mapper.MapperIn;
+import microservice.microinscricoes.adapter.mapper.MapperIn;
 import microservice.microinscricoes.application.port.input.InscricaoDeleteInputPort;
 import microservice.microinscricoes.application.port.input.InscricaoCreateInputPort;
 import microservice.microinscricoes.application.port.input.InscricaoPesquisarInputPort;
