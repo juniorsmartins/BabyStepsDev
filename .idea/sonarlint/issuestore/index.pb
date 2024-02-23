@@ -683,8 +683,6 @@ Umicrotimes/src/test/java/microservice/microtimes/adapter/out/TimeSaveAdapterTes
 pmicrotimes/src/test/java/microservice/microtimes/adapter/in/controller/dto/request/TimeCreateDtoRequestTest.java,a/a/aa5b86783763d5f1ed7b81bfdace5b85de998736
 à
 Xmicrotimes/src/test/java/microservice/microtimes/utility/AbstractTestcontainersTest.java,5/c/5c3451fe2a9b2135caf3e04c91e4457aa313b3f3
-â
-Ymicroinscricoes/src/test/java/microservice/microinscricoes/utility/ConverterUtilTest.java,5/f/5fee9bd3476f81680443dbc0fc18db8968a9bfa5
 
 Omicrotimes/src/test/java/microservice/microtimes/utility/ConverterUtilTest.java,d/1/d12bfd790af8734381894c39f82cef84a5a2d88b
 Å
