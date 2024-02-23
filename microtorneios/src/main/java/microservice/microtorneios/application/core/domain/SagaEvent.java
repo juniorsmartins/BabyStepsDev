@@ -1,9 +1,9 @@
-package microservice.micropagamentos.application.core.domain;
+package microservice.microtorneios.application.core.domain;
 
 import java.time.Instant;
 import java.util.List;
 
-public final class Event {
+public final class SagaEvent {
 
     private Long id;
 
