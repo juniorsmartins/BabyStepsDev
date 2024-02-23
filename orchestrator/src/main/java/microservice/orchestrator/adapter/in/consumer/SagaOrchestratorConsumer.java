@@ -1,6 +1,6 @@
 package microservice.orchestrator.adapter.in.consumer;
 
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import microservice.orchestrator.adapter.utils.JsonUtil;
 import org.springframework.kafka.annotation.KafkaListener;
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 @Slf4j
 @Component
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class SagaOrchestratorConsumer {
 
     private final JsonUtil jsonUtil;
