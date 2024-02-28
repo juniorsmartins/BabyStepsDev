@@ -9,10 +9,10 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import microservice.microinscricoes.adapter.in.controller.dto.request.InscritoRegisterDtoIn;
-import microservice.microinscricoes.adapter.in.controller.dto.response.InscritoRegisterDtoOut;
+import microservice.microinscricoes.adapter.in.controller.dto.request.InscritoCreateDtoIn;
+import microservice.microinscricoes.adapter.in.controller.dto.response.InscritoCreateDtoOut;
 import microservice.microinscricoes.adapter.mapper.MapperIn;
-import microservice.microinscricoes.application.port.input.InscritoRegisterInputPort;
+import microservice.microinscricoes.application.port.input.InscritoCreateInputPort;
 import org.apache.kafka.common.requests.ApiError;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -33,7 +33,7 @@ public class InscritoController {
 
     private static final String APPLICATION_YAML_VALUE = "application/x-yaml";
 
-    private final InscritoRegisterInputPort inscritoRegisterInputPort;
+    private final InscritoCreateInputPort inscritoRegisterInputPort;
 
     private final MapperIn mapperIn;
 
@@ -43,7 +43,7 @@ public class InscritoController {
     @Operation(summary = "Registrar Inscrito", description = "Recurso para registrar Inscrito.",
         responses = {
             @ApiResponse(responseCode = "201", description = "Created - Recurso cadastrado com sucesso.",
-                content = @Content(mediaType = "application/json", schema = @Schema(implementation = InscritoRegisterDtoOut.class))),
+                content = @Content(mediaType = "application/json", schema = @Schema(implementation = InscritoCreateDtoOut.class))),
             @ApiResponse(responseCode = "400", description = "Requisição mal formulada.",
                 content = @Content(mediaType = "application/json", schema = @Schema(implementation = ApiError.class))),
             @ApiResponse(responseCode = "403", description = "Usuário sem permissão para acessar recurso.",
@@ -57,16 +57,16 @@ public class InscritoController {
             @ApiResponse(responseCode = "500", description = "Situação inesperada no servidor.",
                 content = @Content(mediaType = "application/json", schema = @Schema(implementation = ApiError.class))),
         })
-    public ResponseEntity<InscritoRegisterDtoOut> register(
-        @Parameter(name = "InscricaoRegisterDtoIn", description = "Objeto para Transporte de Dados de entrada.", required = true)
-        @RequestBody @Valid InscritoRegisterDtoIn inscritoRegisterDtoIn) {
+    public ResponseEntity<InscritoCreateDtoOut> create(
+        @Parameter(name = "InscricaoCreateDtoIn", description = "Objeto para Transporte de Dados de entrada.", required = true)
+        @RequestBody @Valid InscritoCreateDtoIn inscritoCreateDtoIn) {
 
         log.info("Requisição recebida para registrar um Inscrito.");
 
-        var response = Optional.of(inscritoRegisterDtoIn)
+        var response = Optional.of(inscritoCreateDtoIn)
             .map(this.mapperIn::toInscrito)
-            .map(this.inscritoRegisterInputPort::register)
-            .map(this.mapperIn::toInscritoRegisterDtoOut)
+            .map(this.inscritoRegisterInputPort::create)
+            .map(this.mapperIn::toInscritoCreateDtoOut)
             .orElseThrow();
 
         log.info("Sucesso ao registrar um Inscrito, com Id: {}.", response.id());

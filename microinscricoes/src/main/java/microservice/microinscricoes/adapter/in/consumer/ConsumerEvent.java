@@ -6,8 +6,8 @@ import microservice.microinscricoes.adapter.in.consumer.event.EventCreateTime;
 import microservice.microinscricoes.adapter.in.consumer.event.EventCreateTorneio;
 import microservice.microinscricoes.adapter.mapper.MapperIn;
 import microservice.microinscricoes.adapter.utils.JsonUtil;
-import microservice.microinscricoes.application.port.input.TimeSaveInputPort;
-import microservice.microinscricoes.application.port.input.TorneioSaveInputPort;
+import microservice.microinscricoes.application.port.input.TimeCreateInputPort;
+import microservice.microinscricoes.application.port.input.TorneioCreateInputPort;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
@@ -22,9 +22,9 @@ public class ConsumerEvent {
 
     private final MapperIn mapper;
 
-    private final TorneioSaveInputPort torneioSaveInputPort;
+    private final TorneioCreateInputPort torneioSaveInputPort;
 
-    private final TimeSaveInputPort timeSaveInputPort;
+    private final TimeCreateInputPort timeSaveInputPort;
 
     @KafkaListener(
         groupId = "${spring.kafka.consumer.group-id}",

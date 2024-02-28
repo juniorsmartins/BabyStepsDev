@@ -6,10 +6,10 @@ import microservice.microinscricoes.adapter.in.controller.dto.TimeIdDto;
 import microservice.microinscricoes.adapter.in.controller.dto.TorneioIdDto;
 import microservice.microinscricoes.adapter.in.controller.dto.request.InscricaoFiltroDto;
 import microservice.microinscricoes.adapter.in.controller.dto.request.InscricaoOpenDtoIn;
-import microservice.microinscricoes.adapter.in.controller.dto.request.InscritoRegisterDtoIn;
+import microservice.microinscricoes.adapter.in.controller.dto.request.InscritoCreateDtoIn;
 import microservice.microinscricoes.adapter.in.consumer.dto.TorneioSaveDto;
 import microservice.microinscricoes.adapter.in.controller.dto.response.InscricaoOpenDtoOut;
-import microservice.microinscricoes.adapter.in.controller.dto.response.InscritoRegisterDtoOut;
+import microservice.microinscricoes.adapter.in.controller.dto.response.InscritoCreateDtoOut;
 import microservice.microinscricoes.application.core.domain.*;
 import microservice.microinscricoes.application.core.domain.filtro.InscricaoFiltro;
 import org.mapstruct.Mapper;
@@ -50,9 +50,9 @@ public interface MapperIn {
         return data.format(formatter);
     }
 
-    Inscrito toInscrito(InscritoRegisterDtoIn inscritoRegisterDtoIn);
+    Inscrito toInscrito(InscritoCreateDtoIn inscritoCreateDtoIn);
 
-    InscritoRegisterDtoOut toInscritoRegisterDtoOut(Inscrito inscrito);
+    InscritoCreateDtoOut toInscritoCreateDtoOut(Inscrito inscrito);
 
     Inscricao toInscricao(InscricaoIdDto inscricaoIdDto);
 
