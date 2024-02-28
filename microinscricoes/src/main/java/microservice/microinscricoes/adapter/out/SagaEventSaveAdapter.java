@@ -3,7 +3,6 @@ package microservice.microinscricoes.adapter.out;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import microservice.microinscricoes.adapter.mapper.MapperOut;
-import microservice.microinscricoes.adapter.out.repository.OrderRepository;
 import microservice.microinscricoes.adapter.out.repository.SagaEventRepository;
 import microservice.microinscricoes.application.core.domain.SagaEvent;
 import microservice.microinscricoes.application.port.output.SagaEventSaveOutputPort;
@@ -18,8 +17,6 @@ import java.util.Optional;
 public class SagaEventSaveAdapter implements SagaEventSaveOutputPort {
 
     private final SagaEventRepository sagaEventRepository;
-
-    private final OrderRepository orderRepository;
 
     private final MapperOut mapperOut;
 
