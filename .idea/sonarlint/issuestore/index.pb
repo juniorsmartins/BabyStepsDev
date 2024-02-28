@@ -715,3 +715,5 @@ omicroinscricoes/src/main/java/microservice/microinscricoes/application/port/out
 kmicroinscricoes/src/main/java/microservice/microinscricoes/application/port/output/OrderSaveOutputPort.java,e/a/ea9c8dd81ea9941e9326a379602e36beb5b00c27
 å
 \microinscricoes/src/main/java/microservice/microinscricoes/adapter/out/OrderSaveAdapter.java,3/a/3a25fcf339e79071d2efbae6984367552682f8d4
+è
+_microinscricoes/src/main/java/microservice/microinscricoes/config/exception/ProblemDetails.java,9/c/9c8dcd0734171ed918c1d179a5bf772f2e513c68
