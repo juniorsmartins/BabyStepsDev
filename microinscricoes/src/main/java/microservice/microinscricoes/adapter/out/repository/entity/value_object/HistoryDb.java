@@ -1,7 +1,6 @@
 package microservice.microinscricoes.adapter.out.repository.entity.value_object;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Embeddable;
+import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 
