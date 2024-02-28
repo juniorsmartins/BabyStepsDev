@@ -3,7 +3,6 @@ package microservice.microinscricoes.adapter.out.repository.entity;
 import jakarta.persistence.*;
 import lombok.*;
 import microservice.microinscricoes.adapter.out.repository.entity.value_object.HistoryDb;
-import org.springframework.data.annotation.CreatedDate;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -58,8 +57,12 @@ public final class SagaEventEntity implements Serializable {
     joinColumns = @JoinColumn(name = "saga_event_id"))
     private List<HistoryDb> eventHistories;
 
-    @CreatedDate
     @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;
+
+    @PrePersist
+    private void prePersist() {
+        this.createdAt = LocalDateTime.now();
+    }
 }
 
