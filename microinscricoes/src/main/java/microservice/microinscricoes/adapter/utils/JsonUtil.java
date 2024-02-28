@@ -2,13 +2,13 @@ package microservice.microinscricoes.adapter.utils;
 
 import microservice.microinscricoes.adapter.in.consumer.event.EventCreateTime;
 import microservice.microinscricoes.adapter.in.consumer.event.EventCreateTorneio;
-import microservice.microinscricoes.adapter.out.producer.SagaEvent;
+import microservice.microinscricoes.adapter.out.producer.dto.SagaEventRequest;
 
 public interface JsonUtil {
 
     String toJson(Object object);
 
-    SagaEvent toSagaEvent(String json);
+    SagaEventRequest toSagaEvent(String json);
 
     EventCreateTorneio toEventCreateTorneio(String json);
 
