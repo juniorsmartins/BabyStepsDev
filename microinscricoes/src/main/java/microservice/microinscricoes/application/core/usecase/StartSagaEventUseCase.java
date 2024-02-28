@@ -39,12 +39,6 @@ public class StartSagaEventUseCase implements StartSagaEventPort {
             .orElseThrow();
     }
 
-    private SagaEvent saveOrder(SagaEvent sagaEvent) {
-        var orderSaved = this.orderSaveOutputPort.save(sagaEvent.getPayload());
-        sagaEvent.setPayload(orderSaved);
-        return sagaEvent;
-    }
-
     private SagaEvent createSagaEvent(Inscrito inscrito) {
 
         var sagaEvent = new SagaEvent();
@@ -58,6 +52,12 @@ public class StartSagaEventUseCase implements StartSagaEventPort {
 //        sagaEvent.setStatus();
         sagaEvent.setEventHistories(List.of(new History()));
 
+        return sagaEvent;
+    }
+
+    private SagaEvent saveOrder(SagaEvent sagaEvent) {
+        var orderSaved = this.orderSaveOutputPort.save(sagaEvent.getPayload());
+        sagaEvent.setPayload(orderSaved);
         return sagaEvent;
     }
 
