@@ -3,7 +3,6 @@ package microservice.microinscricoes.adapter.out;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import microservice.microinscricoes.adapter.mapper.MapperOut;
-import microservice.microinscricoes.adapter.out.repository.OrderRepository;
 import microservice.microinscricoes.adapter.out.repository.SagaEventRepository;
 import microservice.microinscricoes.application.core.domain.SagaEvent;
 import microservice.microinscricoes.application.port.output.SagaEventSaveOutputPort;
@@ -19,21 +18,23 @@ public class SagaEventSaveAdapter implements SagaEventSaveOutputPort {
 
     private final SagaEventRepository sagaEventRepository;
 
-    private final OrderRepository orderRepository;
-
     private final MapperOut mapperOut;
 
     @Transactional
     @Override
     public SagaEvent save(SagaEvent sagaEvent) {
 
-        Optional.ofNullable(sagaEvent)
+        log.info("Iniciado adaptador para salvar SagaEvent.");
+
+        var eventSaved = Optional.ofNullable(sagaEvent)
             .map(this.mapperOut::toSagaEventEntity)
             .map(this.sagaEventRepository::save)
             .map(this.mapperOut::toSagaEvent)
             .orElseThrow();
 
-        return null;
+        log.info("Finalizado adaptador para salvar SagaEvent, com Id: {}.", eventSaved.getId());
+
+        return eventSaved;
     }
 }
 
