@@ -28,6 +28,7 @@ public class StartSagaEventUseCase implements StartSagaEventPort {
 
         Optional.ofNullable(inscrito)
             .map(this::createSagaEvent)
+            .map()
             .map(this.sagaEventSaveOutputPort::save)
             .map(event -> {
                 this.startSagaProducerOutputPort.sendEvent(event);
