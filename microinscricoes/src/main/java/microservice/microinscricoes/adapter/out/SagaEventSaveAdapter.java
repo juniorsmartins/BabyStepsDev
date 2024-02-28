@@ -27,7 +27,7 @@ public class SagaEventSaveAdapter implements SagaEventSaveOutputPort {
     @Override
     public SagaEvent save(SagaEvent sagaEvent) {
 
-        log.info("Iniciado adaptador para registrar Inscrito.");
+        log.info("Iniciado adaptador para salvar SagaEvent.");
 
         var eventSaved = Optional.ofNullable(sagaEvent)
             .map(this.mapperOut::toSagaEventEntity)
@@ -35,7 +35,7 @@ public class SagaEventSaveAdapter implements SagaEventSaveOutputPort {
             .map(this.mapperOut::toSagaEvent)
             .orElseThrow();
 
-        log.info("Finalizado adaptador para registrar Inscrito, com Id: {}.", eventSaved.getId());
+        log.info("Finalizado adaptador para salvar SagaEvent, com Id: {}.", eventSaved.getId());
 
         return eventSaved;
     }

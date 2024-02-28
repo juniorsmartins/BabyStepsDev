@@ -24,7 +24,7 @@ public class OrderSaveAdapter implements OrderSaveOutputPort {
     @Override
     public Order save(Order order) {
 
-        log.info("Iniciado adaptador para registrar Inscrito.");
+        log.info("Iniciado adaptador para salvar Order.");
 
         var orderSaved = Optional.ofNullable(order)
             .map(this.mapperOut::toOrderEntity)
@@ -32,7 +32,7 @@ public class OrderSaveAdapter implements OrderSaveOutputPort {
             .map(this.mapperOut::toOrder)
             .orElseThrow();
 
-        log.info("Finalizado adaptador para registrar Inscrito, com Id: {}.", orderSaved.getId());
+        log.info("Finalizado adaptador para salvar Order, com Id: {}.", orderSaved.getId());
 
         return orderSaved;
     }
