@@ -6,11 +6,15 @@ public final class Order {
 
     private Long id;
 
-    private OrderInscrito orderInscrito;
+    private Inscrito inscrito;
 
     private LocalDateTime createdAt;
 
-    private Long transactionId;
+    public Order() {}
+
+    public Order(Inscrito inscrito) {
+        this.inscrito = inscrito;
+    }
 
     public Long getId() {
         return id;
@@ -20,12 +24,12 @@ public final class Order {
         this.id = id;
     }
 
-    public OrderInscrito getOrderInscrito() {
-        return orderInscrito;
+    public Inscrito getInscrito() {
+        return inscrito;
     }
 
-    public void setOrderInscrito(OrderInscrito orderInscrito) {
-        this.orderInscrito = orderInscrito;
+    public void setInscrito(Inscrito inscrito) {
+        this.inscrito = inscrito;
     }
 
     public LocalDateTime getCreatedAt() {
@@ -34,14 +38,6 @@ public final class Order {
 
     public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
-    }
-
-    public Long getTransactionId() {
-        return transactionId;
-    }
-
-    public void setTransactionId(Long transactionId) {
-        this.transactionId = transactionId;
     }
 }
 
