@@ -711,5 +711,3 @@ smicroinscricoes/src/main/java/microservice/microinscricoes/application/port/out
 omicroinscricoes/src/main/java/microservice/microinscricoes/application/port/output/SagaEventSaveOutputPort.java,8/4/845762f45bfb34dff98ddf4c9af43f23fd393815
 ê
 `microinscricoes/src/main/java/microservice/microinscricoes/adapter/out/SagaEventSaveAdapter.java,c/6/c644cc0fa90b3d4e77164eab5e35dfaf90d2ba78
-ò
-hmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/out/repository/HistoryRepository.java,c/4/c404483160d5246f12b4d0813278bdb701919ed6
