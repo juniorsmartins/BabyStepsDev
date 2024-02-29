@@ -10,9 +10,9 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.math.BigDecimal;
 
-@Schema(name = "InscricaoOpenDtoIn", description = "Objeto de transporte de dados.")
+@Schema(name = "InscricaoCreateDtoIn", description = "Objeto de transporte de dados.")
 @Builder
-public record InscricaoOpenDtoIn(
+public record InscricaoCreateDtoIn(
 
     @Schema(name = "torneio", description = "Estrutura para transporte de informações de Torneio.", type = "TorneioIdDto")
     @NotNull
