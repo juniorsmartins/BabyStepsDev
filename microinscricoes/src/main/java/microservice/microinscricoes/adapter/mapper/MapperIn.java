@@ -5,7 +5,7 @@ import microservice.microinscricoes.adapter.in.controller.dto.InscricaoIdDto;
 import microservice.microinscricoes.adapter.in.controller.dto.TimeIdDto;
 import microservice.microinscricoes.adapter.in.controller.dto.TorneioIdDto;
 import microservice.microinscricoes.adapter.in.controller.dto.request.InscricaoFiltroDto;
-import microservice.microinscricoes.adapter.in.controller.dto.request.InscricaoOpenDtoIn;
+import microservice.microinscricoes.adapter.in.controller.dto.request.InscricaoCreateDtoIn;
 import microservice.microinscricoes.adapter.in.controller.dto.request.InscritoCreateDtoIn;
 import microservice.microinscricoes.adapter.in.consumer.dto.TorneioSaveDto;
 import microservice.microinscricoes.adapter.in.controller.dto.response.InscricaoOpenDtoOut;
@@ -24,7 +24,7 @@ public interface MapperIn {
 
     @Mapping(source = "dataInicio", target = "dataInicio", qualifiedByName = "setDataStringParaLocalDate")
     @Mapping(source = "dataFim", target = "dataFim", qualifiedByName = "setDataStringParaLocalDate")
-    Inscricao toInscricao(InscricaoOpenDtoIn inscricaoOpenDtoIn);
+    Inscricao toInscricao(InscricaoCreateDtoIn inscricaoOpenDtoIn);
 
     @Named("setDataStringParaLocalDate")
     default LocalDate setDataStringParaLocalDate(String data) {

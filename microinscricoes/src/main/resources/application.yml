@@ -13,6 +13,9 @@ spring:
   application:
     name: microinscricoes
 
+  messages:
+    basename: language/messages
+
   datasource:
     url: jdbc:postgresql://${DB_HOST:microinscricoes16postgres}:${DB_PORT:5432}/${DB_NAME:microinscricoes}?serverTimezone=UTC
     username: ${DB_USERNAME:postgres}

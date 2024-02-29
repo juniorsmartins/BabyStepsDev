@@ -7,7 +7,7 @@ import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.specification.RequestSpecification;
 import microservice.microinscricoes.adapter.in.controller.dto.TorneioIdDto;
-import microservice.microinscricoes.adapter.in.controller.dto.request.InscricaoOpenDtoIn;
+import microservice.microinscricoes.adapter.in.controller.dto.request.InscricaoCreateDtoIn;
 import microservice.microinscricoes.adapter.out.repository.InscricaoRepository;
 import microservice.microinscricoes.adapter.out.repository.TorneioRepository;
 import microservice.microinscricoes.utility.AbstractIntegrationTest;
@@ -38,7 +38,7 @@ class CorsIntegrationTest extends AbstractIntegrationTest {
     @Autowired
     private TorneioRepository torneioRepository;
 
-    private InscricaoOpenDtoIn inscricaoOpenDtoIn;
+    private InscricaoCreateDtoIn inscricaoOpenDtoIn;
 
     @BeforeEach
     void setUp() {
@@ -46,7 +46,7 @@ class CorsIntegrationTest extends AbstractIntegrationTest {
         objectMapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES); // Usar somente nos testes para manter a segurança da API - Isso é usado quanto temos Hateoas
 
         var torneioIdDto = new TorneioIdDto(1L);
-        this.inscricaoOpenDtoIn = this.factory.gerarInscricaoOpenDtoInBuilder()
+        this.inscricaoOpenDtoIn = this.factory.gerarInscricaoCreateDtoInBuilder()
             .torneio(torneioIdDto)
             .build();
 
