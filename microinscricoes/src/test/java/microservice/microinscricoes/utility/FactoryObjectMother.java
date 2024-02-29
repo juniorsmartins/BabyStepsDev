@@ -1,6 +1,6 @@
 package microservice.microinscricoes.utility;
 
-import microservice.microinscricoes.adapter.in.controller.dto.request.InscricaoOpenDtoIn;
+import microservice.microinscricoes.adapter.in.controller.dto.request.InscricaoCreateDtoIn;
 import microservice.microinscricoes.adapter.out.repository.entity.InscricaoEntity;
 import microservice.microinscricoes.adapter.out.repository.entity.TorneioEntity;
 import microservice.microinscricoes.application.core.domain.Inscricao;
@@ -30,9 +30,9 @@ public final class FactoryObjectMother {
     }
 
     // Padrão Builder
-    public InscricaoOpenDtoIn.InscricaoOpenDtoInBuilder gerarInscricaoOpenDtoInBuilder() {
+    public InscricaoCreateDtoIn.InscricaoCreateDtoInBuilder gerarInscricaoCreateDtoInBuilder() {
 
-        return InscricaoOpenDtoIn.builder()
+        return InscricaoCreateDtoIn.builder()
             .dataInicio("10/10/2023")
             .dataFim("10/11/2023")
             .valor(BigDecimal.valueOf(100));

@@ -92,7 +92,7 @@ class InscricaoControllerTest extends AbstractIntegrationTest {
         void dadoInscricaoOpenDtoInValido_QuandoOpen_EntaoRetornarDadosPersistidos() throws IOException {
 
             var torneioIdDto = new TorneioIdDto(1L);
-            var inscricaoOpenDtoIn = factory.gerarInscricaoOpenDtoInBuilder()
+            var inscricaoOpenDtoIn = factory.gerarInscricaoCreateDtoInBuilder()
                 .torneio(torneioIdDto)
                 .build();
 

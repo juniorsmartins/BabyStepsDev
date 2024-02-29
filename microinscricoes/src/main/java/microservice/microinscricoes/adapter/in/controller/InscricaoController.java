@@ -10,7 +10,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import microservice.microinscricoes.adapter.in.controller.dto.request.InscricaoFiltroDto;
-import microservice.microinscricoes.adapter.in.controller.dto.request.InscricaoOpenDtoIn;
+import microservice.microinscricoes.adapter.in.controller.dto.request.InscricaoCreateDtoIn;
 import microservice.microinscricoes.adapter.in.controller.dto.response.InscricaoOpenDtoOut;
 import microservice.microinscricoes.adapter.mapper.MapperIn;
 import microservice.microinscricoes.application.port.input.InscricaoDeleteInputPort;
@@ -68,7 +68,7 @@ public class InscricaoController {
         })
     public ResponseEntity<InscricaoOpenDtoOut> open(
         @Parameter(name = "InscricaoOpenDtoIn", description = "Objeto para Transporte de Dados de entrada.", required = true)
-        @RequestBody @Valid InscricaoOpenDtoIn inscricaoOpenDtoIn) {
+        @RequestBody @Valid InscricaoCreateDtoIn inscricaoOpenDtoIn) {
 
         log.info("Recebida requisição para abrir período de Inscrições.");
 
