@@ -54,13 +54,15 @@ public final class ExceptionGlobalHandler extends ResponseEntityExceptionHandler
 
     // ---------- TRATAMENTO DE EXCEÇÕES CUSTOM ---------- //
     @ExceptionHandler(ValidationException.class)
-    public ResponseEntity<ExceptionDetails> handleValidationException(ValidationException validationException) {
+    public ResponseEntity<ProblemDetail> handleValidationException(ValidationException ex) {
 
-        var details = new ExceptionDetails(HttpStatus.BAD_REQUEST.value(), validationException.getMessage());
+        var problemDetail = ProblemDetail.forStatus(HttpStatus.BAD_REQUEST);
+        problemDetail.setTitle(ex.getMessage());
+        problemDetail.setType(URI.create("https://babystepsdev.com/erros/campos-invalidos"));
 
         return ResponseEntity
             .badRequest()
-            .body(details);
+            .body(problemDetail);
     }
 }
 
