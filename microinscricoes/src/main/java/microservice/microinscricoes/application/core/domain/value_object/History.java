@@ -1,6 +1,7 @@
 package microservice.microinscricoes.application.core.domain.value_object;
 
 import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 
 public final class History {
 
@@ -10,7 +11,7 @@ public final class History {
 
     private String message;
 
-    private LocalDateTime createdAt;
+    private OffsetDateTime createdAt;
 
     public String getSource() {
         return source;
@@ -36,11 +37,11 @@ public final class History {
         this.message = message;
     }
 
-    public LocalDateTime getCreatedAt() {
+    public OffsetDateTime getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
+    public void setCreatedAt(OffsetDateTime createdAt) {
         this.createdAt = createdAt;
     }
 }

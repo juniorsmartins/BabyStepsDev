@@ -7,6 +7,7 @@ import microservice.microinscricoes.adapter.out.repository.entity.value_object.H
 import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 import java.util.List;
 
 @Entity
@@ -58,11 +59,11 @@ public final class SagaEventEntity implements Serializable {
     private List<HistoryDb> eventHistories;
 
     @Column(name = "created_at", updatable = false)
-    private LocalDateTime createdAt;
+    private OffsetDateTime createdAt;
 
     @PrePersist
     private void prePersist() {
-        this.createdAt = LocalDateTime.now();
+        this.createdAt = OffsetDateTime.now();
     }
 }
 

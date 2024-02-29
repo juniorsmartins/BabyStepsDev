@@ -3,6 +3,7 @@ package microservice.microinscricoes.adapter.out.producer.dto;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 
 @Builder
 @NoArgsConstructor
@@ -17,6 +18,6 @@ public final class HistoryDtoRequest {
 
     private String message;
 
-    private LocalDateTime createdAt;
+    private OffsetDateTime createdAt;
 }
 

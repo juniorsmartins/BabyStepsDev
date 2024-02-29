@@ -1,6 +1,7 @@
 package microservice.microinscricoes.application.core.domain;
 
 import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 
 public final class Order {
 
@@ -8,7 +9,7 @@ public final class Order {
 
     private Inscrito inscrito;
 
-    private LocalDateTime createdAt;
+    private OffsetDateTime createdAt;
 
     public Order() {}
 
@@ -32,11 +33,11 @@ public final class Order {
         this.inscrito = inscrito;
     }
 
-    public LocalDateTime getCreatedAt() {
+    public OffsetDateTime getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
+    public void setCreatedAt(OffsetDateTime createdAt) {
         this.createdAt = createdAt;
     }
 }

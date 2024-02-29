@@ -5,6 +5,7 @@ import microservice.microinscricoes.application.core.domain.Inscrito;
 import microservice.microinscricoes.application.core.domain.enums.ETipoPagamento;
 
 import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 
 @Builder
 @NoArgsConstructor
@@ -23,6 +24,6 @@ public final class OrderDtoRequest {
 
     private ETipoPagamento tipo;
 
-    private LocalDateTime createdAt;
+    private OffsetDateTime createdAt;
 }
 
