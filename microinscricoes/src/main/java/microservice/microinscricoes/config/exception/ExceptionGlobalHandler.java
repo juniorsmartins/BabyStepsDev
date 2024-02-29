@@ -1,5 +1,8 @@
 package microservice.microinscricoes.config.exception;
 
+import lombok.RequiredArgsConstructor;
+import org.springframework.context.MessageSource;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.*;
 import org.springframework.validation.BindException;
@@ -15,7 +18,10 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 @RestControllerAdvice
-public class ExceptionGlobalHandler extends ResponseEntityExceptionHandler {
+@RequiredArgsConstructor
+public final class ExceptionGlobalHandler extends ResponseEntityExceptionHandler {
+
+    private final MessageSource messageSource;
 
     // ---------- TRATAMENTO DE EXCEÇÕES DEFAULT ---------- //
     // ---------- Sobreescrever método de ResponseEntityExceptionHandler para customizar ---------- //
@@ -43,7 +49,7 @@ public class ExceptionGlobalHandler extends ResponseEntityExceptionHandler {
             .getAllErrors()
             .stream()
             .collect(Collectors.toMap(objectError -> ((FieldError) objectError).getField(),
-                    DefaultMessageSourceResolvable::getDefaultMessage));
+                    objectError -> messageSource.getMessage(objectError, LocaleContextHolder.getLocale())));
     }
 
     // ---------- TRATAMENTO DE EXCEÇÕES CUSTOM ---------- //
