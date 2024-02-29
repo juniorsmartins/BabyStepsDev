@@ -715,3 +715,13 @@ omicroinscricoes/src/main/java/microservice/microinscricoes/application/port/out
 kmicroinscricoes/src/main/java/microservice/microinscricoes/application/port/output/OrderSaveOutputPort.java,e/a/ea9c8dd81ea9941e9326a379602e36beb5b00c27
 å
 \microinscricoes/src/main/java/microservice/microinscricoes/adapter/out/OrderSaveAdapter.java,3/a/3a25fcf339e79071d2efbae6984367552682f8d4
+§
+tmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/in/controller/dto/request/InscricaoOpenDtoIn.java,f/b/fbcfacb0477bcd6758da9500b779145f9163ea0c
+¶
+vmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/in/controller/dto/request/InscricaoCreateDtoIn.java,f/6/f650234c356ab1b7aae4388e9fc3197aa6be8831
+ù
+mmicroinscricoes/src/main/java/microservice/microinscricoes/config/beans/YamlJackson2HttpMessageConverter.java,a/b/abe59fa8ccbe06a290fef8e99306c7aa110d5512
+â
+Ymicroinscricoes/src/main/java/microservice/microinscricoes/config/beans/LocaleConfig.java,d/0/d0f4c811ff06fa29c3a05453a445288dd7b71c8d
+ä
+Zmicroinscricoes/src/main/java/microservice/microinscricoes/config/beans/MessageConfig.java,3/6/36d75389cfea7eb7f24db6f46c4b9563182bc10f
