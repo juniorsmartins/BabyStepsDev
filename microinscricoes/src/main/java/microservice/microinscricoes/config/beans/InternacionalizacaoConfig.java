@@ -8,6 +8,7 @@ import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver;
 import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
@@ -17,7 +18,7 @@ import java.util.Locale;
 @Configuration
 public class InternacionalizacaoConfig implements WebMvcConfigurer {
 
-    // Serve para ler os arquivos messages
+    // define a localização dos arquivos de mensagens
     @Bean
     public MessageSource messageSource() {
 
@@ -31,13 +32,17 @@ public class InternacionalizacaoConfig implements WebMvcConfigurer {
         return messageSource;
     }
 
-    // Define como será gravada a escolha de língua do usuário
+    // Define como será gravada a escolha de língua do usuário (pode armazenar em Cookie ou Sessão ou pedir na requisição)
     @Bean
     public LocaleResolver localeResolver() {
 
-        CookieLocaleResolver cookieLocaleResolver = new CookieLocaleResolver();
-        cookieLocaleResolver.setDefaultLocale(Locale.US);
-        return cookieLocaleResolver;
+        AcceptHeaderLocaleResolver localeResolver = new AcceptHeaderLocaleResolver();
+        localeResolver.setDefaultLocale(Locale.US);
+        return localeResolver;
+
+//        CookieLocaleResolver cookieLocaleResolver = new CookieLocaleResolver();
+//        cookieLocaleResolver.setDefaultLocale(Locale.US);
+//        return cookieLocaleResolver;
 
 //        SessionLocaleResolver session = new SessionLocaleResolver();
 //        session.setDefaultLocale(Locale.US);
@@ -46,19 +51,20 @@ public class InternacionalizacaoConfig implements WebMvcConfigurer {
 //        return session;
     }
 
-    // Permite mudar de língua
+    // registra o localeChangeInterceptor para que ele possa interceptar as requisições
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(localeChangeInterceptor());
+    }
+
+    // responsável por interceptar as requisições e verificar se há alguma mudança de idioma.
     @Bean
     public LocaleChangeInterceptor localeChangeInterceptor() {
 
         LocaleChangeInterceptor interceptor = new LocaleChangeInterceptor();
-        interceptor.setParamName("locale");
+//        interceptor.setParamName("locale");
 
         return interceptor;
-    }
-
-    @Override
-    public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(localeChangeInterceptor());
     }
 }
 
