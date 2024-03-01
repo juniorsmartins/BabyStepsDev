@@ -3,6 +3,7 @@ package microservice.microinscricoes.application.core.domain;
 import microservice.microinscricoes.application.core.domain.value_object.History;
 
 import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 import java.util.List;
 
 public final class SagaEvent {
@@ -27,7 +28,7 @@ public final class SagaEvent {
 
     private List<History> eventHistories;
 
-    private LocalDateTime createdAt;
+    private OffsetDateTime createdAt;
 
     public Long getId() {
         return id;
@@ -109,11 +110,11 @@ public final class SagaEvent {
         this.eventHistories = eventHistories;
     }
 
-    public LocalDateTime getCreatedAt() {
+    public OffsetDateTime getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
+    public void setCreatedAt(OffsetDateTime createdAt) {
         this.createdAt = createdAt;
     }
 }
