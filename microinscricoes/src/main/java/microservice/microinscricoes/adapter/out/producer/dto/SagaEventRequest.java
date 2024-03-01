@@ -3,6 +3,7 @@ package microservice.microinscricoes.adapter.out.producer.dto;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 import java.util.List;
 
 @Builder
@@ -32,6 +33,6 @@ public final class SagaEventRequest {
 
     private List<HistoryDtoRequest> eventHistories;
 
-    private LocalDateTime createdAt;
+    private OffsetDateTime createdAt;
 }
 
