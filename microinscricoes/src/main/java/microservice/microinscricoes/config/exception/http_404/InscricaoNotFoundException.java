@@ -10,10 +10,6 @@ public final class InscricaoNotFoundException extends ResourceNotFoundException 
   @Serial
   private static final long serialVersionUID = 1L;
 
-  public InscricaoNotFoundException(String message) {
-    super(message);
-  }
-
   public InscricaoNotFoundException(final Long id) {
     super("inscricao.nao.encontrada", id);
   }
