@@ -161,6 +161,11 @@ services:
     build:
       context: ./
       dockerfile: ./microusuarios/Dockerfile
+    deploy:
+      resources:
+        limits:
+          cpus: '0.4'
+          memory: 1G
     restart: always
     networks:
       - babystepsnet
@@ -176,6 +181,11 @@ services:
     build:
       context: ./
       dockerfile: ./microinscricoes/Dockerfile
+    deploy:
+      resources:
+        limits:
+          cpus: '0.4'
+          memory: 1G
     restart: always
     networks:
       - babystepsnet
@@ -192,6 +202,11 @@ services:
     build:
       context: ./
       dockerfile: ./microtorneios/Dockerfile
+    deploy:
+      resources:
+        limits:
+          cpus: '0.4'
+          memory: 1G
     restart: always
     networks:
       - babystepsnet
@@ -208,6 +223,11 @@ services:
     build:
       context: ./
       dockerfile: ./micropagamentos/Dockerfile
+    deploy:
+      resources:
+        limits:
+          cpus: '0.4'
+          memory: 1G
     restart: always
     networks:
       - babystepsnet
@@ -224,6 +244,11 @@ services:
     build:
       context: ./
       dockerfile: ./microtimes/Dockerfile
+    deploy:
+      resources:
+        limits:
+          cpus: '0.4'
+          memory: 1G
     restart: always
     networks:
       - babystepsnet
@@ -259,6 +284,11 @@ services:
     build:
       context: ./
       dockerfile: ./micronoticias/Dockerfile
+    deploy:
+      resources:
+        limits:
+          cpus: '0.4'
+          memory: 1G
     restart: always
     networks:
       - babystepsnet
@@ -306,4 +336,5 @@ networks:
   babystepsnet:
     name: babystepsnet
     driver: bridge
+
 

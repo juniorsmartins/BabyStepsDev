@@ -33,7 +33,11 @@ public final class ExceptionGlobalHandler extends ResponseEntityExceptionHandler
         // ProblemDetail RFC 7807
         ProblemDetail problemDetail = ProblemDetail.forStatus(httpStatusCode);
         problemDetail.setType(URI.create("https://babystepsdev.com/erros/campos-invalidos"));
-        problemDetail.setTitle("Um ou mais campos estão inválidos.");
+
+        var titulo = messageSource.getMessage("resources.campos.invalidos",
+                new Object[]{}, LocaleContextHolder.getLocale());
+
+        problemDetail.setTitle(titulo);
 
         var fields = this.getFields(ex);
 
