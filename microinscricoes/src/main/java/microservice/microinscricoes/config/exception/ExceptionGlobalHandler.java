@@ -33,7 +33,7 @@ public final class ExceptionGlobalHandler extends ResponseEntityExceptionHandler
         // ProblemDetail RFC 7807
         ProblemDetail problemDetail = ProblemDetail.forStatus(httpStatusCode);
         problemDetail.setType(URI.create("https://babystepsdev.com/erros/campos-invalidos"));
-        problemDetail.setTitle("Um ou mais campos estão inválidos.");
+        problemDetail.setTitle(this.getMensagem("resources.campos.invalidos"));
 
         var fields = this.getFields(ex);
 
@@ -43,6 +43,10 @@ public final class ExceptionGlobalHandler extends ResponseEntityExceptionHandler
     }
 
     // ---------- Métodos assessórios ---------- //
+    private String getMensagem(String messageKey) {
+        return messageSource.getMessage(messageKey, new Object[]{}, LocaleContextHolder.getLocale());
+    }
+
     private Map<String, String> getFields(BindException ex) {
         return ex.getBindingResult()
             .getAllErrors()
@@ -53,7 +57,7 @@ public final class ExceptionGlobalHandler extends ResponseEntityExceptionHandler
 
     // ---------- TRATAMENTO DE EXCEÇÕES CUSTOM ---------- //
     @ExceptionHandler(ResourceNotFoundException.class)
-    public ResponseEntity<ProblemDetail> handleResourceNaoEncontrado(ResourceNotFoundException ex,
+    public ResponseEntity<ProblemDetail> handleResourceNotFound(ResourceNotFoundException ex,
                                                                      WebRequest webRequest) {
         // ProblemDetail RFC 7807
         ProblemDetail problemDetail = ProblemDetail.forStatus(HttpStatus.NOT_FOUND);
