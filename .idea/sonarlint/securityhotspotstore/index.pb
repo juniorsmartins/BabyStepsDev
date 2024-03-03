@@ -712,7 +712,7 @@ kmicroinscricoes/src/main/java/microservice/microinscricoes/application/port/out
 vmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/in/controller/dto/request/InscricaoCreateDtoIn.java,f/6/f650234c356ab1b7aae4388e9fc3197aa6be8831
 ù
 mmicroinscricoes/src/main/java/microservice/microinscricoes/config/beans/YamlJackson2HttpMessageConverter.java,a/b/abe59fa8ccbe06a290fef8e99306c7aa110d5512
-ä
-Zmicroinscricoes/src/main/java/microservice/microinscricoes/config/beans/MessageConfig.java,3/6/36d75389cfea7eb7f24db6f46c4b9563182bc10f
 ñ
 fmicroinscricoes/src/main/java/microservice/microinscricoes/config/beans/InternacionalizacaoConfig.java,3/6/3647b559e976768a0bf53e14149689d0b0be865f
+ê
+`microinscricoes/src/main/java/microservice/microinscricoes/config/exception/MessagesDefault.java,1/9/1967a2fc3c38b5e764f643d7acc860239adfb3f7
