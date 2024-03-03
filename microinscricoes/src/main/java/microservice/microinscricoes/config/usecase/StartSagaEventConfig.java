@@ -1,6 +1,5 @@
 package microservice.microinscricoes.config.usecase;
 
-import microservice.microinscricoes.adapter.out.OrderSaveAdapter;
 import microservice.microinscricoes.adapter.out.SagaEventSaveAdapter;
 import microservice.microinscricoes.adapter.out.producer.SagaProducer;
 import microservice.microinscricoes.application.core.usecase.StartSagaEventUseCase;
@@ -12,9 +11,8 @@ public class StartSagaEventConfig {
 
     @Bean
     public StartSagaEventUseCase startSagaEventUseCase(SagaEventSaveAdapter sagaEventSaveAdapter,
-                                                       OrderSaveAdapter orderSaveAdapter,
                                                        SagaProducer sagaProducer) {
-        return new StartSagaEventUseCase(sagaEventSaveAdapter, orderSaveAdapter, sagaProducer);
+        return new StartSagaEventUseCase(sagaEventSaveAdapter, sagaProducer);
     }
 }
 

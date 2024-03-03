@@ -2,6 +2,8 @@ package microservice.microinscricoes.application.core.domain;
 
 import microservice.microinscricoes.application.core.domain.enums.ETipoPagamento;
 
+import java.time.OffsetDateTime;
+
 public final class Inscrito {
 
     private Long id;
@@ -17,6 +19,8 @@ public final class Inscrito {
     private Integer numeroCartao;
 
     private ETipoPagamento tipo;
+
+    private OffsetDateTime createdAt;
 
     public Long getId() {
         return id;
@@ -72,6 +76,14 @@ public final class Inscrito {
 
     public void setTipo(ETipoPagamento tipo) {
         this.tipo = tipo;
+    }
+
+    public OffsetDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(OffsetDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 }
 

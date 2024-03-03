@@ -6,6 +6,7 @@ import microservice.microinscricoes.application.core.domain.enums.ETipoPagamento
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.time.OffsetDateTime;
 
 @Entity
 @Table(name = "inscritos")
@@ -47,5 +48,12 @@ public final class InscritoEntity implements Serializable {
     @Column(name = "tipo", table = "inscrito_pagamento")
     private ETipoPagamento tipo;
 
+    @Column(name = "created_at", updatable = false)
+    private OffsetDateTime createdAt;
+
+    @PrePersist
+    private void prePersist() {
+        this.createdAt = OffsetDateTime.now();
+    }
 }
 

@@ -723,3 +723,7 @@ fmicroinscricoes/src/main/java/microservice/microinscricoes/config/beans/Interna
 `microinscricoes/src/main/java/microservice/microinscricoes/config/exception/MessagesDefault.java,1/9/1967a2fc3c38b5e764f643d7acc860239adfb3f7
 £
 smicroinscricoes/src/main/java/microservice/microinscricoes/config/exception/http_404/ResourceNotFoundException.java,d/f/dfadeef72c2e8b8bb26e7de5a31c7627ecf0b950
+¥
+umicroinscricoes/src/main/java/microservice/microinscricoes/adapter/in/controller/dto/request/InscritoCreateDtoIn.java,a/d/ad8c1867ef47d99cec9f15e80454c53a29a4e88c
+§
+wmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/in/controller/dto/response/InscritoCreateDtoOut.java,6/3/636ddb24e18de51c31afe856e7bd47aaa9eeb521

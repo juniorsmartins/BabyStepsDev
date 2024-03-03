@@ -1,3 +1,14 @@
 
+X	java:S125"<This block of commented-out lines of code should be removed.(Î°ŞÕ8ïíñ®à1
+R
+java:S1128"0Remove this unused import 'jakarta.persistence'.(Î«Ô§úÿÿÿÿ8ïíñ®à1
+E
+java:S1128"#Remove this unused import 'lombok'.(â—‡‘şÿÿÿÿ8ïíñ®à1
+M
+java:S1128"+Remove this unused import 'java.io.Serial'.(Ö£€şÿÿÿÿ8ğíñ®à1
+S
+java:S1128"1Remove this unused import 'java.io.Serializable'.(èãîÂÿÿÿÿÿ8ğíñ®à1
 V
 java:S1128"4Remove this unused import 'java.time.LocalDateTime'.(æÃ§ƒüÿÿÿÿ8â ËÓß1
+R
+java:S1128	"5Remove this unused import 'java.time.OffsetDateTime'.(ûùˆı8ğíñ®à1

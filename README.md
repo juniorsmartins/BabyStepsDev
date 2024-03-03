@@ -62,24 +62,46 @@ em construção.....
 2. Spring Boot (versão 3.0.12);
 3. Spring Web;
 4. Spring Cloud (versão 2022.0.4);
+5. Spring Data JPA;
 
 #### MICROTIMES
 1. Java (versão 21 LTS);
 2. Spring Boot (versão 3.0.12);
 3. Spring Web;
 4. Spring Cloud (versão 2022.0.4);
+5. Spring Data JPA;
 
 #### MICROTORNEIOS
 1. Java (versão 21 LTS);
 2. Spring Boot (versão 3.0.12);
 3. Spring Web;
 4. Spring Cloud (versão 2022.0.4);
+5. Spring Data JPA;
+
+#### MICROINSCRICOES
+1. Java (versão 21 LTS);
+2. Spring Boot (versão 3.0.12);
+3. Spring Web;
+4. Spring Cloud (versão 2022.0.4);
+5. Spring Data JPA;
+6. Spring Data Envers;
+7. Spring Doc (versão 2.3.0);
+8. Message Broker (Kafka);
+9. Formato ISO 8601 de Data e Hora;
+10. Tratamento de Exceções (padrão Problem Details RFC 7807);
+11. Lombok;
+12. MapStruct (versão 1.5.5.Final);
+13. Teste Automatizados (JUnit, JUnit Params, Mockito Core, Mockito Jupiter, Rest-Assured e Testcontainers);
+14. Data Faker (versão 2.1.0);
+15. Content Negotiation (Jackson Dataformat XML e YAML);
+16. PostgreSQL;
+
 
 
 ### 6 - ARQUITETURA
 
 Em construção...
-<img width=800 src=https://github.com/juniorsmartins/BabyStepsDev/blob/master/documentacao/ArquiteturaMicroservices-22-01-24.png>
+<img width=800 src=https://github.com/juniorsmartins/BabyStepsDev/blob/master/documentacao/ArquiteturaMicroservices-03-03-24.jpg>
 
 ### 7 - DIAGRAMAS UML
 
@@ -87,6 +109,6 @@ Em construção...
 ### 8 - DIAGRAMA ENTIDADE-RELACIONAMENTO
 
 Em construção...
-<img width=800 src=https://github.com/juniorsmartins/BabyStepsDev/blob/master/documentacao/DiagramaEntidadeRelacionamento-22-01-24.png>
+<img width=800 src=https://github.com/juniorsmartins/BabyStepsDev/blob/master/documentacao/DiagramaEntidadeRelacionamento-07-02-24.png>
 
 
