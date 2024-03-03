@@ -11,13 +11,9 @@ public abstract sealed class ResourceNotFoundException extends RuntimeException 
   @Serial
   private static final long serialVersionUID = 1L;
 
-  private Long id;
+  private final Long id;
 
-  private String messageKey;
-
-  protected ResourceNotFoundException(String mensagem) {
-    super(mensagem);
-  }
+  private final String messageKey;
 
   protected ResourceNotFoundException(String messageKey, final Long id) {
     super(messageKey);

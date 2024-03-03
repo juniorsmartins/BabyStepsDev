@@ -7,12 +7,8 @@ public final class TorneioNotFoundException extends ResourceNotFoundException {
   @Serial
   private static final long serialVersionUID = 1L;
 
-  public TorneioNotFoundException(String message) {
-    super(message);
-  }
-
   public TorneioNotFoundException(final Long id) {
-    this(String.format("O Torneio %d não foi encontrado.", id));
+    super("torneio.nao.encontrado", id);
   }
 }
 

@@ -7,12 +7,8 @@ public final class TimeNotFoundException extends ResourceNotFoundException {
   @Serial
   private static final long serialVersionUID = 1L;
 
-  public TimeNotFoundException(String message) {
-    super(message);
-  }
-
   public TimeNotFoundException(final Long id) {
-    this(String.format("O Time %d não foi encontrado.", id));
+    super("time.nao.encontrado", id);
   }
 }
 
