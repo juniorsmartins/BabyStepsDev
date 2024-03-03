@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 //@RequiredArgsConstructor
 public final class MessagesDefault {
 
-    @Value("${inscricao.nao.encontrada}")
-    private String inscricao_nao_encontrada;
+//    @Value("${inscricao.nao.encontrada}")
+//    private String inscricao_nao_encontrada;
 }
 
