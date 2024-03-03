@@ -66,7 +66,7 @@ public class InscricaoController {
             @ApiResponse(responseCode = "500", description = "Internal Server Error - Situação inesperada no servidor.",
                 content = @Content(mediaType = "application/json", schema = @Schema(implementation = ApiError.class))),
         })
-    public ResponseEntity<InscricaoOpenDtoOut> open(
+    public ResponseEntity<InscricaoOpenDtoOut> create(
         @Parameter(name = "InscricaoOpenDtoIn", description = "Objeto para Transporte de Dados de entrada.", required = true)
         @RequestBody @Valid InscricaoCreateDtoIn inscricaoOpenDtoIn) {
 
@@ -136,8 +136,8 @@ public class InscricaoController {
                 content = @Content(mediaType = "application/json", schema = @Schema(implementation = ApiError.class))),
         })
     public ResponseEntity<Void> delete(
-            @Parameter(name = "id", description = "Chave de Identificação.", example = "78", required = true)
-            @PathVariable(name = "inscricaoId") final Long id) {
+        @Parameter(name = "id", description = "Chave de Identificação.", example = "78", required = true)
+        @PathVariable(name = "inscricaoId") final Long id) {
 
         log.info("Requisição recebida para deletar Inscrição.");
 
