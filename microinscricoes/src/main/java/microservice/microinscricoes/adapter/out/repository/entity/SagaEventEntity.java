@@ -43,9 +43,13 @@ public final class SagaEventEntity implements Serializable {
     @Column(name = "time_id")
     private Long timeId;
 
+//    @OneToOne(optional = false)
+//    @JoinColumn(name = "payload_id")
+//    private OrderEntity payload;
+
     @OneToOne(optional = false)
     @JoinColumn(name = "payload_id")
-    private OrderEntity payload;
+    private InscritoEntity payload;
 
     @Column(name = "source")
     private String source;
