@@ -53,7 +53,7 @@ public final class ExceptionGlobalHandler extends ResponseEntityExceptionHandler
 
     // ---------- TRATAMENTO DE EXCEÇÕES CUSTOM ---------- //
     @ExceptionHandler(ResourceNotFoundException.class)
-    public ResponseEntity<ProblemDetail> handleResourceNaoEncontrado(ResourceNotFoundException ex,
+    public ResponseEntity<ProblemDetail> handleResourceNotFound(ResourceNotFoundException ex,
                                                                      WebRequest webRequest) {
         // ProblemDetail RFC 7807
         ProblemDetail problemDetail = ProblemDetail.forStatus(HttpStatus.NOT_FOUND);

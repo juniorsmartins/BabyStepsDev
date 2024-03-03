@@ -33,7 +33,7 @@ public class InscritoController {
 
     private static final String APPLICATION_YAML_VALUE = "application/x-yaml";
 
-    private final InscritoCreateInputPort inscritoRegisterInputPort;
+    private final InscritoCreateInputPort inscritoCreateInputPort;
 
     private final MapperIn mapperIn;
 
@@ -65,7 +65,7 @@ public class InscritoController {
 
         var response = Optional.of(inscritoCreateDtoIn)
             .map(this.mapperIn::toInscrito)
-            .map(this.inscritoRegisterInputPort::create)
+            .map(this.inscritoCreateInputPort::create)
             .map(this.mapperIn::toInscritoCreateDtoOut)
             .orElseThrow();
 

@@ -1,10 +1,7 @@
 package microservice.microinscricoes.config.exception.http_404;
 
-import lombok.Getter;
-
 import java.io.Serial;
 
-@Getter
 public final class InscricaoNotFoundException extends ResourceNotFoundException {
 
   @Serial
