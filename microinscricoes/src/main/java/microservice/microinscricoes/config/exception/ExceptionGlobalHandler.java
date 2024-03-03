@@ -1,9 +1,9 @@
 package microservice.microinscricoes.config.exception;
 
 import lombok.RequiredArgsConstructor;
+import microservice.microinscricoes.config.exception.http_404.ResourceNotFoundException;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
-import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.*;
 import org.springframework.validation.BindException;
 import org.springframework.validation.FieldError;
@@ -30,7 +30,6 @@ public final class ExceptionGlobalHandler extends ResponseEntityExceptionHandler
                                                                   HttpHeaders httpHeaders,
                                                                   HttpStatusCode httpStatusCode,
                                                                   WebRequest webRequest) {
-
         // ProblemDetail RFC 7807
         ProblemDetail problemDetail = ProblemDetail.forStatus(httpStatusCode);
         problemDetail.setType(URI.create("https://babystepsdev.com/erros/campos-invalidos"));
@@ -53,6 +52,25 @@ public final class ExceptionGlobalHandler extends ResponseEntityExceptionHandler
     }
 
     // ---------- TRATAMENTO DE EXCEÇÕES CUSTOM ---------- //
+    @ExceptionHandler(ResourceNotFoundException.class)
+    public ResponseEntity<ProblemDetail> handleResourceNaoEncontrado(ResourceNotFoundException ex,
+                                                                     WebRequest webRequest) {
+        // ProblemDetail RFC 7807
+        ProblemDetail problemDetail = ProblemDetail.forStatus(HttpStatus.NOT_FOUND);
+        problemDetail.setType(URI.create("https://babystepsdev.com/erros/recurso-nao-encontrado"));
+
+        var id = ex.getId();
+
+        var mensagem = messageSource.getMessage(ex.getMessageKey(),
+                new Object[]{id}, LocaleContextHolder.getLocale());
+
+        problemDetail.setTitle(String.format(mensagem, id));
+
+        return ResponseEntity
+            .status(HttpStatus.NOT_FOUND)
+            .body(problemDetail);
+    }
+
     @ExceptionHandler(ValidationException.class)
     public ResponseEntity<ProblemDetail> handleValidationException(ValidationException ex) {
 

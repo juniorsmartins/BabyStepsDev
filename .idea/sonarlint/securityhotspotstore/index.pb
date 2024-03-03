@@ -716,3 +716,5 @@ mmicroinscricoes/src/main/java/microservice/microinscricoes/config/beans/YamlJac
 fmicroinscricoes/src/main/java/microservice/microinscricoes/config/beans/InternacionalizacaoConfig.java,3/6/3647b559e976768a0bf53e14149689d0b0be865f
 ê
 `microinscricoes/src/main/java/microservice/microinscricoes/config/exception/MessagesDefault.java,1/9/1967a2fc3c38b5e764f643d7acc860239adfb3f7
+£
+smicroinscricoes/src/main/java/microservice/microinscricoes/config/exception/http_404/ResourceNotFoundException.java,d/f/dfadeef72c2e8b8bb26e7de5a31c7627ecf0b950

@@ -1,8 +1,11 @@
 package microservice.microinscricoes.config.exception.http_404;
 
+import lombok.Getter;
+
 import java.io.Serial;
 
-public final class InscricaoNotFoundException extends RecursoNotFoundException {
+@Getter
+public final class InscricaoNotFoundException extends ResourceNotFoundException {
 
   @Serial
   private static final long serialVersionUID = 1L;
@@ -12,7 +15,7 @@ public final class InscricaoNotFoundException extends RecursoNotFoundException {
   }
 
   public InscricaoNotFoundException(final Long id) {
-    this(String.format("A Inscrição %d não foi encontrada.", id));
+    super("inscricao.nao.encontrada", id);
   }
 }
 
