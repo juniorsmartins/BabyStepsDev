@@ -6,6 +6,8 @@ import microservice.microinscricoes.adapter.in.controller.dto.InscricaoIdDto;
 import microservice.microinscricoes.adapter.in.controller.dto.TimeIdDto;
 import microservice.microinscricoes.application.core.domain.enums.ETipoPagamento;
 
+import java.time.OffsetDateTime;
+
 @Schema(name = "InscrictoRegisterDtoOut", description = "Objeto de transporte de dados.")
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public record InscritoCreateDtoOut(
@@ -29,7 +31,10 @@ public record InscritoCreateDtoOut(
     Integer numeroCartao,
 
     @Schema(name = "tipo", description = "Informação sobre tipo (débito ou crédito) para pagamento da inscrição.", type = "ETipoPagamento", example = "DEBITO")
-    ETipoPagamento tipo
+    ETipoPagamento tipo,
+
+    @Schema(name = "createdAt", description = "Informação sobre data e hora do cadastro.", type = "OffsetDateTime", example = "AAAA-MM-DDTHH:mm:ss.sssXXX")
+    OffsetDateTime createdAt
 
 ) { }
 

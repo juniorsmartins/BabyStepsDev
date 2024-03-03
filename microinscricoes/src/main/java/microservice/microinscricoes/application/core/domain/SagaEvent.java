@@ -20,7 +20,7 @@ public final class SagaEvent {
 
     private Long timeId;
 
-    private Order payload;
+    private Inscrito payload;
 
     private String source;
 
@@ -78,11 +78,11 @@ public final class SagaEvent {
         this.timeId = timeId;
     }
 
-    public Order getPayload() {
+    public Inscrito getPayload() {
         return payload;
     }
 
-    public void setPayload(Order payload) {
+    public void setPayload(Inscrito payload) {
         this.payload = payload;
     }
 

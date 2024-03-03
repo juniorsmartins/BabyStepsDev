@@ -1,8 +1,8 @@
 package microservice.microinscricoes.adapter.out.producer.dto;
 
 import lombok.*;
+import microservice.microinscricoes.adapter.in.controller.dto.response.InscritoCreateDtoOut;
 
-import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
 import java.util.List;
 
@@ -25,7 +25,7 @@ public final class SagaEventRequest {
 
     private Long timeId;
 
-    private OrderDtoRequest payload;
+    private InscritoCreateDtoOut payload;
 
     private String source;
 

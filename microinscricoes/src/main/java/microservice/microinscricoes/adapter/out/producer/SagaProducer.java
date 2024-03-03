@@ -28,11 +28,11 @@ public class SagaProducer implements StartSagaProducerOutputPort {
 
     public String send(String payload) {
         try {
-            log.info("Sending event to topic {} with data {}", startSagaTopic, payload);
+            log.info("Enviar evento para tópico {} com os dados {}", startSagaTopic, payload);
             kafkaTemplate.send(startSagaTopic, payload);
 
         } catch (Exception ex) {
-            log.error("Error trying to send data to topic {} with data {}", startSagaTopic, payload, ex);
+            log.error("Erro ao tentar enviar dados para o tópico {} com os dados {}", startSagaTopic, payload, ex);
         }
         return payload;
     }
