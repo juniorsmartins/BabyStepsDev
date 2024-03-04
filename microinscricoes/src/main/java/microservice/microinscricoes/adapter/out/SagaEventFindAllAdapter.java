@@ -14,7 +14,7 @@ import java.util.List;
 @Slf4j
 @Repository
 @RequiredArgsConstructor
-public final class SagaEventFindAllAdapter implements SagaEventFindAllOutputPort {
+public class SagaEventFindAllAdapter implements SagaEventFindAllOutputPort {
 
     private final SagaEventRepository sagaEventRepository;
 
