@@ -15,7 +15,7 @@ public final class SagaEventRequest {
 
     private Long id;
 
-    private Long transactionId;
+    private String transactionId;
 
     private Long inscricaoId;
 
