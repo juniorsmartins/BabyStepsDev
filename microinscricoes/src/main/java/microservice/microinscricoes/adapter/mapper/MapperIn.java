@@ -4,14 +4,17 @@ import microservice.microinscricoes.adapter.in.consumer.dto.TimeSaveDto;
 import microservice.microinscricoes.adapter.in.controller.dto.InscricaoIdDto;
 import microservice.microinscricoes.adapter.in.controller.dto.TimeIdDto;
 import microservice.microinscricoes.adapter.in.controller.dto.TorneioIdDto;
+import microservice.microinscricoes.adapter.in.controller.dto.request.FiltersDtoEvent;
 import microservice.microinscricoes.adapter.in.controller.dto.request.InscricaoFiltroDto;
 import microservice.microinscricoes.adapter.in.controller.dto.request.InscricaoCreateDtoIn;
 import microservice.microinscricoes.adapter.in.controller.dto.request.InscritoCreateDtoIn;
 import microservice.microinscricoes.adapter.in.consumer.dto.TorneioSaveDto;
 import microservice.microinscricoes.adapter.in.controller.dto.response.InscricaoOpenDtoOut;
 import microservice.microinscricoes.adapter.in.controller.dto.response.InscritoCreateDtoOut;
+import microservice.microinscricoes.adapter.in.controller.dto.response.SagaEventResponse;
 import microservice.microinscricoes.adapter.out.producer.dto.SagaEventRequest;
 import microservice.microinscricoes.application.core.domain.*;
+import microservice.microinscricoes.application.core.domain.filtro.FiltersEvent;
 import microservice.microinscricoes.application.core.domain.filtro.InscricaoFiltro;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -74,5 +77,9 @@ public interface MapperIn {
     InscricaoFiltro toInscricaoFiltro(InscricaoFiltroDto inscricaoFiltroDto);
 
     SagaEvent toSagaEvent(SagaEventRequest sagaEventRequest);
+
+    SagaEventResponse toSagaEventResponse(SagaEvent sagaEvent);
+
+    FiltersEvent toFiltersEvent(FiltersDtoEvent  filtersDtoEvent);
 }
 
