@@ -2,6 +2,7 @@ package microservice.microinscricoes.config.exception;
 
 import lombok.RequiredArgsConstructor;
 import microservice.microinscricoes.config.exception.http_404.ResourceNotFoundException;
+import microservice.microinscricoes.config.exception.http_409.BusinessRuleViolationException;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.http.*;
@@ -72,6 +73,19 @@ public final class ExceptionGlobalHandler extends ResponseEntityExceptionHandler
 
         return ResponseEntity
             .status(HttpStatus.NOT_FOUND)
+            .body(problemDetail);
+    }
+
+    @ExceptionHandler(BusinessRuleViolationException.class)
+    public ResponseEntity<ProblemDetail> handleBusinessRuleViolation(BusinessRuleViolationException ex,
+                                                                     WebRequest webRequest) {
+        // ProblemDetail RFC 7807
+        ProblemDetail problemDetail = ProblemDetail.forStatus(HttpStatus.CONFLICT);
+        problemDetail.setType(URI.create("https://babystepsdev.com/erros/regras-de-negocio-violadas"));
+        problemDetail.setTitle(this.getMensagem(ex.getMessageKey()));
+
+        return ResponseEntity
+            .status(HttpStatus.CONFLICT)
             .body(problemDetail);
     }
 

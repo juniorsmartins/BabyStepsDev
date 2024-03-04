@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface SagaEventFindAllOutputPort {
 
-    List<SagaEvent> findAllByCreatedAtDesc();
+    List<SagaEvent> findAll();
 }
 
