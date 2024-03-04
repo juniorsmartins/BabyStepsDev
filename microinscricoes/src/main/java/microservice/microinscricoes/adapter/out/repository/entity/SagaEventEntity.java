@@ -6,7 +6,6 @@ import microservice.microinscricoes.adapter.out.repository.entity.value_object.H
 
 import java.io.Serial;
 import java.io.Serializable;
-import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
 import java.util.List;
 
@@ -29,7 +28,7 @@ public final class SagaEventEntity implements Serializable {
     private Long id;
 
     @Column(name = "transaction_id")
-    private Long transactionId;
+    private String transactionId;
 
     @Column(name = "inscricao_id")
     private Long inscricaoId;
@@ -42,10 +41,6 @@ public final class SagaEventEntity implements Serializable {
 
     @Column(name = "time_id")
     private Long timeId;
-
-//    @OneToOne(optional = false)
-//    @JoinColumn(name = "payload_id")
-//    private OrderEntity payload;
 
     @OneToOne(optional = false)
     @JoinColumn(name = "payload_id")

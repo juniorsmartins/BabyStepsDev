@@ -2,15 +2,15 @@ package microservice.microinscricoes.application.core.domain;
 
 import microservice.microinscricoes.application.core.domain.value_object.History;
 
-import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
 import java.util.List;
+import java.util.UUID;
 
 public final class SagaEvent {
 
     private Long id;
 
-    private Long transactionId;
+    private String transactionId;
 
     private Long inscricaoId;
 
@@ -30,6 +30,12 @@ public final class SagaEvent {
 
     private OffsetDateTime createdAt;
 
+    public void generateTransactionId() {
+        if (this.transactionId == null) {
+            this.transactionId = String.format("%s_%s", OffsetDateTime.now().toEpochSecond(), UUID.randomUUID());
+        }
+    }
+
     public Long getId() {
         return id;
     }
@@ -38,11 +44,11 @@ public final class SagaEvent {
         this.id = id;
     }
 
-    public Long getTransactionId() {
+    public String getTransactionId() {
         return transactionId;
     }
 
-    public void setTransactionId(Long transactionId) {
+    public void setTransactionId(String transactionId) {
         this.transactionId = transactionId;
     }
 
