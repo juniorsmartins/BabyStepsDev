@@ -10,6 +10,7 @@ import microservice.microinscricoes.adapter.in.controller.dto.request.InscritoCr
 import microservice.microinscricoes.adapter.in.consumer.dto.TorneioSaveDto;
 import microservice.microinscricoes.adapter.in.controller.dto.response.InscricaoOpenDtoOut;
 import microservice.microinscricoes.adapter.in.controller.dto.response.InscritoCreateDtoOut;
+import microservice.microinscricoes.adapter.out.producer.dto.SagaEventRequest;
 import microservice.microinscricoes.application.core.domain.*;
 import microservice.microinscricoes.application.core.domain.filtro.InscricaoFiltro;
 import org.mapstruct.Mapper;
@@ -71,5 +72,7 @@ public interface MapperIn {
     TimeIdDto toTimeIdDto(Time time);
 
     InscricaoFiltro toInscricaoFiltro(InscricaoFiltroDto inscricaoFiltroDto);
+
+    SagaEvent toSagaEvent(SagaEventRequest sagaEventRequest);
 }
 

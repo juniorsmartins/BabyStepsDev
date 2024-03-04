@@ -35,7 +35,7 @@ public class StartSagaEventUseCase implements StartSagaEventPort {
     private SagaEvent createSagaEvent(Inscrito inscrito) {
 
         var sagaEvent = new SagaEvent();
-//        sagaEvent.setTransactionId();
+        sagaEvent.generateTransactionId();
         sagaEvent.setInscricaoId(inscrito.getInscricao().getId());
         sagaEvent.setInscritoId(inscrito.getId());
         sagaEvent.setTorneioId(inscrito.getInscricao().getTorneio().getId());

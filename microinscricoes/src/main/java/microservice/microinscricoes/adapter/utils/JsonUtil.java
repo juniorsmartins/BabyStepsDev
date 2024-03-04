@@ -8,7 +8,7 @@ public interface JsonUtil {
 
     String toJson(Object object);
 
-    SagaEventRequest toSagaEvent(String json);
+    SagaEventRequest toSagaEventRequest(String json);
 
     EventCreateTorneio toEventCreateTorneio(String json);
 

@@ -571,8 +571,6 @@ omicroinscricoes/src/main/java/microservice/microinscricoes/application/port/inp
 omicroinscricoes/src/main/java/microservice/microinscricoes/application/core/usecase/InscricaoCreateUseCase.java,0/8/08d8e0fff23d02fab83b0f8c6319e24b7949685a
 ú
 lmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/in/consumer/event/EventCreateTorneio.java,f/9/f9da81371a580a06a35a8e61bc1e05678f885140
-ç
-]microinscricoes/src/main/java/microservice/microinscricoes/application/core/domain/Order.java,a/2/a23098bcf78b923cbc37554a6f02084c224c874e
 ô
 imicroinscricoes/src/main/java/microservice/microinscricoes/adapter/in/consumer/event/EventCreateTime.java,e/c/ec59fc09b229effc11069f76e48d98b4980a975f
 Ö
@@ -669,10 +667,6 @@ Zmicropagamentos/src/main/java/microservice/micropagamentos/adapter/utils/JsonUt
 ]microtorneios/src/main/java/microservice/microtorneios/application/core/domain/SagaEvent.java,c/3/c35caf8432d78864a1a49520404dc4265e0b08c8
 ò
 hmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/out/producer/dto/FiltersDtoEvent.java,7/f/7f017786de12c6cf65ce6b9327158badf2433bc0
-ò
-hmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/out/producer/dto/OrderDtoRequest.java,b/1/b1dc99b703094a1f3d6d5498c51bbe69043484d3
-ô
-imicroinscricoes/src/main/java/microservice/microinscricoes/adapter/out/repository/entity/OrderEntity.java,2/0/20f0861905b094e8aaa51afd6881279da0edfdf7
 ù
 mmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/out/repository/entity/SagaEventEntity.java,3/b/3b72bd4c3abbf2c8a08535819dad5857641f12c6
 à
@@ -689,8 +683,6 @@ amicroinscricoes/src/main/java/microservice/microinscricoes/application/core/dom
 jmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/out/producer/dto/HistoryDtoRequest.java,6/4/647a1982019fd75713e29eb8cb9d9d057323395a
 ö
 jmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/out/repository/SagaEventRepository.java,6/6/668fe3a06348af49859263f3ab903dfb8347c300
-ñ
-fmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/out/repository/OrderRepository.java,1/6/1692d65a3e3cf32182100f6efe3cc49619a5c592
 á
 Wmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/mapper/MapperIn.java,8/9/899dd903a85cb4672ac0452d45a99f388bec218d
 û
@@ -709,18 +701,12 @@ smicroinscricoes/src/main/java/microservice/microinscricoes/application/port/out
 omicroinscricoes/src/main/java/microservice/microinscricoes/application/port/output/SagaEventSaveOutputPort.java,8/4/845762f45bfb34dff98ddf4c9af43f23fd393815
 ê
 `microinscricoes/src/main/java/microservice/microinscricoes/adapter/out/SagaEventSaveAdapter.java,c/6/c644cc0fa90b3d4e77164eab5e35dfaf90d2ba78
-õ
-kmicroinscricoes/src/main/java/microservice/microinscricoes/application/port/output/OrderSaveOutputPort.java,e/a/ea9c8dd81ea9941e9326a379602e36beb5b00c27
-å
-\microinscricoes/src/main/java/microservice/microinscricoes/adapter/out/OrderSaveAdapter.java,3/a/3a25fcf339e79071d2efbae6984367552682f8d4
 ¶
 vmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/in/controller/dto/request/InscricaoCreateDtoIn.java,f/6/f650234c356ab1b7aae4388e9fc3197aa6be8831
 ù
 mmicroinscricoes/src/main/java/microservice/microinscricoes/config/beans/YamlJackson2HttpMessageConverter.java,a/b/abe59fa8ccbe06a290fef8e99306c7aa110d5512
 ñ
 fmicroinscricoes/src/main/java/microservice/microinscricoes/config/beans/InternacionalizacaoConfig.java,3/6/3647b559e976768a0bf53e14149689d0b0be865f
-ê
-`microinscricoes/src/main/java/microservice/microinscricoes/config/exception/MessagesDefault.java,1/9/1967a2fc3c38b5e764f643d7acc860239adfb3f7
 £
 smicroinscricoes/src/main/java/microservice/microinscricoes/config/exception/http_404/ResourceNotFoundException.java,d/f/dfadeef72c2e8b8bb26e7de5a31c7627ecf0b950
 •
