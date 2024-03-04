@@ -8,6 +8,7 @@ import microservice.microinscricoes.adapter.mapper.MapperIn;
 import microservice.microinscricoes.adapter.utils.JsonUtil;
 import microservice.microinscricoes.application.port.input.TimeCreateInputPort;
 import microservice.microinscricoes.application.port.input.TorneioCreateInputPort;
+import microservice.microinscricoes.application.port.output.SagaEventSaveOutputPort;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
@@ -26,14 +27,23 @@ public class ConsumerEvent {
 
     private final TimeCreateInputPort timeSaveInputPort;
 
+    private final SagaEventSaveOutputPort sagaEventSaveOutputPort;
+
     @KafkaListener(
         groupId = "${spring.kafka.consumer.group-id}",
         topics = "${spring.kafka.topic.notify-ending}"
     )
     public void consumeNotifyEndingEvent(String payload) {
-        log.info("Receiving ending notification event {} from notify-ending topic.", payload);
-        var event = jsonUtil.toSagaEvent(payload);
-        log.info(event.toString());
+
+        log.info("Recebido evento de conclusão da saga, via tópico notify-ending, no ConsumerEvent.");
+
+        var sagaEvent = Optional.ofNullable(payload)
+            .map(this.jsonUtil::toSagaEventRequest)
+            .map(this.mapper::toSagaEvent)
+            .map(this.sagaEventSaveOutputPort::save)
+            .orElseThrow();
+
+        log.info("Saga salva e concluída com sucesso, com os dados: {}", sagaEvent);
     }
 
     @KafkaListener(
