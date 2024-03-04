@@ -43,7 +43,7 @@ public class ConsumerEvent {
             .map(this.sagaEventSaveOutputPort::save)
             .orElseThrow();
 
-        log.info("Saga salva e concluída com sucesso, com os dados: {}", sagaEvent);
+        log.info("Saga salva e finalizada com sucesso, com os dados: {}", sagaEvent);
     }
 
     @KafkaListener(
