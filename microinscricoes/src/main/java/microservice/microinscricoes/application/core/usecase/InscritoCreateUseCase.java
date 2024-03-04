@@ -38,7 +38,7 @@ public class InscritoCreateUseCase implements InscritoCreateInputPort {
     @Override
     public Inscrito create(Inscrito inscrito) {
 
-        log.info("Iniciado serviço para registrar novo Inscrito.");
+        log.info("Iniciado serviço para criar novo Inscrito.");
 
         var inscritoRegistrado = Optional.ofNullable(inscrito)
             .map(this::checkInscricaoId)
@@ -47,7 +47,7 @@ public class InscritoCreateUseCase implements InscritoCreateInputPort {
             .map(this::startSagaEvent)
             .orElseThrow();
 
-        log.info("Finalizado serviço para registrar novo Inscrito, com Id: {}.", inscritoRegistrado.getId());
+        log.info("Finalizado serviço para criar novo Inscrito, com Id: {}.", inscritoRegistrado.getId());
 
         return inscritoRegistrado;
     }

@@ -1,11 +1,13 @@
 package microservice.microinscricoes.adapter.mapper;
 
+import microservice.microinscricoes.adapter.in.controller.dto.request.FiltersDtoEvent;
 import microservice.microinscricoes.adapter.in.controller.dto.request.InscricaoFiltroDto;
 import microservice.microinscricoes.adapter.out.producer.dto.HistoryDtoRequest;
 import microservice.microinscricoes.adapter.out.producer.dto.SagaEventRequest;
 import microservice.microinscricoes.adapter.out.repository.entity.*;
 import microservice.microinscricoes.adapter.out.repository.entity.value_object.HistoryDb;
 import microservice.microinscricoes.application.core.domain.*;
+import microservice.microinscricoes.application.core.domain.filtro.FiltersEvent;
 import microservice.microinscricoes.application.core.domain.filtro.InscricaoFiltro;
 import microservice.microinscricoes.application.core.domain.value_object.History;
 import org.mapstruct.Mapper;
@@ -26,6 +28,8 @@ public interface MapperOut {
     Time toTime(TimeEntity timeEntity);
 
     InscricaoFiltroDto toInscricaoFiltroDto(InscricaoFiltro inscricaoFiltro);
+
+    FiltersDtoEvent toFiltersDtoEvent(FiltersEvent filtersEvent);
 
     SagaEventEntity toSagaEventEntity(SagaEvent sagaEvent);
 
