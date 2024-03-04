@@ -6,13 +6,14 @@ import jakarta.persistence.criteria.Root;
 import microservice.microinscricoes.adapter.in.controller.dto.request.FiltersDtoEvent;
 import microservice.microinscricoes.adapter.out.repository.entity.SagaEventEntity;
 import org.apache.commons.lang3.ObjectUtils;
-import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public final class SagaEventSpecification {
+
+    private SagaEventSpecification() {}
 
     public static Specification<SagaEventEntity> consultarDinamicamente(FiltersDtoEvent filtro) {
 
