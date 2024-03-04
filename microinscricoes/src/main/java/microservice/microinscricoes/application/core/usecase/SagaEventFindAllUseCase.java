@@ -19,11 +19,11 @@ public class SagaEventFindAllUseCase implements SagaEventFindAllInputPort {
     }
 
     @Override
-    public List<SagaEvent> findAllByCreatedAtDesc() {
+    public List<SagaEvent> findAll() {
 
         log.info("Iniciado serviço para buscar lista de SagaEvent.");
 
-        var sagaList = this.sagaEventFindAllOutputPort.findAllByCreatedAtDesc();
+        var sagaList = this.sagaEventFindAllOutputPort.findAll();
 
         log.info("Finalizado serviço para buscar lista de SagaEvent {}.", sagaList);
 

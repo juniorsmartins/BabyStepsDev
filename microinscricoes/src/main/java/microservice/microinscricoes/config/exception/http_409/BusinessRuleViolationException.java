@@ -10,20 +10,11 @@ public abstract sealed class BusinessRuleViolationException extends RuntimeExcep
   @Serial
   private static final long serialVersionUID = 1L;
 
-  private final Long id;
-
   private final String messageKey;
-
-  protected BusinessRuleViolationException(String messageKey, final Long id) {
-    super(messageKey);
-    this.messageKey = messageKey;
-    this.id = id;
-  }
 
   protected BusinessRuleViolationException(String messageKey) {
     super(messageKey);
     this.messageKey = messageKey;
-    this.id = 0L;
   }
 }
 
