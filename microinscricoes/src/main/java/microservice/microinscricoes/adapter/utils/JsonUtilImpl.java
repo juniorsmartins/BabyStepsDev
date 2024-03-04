@@ -28,7 +28,7 @@ public class JsonUtilImpl implements JsonUtil {
     }
 
     @Override
-    public SagaEventRequest toSagaEvent(String json) {
+    public SagaEventRequest toSagaEventRequest(String json) {
         try {
             return objectMapper.readValue(json, SagaEventRequest.class);
 
