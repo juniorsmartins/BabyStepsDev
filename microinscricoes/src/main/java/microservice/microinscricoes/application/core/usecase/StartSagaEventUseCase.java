@@ -6,11 +6,15 @@ import microservice.microinscricoes.application.core.domain.value_object.History
 import microservice.microinscricoes.application.port.StartSagaEventPort;
 import microservice.microinscricoes.application.port.output.SagaEventSaveOutputPort;
 import microservice.microinscricoes.application.port.output.StartSagaProducerOutputPort;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 import java.util.Optional;
 
 public class StartSagaEventUseCase implements StartSagaEventPort {
+
+    private static final Logger log = LoggerFactory.getLogger(StartSagaEventUseCase.class);
 
     private final SagaEventSaveOutputPort sagaEventSaveOutputPort;
 
@@ -25,11 +29,15 @@ public class StartSagaEventUseCase implements StartSagaEventPort {
     @Override
     public void sendEvent(Inscrito inscrito) {
 
+        log.info("Iniciado serviço para enviar Inscrito pela Saga.");
+
         Optional.ofNullable(inscrito)
             .map(this::createSagaEvent)
             .map(this.sagaEventSaveOutputPort::save)
             .map(this::send)
             .orElseThrow();
+
+        log.info("Finalizado serviço para enviar Inscrito {} pela Saga.", inscrito);
     }
 
     private SagaEvent createSagaEvent(Inscrito inscrito) {
