@@ -58,7 +58,7 @@ public class SagaEventController {
 
         log.info("Requisição recebida para buscar lista de SagaEvent.");
 
-        var responseList = this.sagaEventFindAllInputPort.findAllByCreatedAtDesc()
+        var responseList = this.sagaEventFindAllInputPort.findAll()
             .stream()
             .map(this.mapperIn::toSagaEventResponse)
             .toList();

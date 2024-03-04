@@ -22,11 +22,11 @@ public final class SagaEventFindAllAdapter implements SagaEventFindAllOutputPort
 
     @Transactional(readOnly = true)
     @Override
-    public List<SagaEvent> findAllByCreatedAtDesc() {
+    public List<SagaEvent> findAll() {
 
         log.info("Iniciado adaptador para buscar lista de SagaEvent.");
 
-        var listaEventos = this.sagaEventRepository.findAllByCreatedAtDesc()
+        var listaEventos = this.sagaEventRepository.findAll()
             .stream()
             .map(this.mapperOut::toSagaEvent)
             .toList();
