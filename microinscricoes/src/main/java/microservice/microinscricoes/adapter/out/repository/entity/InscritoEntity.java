@@ -48,12 +48,13 @@ public final class InscritoEntity implements Serializable {
     @Column(name = "tipo", table = "inscrito_pagamento")
     private ETipoPagamento tipo;
 
-    @Column(name = "created_at", updatable = false)
+    @Column(name = "created_at", nullable = false, updatable = false)
     private OffsetDateTime createdAt;
 
     @PrePersist
     private void prePersist() {
         this.createdAt = OffsetDateTime.now();
     }
+
 }
 

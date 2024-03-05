@@ -29,6 +29,7 @@ public class WebConfig implements WebMvcConfigurer {
             .allowCredentials(true);
     }
 
+    // Content Negotiation YAML
     @Override
     public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
         converters.add(new YamlJackson2HttpMessageConverter());

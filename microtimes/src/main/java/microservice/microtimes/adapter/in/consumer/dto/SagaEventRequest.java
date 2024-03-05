@@ -1,4 +1,4 @@
-package microservice.microinscricoes.adapter.out.producer.dto;
+package microservice.microtimes.adapter.in.consumer.dto;
 
 import lombok.*;
 

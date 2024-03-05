@@ -24,7 +24,7 @@ public class InscritoSaveAdapter implements InscritoSaveOutputPort {
     @Override
     public Inscrito save(Inscrito inscrito) {
 
-        log.info("Iniciado adaptador para registrar Inscrito.");
+        log.info("Iniciado adaptador para salvar Inscrito.");
 
         var inscritoSave = Optional.ofNullable(inscrito)
             .map(this.mapperOut::toInscritoEntity)
@@ -32,7 +32,7 @@ public class InscritoSaveAdapter implements InscritoSaveOutputPort {
             .map(this.mapperOut::toInscrito)
             .orElseThrow();
 
-        log.info("Finalizado adaptador para registrar Inscrito, com Id: {}.", inscritoSave.getId());
+        log.info("Finalizado adaptador para salvar Inscrito, com Id: {}.", inscritoSave.getId());
 
         return inscritoSave;
     }

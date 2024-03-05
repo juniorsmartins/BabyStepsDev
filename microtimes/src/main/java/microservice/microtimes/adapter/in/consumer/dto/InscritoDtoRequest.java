@@ -1,16 +1,13 @@
-package microservice.microinscricoes.adapter.in.controller.dto.response;
+package microservice.microtimes.adapter.in.consumer.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import io.swagger.v3.oas.annotations.media.Schema;
-import microservice.microinscricoes.adapter.in.controller.dto.InscricaoIdDto;
-import microservice.microinscricoes.adapter.in.controller.dto.TimeIdDto;
-import microservice.microinscricoes.application.core.domain.enums.ETipoPagamento;
 
 import java.time.OffsetDateTime;
 
-@Schema(name = "InscritoCreateDtoOut", description = "Objeto de transporte de dados.")
+@Schema(name = "InscritoDtoRequest", description = "Objeto de transporte de dados.")
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public record InscritoCreateDtoOut(
+public record InscritoDtoRequest(
 
     @Schema(name = "id", description = "Identificador Exclusivo - para identificar um inscrito no banco de dados.", type = "Long", example = "22")
     Long id,
