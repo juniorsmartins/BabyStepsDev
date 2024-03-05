@@ -755,3 +755,13 @@ emicrotimes/src/main/java/microservice/microtimes/config/exception/http_404/Time
 nmicrotimes/src/main/java/microservice/microtimes/config/exception/http_409/BusinessRuleViolationException.java,7/f/7ffe49178b55313122d487512eaa21dc548fc2f2
 å
 \microtimes/src/main/java/microservice/microtimes/config/beans/InternacionalizacaoConfig.java,7/5/7540389eb7da2ccd883906535b8e3c206b44efda
+è
+_microtimes/src/main/java/microservice/microtimes/adapter/in/consumer/dto/HistoryDtoRequest.java,3/2/329e7797251362f0ade17b69cafaaeb18190361e
+é
+^microtimes/src/main/java/microservice/microtimes/adapter/in/consumer/dto/SagaEventRequest.java,d/e/de02910ee2ef29b5f8b7325aa9919d0e9930fb28
+õ
+kmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/out/producer/dto/InscritoDtoRequest.java,9/3/93ba10e6942cd263a156f3ac394f4977965bcf4b
+ê
+`microtimes/src/main/java/microservice/microtimes/adapter/in/consumer/dto/InscritoDtoRequest.java,0/3/037c8de32157f880850e200a6324ee3248c21931
+å
+\microtimes/src/main/java/microservice/microtimes/adapter/in/consumer/dto/ETipoPagamento.java,9/3/93870d3dde13c578ba6e196bebb7d9efc8cb1c49
