@@ -660,8 +660,6 @@ emicropagamentos/src/main/java/microservice/micropagamentos/adapter/in/consumer/
 Zmicropagamentos/src/main/java/microservice/micropagamentos/adapter/utils/JsonUtilImpl.java,7/e/7e947735b2fb8c039b1b00fcd863467e4b18d4c2
 ç
 ]microtorneios/src/main/java/microservice/microtorneios/application/core/domain/SagaEvent.java,c/3/c35caf8432d78864a1a49520404dc4265e0b08c8
-ò
-hmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/out/producer/dto/FiltersDtoEvent.java,7/f/7f017786de12c6cf65ce6b9327158badf2433bc0
 ù
 mmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/out/repository/entity/SagaEventEntity.java,3/b/3b72bd4c3abbf2c8a08535819dad5857641f12c6
 à
@@ -688,8 +686,6 @@ nmicroinscricoes/src/main/java/microservice/microinscricoes/application/core/use
 cmicroinscricoes/src/main/java/microservice/microinscricoes/application/port/StartSagaEventPort.java,4/3/43d291618ba94f8845886cf4309d587feb777896
 û
 nmicroinscricoes/src/main/java/microservice/microinscricoes/application/core/usecase/StartSagaEventUseCase.java,6/e/6e846bd9efaf3586bf2c132432192e6b2e6f1660
-ì
-cmicroinscricoes/src/main/java/microservice/microinscricoes/config/usecase/StartSagaEventConfig.java,7/9/79f1a0b101284d765d21bbcbe70b6b7659ef76c8
 £
 smicroinscricoes/src/main/java/microservice/microinscricoes/application/port/output/StartSagaProducerOutputPort.java,5/b/5b2ffc3b88db68d490c5991e39a09321c896287b
 ü
@@ -708,8 +704,6 @@ smicroinscricoes/src/main/java/microservice/microinscricoes/config/exception/htt
 umicroinscricoes/src/main/java/microservice/microinscricoes/adapter/in/controller/dto/request/InscritoCreateDtoIn.java,a/d/ad8c1867ef47d99cec9f15e80454c53a29a4e88c
 ß
 wmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/in/controller/dto/response/InscritoCreateDtoOut.java,6/3/636ddb24e18de51c31afe856e7bd47aaa9eeb521
-ï
-emicroinscricoes/src/main/java/microservice/microinscricoes/adapter/in/controller/EventController.java,d/0/d0bad6a611435f830898405c23e60fabbb16ac5b
 °
 qmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/in/controller/dto/request/FiltersDtoEvent.java,c/3/c32242ecd3d0fd5348e13b69bb2a9fd930360995
 ô
@@ -718,10 +712,6 @@ imicroinscricoes/src/main/java/microservice/microinscricoes/adapter/in/controlle
 tmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/in/controller/dto/response/SagaEventResponse.java,3/d/3dfbfac2a463ba2ee226a1724253135804dbf124
 •
 umicroinscricoes/src/main/java/microservice/microinscricoes/adapter/in/controller/dto/response/HistoryDtoResponse.java,b/7/b73eda426ec90014ff59506970c5d1c3b3d7155c
-ü
-omicroinscricoes/src/main/java/microservice/microinscricoes/application/port/input/SagaEventFindByInputPort.java,8/2/8219bd4d4e38195e28e3a7cd2eb7c50ec9958061
-ü
-omicroinscricoes/src/main/java/microservice/microinscricoes/application/core/usecase/SagaEventFindByUseCase.java,9/5/95f8dacf165b097d529a4ce041d4867fa102e189
 †
 pmicroinscricoes/src/main/java/microservice/microinscricoes/application/port/input/SagaEventFindAllInputPort.java,4/6/469236ee1f02acfa0845842b5232323522193674
 †

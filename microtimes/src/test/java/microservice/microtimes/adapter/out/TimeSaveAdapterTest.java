@@ -1,6 +1,6 @@
 package microservice.microtimes.adapter.out;
 
-import microservice.microtimes.adapter.out.mapper.MapperOut;
+import microservice.microtimes.adapter.mapper.MapperOut;
 import microservice.microtimes.adapter.out.repository.TimeRepository;
 import microservice.microtimes.utility.AbstractTestcontainersTest;
 import org.junit.jupiter.api.Assertions;

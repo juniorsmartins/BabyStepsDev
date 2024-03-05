@@ -1,4 +1,4 @@
-package microservice.microtimes.adapter.in.mapper;
+package microservice.microtimes.adapter.mapper;
 
 import microservice.microtimes.adapter.in.controller.dto.request.TimeCreateDtoRequest;
 import microservice.microtimes.adapter.in.controller.dto.response.TimeCreateDtoResponse;
