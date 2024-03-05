@@ -289,8 +289,6 @@ Rmicrotimes/src/main/java/microservice/microtimes/application/core/domain/Time.j
 Qmicrotimes/src/main/java/microservice/microtimes/adapter/out/TimeSaveAdapter.java,a/e/aeb6d7c3ea80c6cf08392b5184aec513735a5d68
 Ž
 ^microtimes/src/main/java/microservice/microtimes/adapter/out/repository/entity/TimeEntity.java,a/5/a50ff50dcd9dd371be4487f2f95ad245e558c232
-…
-Umicrotimes/src/main/java/microservice/microtimes/adapter/out/message/TimeMessage.java,b/2/b2013365482809d84355aee5ea874fc263bb2aa6
 Š
 Zmicrotimes/src/main/java/microservice/microtimes/adapter/in/controller/TimeController.java,2/5/2595f044b2b810e4b3fead1cc70fa48303cdfbf7
 †
@@ -627,8 +625,6 @@ gorchestrator/src/main/java/microservice/orchestrator/adapter/out/producer/SagaO
 lmicrotimes/src/main/java/microservice/microtimes/adapter/in/controller/dto/request/TimeCreateDtoRequest.java,d/c/dc6fce419e0da80e7eb02f0bb8d13163be550e4a
 ž
 nmicrotimes/src/main/java/microservice/microtimes/adapter/in/controller/dto/response/TimeCreateDtoResponse.java,9/e/9e8dd94de6d7c66369ab860dabb2c68da7b82090
-€
-Pmicrotimes/src/main/java/microservice/microtimes/adapter/in/mapper/MapperIn.java,4/8/4838ba54f1ab50d914c5e17e1c9e81c53dd54c0c
 ˜
 hmicrotimes/src/main/java/microservice/microtimes/application/port/output/NotifyCreateTimeOutputPort.java,5/b/5b6ed5bad13dca83cd6d36d98925f31a9caf4dac
 ˜
@@ -703,8 +699,6 @@ vmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/in/controlle
 mmicroinscricoes/src/main/java/microservice/microinscricoes/config/beans/YamlJackson2HttpMessageConverter.java,a/b/abe59fa8ccbe06a290fef8e99306c7aa110d5512
 –
 fmicroinscricoes/src/main/java/microservice/microinscricoes/config/beans/InternacionalizacaoConfig.java,3/6/3647b559e976768a0bf53e14149689d0b0be865f
-£
-smicroinscricoes/src/main/java/microservice/microinscricoes/config/exception/http_404/ResourceNotFoundException.java,d/f/dfadeef72c2e8b8bb26e7de5a31c7627ecf0b950
 ¥
 umicroinscricoes/src/main/java/microservice/microinscricoes/adapter/in/controller/dto/request/InscritoCreateDtoIn.java,a/d/ad8c1867ef47d99cec9f15e80454c53a29a4e88c
 §
@@ -743,8 +737,6 @@ tmicroinscricoes/src/main/java/microservice/microinscricoes/config/exception/htt
 xmicroinscricoes/src/main/java/microservice/microinscricoes/config/exception/http_409/BusinessRuleViolationException.java,0/5/05a60385a565aa11442e264777cbd5cca628c91e
 ˜
 hmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/out/specs/SagaEventSpecification.java,c/6/c6fcbc7f245137be28dcc09415d15fb9903c7706
-™
-imicrotimes/src/main/java/microservice/microtimes/config/exception/http_404/ResourceNotFoundException.java,a/0/a0ada5eda80275bdcd9e850414556c7069963bb0
 ˜
 hmicrotimes/src/main/java/microservice/microtimes/config/exception/http_404/RecursoNotFoundException.java,e/a/eadc1ef0841f8e45688c7589578321dce3784ea4
 ¢
@@ -765,3 +757,5 @@ kmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/out/producer
 `microtimes/src/main/java/microservice/microtimes/adapter/in/consumer/dto/InscritoDtoRequest.java,0/3/037c8de32157f880850e200a6324ee3248c21931
 Œ
 \microtimes/src/main/java/microservice/microtimes/adapter/in/consumer/dto/ETipoPagamento.java,9/3/93870d3dde13c578ba6e196bebb7d9efc8cb1c49
+”
+dmicrotimes/src/main/java/microservice/microtimes/adapter/out/repository/entity/ValidationEntity.java,9/f/9f0b848d647228ca0bf9cfc5e564b1ad0d0c88e3

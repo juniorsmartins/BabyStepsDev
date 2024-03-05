@@ -57,12 +57,13 @@ public final class SagaEventEntity implements Serializable {
     joinColumns = @JoinColumn(name = "saga_event_id"))
     private List<HistoryDb> eventHistories;
 
-    @Column(name = "created_at", updatable = false)
+    @Column(name = "created_at", nullable = false, updatable = false)
     private OffsetDateTime createdAt;
 
     @PrePersist
     private void prePersist() {
         this.createdAt = OffsetDateTime.now();
     }
+
 }
 

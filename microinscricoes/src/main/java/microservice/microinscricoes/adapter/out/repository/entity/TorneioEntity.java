@@ -29,5 +29,6 @@ public final class TorneioEntity implements Serializable {
 
     @Column(name = "ano", nullable = false)
     private Year ano;
+
 }
 
