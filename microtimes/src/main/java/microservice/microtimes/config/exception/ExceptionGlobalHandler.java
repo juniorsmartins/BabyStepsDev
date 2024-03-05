@@ -1,7 +1,7 @@
 package microservice.microtimes.config.exception;
 
 import lombok.RequiredArgsConstructor;
-import org.apache.kafka.common.errors.ResourceNotFoundException;
+import microservice.microtimes.config.exception.http_404.RecursoNotFoundException;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.http.*;
@@ -57,8 +57,8 @@ public class ExceptionGlobalHandler extends ResponseEntityExceptionHandler {
 
 
     // ---------- TRATAMENTO DE EXCEÇÕES CUSTOM ---------- //
-    @ExceptionHandler(ResourceNotFoundException.class)
-    public ResponseEntity<ProblemDetail> handleResourceNotFound(ResourceNotFoundException ex, WebRequest webRequest) {
+    @ExceptionHandler(RecursoNotFoundException.class)
+    public ResponseEntity<ProblemDetail> handleResourceNotFound(RecursoNotFoundException ex, WebRequest webRequest) {
 
         // ProblemDetail RFC 7807
         ProblemDetail problemDetail = ProblemDetail.forStatus(HttpStatus.NOT_FOUND);
