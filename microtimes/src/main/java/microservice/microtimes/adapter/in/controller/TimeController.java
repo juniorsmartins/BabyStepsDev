@@ -5,7 +5,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import microservice.microtimes.adapter.in.controller.dto.request.TimeCreateDtoRequest;
 import microservice.microtimes.adapter.in.controller.dto.response.TimeCreateDtoResponse;
-import microservice.microtimes.adapter.in.mapper.MapperIn;
+import microservice.microtimes.adapter.mapper.MapperIn;
 import microservice.microtimes.application.port.input.TimeCreateInputPort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
