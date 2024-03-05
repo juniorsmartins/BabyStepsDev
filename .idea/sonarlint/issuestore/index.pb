@@ -759,3 +759,7 @@ kmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/out/producer
 \microtimes/src/main/java/microservice/microtimes/adapter/in/consumer/dto/ETipoPagamento.java,9/3/93870d3dde13c578ba6e196bebb7d9efc8cb1c49
 ”
 dmicrotimes/src/main/java/microservice/microtimes/adapter/out/repository/entity/ValidationEntity.java,9/f/9f0b848d647228ca0bf9cfc5e564b1ad0d0c88e3
+†
+Vmicrotimes/src/main/java/microservice/microtimes/adapter/out/ValidationRepository.java,f/2/f25a6250617a8ba7d14b187920d0eea6565e147c
+‘
+amicrotimes/src/main/java/microservice/microtimes/adapter/out/repository/ValidationRepository.java,f/2/f2ad340dba380d5ab02f3b3e278d4476aaf0b6db
