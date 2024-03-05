@@ -2,7 +2,7 @@ package microservice.microinscricoes.config.exception.http_404;
 
 import java.io.Serial;
 
-public final class InscricaoNotFoundException extends ResourceNotFoundException {
+public final class InscricaoNotFoundException extends RecursoNotFoundException {
 
   @Serial
   private static final long serialVersionUID = 1L;

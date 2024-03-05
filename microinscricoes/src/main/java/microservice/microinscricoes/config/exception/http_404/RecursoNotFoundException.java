@@ -5,7 +5,7 @@ import lombok.Getter;
 import java.io.Serial;
 
 @Getter
-public abstract sealed class ResourceNotFoundException extends RuntimeException permits TorneioNotFoundException,
+public abstract sealed class RecursoNotFoundException extends RuntimeException permits TorneioNotFoundException,
       InscricaoNotFoundException, TimeNotFoundException {
 
   @Serial
@@ -15,7 +15,7 @@ public abstract sealed class ResourceNotFoundException extends RuntimeException 
 
   private final String messageKey;
 
-  protected ResourceNotFoundException(String messageKey, final Long id) {
+  protected RecursoNotFoundException(String messageKey, final Long id) {
     super(messageKey);
     this.messageKey = messageKey;
     this.id = id;

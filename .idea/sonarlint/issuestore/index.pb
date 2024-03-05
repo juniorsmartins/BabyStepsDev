@@ -743,3 +743,11 @@ tmicroinscricoes/src/main/java/microservice/microinscricoes/config/exception/htt
 xmicroinscricoes/src/main/java/microservice/microinscricoes/config/exception/http_409/BusinessRuleViolationException.java,0/5/05a60385a565aa11442e264777cbd5cca628c91e
 ˜
 hmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/out/specs/SagaEventSpecification.java,c/6/c6fcbc7f245137be28dcc09415d15fb9903c7706
+™
+imicrotimes/src/main/java/microservice/microtimes/config/exception/http_404/ResourceNotFoundException.java,a/0/a0ada5eda80275bdcd9e850414556c7069963bb0
+˜
+hmicrotimes/src/main/java/microservice/microtimes/config/exception/http_404/RecursoNotFoundException.java,e/a/eadc1ef0841f8e45688c7589578321dce3784ea4
+¢
+rmicroinscricoes/src/main/java/microservice/microinscricoes/config/exception/http_404/RecursoNotFoundException.java,1/8/18436d7d190814c22fd0f638b8844b3a68b37d7a
+•
+emicrotimes/src/main/java/microservice/microtimes/config/exception/http_404/TimeNotFoundException.java,f/a/fa5dd8abc3077c6f8518c3cf114b99d2ab847a38
