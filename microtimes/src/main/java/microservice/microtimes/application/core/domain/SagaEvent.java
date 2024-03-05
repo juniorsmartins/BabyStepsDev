@@ -1,5 +1,7 @@
 package microservice.microtimes.application.core.domain;
 
+import microservice.microtimes.application.core.domain.enums.ESagaStatus;
+
 import java.time.LocalDateTime;
 import java.util.List;
 
