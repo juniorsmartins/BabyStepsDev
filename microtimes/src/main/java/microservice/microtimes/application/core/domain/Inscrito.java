@@ -1,4 +1,4 @@
-package microservice.microtimes.adapter.in.consumer;
+package microservice.microtimes.application.core.domain;
 
 import microservice.microtimes.adapter.in.controller.dto.enums.ETipoPagamento;
 import microservice.microtimes.application.core.domain.Time;

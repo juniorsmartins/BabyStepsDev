@@ -19,7 +19,8 @@ public class TimeValidationConsumer {
     )
     public void consumeSuccessSagaEvent(String payload) {
         log.info("Receiving success event {} from time-validation-success topic.", payload);
-        var event = jsonUtil.toSagaEvent(payload);
+        var event = jsonUtil.toSagaEventRequest(payload);
+
         log.info(event.toString());
     }
 
@@ -29,7 +30,8 @@ public class TimeValidationConsumer {
     )
     public void consumeFailSagaEvent(String payload) {
         log.info("Receiving rollback event {} from time-validation-fail topic.", payload);
-        var event = jsonUtil.toSagaEvent(payload);
+        var event = jsonUtil.toSagaEventRequest(payload);
+
         log.info(event.toString());
     }
 }
