@@ -1,7 +1,7 @@
 package microservice.microtimes.adapter.utils;
 
-import microservice.microtimes.adapter.in.consumer.SagaEvent;
-import microservice.microtimes.adapter.in.consumer.dto.SagaEventRequest;
+import microservice.microtimes.application.core.domain.SagaEvent;
+import microservice.microtimes.adapter.in.consumer.event.SagaEventRequest;
 
 public interface JsonUtil {
 

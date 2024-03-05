@@ -1,4 +1,4 @@
-package microservice.microtimes.adapter.in.consumer;
+package microservice.microtimes.application.core.domain;
 
 import java.time.LocalDateTime;
 
