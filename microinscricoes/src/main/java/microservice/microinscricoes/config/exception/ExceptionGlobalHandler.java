@@ -1,7 +1,7 @@
 package microservice.microinscricoes.config.exception;
 
 import lombok.RequiredArgsConstructor;
-import microservice.microinscricoes.config.exception.http_404.ResourceNotFoundException;
+import microservice.microinscricoes.config.exception.http_404.RecursoNotFoundException;
 import microservice.microinscricoes.config.exception.http_409.BusinessRuleViolationException;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
@@ -34,7 +34,7 @@ public final class ExceptionGlobalHandler extends ResponseEntityExceptionHandler
         // ProblemDetail RFC 7807
         ProblemDetail problemDetail = ProblemDetail.forStatus(httpStatusCode);
         problemDetail.setType(URI.create("https://babystepsdev.com/erros/campos-invalidos"));
-        problemDetail.setTitle(this.getMensagem("resources.campos.invalidos"));
+        problemDetail.setTitle(this.getMessage("resources.campos.invalidos"));
 
         var fields = this.getFields(ex);
 
@@ -44,8 +44,8 @@ public final class ExceptionGlobalHandler extends ResponseEntityExceptionHandler
     }
 
     // ---------- Métodos assessórios ---------- //
-    private String getMensagem(String messageKey) {
-        return messageSource.getMessage(messageKey, new Object[]{}, LocaleContextHolder.getLocale());
+    private String getMessage(String messageKey) {
+        return this.messageSource.getMessage(messageKey, new Object[]{}, LocaleContextHolder.getLocale());
     }
 
     private Map<String, String> getFields(BindException ex) {
@@ -53,21 +53,22 @@ public final class ExceptionGlobalHandler extends ResponseEntityExceptionHandler
             .getAllErrors()
             .stream()
             .collect(Collectors.toMap(objectError -> ((FieldError) objectError).getField(),
-                    objectError -> messageSource.getMessage(objectError, LocaleContextHolder.getLocale())));
+                objectError -> this.messageSource.getMessage(objectError, LocaleContextHolder.getLocale())));
     }
 
+
     // ---------- TRATAMENTO DE EXCEÇÕES CUSTOM ---------- //
-    @ExceptionHandler(ResourceNotFoundException.class)
-    public ResponseEntity<ProblemDetail> handleResourceNotFound(ResourceNotFoundException ex,
-                                                                     WebRequest webRequest) {
+    @ExceptionHandler(RecursoNotFoundException.class)
+    public ResponseEntity<ProblemDetail> handleResourceNotFound(RecursoNotFoundException ex, WebRequest webRequest) {
+
         // ProblemDetail RFC 7807
         ProblemDetail problemDetail = ProblemDetail.forStatus(HttpStatus.NOT_FOUND);
         problemDetail.setType(URI.create("https://babystepsdev.com/erros/recurso-nao-encontrado"));
 
         var id = ex.getId();
 
-        var mensagem = messageSource.getMessage(ex.getMessageKey(),
-                new Object[]{id}, LocaleContextHolder.getLocale());
+        var mensagem = this.messageSource.getMessage(ex.getMessageKey(), new Object[]{id},
+            LocaleContextHolder.getLocale());
 
         problemDetail.setTitle(String.format(mensagem, id));
 
@@ -82,7 +83,7 @@ public final class ExceptionGlobalHandler extends ResponseEntityExceptionHandler
         // ProblemDetail RFC 7807
         ProblemDetail problemDetail = ProblemDetail.forStatus(HttpStatus.CONFLICT);
         problemDetail.setType(URI.create("https://babystepsdev.com/erros/regras-de-negocio-violadas"));
-        problemDetail.setTitle(this.getMensagem(ex.getMessageKey()));
+        problemDetail.setTitle(this.getMessage(ex.getMessageKey()));
 
         return ResponseEntity
             .status(HttpStatus.CONFLICT)
