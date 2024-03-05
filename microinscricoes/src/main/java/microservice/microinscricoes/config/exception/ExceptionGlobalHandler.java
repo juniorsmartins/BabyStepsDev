@@ -56,18 +56,19 @@ public final class ExceptionGlobalHandler extends ResponseEntityExceptionHandler
                 objectError -> this.messageSource.getMessage(objectError, LocaleContextHolder.getLocale())));
     }
 
+
     // ---------- TRATAMENTO DE EXCEÇÕES CUSTOM ---------- //
     @ExceptionHandler(ResourceNotFoundException.class)
-    public ResponseEntity<ProblemDetail> handleResourceNotFound(ResourceNotFoundException ex,
-                                                                     WebRequest webRequest) {
+    public ResponseEntity<ProblemDetail> handleResourceNotFound(ResourceNotFoundException ex, WebRequest webRequest) {
+
         // ProblemDetail RFC 7807
         ProblemDetail problemDetail = ProblemDetail.forStatus(HttpStatus.NOT_FOUND);
         problemDetail.setType(URI.create("https://babystepsdev.com/erros/recurso-nao-encontrado"));
 
         var id = ex.getId();
 
-        var mensagem = messageSource.getMessage(ex.getMessageKey(),
-                new Object[]{id}, LocaleContextHolder.getLocale());
+        var mensagem = this.messageSource.getMessage(ex.getMessageKey(), new Object[]{id},
+            LocaleContextHolder.getLocale());
 
         problemDetail.setTitle(String.format(mensagem, id));
 

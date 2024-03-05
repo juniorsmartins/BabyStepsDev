@@ -1,6 +1,7 @@
 package microservice.microtimes.config.exception;
 
 import lombok.RequiredArgsConstructor;
+import org.apache.kafka.common.errors.ResourceNotFoundException;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.http.*;
@@ -24,6 +25,7 @@ public class ExceptionGlobalHandler extends ResponseEntityExceptionHandler {
 
     // ---------- TRATAMENTO DE EXCEÇÕES DEFAULT ---------- //
     // ---------- Sobreescrever método de ResponseEntityExceptionHandler para customizar ---------- //
+    @Override
     protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
                                                                   HttpHeaders httpHeaders,
                                                                   HttpStatusCode httpStatusCode,
@@ -34,6 +36,10 @@ public class ExceptionGlobalHandler extends ResponseEntityExceptionHandler {
         problemDetail.setTitle(this.getMessage("resources.campos.invalidos"));
 
         var fields = this.getFields(ex);
+
+        problemDetail.setProperty("fields", fields);
+
+        return super.handleExceptionInternal(ex, problemDetail, httpHeaders, httpStatusCode, webRequest);
     }
 
     // ---------- Métodos assessórios ---------- //
@@ -50,6 +56,25 @@ public class ExceptionGlobalHandler extends ResponseEntityExceptionHandler {
     }
 
 
+    // ---------- TRATAMENTO DE EXCEÇÕES CUSTOM ---------- //
+    @ExceptionHandler(ResourceNotFoundException.class)
+    public ResponseEntity<ProblemDetail> handleResourceNotFound(ResourceNotFoundException ex, WebRequest webRequest) {
+
+        // ProblemDetail RFC 7807
+        ProblemDetail problemDetail = ProblemDetail.forStatus(HttpStatus.NOT_FOUND);
+        problemDetail.setType(URI.create("https://babystepsdev.com/erros/recurso-nao-encontrado"));
+
+        var id = ex.getId();
+
+        var mensagem = this.messageSource.getMessage(ex.getMessageKey(), new Object[]{id},
+            LocaleContextHolder.getLocale());
+
+        problemDetail.setTitle(String.format(mensagem, id));
+
+        return ResponseEntity
+            .status(HttpStatus.NOT_FOUND)
+            .body(problemDetail);
+    }
 
 
     @ExceptionHandler(ValidationException.class)
