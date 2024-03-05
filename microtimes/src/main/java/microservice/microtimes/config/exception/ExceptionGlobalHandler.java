@@ -2,6 +2,7 @@ package microservice.microtimes.config.exception;
 
 import lombok.RequiredArgsConstructor;
 import microservice.microtimes.config.exception.http_404.RecursoNotFoundException;
+import microservice.microtimes.config.exception.http_409.BusinessRuleViolationException;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.http.*;
@@ -73,6 +74,19 @@ public class ExceptionGlobalHandler extends ResponseEntityExceptionHandler {
 
         return ResponseEntity
             .status(HttpStatus.NOT_FOUND)
+            .body(problemDetail);
+    }
+
+    @ExceptionHandler(BusinessRuleViolationException.class)
+    public ResponseEntity<ProblemDetail> handleBusinessRuleViolation(BusinessRuleViolationException ex,
+                                                                     WebRequest webRequest) {
+        // ProblemDetail RFC 7807
+        ProblemDetail problemDetail = ProblemDetail.forStatus(HttpStatus.CONFLICT);
+        problemDetail.setType(URI.create("https://babystepsdev.com/erros/regras-de-negocio-violadas"));
+        problemDetail.setTitle(this.getMessage(ex.getMessageKey()));
+
+        return ResponseEntity
+            .status(HttpStatus.CONFLICT)
             .body(problemDetail);
     }
 

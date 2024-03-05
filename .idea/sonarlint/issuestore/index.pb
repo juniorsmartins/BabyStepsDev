@@ -751,3 +751,5 @@ hmicrotimes/src/main/java/microservice/microtimes/config/exception/http_404/Recu
 rmicroinscricoes/src/main/java/microservice/microinscricoes/config/exception/http_404/RecursoNotFoundException.java,1/8/18436d7d190814c22fd0f638b8844b3a68b37d7a
 •
 emicrotimes/src/main/java/microservice/microtimes/config/exception/http_404/TimeNotFoundException.java,f/a/fa5dd8abc3077c6f8518c3cf114b99d2ab847a38
+ž
+nmicrotimes/src/main/java/microservice/microtimes/config/exception/http_409/BusinessRuleViolationException.java,7/f/7ffe49178b55313122d487512eaa21dc548fc2f2
