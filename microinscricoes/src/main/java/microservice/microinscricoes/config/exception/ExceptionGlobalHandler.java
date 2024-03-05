@@ -34,7 +34,7 @@ public final class ExceptionGlobalHandler extends ResponseEntityExceptionHandler
         // ProblemDetail RFC 7807
         ProblemDetail problemDetail = ProblemDetail.forStatus(httpStatusCode);
         problemDetail.setType(URI.create("https://babystepsdev.com/erros/campos-invalidos"));
-        problemDetail.setTitle(this.getMensagem("resources.campos.invalidos"));
+        problemDetail.setTitle(this.getMessage("resources.campos.invalidos"));
 
         var fields = this.getFields(ex);
 
@@ -44,8 +44,8 @@ public final class ExceptionGlobalHandler extends ResponseEntityExceptionHandler
     }
 
     // ---------- Métodos assessórios ---------- //
-    private String getMensagem(String messageKey) {
-        return messageSource.getMessage(messageKey, new Object[]{}, LocaleContextHolder.getLocale());
+    private String getMessage(String messageKey) {
+        return this.messageSource.getMessage(messageKey, new Object[]{}, LocaleContextHolder.getLocale());
     }
 
     private Map<String, String> getFields(BindException ex) {
@@ -53,7 +53,7 @@ public final class ExceptionGlobalHandler extends ResponseEntityExceptionHandler
             .getAllErrors()
             .stream()
             .collect(Collectors.toMap(objectError -> ((FieldError) objectError).getField(),
-                    objectError -> messageSource.getMessage(objectError, LocaleContextHolder.getLocale())));
+                objectError -> this.messageSource.getMessage(objectError, LocaleContextHolder.getLocale())));
     }
 
     // ---------- TRATAMENTO DE EXCEÇÕES CUSTOM ---------- //
@@ -82,7 +82,7 @@ public final class ExceptionGlobalHandler extends ResponseEntityExceptionHandler
         // ProblemDetail RFC 7807
         ProblemDetail problemDetail = ProblemDetail.forStatus(HttpStatus.CONFLICT);
         problemDetail.setType(URI.create("https://babystepsdev.com/erros/regras-de-negocio-violadas"));
-        problemDetail.setTitle(this.getMensagem(ex.getMessageKey()));
+        problemDetail.setTitle(this.getMessage(ex.getMessageKey()));
 
         return ResponseEntity
             .status(HttpStatus.CONFLICT)
