@@ -763,3 +763,5 @@ dmicrotimes/src/main/java/microservice/microtimes/adapter/out/repository/entity/
 Vmicrotimes/src/main/java/microservice/microtimes/adapter/out/ValidationRepository.java,f/2/f25a6250617a8ba7d14b187920d0eea6565e147c
 ë
 amicrotimes/src/main/java/microservice/microtimes/adapter/out/repository/ValidationRepository.java,f/2/f2ad340dba380d5ab02f3b3e278d4476aaf0b6db
+ê
+`microtimes/src/main/java/microservice/microtimes/adapter/in/consumer/event/SagaEventRequest.java,b/e/bed89b1058dcee383ae1799189733d548f10764c

@@ -1,4 +1,4 @@
-package microservice.microtimes.adapter.in.consumer.dto;
+package microservice.microtimes.application.core.domain.enums;
 
 public enum ETipoPagamento {
 

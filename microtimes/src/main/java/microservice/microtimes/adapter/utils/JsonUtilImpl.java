@@ -3,8 +3,8 @@ package microservice.microtimes.adapter.utils;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import microservice.microtimes.adapter.in.consumer.SagaEvent;
-import microservice.microtimes.adapter.in.consumer.dto.SagaEventRequest;
+import microservice.microtimes.application.core.domain.SagaEvent;
+import microservice.microtimes.adapter.in.consumer.event.SagaEventRequest;
 import org.springframework.stereotype.Component;
 
 @Slf4j

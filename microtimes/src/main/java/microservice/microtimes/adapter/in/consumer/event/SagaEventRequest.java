@@ -1,6 +1,8 @@
-package microservice.microtimes.adapter.in.consumer.dto;
+package microservice.microtimes.adapter.in.consumer.event;
 
 import lombok.*;
+import microservice.microtimes.adapter.in.consumer.dto.HistoryDtoRequest;
+import microservice.microtimes.adapter.in.consumer.dto.InscritoDtoRequest;
 
 import java.time.OffsetDateTime;
 import java.util.List;
