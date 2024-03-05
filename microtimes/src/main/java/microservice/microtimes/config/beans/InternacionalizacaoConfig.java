@@ -1,4 +1,4 @@
-package microservice.microinscricoes.config.beans;
+package microservice.microtimes.config.beans;
 
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
