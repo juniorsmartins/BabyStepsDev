@@ -8,7 +8,7 @@ public final class TimeNotFoundException extends RecursoNotFoundException {
     private static final long serialVersionUID = 1L;
 
     public TimeNotFoundException(final Long id) {
-        super("time.nao.encontrado", id);
+        super("exception.resource.not.found.time", id);
     }
 }
 

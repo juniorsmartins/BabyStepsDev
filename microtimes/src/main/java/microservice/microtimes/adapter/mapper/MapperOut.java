@@ -1,26 +1,21 @@
 package microservice.microtimes.adapter.mapper;
 
 import microservice.microtimes.adapter.out.repository.entity.TimeEntity;
+import microservice.microtimes.adapter.out.repository.entity.ValidationEntity;
 import microservice.microtimes.application.core.domain.Time;
+import microservice.microtimes.application.core.domain.ValidationModel;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")
 public interface MapperOut {
 
-//    @Mapping(source = "activityStatus", target = "activityStatus", qualifiedByName = "setActivityStatusString")
     TimeEntity toTimeEntity(Time time);
 
-//    @Named("setActivityStatusString")
-//    default String setActivityStatusString(ActivityStatusEnum activityStatus) {
-//        return activityStatus.getStatus();
-//    }
-
-//    @Mapping(source = "activityStatus", target = "activityStatus", qualifiedByName = "setActivityStatusEnum")
     Time toTime(TimeEntity timeEntity);
 
-//    @Named("setActivityStatusEnum")
-//    default ActivityStatusEnum setActivityStatusEnum(String activityStatus) {
-//        return ActivityStatusEnum.toEnum(activityStatus);
-//    }
+    ValidationEntity toValidationEntity(ValidationModel validationModel);
+
+    ValidationModel toValidationModel(ValidationEntity validationEntity);
+
 }
 
