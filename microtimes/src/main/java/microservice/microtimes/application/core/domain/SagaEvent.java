@@ -1,52 +1,46 @@
 package microservice.microtimes.application.core.domain;
 
-import microservice.microtimes.application.core.domain.enums.ESagaStatus;
-
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 import java.util.List;
 
 public final class SagaEvent {
 
-    private Long id;
+    private Long sagaEventId;
 
-    private Long transactionId;
-
-    private Long inscritoId;
+    private String transactionId;
 
     private Long inscricaoId;
 
-    private Order payload;
+    private Long inscritoId;
+
+    private Long torneioId;
+
+    private Long timeId;
+
+    private Inscrito payload;
 
     private String source;
 
-    private ESagaStatus status;
+    private String status;
 
     private List<History> eventHistories;
 
-    private LocalDateTime createdAt;
+    private OffsetDateTime createdAt;
 
-    public Long getId() {
-        return id;
+    public Long getSagaEventId() {
+        return sagaEventId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setSagaEventId(Long sagaEventId) {
+        this.sagaEventId = sagaEventId;
     }
 
-    public Long getTransactionId() {
+    public String getTransactionId() {
         return transactionId;
     }
 
-    public void setTransactionId(Long transactionId) {
+    public void setTransactionId(String transactionId) {
         this.transactionId = transactionId;
-    }
-
-    public Long getInscritoId() {
-        return inscritoId;
-    }
-
-    public void setInscritoId(Long inscritoId) {
-        this.inscritoId = inscritoId;
     }
 
     public Long getInscricaoId() {
@@ -57,11 +51,35 @@ public final class SagaEvent {
         this.inscricaoId = inscricaoId;
     }
 
-    public Order getPayload() {
+    public Long getInscritoId() {
+        return inscritoId;
+    }
+
+    public void setInscritoId(Long inscritoId) {
+        this.inscritoId = inscritoId;
+    }
+
+    public Long getTorneioId() {
+        return torneioId;
+    }
+
+    public void setTorneioId(Long torneioId) {
+        this.torneioId = torneioId;
+    }
+
+    public Long getTimeId() {
+        return timeId;
+    }
+
+    public void setTimeId(Long timeId) {
+        this.timeId = timeId;
+    }
+
+    public Inscrito getPayload() {
         return payload;
     }
 
-    public void setPayload(Order payload) {
+    public void setPayload(Inscrito payload) {
         this.payload = payload;
     }
 
@@ -73,11 +91,11 @@ public final class SagaEvent {
         this.source = source;
     }
 
-    public ESagaStatus getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(ESagaStatus status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
@@ -89,12 +107,29 @@ public final class SagaEvent {
         this.eventHistories = eventHistories;
     }
 
-    public LocalDateTime getCreatedAt() {
+    public OffsetDateTime getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
+    public void setCreatedAt(OffsetDateTime createdAt) {
         this.createdAt = createdAt;
+    }
+
+    @Override
+    public String toString() {
+        return "SagaEvent{" +
+            "sagaEventId=" + sagaEventId +
+            ", transactionId='" + transactionId + '\'' +
+            ", inscricaoId=" + inscricaoId +
+            ", inscritoId=" + inscritoId +
+            ", torneioId=" + torneioId +
+            ", timeId=" + timeId +
+            ", payload=" + payload +
+            ", source='" + source + '\'' +
+            ", status='" + status + '\'' +
+            ", eventHistories=" + eventHistories +
+            ", createdAt=" + createdAt +
+            '}';
     }
 }
 
