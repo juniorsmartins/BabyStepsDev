@@ -77,6 +77,10 @@ em construção.....
 3. Spring Web;
 4. Spring Cloud (versão 2022.0.4);
 5. Spring Data JPA;
+6. Streaming de Eventos (Apache Kafka);
+7. Data e Hora (formato internacional - ISO 8601);
+8. Tratamento de Exceções (internacionalização de mensagens de erro e padrão Problem Details RFC 7807);
+9. Banco de Dados (MariaDB);
 
 #### MICROINSCRICOES
 1. Java (versão 21 LTS);
@@ -86,15 +90,14 @@ em construção.....
 5. Spring Data JPA;
 6. Spring Data Envers;
 7. Spring Doc (versão 2.3.0);
-8. Message Broker (Kafka);
-9. Formato ISO 8601 de Data e Hora;
-10. Tratamento de Exceções (padrão Problem Details RFC 7807);
-11. Lombok;
-12. MapStruct (versão 1.5.5.Final);
-13. Teste Automatizados (JUnit, JUnit Params, Mockito Core, Mockito Jupiter, Rest-Assured e Testcontainers);
+8. Streaming de Eventos (Apache Kafka);
+9. Data e Hora (formato internacional - ISO 8601);
+10. Tratamento de Exceções (internacionalização de mensagens de erro e padrão Problem Details RFC 7807);
+11. Teste Automatizados (JUnit, JUnit Params, Mockito Core, Mockito Jupiter, Rest-Assured e Testcontainers);
+12. Content Negotiation (Json, XML e YAML);
+13. MapStruct (versão 1.5.5.Final);
 14. Data Faker (versão 2.1.0);
-15. Content Negotiation (Jackson Dataformat XML e YAML);
-16. PostgreSQL;
+15. Banco de Dados (PostgreSQL).
 
 
 
