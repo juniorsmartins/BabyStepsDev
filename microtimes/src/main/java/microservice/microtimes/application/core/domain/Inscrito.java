@@ -1,13 +1,12 @@
 package microservice.microtimes.application.core.domain;
 
 import microservice.microtimes.adapter.in.controller.dto.enums.ETipoPagamento;
-import microservice.microtimes.application.core.domain.Time;
 
 public final class Inscrito {
 
     private Long id;
 
-    private Inscricao inscricao;
+    private Long inscricaoId;
 
     private Time time;
 
@@ -27,12 +26,12 @@ public final class Inscrito {
         this.id = id;
     }
 
-    public Inscricao getInscricao() {
-        return inscricao;
+    public Long getInscricaoId() {
+        return inscricaoId;
     }
 
-    public void setInscricao(Inscricao inscricao) {
-        this.inscricao = inscricao;
+    public void setInscricaoId(Long inscricaoId) {
+        this.inscricaoId = inscricaoId;
     }
 
     public Time getTime() {
