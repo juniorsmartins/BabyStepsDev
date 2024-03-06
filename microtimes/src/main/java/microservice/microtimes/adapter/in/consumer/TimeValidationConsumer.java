@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import microservice.microtimes.adapter.mapper.MapperIn;
 import microservice.microtimes.adapter.utils.JsonUtil;
-import microservice.microtimes.application.core.domain.SagaEvent;
 import microservice.microtimes.application.port.input.SagaEventSuccessValidationInputPort;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
@@ -30,13 +29,13 @@ public class TimeValidationConsumer {
 
         log.info("Recebendo evento de sucesso no tópico de sucesso de validação de time.");
 
-        Optional.ofNullable(payload)
+        var response = Optional.ofNullable(payload)
             .map(this.jsonUtil::toSagaEventRequest)
             .map(this.mapperIn::toSagaEvent)
-            .map(SagaEvent::toString)
+            .map(this.sagaEventSuccessValidationInputPort::createSuccessValidation)
             .orElseThrow();
 
-        log.info("Finalizado evento de sucesso no tópico de sucesso de validação de time: {}.", payload);
+        log.info("Finalizado evento de sucesso no tópico de sucesso de validação de time: {}.", response);
     }
 
     @KafkaListener(
