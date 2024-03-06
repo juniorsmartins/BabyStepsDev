@@ -5,8 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import microservice.microtimes.adapter.mapper.MapperOut;
 import microservice.microtimes.adapter.out.repository.ValidationRepository;
 import microservice.microtimes.application.core.domain.ValidationModel;
-import microservice.microtimes.application.port.output.SagaEventSaveSuccessValidationOutputPort;
-import microservice.microtimes.config.exception.http_409.SuccessValidationDuplicationException;
+import microservice.microtimes.application.port.output.SagaEventSaveValidationOutputPort;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,7 +14,7 @@ import java.util.Optional;
 @Slf4j
 @Repository
 @RequiredArgsConstructor
-public class SagaEventSaveSuccessValidationAdapter implements SagaEventSaveSuccessValidationOutputPort {
+public class SagaEventSaveValidationAdapter implements SagaEventSaveValidationOutputPort {
 
     private final ValidationRepository validationRepository;
 
@@ -23,12 +22,11 @@ public class SagaEventSaveSuccessValidationAdapter implements SagaEventSaveSucce
 
     @Transactional
     @Override
-    public ValidationModel saveSuccessValidation(ValidationModel validationModel) {
+    public ValidationModel save(ValidationModel validationModel) {
 
         log.info("Iniciado adaptador para salvar Success-Validation.");
 
         var validationSaved = Optional.ofNullable(validationModel)
-            .map(this::checkValidationDuplication)
             .map(this.mapperOut::toValidationEntity)
             .map(this.validationRepository::save)
             .map(this.mapperOut::toValidationModel)
@@ -37,19 +35,6 @@ public class SagaEventSaveSuccessValidationAdapter implements SagaEventSaveSucce
         log.info("Finalizado adaptador para salvar Success-Validation: {}.", validationSaved);
 
         return validationSaved;
-    }
-
-    private ValidationModel checkValidationDuplication(ValidationModel validationModel) {
-
-        Optional.of(validationModel)
-            .map(model -> this.validationRepository
-                .existsBySagaEventIdAndTransactionId(model.getSagaEventId(), model.getTransactionId()))
-            .stream()
-            .filter(filtro -> filtro.equals(true)) // Filtra apenas se a validação for verdadeira
-            .findFirst()
-            .ifPresent(result -> {throw new SuccessValidationDuplicationException();});
-
-        return validationModel;
     }
 }
 

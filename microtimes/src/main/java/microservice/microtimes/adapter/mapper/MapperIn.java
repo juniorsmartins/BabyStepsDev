@@ -22,7 +22,11 @@ public interface MapperIn {
     TimeCreateDtoResponse toTimeCreateDtoResponse(Time time);
 
     @Mapping(source = "id", target = "sagaEventId")
+    @Mapping(source = "status", target = "status", qualifiedByName = "converterStringParaEnumSagaStatus")
     SagaEvent toSagaEvent(SagaEventRequest sagaEventRequest);
+
+    @Mapping(source = "sagaEventId", target = "id")
+    SagaEventRequest toSagaEventRequest(SagaEvent sagaEvent);
 
     @Mapping(source = "inscricao.id", target = "inscricaoId")
     Inscrito toInscrito(InscritoDtoRequest inscritoDtoRequest);
