@@ -1,7 +1,12 @@
 package microservice.microtimes.application.core.domain;
 
+import microservice.microtimes.application.core.domain.enums.ESagaStatus;
+import org.springframework.util.ObjectUtils;
+
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public final class SagaEvent {
 
@@ -21,11 +26,18 @@ public final class SagaEvent {
 
     private String source;
 
-    private String status;
+    private ESagaStatus status;
 
     private List<History> eventHistories;
 
     private OffsetDateTime createdAt;
+
+    public void addToHistory(History history) {
+        if (ObjectUtils.isEmpty(this.eventHistories)) {
+            this.eventHistories = new ArrayList<>();
+        }
+        this.eventHistories.add(history);
+    }
 
     public Long getSagaEventId() {
         return sagaEventId;
@@ -91,11 +103,11 @@ public final class SagaEvent {
         this.source = source;
     }
 
-    public String getStatus() {
+    public ESagaStatus getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(ESagaStatus status) {
         this.status = status;
     }
 

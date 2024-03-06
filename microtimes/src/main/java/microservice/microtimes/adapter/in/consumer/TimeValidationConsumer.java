@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import microservice.microtimes.adapter.mapper.MapperIn;
 import microservice.microtimes.adapter.utils.JsonUtil;
-import microservice.microtimes.application.port.input.SagaEventSuccessValidationInputPort;
+import microservice.microtimes.application.port.input.SagaEventValidationInputPort;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
@@ -19,7 +19,7 @@ public class TimeValidationConsumer {
 
     private final MapperIn mapperIn;
 
-    private final SagaEventSuccessValidationInputPort sagaEventSuccessValidationInputPort;
+    private final SagaEventValidationInputPort sagaEventSuccessValidationInputPort;
 
     @KafkaListener(
         groupId = "${spring.kafka.consumer.group-id}",
@@ -29,13 +29,16 @@ public class TimeValidationConsumer {
 
         log.info("Recebendo evento de sucesso no tópico de sucesso de validação de time.");
 
-        var response = Optional.ofNullable(payload)
+        Optional.ofNullable(payload)
             .map(this.jsonUtil::toSagaEventRequest)
             .map(this.mapperIn::toSagaEvent)
-            .map(this.sagaEventSuccessValidationInputPort::createSuccessValidation)
+            .map(event -> {
+                this.sagaEventSuccessValidationInputPort.createValidation(event);
+                return true;
+            })
             .orElseThrow();
 
-        log.info("Finalizado evento de sucesso no tópico de sucesso de validação de time: {}.", response);
+        log.info("Finalizado evento de sucesso no tópico de sucesso de validação de time: {}.", payload);
     }
 
     @KafkaListener(
@@ -46,11 +49,16 @@ public class TimeValidationConsumer {
 
         log.info("Recebendo evento de reversão no tópico de falha na validação de time.");
 
-        var event = jsonUtil.toSagaEventRequest(payload);
+        Optional.ofNullable(payload)
+            .map(this.jsonUtil::toSagaEventRequest)
+            .map(this.mapperIn::toSagaEvent)
+            .map(event -> {
+                this.sagaEventSuccessValidationInputPort.rollbackEvent(event);
+                return true;
+            })
+            .orElseThrow();
 
         log.info("Finalizado evento de falha no tópico de falha de validação de time: {}.", payload);
-
-        log.info(event.toString());
     }
 }
 

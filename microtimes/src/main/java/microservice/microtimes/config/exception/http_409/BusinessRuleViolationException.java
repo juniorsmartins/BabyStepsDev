@@ -6,7 +6,7 @@ import java.io.Serial;
 
 @Getter
 public abstract sealed class BusinessRuleViolationException extends RuntimeException permits
-        ConversionEnumSagaStatusFailedException, SuccessValidationDuplicationException {
+        ConversionEnumSagaStatusFailedException {
 
     @Serial
     private static final long serialVersionUID = 1L;

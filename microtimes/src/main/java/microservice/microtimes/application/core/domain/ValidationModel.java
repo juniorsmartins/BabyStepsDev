@@ -17,15 +17,6 @@ public final class ValidationModel {
 
     private OffsetDateTime updatedAt;
 
-    public static ValidationModel transformSagaEventInValidation(SagaEvent sagaEvent) {
-        var validation = new ValidationModel();
-        validation.setSagaEventId(sagaEvent.getSagaEventId());
-        validation.setTransactionId(sagaEvent.getTransactionId());
-        validation.setSuccess(true);
-
-        return validation;
-    }
-
     public Long getId() {
         return id;
     }
