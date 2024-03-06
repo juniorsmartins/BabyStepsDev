@@ -750,3 +750,9 @@ Umicrotimes/src/main/java/microservice/microtimes/application/core/domain/Histor
 _microtimes/src/main/java/microservice/microtimes/application/core/domain/enums/ESagaStatus.java,2/3/230e0da391310ae1cda0eba8e04525e0c56a8a6f
 §
 wmicrotimes/src/main/java/microservice/microtimes/config/exception/http_409/ConversionEnumSagaStatusFailedException.java,4/8/485f1e3ac92477ca1775292eb188aeef082e131d
+ 
+pmicrotimes/src/main/java/microservice/microtimes/application/port/input/SagaEventSuccessValidationInputPort.java,6/4/64f49deba3872722b254747b1aaefc705d8ddc92
+ 
+pmicrotimes/src/main/java/microservice/microtimes/application/core/usecase/SagaEventSuccessValidationUseCase.java,6/d/6d3a08505585397ee8f6eb934ddcae42f41f66b2
+~
+Nmicrotimes/src/main/java/microservice/microtimes/adapter/mapper/MapperOut.java,9/0/9072463b9347354de9f99c50bf5a71e7b8dc0950
