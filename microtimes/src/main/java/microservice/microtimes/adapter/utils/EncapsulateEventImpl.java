@@ -2,8 +2,8 @@ package microservice.microtimes.adapter.utils;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import microservice.microtimes.adapter.out.producer.EventCreateTime;
-import microservice.microtimes.adapter.out.producer.TimeSaveDto;
+import microservice.microtimes.adapter.out.producer.event.EventCreateTime;
+import microservice.microtimes.adapter.out.producer.dto.TimeSaveDto;
 import microservice.microtimes.application.core.domain.Time;
 import org.springframework.stereotype.Component;
 
