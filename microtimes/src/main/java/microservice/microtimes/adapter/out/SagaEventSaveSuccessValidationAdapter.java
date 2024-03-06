@@ -25,7 +25,7 @@ public class SagaEventSaveSuccessValidationAdapter implements SagaEventSaveSucce
     @Override
     public ValidationModel saveSuccessValidation(ValidationModel validationModel) {
 
-        log.info("");
+        log.info("Iniciado adaptador para salvar Success-Validation.");
 
         var validationSaved = Optional.ofNullable(validationModel)
             .map(this::checkValidationDuplication)
@@ -34,21 +34,20 @@ public class SagaEventSaveSuccessValidationAdapter implements SagaEventSaveSucce
             .map(this.mapperOut::toValidationModel)
             .orElseThrow();
 
-        log.info("");
+        log.info("Finalizado adaptador para salvar Success-Validation: {}.", validationSaved);
 
         return validationSaved;
     }
 
     private ValidationModel checkValidationDuplication(ValidationModel validationModel) {
 
-        var response = Optional.ofNullable(validationModel)
+        Optional.of(validationModel)
             .map(model -> this.validationRepository
                 .existsBySagaEventIdAndTransactionId(model.getSagaEventId(), model.getTransactionId()))
-            .orElseThrow();
-
-        if (response) {
-            throw new SuccessValidationDuplicationException();
-        }
+            .stream()
+            .filter(filtro -> filtro.equals(true)) // Filtra apenas se a validação for verdadeira
+            .findFirst()
+            .ifPresent(result -> {throw new SuccessValidationDuplicationException();});
 
         return validationModel;
     }

@@ -22,14 +22,14 @@ public class SagaEventSuccessValidationUseCase implements SagaEventSuccessValida
     @Override
     public ValidationModel createSuccessValidation(SagaEvent sagaEvent) {
 
-        log.info("");
+        log.info("Iniciado serviço para criar Success-Validation.");
 
         var validationCreated = Optional.ofNullable(sagaEvent)
             .map(ValidationModel::transformSagaEventInValidation)
             .map(this.sagaEventSaveSuccessValidationOutputPort::saveSuccessValidation)
             .orElseThrow();
 
-        log.info("");
+        log.info("Finalizado serviço para criar Success-Validation: {}.", validationCreated);
 
         return validationCreated;
     }
