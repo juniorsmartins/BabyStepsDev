@@ -838,3 +838,13 @@ imicropagamentos/src/main/java/microservice/micropagamentos/adapter/out/SagaEven
 nmicropagamentos/src/main/java/microservice/micropagamentos/adapter/out/producer/KafkaProducerOrchestrator.java,c/f/cf80ff7abcd86ee81c453d218dba71f2412fc559
 ª
 zmicropagamentos/src/main/java/microservice/micropagamentos/application/port/output/SagaEventSendOrchestratorOutputPot.java,8/8/8802ee69d071a92df4de8e4928309c95760d16ec
+¯
+micropagamentos/src/main/java/microservice/micropagamentos/config/exception/http_409/SagaEventNullValueNotAllowedException.java,b/7/b72677f43ff71a6ae7ee30aa44ece59db5715331
+¡
+qmicropagamentos/src/main/java/microservice/micropagamentos/application/port/output/SagaEventExistsOutputPort.java,a/8/a860169b8ffddbd5e2d9a6cd95ab616593708678
+ž
+nmicropagamentos/src/main/java/microservice/micropagamentos/application/port/output/SagaEventExistsAdapter.java,a/4/a43e6ae7a3be8a9c95981e2ef20546c54a3c958b
+’
+bmicropagamentos/src/main/java/microservice/micropagamentos/adapter/out/SagaEventExistsAdapter.java,6/b/6bfe72f01d13bb12571b13711db43f823dc169b0
+±
+€micropagamentos/src/main/java/microservice/micropagamentos/config/exception/http_409/SagaEventPagamentoDuplicationException.java,6/7/67dae4536a9f59681293f4b8e120d0622ff11b82

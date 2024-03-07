@@ -12,7 +12,7 @@ import microservice.microtimes.application.port.output.SagaEventFindOutputPort;
 import microservice.microtimes.application.port.output.SagaEventSaveValidationOutputPort;
 import microservice.microtimes.application.port.output.SagaEventSendOrchestratorOutputPot;
 import microservice.microtimes.config.exception.http_409.SagaEventNullValueNotAllowedException;
-import microservice.microtimes.config.exception.http_409.SuccessValidationDuplicationException;
+import microservice.microtimes.config.exception.http_409.SagaEventValidationDuplicationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.ObjectUtils;
@@ -66,7 +66,7 @@ public class SagaEventValidationUseCase implements SagaEventValidationInputPort 
                     this.sagaEventSaveValidationOutputPort.save(model);
                     handleSuccess(event);
 
-                } catch (SagaEventNullValueNotAllowedException | SuccessValidationDuplicationException ex) {
+                } catch (SagaEventNullValueNotAllowedException | SagaEventValidationDuplicationException ex) {
                     log.error("Erro: {}", ex.getMessage(), ex);
                     handleFailCurrentNotExecuted(sagaEvent, ex.getMessage());
                 }
@@ -89,7 +89,7 @@ public class SagaEventValidationUseCase implements SagaEventValidationInputPort 
     private void checkExistenceValidationDuplication(SagaEvent event) {
         var exists = this.sagaEventExistsOutputPort.existsDuplication(event.getSagaEventId(), event.getTransactionId());
         if (exists) {
-            throw new SuccessValidationDuplicationException();
+            throw new SagaEventValidationDuplicationException();
         }
     }
 
