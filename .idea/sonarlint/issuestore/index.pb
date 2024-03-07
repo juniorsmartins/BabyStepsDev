@@ -805,3 +805,7 @@ lmicropagamentos/src/main/java/microservice/micropagamentos/application/core/dom
 nmicropagamentos/src/main/java/microservice/micropagamentos/application/core/domain/enums/EPagamentoStatus.java,9/7/97295f03506f1722fb1c50cb722b029d0e35b4c3
 í
 bmicrotimes/src/main/java/microservice/microtimes/application/core/domain/enums/ETipoPagamento.java,1/3/13712d67ff23186bdf8d7729247fd3b876f5fba3
+ö
+jmicropagamentos/src/main/java/microservice/micropagamentos/adapter/out/repository/PagamentoRepository.java,8/c/8ce02047d01c41bafc3e2951a31531ff2648ef77
+ù
+mmicropagamentos/src/main/java/microservice/micropagamentos/adapter/out/repository/entity/PagamentoEntity.java,5/b/5bec1bdcdc98c2d6aeee607295e4100420e1e931
