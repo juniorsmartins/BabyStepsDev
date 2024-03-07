@@ -125,7 +125,7 @@ public class SagaEventValidationUseCase implements SagaEventValidationInputPort 
     }
 
     @Override
-    public void rollbackEvent(SagaEvent event) {
+    public SagaEvent rollbackEvent(SagaEvent event) {
         this.changeValidationToFail(event);
         event.setStatus(ESagaStatus.FAIL);
         event.setSource(CURRENT_SOURCE);
@@ -133,6 +133,7 @@ public class SagaEventValidationUseCase implements SagaEventValidationInputPort 
         var sagaEventRequest = this.mapperIn.toSagaEventRequest(event);
         var payload = this.jsonUtil.toJson(sagaEventRequest);
         this.sagaEventSendOrchestratorOutputPot.sendEvent(payload);
+        return event;
     }
 
     private void changeValidationToFail(SagaEvent event) {

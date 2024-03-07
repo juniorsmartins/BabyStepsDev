@@ -6,6 +6,6 @@ public interface SagaEventValidationInputPort {
 
     SagaEvent createValidation(SagaEvent sagaEvent);
 
-    void rollbackEvent(SagaEvent event);
+    SagaEvent rollbackEvent(SagaEvent event);
 }
 

@@ -46,16 +46,13 @@ public class TimeValidationConsumer {
 
         log.info("Recebendo evento no tópico de falha na validação de time.");
 
-        Optional.ofNullable(payload)
+        var sagaEventFail = Optional.ofNullable(payload)
             .map(this.jsonUtil::toSagaEventRequest)
             .map(this.mapperIn::toSagaEvent)
-            .map(event -> {
-                this.sagaEventValidationInputPort.rollbackEvent(event);
-                return true;
-            })
+            .map(this.sagaEventValidationInputPort::rollbackEvent)
             .orElseThrow();
 
-        log.info("Finalizado evento no tópico de falha de validação de time: {}.", payload);
+        log.info("Finalizado evento no tópico de falha de validação de time: {}.", sagaEventFail);
     }
 }
 
