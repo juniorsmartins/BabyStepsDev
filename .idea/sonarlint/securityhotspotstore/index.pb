@@ -526,10 +526,6 @@ Lmicrotimes/src/main/java/microservice/microtimes/adapter/utils/JsonUtil.java,6
 Pmicrotimes/src/main/java/microservice/microtimes/adapter/utils/JsonUtilImpl.java,8/d/8d71c6d24e58b9e37dd74cda29f8696bbcbcad29
 ì
 cmicrotorneios/src/main/java/microservice/microtorneios/adapters/in/event/EventFindIdTorneioDto.java,a/f/af2bd3ea29982a6e79ed51db68a9d23933bc3718
-ä
-Zmicrotimes/src/main/java/microservice/microtimes/adapter/out/producer/EventCreateTime.java,9/3/9315f679e4e953c0c87b7e39c9e433d2fbcf1919
-Ü
-Vmicrotimes/src/main/java/microservice/microtimes/adapter/out/producer/TimeSaveDto.java,b/8/b860c1d746abb4e96f205505434348560c4ffeb9
 Ñ
 Tmicrotimes/src/main/java/microservice/microtimes/adapter/utils/EncapsulateEvent.java,e/3/e3bc3f176d0a845ebfb7df8d4d3f10e413cdc0cc
 à
@@ -626,8 +622,6 @@ Xmicrotimes/src/test/java/microservice/microtimes/utility/AbstractTestcontainers
 Omicrotimes/src/test/java/microservice/microtimes/utility/ConverterUtilTest.java,d/1/d12bfd790af8734381894c39f82cef84a5a2d88b
 Å
 Qmicrotimes/src/test/java/microservice/microtimes/utility/FactoryObjectMother.java,4/6/4675eabaa0bc23693d54479caecb5598d121d10d
-à
-Xmicrotimes/src/main/java/microservice/microtimes/adapter/out/producer/KafkaProducer.java,e/9/e9bd31af05006dcd05ab02a1b5b1eb255ba10b3a
 ë
 amicroinscricoes/src/main/java/microservice/microinscricoes/adapter/in/consumer/ConsumerEvent.java,4/b/4beea961d35750ff669a0cb404f3e7c752fc67d9
 Ñ
@@ -750,16 +744,8 @@ Umicrotimes/src/main/java/microservice/microtimes/application/core/domain/Histor
 _microtimes/src/main/java/microservice/microtimes/application/core/domain/enums/ESagaStatus.java,2/3/230e0da391310ae1cda0eba8e04525e0c56a8a6f
 ß
 wmicrotimes/src/main/java/microservice/microtimes/config/exception/http_409/ConversionEnumSagaStatusFailedException.java,4/8/485f1e3ac92477ca1775292eb188aeef082e131d
-†
-pmicrotimes/src/main/java/microservice/microtimes/application/port/input/SagaEventSuccessValidationInputPort.java,6/4/64f49deba3872722b254747b1aaefc705d8ddc92
-†
-pmicrotimes/src/main/java/microservice/microtimes/application/core/usecase/SagaEventSuccessValidationUseCase.java,6/d/6d3a08505585397ee8f6eb934ddcae42f41f66b2
 ~
 Nmicrotimes/src/main/java/microservice/microtimes/adapter/mapper/MapperOut.java,9/0/9072463b9347354de9f99c50bf5a71e7b8dc0950
-¶
-vmicrotimes/src/main/java/microservice/microtimes/application/port/output/SagaEventSaveSuccessValidationOutputPort.java,8/5/857fbbd6876e4eaab5f2ff5211b553b83c7e83d4
-ó
-gmicrotimes/src/main/java/microservice/microtimes/adapter/out/SagaEventSaveSuccessValidationAdapter.java,d/b/db46018c157ce8e1d5a9758eb62e37f68ec592c9
 ç
 ]microtimes/src/main/java/microservice/microtimes/application/core/domain/ValidationModel.java,2/0/20f58865fbbeb0e588712fddefe8d7a99d6137ba
 •
@@ -772,8 +758,6 @@ dmicrotimes/src/main/java/microservice/microtimes/adapter/out/producer/KafkaProd
 pmicrotimes/src/main/java/microservice/microtimes/application/port/output/SagaEventSendOrchestratorOutputPot.java,7/b/7b30ef443f82cd1d83f3a19558c3791ff79df36b
 •
 umicrotimes/src/main/java/microservice/microtimes/config/exception/http_409/SagaEventNullValueNotAllowedException.java,f/6/f6291d76dd6f0b2d32ab1af291f73734d9dd6161
-°
-qmicrotimes/src/main/java/microservice/microtimes/application/port/output/SagaEventExistsValidationOutputPort.java,0/a/0aaa248bed3cdbaca790918f8ea9a3cc3f20c58f
 ó
 gmicrotimes/src/main/java/microservice/microtimes/application/port/output/SagaEventExistsOutputPort.java,f/c/fca40e53103959710b58933c96161326743c2d04
 à
@@ -790,3 +774,11 @@ omicrotimes/src/main/java/microservice/microtimes/application/port/output/SagaEv
 imicrotimes/src/main/java/microservice/microtimes/application/port/input/SagaEventValidationInputPort.java,b/3/b3094d8eecd24afcf033dd7a819d67d07dd0def6
 ô
 imicrotimes/src/main/java/microservice/microtimes/application/core/usecase/SagaEventValidationUseCase.java,7/9/79c51e99c0e839c0d92a7a85374818b01ce7a430
+ö
+jmicroinscricoes/src/main/java/microservice/microinscricoes/application/port/input/TimeCreateInputPort.java,8/d/8d2eeee8058151f79154c99c8d54e84dd9ae9934
+ö
+jmicroinscricoes/src/main/java/microservice/microinscricoes/application/core/usecase/TimeCreateUseCase.java,e/a/ead3d3a1320a80fca4fc821e8b10607664e25f08
+ù
+mmicroinscricoes/src/main/java/microservice/microinscricoes/application/port/input/TorneioCreateInputPort.java,0/8/080f34dc4adb4a4b9946801383d54804a1373308
+ù
+mmicroinscricoes/src/main/java/microservice/microinscricoes/application/core/usecase/TorneioCreateUseCase.java,8/0/807d3f532d6c71f4ad34d09dfb312bb982101390

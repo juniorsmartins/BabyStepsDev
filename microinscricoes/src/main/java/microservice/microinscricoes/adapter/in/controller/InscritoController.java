@@ -61,7 +61,7 @@ public class InscritoController {
         @Parameter(name = "InscricaoCreateDtoIn", description = "Objeto para Transporte de Dados de entrada.", required = true)
         @RequestBody @Valid InscritoCreateDtoIn inscritoCreateDtoIn) {
 
-        log.info("Requisição recebida para registrar um Inscrito.");
+        log.info("Requisição recebida para registrar Inscrito.");
 
         var response = Optional.of(inscritoCreateDtoIn)
             .map(this.mapperIn::toInscrito)
@@ -69,7 +69,7 @@ public class InscritoController {
             .map(this.mapperIn::toInscritoCreateDtoOut)
             .orElseThrow();
 
-        log.info("Sucesso ao registrar um Inscrito, com Id: {}.", response.id());
+        log.info("Sucesso ao registrar Inscrito, com Id: {}.", response.id());
 
         return ResponseEntity
             .created(URI.create("/api/v1/inscritos/" + response.id()))

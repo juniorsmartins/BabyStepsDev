@@ -64,5 +64,17 @@ public final class ValidationModel {
     public void setUpdatedAt(OffsetDateTime updatedAt) {
         this.updatedAt = updatedAt;
     }
+
+    @Override
+    public String toString() {
+        return "ValidationModel{" +
+                "id=" + id +
+                ", sagaEventId=" + sagaEventId +
+                ", transactionId='" + transactionId + '\'' +
+                ", success=" + success +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
+                '}';
+    }
 }
 
