@@ -3,7 +3,7 @@ package microservice.orchestrator.adapter.utils;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import microservice.orchestrator.adapter.in.consumer.SagaEvent;
+import microservice.orchestrator.application.core.domain.SagaEvent;
 import org.springframework.stereotype.Component;
 
 @Slf4j

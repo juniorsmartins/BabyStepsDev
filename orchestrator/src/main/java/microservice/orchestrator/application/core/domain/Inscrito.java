@@ -1,4 +1,4 @@
-package microservice.orchestrator.adapter.in.consumer;
+package microservice.orchestrator.application.core.domain;
 
 import microservice.orchestrator.application.core.domain.enums.ETipoPagamento;
 
@@ -6,7 +6,7 @@ public final class Inscrito {
 
     private Long id;
 
-    private Inscricao inscricao;
+    private Long inscricaoId;
 
     private Time time;
 
@@ -26,12 +26,12 @@ public final class Inscrito {
         this.id = id;
     }
 
-    public Inscricao getInscricao() {
-        return inscricao;
+    public Long getInscricaoId() {
+        return inscricaoId;
     }
 
-    public void setInscricao(Inscricao inscricao) {
-        this.inscricao = inscricao;
+    public void setInscricaoId(Long inscricaoId) {
+        this.inscricaoId = inscricaoId;
     }
 
     public Time getTime() {
@@ -72,6 +72,19 @@ public final class Inscrito {
 
     public void setTipo(ETipoPagamento tipo) {
         this.tipo = tipo;
+    }
+
+    @Override
+    public String toString() {
+        return "Inscrito{" +
+                "id=" + id +
+                ", inscricaoId=" + inscricaoId +
+                ", time=" + time +
+                ", numeroBanco=" + numeroBanco +
+                ", numeroAgencia=" + numeroAgencia +
+                ", numeroCartao=" + numeroCartao +
+                ", tipo=" + tipo +
+                '}';
     }
 }
 

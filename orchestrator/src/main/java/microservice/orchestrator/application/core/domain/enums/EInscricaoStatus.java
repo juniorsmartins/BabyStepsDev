@@ -1,4 +1,4 @@
-package microservice.orchestrator.adapter.in.consumer;
+package microservice.orchestrator.application.core.domain.enums;
 
 public enum EInscricaoStatus {
 
