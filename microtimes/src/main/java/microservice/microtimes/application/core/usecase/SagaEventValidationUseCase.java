@@ -22,6 +22,8 @@ import java.util.Optional;
 
 public class SagaEventValidationUseCase implements SagaEventValidationInputPort {
 
+    private static final Logger log = LoggerFactory.getLogger(SagaEventValidationUseCase.class);
+
     private static final String CURRENT_SOURCE = "TIME-VALIDATION-SUCCESS";
 
     private final SagaEventExistsOutputPort sagaEventExistsOutputPort;
@@ -49,8 +51,6 @@ public class SagaEventValidationUseCase implements SagaEventValidationInputPort 
         this.mapperIn = mapperIn;
         this.jsonUtil = jsonUtil;
     }
-
-    private static final Logger log = LoggerFactory.getLogger(SagaEventValidationUseCase.class);
 
     @Override
     public SagaEvent createValidation(SagaEvent sagaEvent) {
