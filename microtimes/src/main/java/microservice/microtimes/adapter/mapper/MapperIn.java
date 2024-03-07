@@ -36,12 +36,10 @@ public interface MapperIn {
 
     @Named("converterStringParaEnumSagaStatus")
     default ESagaStatus converterStringParaEnumSagaStatus(String status) {
-        ESagaStatus statusEnum = ESagaStatus.SEM_STATUS;
-
-        if (status != null) {
-            statusEnum = ESagaStatus.fromValue(status);
+        if (status == null) {
+            return null;
         }
-        return statusEnum;
+        return ESagaStatus.fromValue(status);
     }
 
 }

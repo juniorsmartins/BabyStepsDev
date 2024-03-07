@@ -6,9 +6,9 @@ public final class Inscrito {
 
     private Long id;
 
-    private Inscricao inscricao;
+    private Long inscricaoId;
 
-    private Long timeId;
+    private Time time;
 
     private Integer numeroBanco;
 
@@ -26,20 +26,20 @@ public final class Inscrito {
         this.id = id;
     }
 
-    public Inscricao getInscricao() {
-        return inscricao;
+    public Long getInscricaoId() {
+        return inscricaoId;
     }
 
-    public void setInscricao(Inscricao inscricao) {
-        this.inscricao = inscricao;
+    public void setInscricaoId(Long inscricaoId) {
+        this.inscricaoId = inscricaoId;
     }
 
-    public Long getTimeId() {
-        return timeId;
+    public Time getTime() {
+        return time;
     }
 
-    public void setTimeId(Long timeId) {
-        this.timeId = timeId;
+    public void setTime(Time time) {
+        this.time = time;
     }
 
     public Integer getNumeroBanco() {
@@ -72,6 +72,19 @@ public final class Inscrito {
 
     public void setTipo(ETipoPagamento tipo) {
         this.tipo = tipo;
+    }
+
+    @Override
+    public String toString() {
+        return "Inscrito{" +
+                "id=" + id +
+                ", inscricaoId=" + inscricaoId +
+                ", time=" + time +
+                ", numeroBanco=" + numeroBanco +
+                ", numeroAgencia=" + numeroAgencia +
+                ", numeroCartao=" + numeroCartao +
+                ", tipo=" + tipo +
+                '}';
     }
 }
 

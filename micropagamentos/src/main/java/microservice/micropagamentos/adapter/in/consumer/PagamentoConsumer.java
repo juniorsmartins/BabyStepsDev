@@ -19,7 +19,7 @@ public class PagamentoConsumer {
     )
     public void consumeSuccessEvent(String payload) {
         log.info("Receiving success event {} from pagamento-success topic.", payload);
-        var event = jsonUtil.toSagaEvent(payload);
+        var event = jsonUtil.toSagaEventRequest(payload);
         log.info(event.toString());
     }
 
@@ -29,7 +29,7 @@ public class PagamentoConsumer {
     )
     public void consumeFailEvent(String payload) {
         log.info("Receiving rollback event {} from pagamento-fail topic.", payload);
-        var event = jsonUtil.toSagaEvent(payload);
+        var event = jsonUtil.toSagaEventRequest(payload);
         log.info(event.toString());
     }
 }

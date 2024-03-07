@@ -1,8 +1,8 @@
 package microservice.microinscricoes.adapter.out.producer.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 
-import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
 
 @Builder
@@ -10,6 +10,7 @@ import java.time.OffsetDateTime;
 @AllArgsConstructor
 @Getter
 @Setter
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public final class HistoryDtoRequest {
 
     private String source;

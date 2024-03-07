@@ -1,5 +1,6 @@
 package microservice.microtimes.adapter.in.consumer.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 
 import java.time.OffsetDateTime;
@@ -9,6 +10,7 @@ import java.time.OffsetDateTime;
 @AllArgsConstructor
 @Getter
 @Setter
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public final class HistoryDtoRequest {
 
     private String source;
