@@ -1,5 +1,6 @@
 package microservice.microtimes.adapter.in.consumer.event;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 import microservice.microtimes.adapter.in.consumer.dto.HistoryDtoRequest;
 import microservice.microtimes.adapter.in.consumer.dto.InscritoDtoRequest;
@@ -12,6 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 @Getter
 @Setter
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public final class SagaEventRequest {
 
     private Long id;

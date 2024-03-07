@@ -1,11 +1,11 @@
 package microservice.micropagamentos.adapter.utils;
 
-import microservice.micropagamentos.adapter.in.consumer.SagaEvent;
+import microservice.micropagamentos.adapter.in.consumer.event.SagaEventRequest;
 
 public interface JsonUtil {
 
     String toJson(Object object);
 
-    SagaEvent toSagaEvent(String json);
+    SagaEventRequest toSagaEventRequest(String json);
 }
 

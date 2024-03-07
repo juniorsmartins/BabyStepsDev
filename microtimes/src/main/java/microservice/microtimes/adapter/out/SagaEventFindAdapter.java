@@ -20,7 +20,7 @@ public class SagaEventFindAdapter implements SagaEventFindOutputPort {
 
     private final MapperOut mapperOut;
 
-    @Transactional
+    @Transactional(readOnly = true)
     @Override
     public Optional<ValidationModel> findBySagaEventIdAndTransactionId(final Long sagaEventId, final String transactionId) {
 

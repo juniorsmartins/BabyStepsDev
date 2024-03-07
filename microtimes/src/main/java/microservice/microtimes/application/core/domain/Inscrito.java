@@ -1,6 +1,6 @@
 package microservice.microtimes.application.core.domain;
 
-import microservice.microtimes.adapter.in.controller.dto.enums.ETipoPagamento;
+import microservice.microtimes.application.core.domain.enums.ETipoPagamento;
 
 public final class Inscrito {
 

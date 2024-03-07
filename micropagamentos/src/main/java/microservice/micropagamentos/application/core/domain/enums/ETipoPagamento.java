@@ -3,6 +3,7 @@ package microservice.micropagamentos.application.core.domain.enums;
 public enum ETipoPagamento {
 
     DEBITO("Débito"),
+
     CREDITO("Crédito");
 
     private final String valor;
