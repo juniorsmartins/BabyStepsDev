@@ -863,3 +863,7 @@ omicropagamentos/src/main/java/microservice/micropagamentos/application/port/out
 `micropagamentos/src/main/java/microservice/micropagamentos/adapter/out/SagaEventFindAdapter.java,3/1/3164b303ac95f4a0ae86c8e3b173f456e8649a58
 Ž
 ^micropagamentos/src/main/java/microservice/micropagamentos/config/usecase/SagaEventConfig.java,1/d/1dab8e116888e835bf9e9a1bcd3da1a404a6a4d4
+š
+jmicrotimes/src/main/java/microservice/microtimes/config/exception/http_404/SagaEventNotFoundException.java,f/3/f346c201808ba60feddb81cfedd170f90a77863d
+¤
+tmicropagamentos/src/main/java/microservice/micropagamentos/config/exception/http_404/SagaEventNotFoundException.java,d/b/db90852c04ad183aafe4517dba60c120a0452bf5
