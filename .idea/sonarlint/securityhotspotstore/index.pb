@@ -804,3 +804,13 @@ bmicrotimes/src/main/java/microservice/microtimes/application/core/domain/enums/
 jmicropagamentos/src/main/java/microservice/micropagamentos/adapter/out/repository/PagamentoRepository.java,8/c/8ce02047d01c41bafc3e2951a31531ff2648ef77
 ù
 mmicropagamentos/src/main/java/microservice/micropagamentos/adapter/out/repository/entity/PagamentoEntity.java,5/b/5bec1bdcdc98c2d6aeee607295e4100420e1e931
+ö
+jmicropagamentos/src/main/java/microservice/micropagamentos/adapter/in/consumer/event/SagaEventRequest.java,1/9/190b2fcb7004f3b797ab7ff8133261c1ea03ff47
+è
+_micropagamentos/src/main/java/microservice/micropagamentos/application/core/domain/History.java,1/d/1d0d1989f16a14cf8757f8f3be90c2d18702241c
+ë
+amicropagamentos/src/main/java/microservice/micropagamentos/application/core/domain/SagaEvent.java,1/f/1f6d71aa7c97290f8e0ed06acf7b279e7ee6736a
+å
+\micropagamentos/src/main/java/microservice/micropagamentos/application/core/domain/Time.java,f/b/fb852f86e2227813e5768a3b8893feb894250c03
+í
+bmicropagamentos/src/main/java/microservice/micropagamentos/adapter/out/producer/KafkaProducer.java,1/1/116f8ef99e0f1c56536f7119f1a5aa938a0d98ce
