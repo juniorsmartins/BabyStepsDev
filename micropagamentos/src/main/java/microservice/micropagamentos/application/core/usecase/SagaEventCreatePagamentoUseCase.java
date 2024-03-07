@@ -2,7 +2,9 @@ package microservice.micropagamentos.application.core.usecase;
 
 import microservice.micropagamentos.adapter.mapper.MapperIn;
 import microservice.micropagamentos.adapter.utils.JsonUtil;
+import microservice.micropagamentos.application.core.domain.Pagamento;
 import microservice.micropagamentos.application.core.domain.SagaEvent;
+import microservice.micropagamentos.application.core.domain.enums.EPagamentoStatus;
 import microservice.micropagamentos.application.port.input.SagaEventCreatePagamentoInputPort;
 import microservice.micropagamentos.application.port.output.SagaEventExistsOutputPort;
 import microservice.micropagamentos.application.port.output.SagaEventSavePagamentoOutputPort;
@@ -54,9 +56,12 @@ public class SagaEventCreatePagamentoUseCase implements SagaEventCreatePagamento
                 try {
                     this.checkExistenceMandatoryValues(event);
                     this.checkExistenceValidationDuplication(event);
+                    var pagamento = this.createPendingPagamento(event);
+                    this.sagaEventSavePagamentoOutputPort.save(pagamento);
 
-                } catch () {
+                } catch (SagaEventNullValueNotAllowedException | SagaEventPagamentoDuplicationException ex) {
                     log.error("Erro: {}", ex.getMessage(), ex);
+
                 }
 
                 this.sagaEventSendOrchestratorOutputPot.sendEvent(this.jsonUtil.toJson(event));
@@ -70,7 +75,8 @@ public class SagaEventCreatePagamentoUseCase implements SagaEventCreatePagamento
     }
 
     private void checkExistenceMandatoryValues(SagaEvent event) {
-        if (ObjectUtils.isEmpty(event.getSagaEventId()) || ObjectUtils.isEmpty(event.getTransactionId())) {
+        if (ObjectUtils.isEmpty(event.getSagaEventId()) || ObjectUtils.isEmpty(event.getTransactionId())
+                || ObjectUtils.isEmpty(event.getPayload())) {
             throw new SagaEventNullValueNotAllowedException();
         }
     }
@@ -80,6 +86,19 @@ public class SagaEventCreatePagamentoUseCase implements SagaEventCreatePagamento
         if (exists) {
             throw new SagaEventPagamentoDuplicationException();
         }
+    }
+
+    private Pagamento createPendingPagamento(SagaEvent event) {
+        var pagamento = new Pagamento();
+        pagamento.setSagaEventId(event.getSagaEventId());
+        pagamento.setTransactionId(event.getTransactionId());
+        pagamento.setNumeroAgencia(event.getPayload().getNumeroAgencia());
+        pagamento.setNumeroBanco(event.getPayload().getNumeroBanco());
+        pagamento.setNumeroCartao(event.getPayload().getNumeroCartao());
+        pagamento.setTipo(event.getPayload().getTipo());
+        pagamento.setStatus(EPagamentoStatus.PENDING);
+
+        return pagamento;
     }
 }
 

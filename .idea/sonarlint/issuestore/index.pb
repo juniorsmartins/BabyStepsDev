@@ -853,3 +853,7 @@ nmicropagamentos/src/main/java/microservice/micropagamentos/application/port/out
 bmicropagamentos/src/main/java/microservice/micropagamentos/adapter/out/SagaEventExistsAdapter.java,6/b/6bfe72f01d13bb12571b13711db43f823dc169b0
 ±
 €micropagamentos/src/main/java/microservice/micropagamentos/config/exception/http_409/SagaEventPagamentoDuplicationException.java,6/7/67dae4536a9f59681293f4b8e120d0622ff11b82
+‘
+amicropagamentos/src/main/java/microservice/micropagamentos/application/core/domain/Pagamento.java,2/e/2e5b077bb30fdfc0a693728f4e13beb5249b2411
+ˆ
+Xmicropagamentos/src/main/java/microservice/micropagamentos/adapter/mapper/MapperOut.java,4/4/44eb331cfed8f8d663d04db701a202ffa3d2eacb
