@@ -789,3 +789,11 @@ mmicroinscricoes/src/main/java/microservice/microinscricoes/application/port/inp
 mmicroinscricoes/src/main/java/microservice/microinscricoes/application/core/usecase/TorneioCreateUseCase.java,8/0/807d3f532d6c71f4ad34d09dfb312bb982101390
 á
 Wmicrotimes/src/main/java/microservice/microtimes/adapter/in/consumer/dto/TimeIdDto.java,7/b/7bbdefddee2f28ef29eeca2e01ab2e6a532408ec
+ì
+corchestrator/src/main/java/microservice/orchestrator/adapter/in/consumer/dto/HistoryDtoRequest.java,7/d/7d64c8a6b35fef57f1952eb9eb620e84e6e464af
+ê
+`orchestrator/src/main/java/microservice/orchestrator/adapter/in/consumer/dto/InscricaoIdDto.java,c/7/c7ae9a76d9251ef2de23f08d6c7200372d5b1c14
+î
+dorchestrator/src/main/java/microservice/orchestrator/adapter/in/consumer/dto/InscritoDtoRequest.java,d/b/db6c862fbf7bdf8e834837b974a2fdae1e678488
+ã
+[orchestrator/src/main/java/microservice/orchestrator/adapter/in/consumer/dto/TimeIdDto.java,8/a/8a18c8d0c2b59b1b2f0ea0a4560fb15346052e5c
