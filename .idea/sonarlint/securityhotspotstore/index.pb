@@ -792,3 +792,11 @@ Qorchestrator/src/main/java/microservice/orchestrator/adapter/mapper/MapperIn.ja
 {orchestrator/src/main/java/microservice/orchestrator/config/exception/http_409/ConversionEnumSagaStatusFailedException.java,6/1/61107002c7acb9daf7614afa06a05272c5a677bf
 ¢
 rorchestrator/src/main/java/microservice/orchestrator/config/exception/http_409/BusinessRuleViolationException.java,8/b/8b34c4d5b2a5876588000df9cba42fcc98af9359
+™
+imicropagamentos/src/main/java/microservice/micropagamentos/application/core/domain/enums/ESagaStatus.java,8/f/8fed8626d35990a2456836ecdc441db27066ed33
+œ
+lmicropagamentos/src/main/java/microservice/micropagamentos/application/core/domain/enums/ETipoPagamento.java,9/d/9dfa3dac8b6d7239abd17441fac5ac84bde77f5d
+ž
+nmicropagamentos/src/main/java/microservice/micropagamentos/application/core/domain/enums/EPagamentoStatus.java,9/7/97295f03506f1722fb1c50cb722b029d0e35b4c3
+’
+bmicrotimes/src/main/java/microservice/microtimes/application/core/domain/enums/ETipoPagamento.java,1/3/13712d67ff23186bdf8d7729247fd3b876f5fba3
