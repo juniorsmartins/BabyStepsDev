@@ -28,7 +28,7 @@ public class InscricaoCreateUseCase implements InscricaoCreateInputPort {
     @Override
     public Inscricao create(Inscricao inscricao) {
 
-        log.info("Iniciado serviço para abrir período de inscrições.");
+        log.info("Iniciado serviço para criar período de inscrições.");
 
         var inscricaoOpen = Optional.ofNullable(inscricao)
             .map(this::checkTournamentId)
@@ -36,7 +36,7 @@ public class InscricaoCreateUseCase implements InscricaoCreateInputPort {
             .map(this.inscricaoSaveOutputPort::save)
             .orElseThrow();
 
-        log.info("Finalizado serviço para abrir período de inscrições, com Id: {}.", inscricaoOpen.getId());
+        log.info("Finalizado serviço para criar período de inscrições, com Id: {}.", inscricaoOpen.getId());
 
         return inscricaoOpen;
     }
