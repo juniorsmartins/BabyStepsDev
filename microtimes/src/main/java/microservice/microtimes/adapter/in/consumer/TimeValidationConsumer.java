@@ -19,7 +19,7 @@ public class TimeValidationConsumer {
 
     private final MapperIn mapperIn;
 
-    private final SagaEventValidationInputPort sagaEventSuccessValidationInputPort;
+    private final SagaEventValidationInputPort sagaEventValidationInputPort;
 
     @KafkaListener(
         groupId = "${spring.kafka.consumer.group-id}",
@@ -27,18 +27,15 @@ public class TimeValidationConsumer {
     )
     public void consumeSuccessSagaEvent(String payload) {
 
-        log.info("Recebendo evento de sucesso no tópico de sucesso de validação de time.");
+        log.info("Recebendo evento no tópico de sucesso de validação de time.");
 
-        Optional.ofNullable(payload)
+        var sagaEventSuccess = Optional.ofNullable(payload)
             .map(this.jsonUtil::toSagaEventRequest)
             .map(this.mapperIn::toSagaEvent)
-            .map(event -> {
-                this.sagaEventSuccessValidationInputPort.createValidation(event);
-                return true;
-            })
+            .map(this.sagaEventValidationInputPort::createValidation)
             .orElseThrow();
 
-        log.info("Finalizado evento de sucesso no tópico de sucesso de validação de time: {}.", payload);
+        log.info("Finalizado evento no tópico de sucesso de validação de time: {}.", sagaEventSuccess);
     }
 
     @KafkaListener(
@@ -47,18 +44,15 @@ public class TimeValidationConsumer {
     )
     public void consumeFailSagaEvent(String payload) {
 
-        log.info("Recebendo evento de reversão no tópico de falha na validação de time.");
+        log.info("Recebendo evento no tópico de falha na validação de time.");
 
-        Optional.ofNullable(payload)
+        var sagaEventFail = Optional.ofNullable(payload)
             .map(this.jsonUtil::toSagaEventRequest)
             .map(this.mapperIn::toSagaEvent)
-            .map(event -> {
-                this.sagaEventSuccessValidationInputPort.rollbackEvent(event);
-                return true;
-            })
+            .map(this.sagaEventValidationInputPort::rollbackEvent)
             .orElseThrow();
 
-        log.info("Finalizado evento de falha no tópico de falha de validação de time: {}.", payload);
+        log.info("Finalizado evento no tópico de falha de validação de time: {}.", sagaEventFail);
     }
 }
 

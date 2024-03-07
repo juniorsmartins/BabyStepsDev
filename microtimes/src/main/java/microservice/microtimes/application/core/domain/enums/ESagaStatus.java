@@ -8,7 +8,9 @@ public enum ESagaStatus {
 
     ROLLBACK_PENDING("ROLLBACK_PENDING"),
 
-    FAIL("FAIL");
+    FAIL("FAIL"),
+
+    SEM_STATUS("SEM_STATUS");
 
     private final String value;
 
