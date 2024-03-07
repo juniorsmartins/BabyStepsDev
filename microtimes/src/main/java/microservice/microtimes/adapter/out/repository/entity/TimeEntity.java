@@ -21,6 +21,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Getter
 @Setter
+@ToString
 @EqualsAndHashCode(of = {"id"})
 public final class TimeEntity implements Serializable {
 

@@ -53,7 +53,7 @@ public class SagaEventValidationUseCase implements SagaEventValidationInputPort 
     private static final Logger log = LoggerFactory.getLogger(SagaEventValidationUseCase.class);
 
     @Override
-    public void createValidation(SagaEvent sagaEvent) {
+    public SagaEvent createValidation(SagaEvent sagaEvent) {
 
         log.info("Iniciado serviço para criar Success-Validation.");
 
@@ -76,6 +76,8 @@ public class SagaEventValidationUseCase implements SagaEventValidationInputPort 
             .orElseThrow();
 
         log.info("Finalizado serviço para criar Success-Validation: {}.", validationCreated);
+
+        return sagaEvent;
     }
 
     private void checkExistenceMandatoryValues(SagaEvent event) {

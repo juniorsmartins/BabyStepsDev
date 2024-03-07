@@ -29,16 +29,13 @@ public class TimeValidationConsumer {
 
         log.info("Recebendo evento no tópico de sucesso de validação de time.");
 
-        Optional.ofNullable(payload)
+        var sagaEventSuccess = Optional.ofNullable(payload)
             .map(this.jsonUtil::toSagaEventRequest)
             .map(this.mapperIn::toSagaEvent)
-            .map(event -> {
-                this.sagaEventValidationInputPort.createValidation(event);
-                return true;
-            })
+            .map(this.sagaEventValidationInputPort::createValidation)
             .orElseThrow();
 
-        log.info("Finalizado evento no tópico de sucesso de validação de time: {}.", payload);
+        log.info("Finalizado evento no tópico de sucesso de validação de time: {}.", sagaEventSuccess);
     }
 
     @KafkaListener(
