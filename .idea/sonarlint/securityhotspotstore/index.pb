@@ -782,3 +782,5 @@ jmicroinscricoes/src/main/java/microservice/microinscricoes/application/core/use
 mmicroinscricoes/src/main/java/microservice/microinscricoes/application/port/input/TorneioCreateInputPort.java,0/8/080f34dc4adb4a4b9946801383d54804a1373308
 ù
 mmicroinscricoes/src/main/java/microservice/microinscricoes/application/core/usecase/TorneioCreateUseCase.java,8/0/807d3f532d6c71f4ad34d09dfb312bb982101390
+á
+Wmicrotimes/src/main/java/microservice/microtimes/adapter/in/consumer/dto/TimeIdDto.java,7/b/7bbdefddee2f28ef29eeca2e01ab2e6a532408ec

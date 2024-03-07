@@ -5,7 +5,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import microservice.microinscricoes.adapter.in.consumer.event.EventCreateTime;
 import microservice.microinscricoes.adapter.in.consumer.event.EventCreateTorneio;
-import microservice.microinscricoes.adapter.out.producer.dto.SagaEventRequest;
+import microservice.microinscricoes.adapter.out.producer.event.SagaEventRequest;
 import org.springframework.stereotype.Component;
 
 @Slf4j

@@ -2,7 +2,7 @@ package microservice.microinscricoes.adapter.utils;
 
 import microservice.microinscricoes.adapter.in.consumer.event.EventCreateTime;
 import microservice.microinscricoes.adapter.in.consumer.event.EventCreateTorneio;
-import microservice.microinscricoes.adapter.out.producer.dto.SagaEventRequest;
+import microservice.microinscricoes.adapter.out.producer.event.SagaEventRequest;
 
 public interface JsonUtil {
 

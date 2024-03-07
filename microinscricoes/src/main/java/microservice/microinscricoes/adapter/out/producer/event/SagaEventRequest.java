@@ -1,6 +1,9 @@
-package microservice.microinscricoes.adapter.out.producer.dto;
+package microservice.microinscricoes.adapter.out.producer.event;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
+import microservice.microinscricoes.adapter.out.producer.dto.HistoryDtoRequest;
+import microservice.microinscricoes.adapter.out.producer.dto.InscritoDtoRequest;
 
 import java.time.OffsetDateTime;
 import java.util.List;
@@ -10,6 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 @Getter
 @Setter
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public final class SagaEventRequest {
 
     private Long id;

@@ -3,7 +3,7 @@ package microservice.microinscricoes.adapter.mapper;
 import microservice.microinscricoes.adapter.in.controller.dto.request.FiltersDtoEvent;
 import microservice.microinscricoes.adapter.in.controller.dto.request.InscricaoFiltroDto;
 import microservice.microinscricoes.adapter.out.producer.dto.HistoryDtoRequest;
-import microservice.microinscricoes.adapter.out.producer.dto.SagaEventRequest;
+import microservice.microinscricoes.adapter.out.producer.event.SagaEventRequest;
 import microservice.microinscricoes.adapter.out.repository.entity.*;
 import microservice.microinscricoes.adapter.out.repository.entity.value_object.HistoryDb;
 import microservice.microinscricoes.application.core.domain.*;
