@@ -5,5 +5,7 @@ import microservice.micropagamentos.application.core.domain.SagaEvent;
 public interface SagaEventPagamentoInputPort {
 
     SagaEvent realizePayment(SagaEvent sagaEvent);
+
+    SagaEvent realizeRefund(SagaEvent sagaEvent);
 }
 

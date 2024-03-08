@@ -68,8 +68,8 @@ public class SagaEventPagamentoUseCase implements SagaEventPagamentoInputPort {
                     var pagamento = this.createPendingPagamento(event);
                     this.sagaEventSavePagamentoOutputPort.save(pagamento);
                     var pagamentoFind = this.findBySagaEventIdAndTransactionId(event);
-                    changePagamentoToSuccess(pagamentoFind);
-                    handleSuccess(event);
+                    this.changePagamentoToSuccess(pagamentoFind);
+                    this.handleSuccess(event);
 
                 } catch (SagaEventNullValueNotAllowedException | SagaEventPagamentoDuplicationException |
                         SagaEventNotFoundException ex) {
@@ -115,11 +115,6 @@ public class SagaEventPagamentoUseCase implements SagaEventPagamentoInputPort {
         return pagamento;
     }
 
-    private Pagamento findBySagaEventIdAndTransactionId(SagaEvent event) {
-        return this.sagaEventFindOutputPort.findBySagaEventIdAndTransactionId(event.getSagaEventId(), event.getTransactionId())
-            .orElseThrow(SagaEventNotFoundException::new);
-    }
-
     private void changePagamentoToSuccess(Pagamento pagamento) {
         pagamento.setStatus(EPagamentoStatus.SUCCESS);
         this.sagaEventSavePagamentoOutputPort.save(pagamento);
@@ -145,6 +140,27 @@ public class SagaEventPagamentoUseCase implements SagaEventPagamentoInputPort {
         event.setStatus(ESagaStatus.ROLLBACK_PENDING);
         event.setSource(CURRENT_SOURCE);
         this.addHistory(event, "Falha ao realizar pagamento: ".concat(message));
+    }
+
+    @Override
+    public SagaEvent realizeRefund(SagaEvent event) {
+        this.changePagamentoStatusToRefund(event);
+        event.setStatus(ESagaStatus.FAIL);
+        event.setSource(CURRENT_SOURCE);
+        addHistory(event, "Rollback executado na operação de pagamento.");
+        this.sagaEventSendOrchestratorOutputPot.sendEvent(this.jsonUtil.toJson(event));
+        return event;
+    }
+
+    private void changePagamentoStatusToRefund(SagaEvent event) {
+        var pagamento = this.findBySagaEventIdAndTransactionId(event);
+        pagamento.setStatus(EPagamentoStatus.REFUND);
+        this.sagaEventSavePagamentoOutputPort.save(pagamento);
+    }
+
+    private Pagamento findBySagaEventIdAndTransactionId(SagaEvent event) {
+        return this.sagaEventFindOutputPort.findBySagaEventIdAndTransactionId(event.getSagaEventId(), event.getTransactionId())
+            .orElseThrow(SagaEventNotFoundException::new);
     }
 }
 
