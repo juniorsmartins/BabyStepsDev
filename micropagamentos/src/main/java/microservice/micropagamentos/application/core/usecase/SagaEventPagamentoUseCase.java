@@ -74,6 +74,7 @@ public class SagaEventPagamentoUseCase implements SagaEventPagamentoInputPort {
                 } catch (SagaEventNullValueNotAllowedException | SagaEventPagamentoDuplicationException |
                         SagaEventNotFoundException ex) {
                     log.error("Erro: {}", ex.getMessage(), ex);
+                    this.handleFailCurrentNotExecuted(sagaEvent, ex.getMessage());
 
                 }
 
@@ -138,6 +139,12 @@ public class SagaEventPagamentoUseCase implements SagaEventPagamentoInputPort {
         history.setCreatedAt(OffsetDateTime.now());
 
         event.addToHistory(history);
+    }
+
+    private void handleFailCurrentNotExecuted(SagaEvent event, String message) {
+        event.setStatus(ESagaStatus.ROLLBACK_PENDING);
+        event.setSource(CURRENT_SOURCE);
+        this.addHistory(event, "Falha ao realizar pagamento: ".concat(message));
     }
 }
 
