@@ -58,7 +58,7 @@ public class SagaEventPagamentoUseCase implements SagaEventPagamentoInputPort {
     @Override
     public SagaEvent realizePayment(SagaEvent sagaEvent) {
 
-        log.info("Iniciado serviço para criar Pagamento-Service.");
+        log.info("Iniciado serviço para criar Pagamento.");
 
         var pagamentoCreated = Optional.ofNullable(sagaEvent)
             .map(event -> {
@@ -68,8 +68,8 @@ public class SagaEventPagamentoUseCase implements SagaEventPagamentoInputPort {
                     var pagamento = this.createPendingPagamento(event);
                     this.sagaEventSavePagamentoOutputPort.save(pagamento);
                     var pagamentoFind = this.findBySagaEventIdAndTransactionId(event);
-                    changePagamentoToSuccess(pagamentoFind);
-                    handleSuccess(event);
+                    this.changePagamentoToSuccess(pagamentoFind);
+                    this.handleSuccess(event);
 
                 } catch (SagaEventNullValueNotAllowedException | SagaEventPagamentoDuplicationException |
                         SagaEventNotFoundException ex) {
@@ -83,7 +83,7 @@ public class SagaEventPagamentoUseCase implements SagaEventPagamentoInputPort {
             })
             .orElseThrow();
 
-        log.info("Finalizado serviço para criar Pagamento-Service: {}.", pagamentoCreated);
+        log.info("Finalizado serviço para criar Pagamento: {}.", pagamentoCreated);
 
         return sagaEvent;
     }
@@ -115,11 +115,6 @@ public class SagaEventPagamentoUseCase implements SagaEventPagamentoInputPort {
         return pagamento;
     }
 
-    private Pagamento findBySagaEventIdAndTransactionId(SagaEvent event) {
-        return this.sagaEventFindOutputPort.findBySagaEventIdAndTransactionId(event.getSagaEventId(), event.getTransactionId())
-            .orElseThrow(SagaEventNotFoundException::new);
-    }
-
     private void changePagamentoToSuccess(Pagamento pagamento) {
         pagamento.setStatus(EPagamentoStatus.SUCCESS);
         this.sagaEventSavePagamentoOutputPort.save(pagamento);
@@ -145,6 +140,40 @@ public class SagaEventPagamentoUseCase implements SagaEventPagamentoInputPort {
         event.setStatus(ESagaStatus.ROLLBACK_PENDING);
         event.setSource(CURRENT_SOURCE);
         this.addHistory(event, "Falha ao realizar pagamento: ".concat(message));
+    }
+
+    @Override
+    public SagaEvent realizeRefund(SagaEvent event) {
+
+        log.info("Iniciado serviço para rollback de Pagamento.");
+
+        event.setStatus(ESagaStatus.FAIL);
+        event.setSource(CURRENT_SOURCE);
+
+        try {
+            this.changePagamentoStatusToRefund(event);
+            addHistory(event, "Rollback executado na operação de pagamento.");
+
+        } catch (SagaEventNotFoundException ex) {
+            addHistory(event, "Rollback não executado na operação de pagamento: ".concat(ex.getMessage()));
+        }
+
+        this.sagaEventSendOrchestratorOutputPot.sendEvent(this.jsonUtil.toJson(event));
+
+        log.info("Finalizado serviço para rollback de Pagamento: {}.", event);
+
+        return event;
+    }
+
+    private void changePagamentoStatusToRefund(SagaEvent event) {
+        var pagamento = this.findBySagaEventIdAndTransactionId(event);
+        pagamento.setStatus(EPagamentoStatus.REFUND);
+        this.sagaEventSavePagamentoOutputPort.save(pagamento);
+    }
+
+    private Pagamento findBySagaEventIdAndTransactionId(SagaEvent event) {
+        return this.sagaEventFindOutputPort.findBySagaEventIdAndTransactionId(event.getSagaEventId(), event.getTransactionId())
+            .orElseThrow(SagaEventNotFoundException::new);
     }
 }
 
