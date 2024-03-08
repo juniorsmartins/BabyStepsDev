@@ -51,7 +51,7 @@ public final class TimeEntity implements Serializable {
 
 
     // ---------- Fundação ----------
-    @Column(name = "data", table = "time_fundacao")
+    @Column(name = "dataFundacao", table = "time_fundacao")
     private LocalDate data;
 
     @Lob
@@ -60,7 +60,7 @@ public final class TimeEntity implements Serializable {
 
 
     // ---------- Staff ----------
-    @Column(name = "presidente", table = "time_staff")
+    @Column(name = "nomePresidente", table = "time_staff")
     private String presidente;
 
     @Column(name = "vice_presidente", table = "time_staff")

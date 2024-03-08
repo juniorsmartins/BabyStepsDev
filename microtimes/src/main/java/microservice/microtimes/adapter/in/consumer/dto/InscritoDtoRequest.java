@@ -31,7 +31,7 @@ public record InscritoDtoRequest(
     @Schema(name = "tipo", description = "Informação sobre tipo (débito ou crédito) para pagamento da inscrição.", type = "ETipoPagamento", example = "DEBITO")
     ETipoPagamento tipo,
 
-    @Schema(name = "createdAt", description = "Informação sobre data e hora do cadastro.", type = "OffsetDateTime", example = "AAAA-MM-DDTHH:mm:ss.sssXXX")
+    @Schema(name = "createdAt", description = "Informação sobre dataFundacao e hora do cadastro.", type = "OffsetDateTime", example = "AAAA-MM-DDTHH:mm:ss.sssXXX")
     OffsetDateTime createdAt
 
 ) { }

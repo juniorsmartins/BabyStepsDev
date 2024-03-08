@@ -847,3 +847,7 @@ omicropagamentos/src/main/java/microservice/micropagamentos/application/port/out
 tmicropagamentos/src/main/java/microservice/micropagamentos/config/exception/http_404/SagaEventNotFoundException.java,d/b/db90852c04ad183aafe4517dba60c120a0452bf5
 š
 jmicropagamentos/src/main/java/microservice/micropagamentos/adapter/in/consumer/dto/InscritoDtoRequest.java,6/a/6ae4b5e338af15750200223fc2df9dc7791ec299
+ž
+nmicrotimes/src/main/java/microservice/microtimes/adapter/in/controller/dto/request/TituloCreateDtoRequest.java,f/f/ff8f0daada2a35e6d8294034371a31c7d9c09ce4
+¡
+qmicrotimes/src/main/java/microservice/microtimes/adapter/in/controller/dto/request/ConquistaCreateDtoRequest.java,8/c/8c8d46d9e1215007568a4f6132cfaface03edd0d
