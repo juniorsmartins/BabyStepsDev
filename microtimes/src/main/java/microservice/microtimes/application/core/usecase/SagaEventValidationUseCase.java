@@ -121,7 +121,7 @@ public class SagaEventValidationUseCase implements SagaEventValidationInputPort 
     private void handleFailCurrentNotExecuted(SagaEvent event, String message) {
         event.setStatus(ESagaStatus.ROLLBACK_PENDING);
         event.setSource(CURRENT_SOURCE);
-        addHistory(event, message);
+        addHistory(event, "Falha na validação: ".concat(message));
     }
 
     @Override

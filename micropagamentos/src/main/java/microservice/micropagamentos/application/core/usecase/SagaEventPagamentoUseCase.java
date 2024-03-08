@@ -2,24 +2,29 @@ package microservice.micropagamentos.application.core.usecase;
 
 import microservice.micropagamentos.adapter.mapper.MapperIn;
 import microservice.micropagamentos.adapter.utils.JsonUtil;
+import microservice.micropagamentos.application.core.domain.History;
 import microservice.micropagamentos.application.core.domain.Pagamento;
 import microservice.micropagamentos.application.core.domain.SagaEvent;
 import microservice.micropagamentos.application.core.domain.enums.EPagamentoStatus;
-import microservice.micropagamentos.application.port.input.SagaEventCreatePagamentoInputPort;
+import microservice.micropagamentos.application.core.domain.enums.ESagaStatus;
+import microservice.micropagamentos.application.port.input.SagaEventPagamentoInputPort;
 import microservice.micropagamentos.application.port.output.SagaEventExistsOutputPort;
+import microservice.micropagamentos.application.port.output.SagaEventFindOutputPort;
 import microservice.micropagamentos.application.port.output.SagaEventSavePagamentoOutputPort;
 import microservice.micropagamentos.application.port.output.SagaEventSendOrchestratorOutputPot;
+import microservice.micropagamentos.config.exception.http_404.SagaEventNotFoundException;
 import microservice.micropagamentos.config.exception.http_409.SagaEventNullValueNotAllowedException;
 import microservice.micropagamentos.config.exception.http_409.SagaEventPagamentoDuplicationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.ObjectUtils;
 
+import java.time.OffsetDateTime;
 import java.util.Optional;
 
-public class SagaEventCreatePagamentoUseCase implements SagaEventCreatePagamentoInputPort {
+public class SagaEventPagamentoUseCase implements SagaEventPagamentoInputPort {
 
-    private static final Logger log = LoggerFactory.getLogger(SagaEventCreatePagamentoUseCase.class);
+    private static final Logger log = LoggerFactory.getLogger(SagaEventPagamentoUseCase.class);
 
     private static final String CURRENT_SOURCE = "PAGAMENTO-SERVICE";
 
@@ -29,19 +34,23 @@ public class SagaEventCreatePagamentoUseCase implements SagaEventCreatePagamento
 
     private final SagaEventExistsOutputPort sagaEventExistsOutputPort;
 
+    private final SagaEventFindOutputPort sagaEventFindOutputPort;
+
     private final MapperIn mapperIn;
 
     private final JsonUtil jsonUtil;
 
-    public SagaEventCreatePagamentoUseCase(SagaEventSavePagamentoOutputPort sagaEventSavePagamentoOutputPort,
-                                           SagaEventSendOrchestratorOutputPot sagaEventSendOrchestratorOutputPot,
-                                           SagaEventExistsOutputPort sagaEventExistsOutputPort,
-            MapperIn mapperIn,
-            JsonUtil jsonUtil
+    public SagaEventPagamentoUseCase(SagaEventSavePagamentoOutputPort sagaEventSavePagamentoOutputPort,
+                                     SagaEventSendOrchestratorOutputPot sagaEventSendOrchestratorOutputPot,
+                                     SagaEventExistsOutputPort sagaEventExistsOutputPort,
+                                     SagaEventFindOutputPort sagaEventFindOutputPort,
+                                     MapperIn mapperIn,
+                                     JsonUtil jsonUtil
     ) {
         this.sagaEventSavePagamentoOutputPort = sagaEventSavePagamentoOutputPort;
         this.sagaEventSendOrchestratorOutputPot = sagaEventSendOrchestratorOutputPot;
         this.sagaEventExistsOutputPort = sagaEventExistsOutputPort;
+        this.sagaEventFindOutputPort = sagaEventFindOutputPort;
         this.mapperIn = mapperIn;
         this.jsonUtil = jsonUtil;
     }
@@ -58,9 +67,14 @@ public class SagaEventCreatePagamentoUseCase implements SagaEventCreatePagamento
                     this.checkExistenceValidationDuplication(event);
                     var pagamento = this.createPendingPagamento(event);
                     this.sagaEventSavePagamentoOutputPort.save(pagamento);
+                    var pagamentoFind = this.findBySagaEventIdAndTransactionId(event);
+                    changePagamentoToSuccess(pagamentoFind);
+                    handleSuccess(event);
 
-                } catch (SagaEventNullValueNotAllowedException | SagaEventPagamentoDuplicationException ex) {
+                } catch (SagaEventNullValueNotAllowedException | SagaEventPagamentoDuplicationException |
+                        SagaEventNotFoundException ex) {
                     log.error("Erro: {}", ex.getMessage(), ex);
+                    this.handleFailCurrentNotExecuted(sagaEvent, ex.getMessage());
 
                 }
 
@@ -99,6 +113,38 @@ public class SagaEventCreatePagamentoUseCase implements SagaEventCreatePagamento
         pagamento.setStatus(EPagamentoStatus.PENDING);
 
         return pagamento;
+    }
+
+    private Pagamento findBySagaEventIdAndTransactionId(SagaEvent event) {
+        return this.sagaEventFindOutputPort.findBySagaEventIdAndTransactionId(event.getSagaEventId(), event.getTransactionId())
+            .orElseThrow(SagaEventNotFoundException::new);
+    }
+
+    private void changePagamentoToSuccess(Pagamento pagamento) {
+        pagamento.setStatus(EPagamentoStatus.SUCCESS);
+        this.sagaEventSavePagamentoOutputPort.save(pagamento);
+    }
+
+    private void handleSuccess(SagaEvent event) {
+        event.setStatus(ESagaStatus.SUCCESS);
+        event.setSource(CURRENT_SOURCE);
+        addHistory(event, "Pagamento bem-sucedido!");
+    }
+
+    private void addHistory(SagaEvent event, String message) {
+        var history = new History();
+        history.setMessage(message);
+        history.setSource(event.getSource());
+        history.setStatus(event.getStatus());
+        history.setCreatedAt(OffsetDateTime.now());
+
+        event.addToHistory(history);
+    }
+
+    private void handleFailCurrentNotExecuted(SagaEvent event, String message) {
+        event.setStatus(ESagaStatus.ROLLBACK_PENDING);
+        event.setSource(CURRENT_SOURCE);
+        this.addHistory(event, "Falha ao realizar pagamento: ".concat(message));
     }
 }
 
