@@ -58,7 +58,7 @@ public class SagaEventPagamentoUseCase implements SagaEventPagamentoInputPort {
     @Override
     public SagaEvent realizePayment(SagaEvent sagaEvent) {
 
-        log.info("Iniciado serviço para criar Pagamento-Service.");
+        log.info("Iniciado serviço para criar Pagamento.");
 
         var pagamentoCreated = Optional.ofNullable(sagaEvent)
             .map(event -> {
@@ -83,7 +83,7 @@ public class SagaEventPagamentoUseCase implements SagaEventPagamentoInputPort {
             })
             .orElseThrow();
 
-        log.info("Finalizado serviço para criar Pagamento-Service: {}.", pagamentoCreated);
+        log.info("Finalizado serviço para criar Pagamento: {}.", pagamentoCreated);
 
         return sagaEvent;
     }
@@ -144,11 +144,24 @@ public class SagaEventPagamentoUseCase implements SagaEventPagamentoInputPort {
 
     @Override
     public SagaEvent realizeRefund(SagaEvent event) {
-        this.changePagamentoStatusToRefund(event);
+
+        log.info("Iniciado serviço para rollback de Pagamento.");
+
         event.setStatus(ESagaStatus.FAIL);
         event.setSource(CURRENT_SOURCE);
-        addHistory(event, "Rollback executado na operação de pagamento.");
+
+        try {
+            this.changePagamentoStatusToRefund(event);
+            addHistory(event, "Rollback executado na operação de pagamento.");
+
+        } catch (SagaEventNotFoundException ex) {
+            addHistory(event, "Rollback não executado na operação de pagamento: ".concat(ex.getMessage()));
+        }
+
         this.sagaEventSendOrchestratorOutputPot.sendEvent(this.jsonUtil.toJson(event));
+
+        log.info("Finalizado serviço para rollback de Pagamento: {}.", event);
+
         return event;
     }
 

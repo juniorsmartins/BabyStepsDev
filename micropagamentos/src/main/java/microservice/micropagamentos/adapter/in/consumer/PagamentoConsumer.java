@@ -27,7 +27,7 @@ public class PagamentoConsumer {
     )
     public void consumeSuccessEvent(String payload) {
 
-        log.info("Recebendo evento no tópico de sucesso de pagamento.");
+        log.info("Recebendo evento no tópico de sucesso de Pagamento.");
 
         var sagaEventSuccess = Optional.ofNullable(payload)
             .map(this.jsonUtil::toSagaEventRequest)
@@ -35,7 +35,7 @@ public class PagamentoConsumer {
             .map(this.sagaEventPagamentoInputPort::realizePayment)
             .orElseThrow();
 
-        log.info("Finalizado evento no tópico de sucesso de pagamento: {}.", sagaEventSuccess);
+        log.info("Finalizado evento no tópico de sucesso de Pagamento: {}.", sagaEventSuccess);
     }
 
     @KafkaListener(
