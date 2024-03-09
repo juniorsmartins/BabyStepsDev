@@ -99,6 +99,18 @@ class TorneioCreateDtoRequestUnitTest extends AbstractTestcontainersTest {
             Set<ConstraintViolation<TorneioCreateDtoRequest>> violations = validator.validate(dtoRequest);
             Assertions.assertEquals(1, violations.size());
         }
+
+        @ParameterizedTest
+        @ValueSource(longs = {-1, 0})
+        @DisplayName("negativo ou zero")
+        void dadoTimeComIdNegativoOuZero_quandoInstanciar_entaoLancarException(long valor) {
+            var dtoRequest = factory.gerarTorneioCreateDtoRequestBuilder()
+                .times(Set.of(new TimeIdDto(valor)))
+                .build();
+
+            Set<ConstraintViolation<TorneioCreateDtoRequest>> violations = validator.validate(dtoRequest);
+            Assertions.assertFalse(violations.isEmpty());
+        }
     }
 }
 
