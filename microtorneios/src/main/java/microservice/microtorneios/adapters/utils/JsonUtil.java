@@ -1,11 +1,11 @@
 package microservice.microtorneios.adapters.utils;
 
-import microservice.microtorneios.application.core.domain.SagaEvent;
+import microservice.microtorneios.adapters.in.consumer.event.SagaEventRequest;
 
 public interface JsonUtil {
 
     String toJson(Object object);
 
-    SagaEvent toSagaEvent(String json);
+    SagaEventRequest toSagaEventRequest(String json);
 }
 

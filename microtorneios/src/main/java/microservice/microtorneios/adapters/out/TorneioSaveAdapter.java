@@ -4,11 +4,12 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import microservice.microtorneios.adapters.out.repository.TimeInventoryRepository;
 import microservice.microtorneios.adapters.out.repository.TorneioRepository;
-import microservice.microtorneios.adapters.out.repository.entity.TimeInventoryEntity;
+import microservice.microtorneios.adapters.out.repository.entity.TimeEntity;
 import microservice.microtorneios.adapters.out.repository.entity.TorneioEntity;
-import microservice.microtorneios.adapters.out.repository.mapper.TorneioMapperOut;
+import microservice.microtorneios.adapters.mapper.MapperOut;
 import microservice.microtorneios.application.core.domain.Torneio;
 import microservice.microtorneios.application.port.output.TorneioSaveOutputPort;
+import microservice.microtorneios.config.exception.http_404.TimeNotFoundException;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -25,7 +26,7 @@ public class TorneioSaveAdapter implements TorneioSaveOutputPort {
 
     private final TimeInventoryRepository timeInventoryRepository;
 
-    private final TorneioMapperOut torneioMapperOut;
+    private final MapperOut mapperOut;
 
     @Transactional
     @Override
@@ -34,13 +35,13 @@ public class TorneioSaveAdapter implements TorneioSaveOutputPort {
         log.info("Iniciado adaptador para salvar Torneio.");
 
         var torneioSaved = Optional.ofNullable(torneio)
-            .map(this.torneioMapperOut::toTorneioEntity)
+            .map(this.mapperOut::toTorneioEntity)
             .map(entity -> this.linkarTorneioAosTimes(entity, torneio))
             .map(this.torneioRepository::save)
-            .map(this.torneioMapperOut::toTorneio)
+            .map(this.mapperOut::toTorneio)
             .orElseThrow();
 
-        log.info("Finalizado adaptador para salvar Torneio, com nome: {}.", torneioSaved.getNome());
+        log.info("Finalizado adaptador para salvar Torneio: {}.", torneioSaved);
 
         return torneioSaved;
     }
@@ -48,11 +49,11 @@ public class TorneioSaveAdapter implements TorneioSaveOutputPort {
     private TorneioEntity linkarTorneioAosTimes(TorneioEntity torneioEntity, Torneio torneio) {
 
         if (torneio.getTimes() != null) {
-            Set<TimeInventoryEntity> timesEntity = new HashSet<>();
+            Set<TimeEntity> timesEntity = new HashSet<>();
 
             torneio.getTimes().forEach(time -> {
                 var timeIntentoryEntity = this.timeInventoryRepository.findById(time.getId())
-                    .orElseThrow();
+                    .orElseThrow(() -> new TimeNotFoundException(time.getId()));
                 timesEntity.add(timeIntentoryEntity);
             });
 

@@ -3,7 +3,7 @@ package microservice.microtorneios.adapters.utils;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import microservice.microtorneios.application.core.domain.SagaEvent;
+import microservice.microtorneios.adapters.in.consumer.event.SagaEventRequest;
 import org.springframework.stereotype.Component;
 
 @Slf4j
@@ -26,9 +26,9 @@ public class JsonUtilImpl implements JsonUtil {
     }
 
     @Override
-    public SagaEvent toSagaEvent(String json) {
+    public SagaEventRequest toSagaEventRequest(String json) {
         try {
-            return objectMapper.readValue(json, SagaEvent.class);
+            return objectMapper.readValue(json, SagaEventRequest.class);
 
         } catch (Exception ex) {
 
