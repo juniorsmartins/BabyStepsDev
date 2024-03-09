@@ -842,3 +842,15 @@ omicropagamentos/src/main/java/microservice/micropagamentos/application/port/out
 tmicropagamentos/src/main/java/microservice/micropagamentos/config/exception/http_404/SagaEventNotFoundException.java,d/b/db90852c04ad183aafe4517dba60c120a0452bf5
 š
 jmicropagamentos/src/main/java/microservice/micropagamentos/adapter/in/consumer/dto/InscritoDtoRequest.java,6/a/6ae4b5e338af15750200223fc2df9dc7791ec299
+¡
+qmicrotimes/src/main/java/microservice/microtimes/adapter/in/controller/dto/request/ConquistaCreateDtoRequest.java,8/c/8c8d46d9e1215007568a4f6132cfaface03edd0d
+—
+gmicrotorneios/src/main/java/microservice/microtorneios/adapters/in/consumer/event/SagaEventRequest.java,6/d/6d4a5207b3cb8f1a15fa5477fdac626aa24b7bfc
+–
+fmicrotorneios/src/main/java/microservice/microtorneios/adapters/in/consumer/dto/HistoryDtoRequest.java,b/3/b355b6095e621c56f9581ac53c97c05060dae0aa
+“
+cmicrotorneios/src/main/java/microservice/microtorneios/adapters/in/consumer/dto/InscricaoIdDto.java,7/e/7e20eafe844f95ce36e3e75b20c3cc5572f63491
+—
+gmicrotorneios/src/main/java/microservice/microtorneios/adapters/in/consumer/dto/InscritoDtoRequest.java,6/f/6f6ac41aa74ba18e6f3da229e52cf4c89040c537
+Ž
+^microtorneios/src/main/java/microservice/microtorneios/adapters/in/consumer/dto/TimeIdDto.java,c/4/c4fd1b23d435c772c8016ee9ccf5bb9d52b65359
