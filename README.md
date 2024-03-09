@@ -63,6 +63,7 @@ em construção.....
 3. Spring Web;
 4. Spring Cloud (versão 2022.0.4);
 5. Spring Data JPA;
+6. Teste Automatizados ( ??? )
 
 #### MICROTIMES
 1. Java (versão 21 LTS);
