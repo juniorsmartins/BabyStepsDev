@@ -87,11 +87,11 @@ class TimeControllerTest extends AbstractTestcontainersTest {
                     MockMvcResultMatchers.jsonPath("$.cnpj", Matchers.equalTo(timeRequest.cnpj())),
                     MockMvcResultMatchers.jsonPath("$.estado", Matchers.equalToIgnoringCase(timeRequest.estado())),
                     MockMvcResultMatchers.jsonPath("$.cidade", Matchers.equalToIgnoringCase(timeRequest.cidade())),
-                    MockMvcResultMatchers.jsonPath("$.dataFundacao", Matchers.equalTo(timeRequest.dataFundacao().toString())),
+                    MockMvcResultMatchers.jsonPath("$.data", Matchers.equalTo(timeRequest.data().toString())),
                     MockMvcResultMatchers.jsonPath("$.descricao", Matchers.equalToIgnoringCase(timeRequest.descricao())),
-                    MockMvcResultMatchers.jsonPath("$.nomePresidente", Matchers.equalToIgnoringCase(timeRequest.nomePresidente())),
-                    MockMvcResultMatchers.jsonPath("$.nomeVicePresidente", Matchers.equalToIgnoringCase(timeRequest.nomeVicePresidente())),
-                    MockMvcResultMatchers.jsonPath("$.nomeHeadCoach", Matchers.equalToIgnoringCase(timeRequest.nomeHeadCoach())))
+                    MockMvcResultMatchers.jsonPath("$.presidente", Matchers.equalToIgnoringCase(timeRequest.presidente())),
+                    MockMvcResultMatchers.jsonPath("$.vicePresidente", Matchers.equalToIgnoringCase(timeRequest.vicePresidente())),
+                    MockMvcResultMatchers.jsonPath("$.headCoach", Matchers.equalToIgnoringCase(timeRequest.headCoach())))
                 .andDo(MockMvcResultHandlers.print())
                 .andReturn().getResponse().getContentAsString();
 
@@ -103,11 +103,11 @@ class TimeControllerTest extends AbstractTestcontainersTest {
             Assertions.assertEquals(timeRequest.cnpj(), timeResponse.cnpj());
             Assertions.assertEquals(timeRequest.estado(), timeResponse.estado());
             Assertions.assertEquals(timeRequest.cidade(), timeResponse.cidade());
-            Assertions.assertEquals(timeRequest.dataFundacao(), timeResponse.data());
+            Assertions.assertEquals(timeRequest.data(), timeResponse.data());
             Assertions.assertEquals(timeRequest.descricao(), timeResponse.descricao());
-            Assertions.assertEquals(timeRequest.nomePresidente(), timeResponse.presidente());
-            Assertions.assertEquals(timeRequest.nomeVicePresidente(), timeResponse.vicePresidente());
-            Assertions.assertEquals(timeRequest.nomeHeadCoach(), timeResponse.headCoach());
+            Assertions.assertEquals(timeRequest.presidente(), timeResponse.presidente());
+            Assertions.assertEquals(timeRequest.vicePresidente(), timeResponse.vicePresidente());
+            Assertions.assertEquals(timeRequest.headCoach(), timeResponse.headCoach());
         }
     }
 

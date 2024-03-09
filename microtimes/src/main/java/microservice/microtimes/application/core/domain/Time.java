@@ -131,11 +131,11 @@ public final class Time {
                 ", cnpj='" + cnpj + '\'' +
                 ", estado='" + estado + '\'' +
                 ", cidade='" + cidade + '\'' +
-                ", dataFundacao=" + data +
+                ", data=" + data +
                 ", descricao='" + descricao + '\'' +
-                ", nomePresidente='" + presidente + '\'' +
-                ", nomeVicePresidente='" + vicePresidente + '\'' +
-                ", nomeHeadCoach='" + headCoach + '\'' +
+                ", presidente='" + presidente + '\'' +
+                ", vicePresidente='" + vicePresidente + '\'' +
+                ", headCoach='" + headCoach + '\'' +
                 '}';
     }
 

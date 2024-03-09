@@ -4,7 +4,6 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.Builder;
 
 import java.time.LocalDate;
-import java.util.Set;
 
 @Builder
 public record TimeCreateDtoRequest(
@@ -16,49 +15,51 @@ public record TimeCreateDtoRequest(
 
     String cnpj,
 
-    LocalDate dataFundacao,
+    LocalDate data,
 
-    Set<String> categoriasEsportivas,
+    String descricao,
+
+//    Set<String> categoriasEsportivas,
 
     // ---------- SEDE ----------
 
-    String cep,
+//    String cep,
 
     String estado,
 
     String cidade,
 
-    String bairro,
+//    String bairro,
 
-    String logradouro,
+//    String logradouro,
 
-    String numero,
+//    String numero,
 
-    String complemento,
+//    String complemento,
 
 
     // ---------- Contato ----------
-    String email,
+//    String email,
 
-    String telefone,
+//    String telefone,
 
-    String site,
+//    String site,
 
 
     // ---------- Redes Sociais ----------
-    Set<String> redesSociais,
+//    Set<String> redesSociais,
 
 
     // ---------- Staff ----------
-    String nomePresidente,
+    String presidente,
 
-    String nomeVicePresidente,
+    String vicePresidente,
 
-    String nomeHeadCoach,
+    String headCoach
 
 
     // ---------- Conquista ----------
-    Set<ConquistaCreateDtoRequest> conquistas
+//    Set<ConquistaCreateDtoRequest> conquistas
 
 ) { }
 
