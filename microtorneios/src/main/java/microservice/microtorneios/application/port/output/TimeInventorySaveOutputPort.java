@@ -1,9 +1,9 @@
 package microservice.microtorneios.application.port.output;
 
-import microservice.microtorneios.application.core.domain.TimeInventory;
+import microservice.microtorneios.application.core.domain.Time;
 
 public interface TimeInventorySaveOutputPort {
 
-    void save(TimeInventory timeInventory);
+    void save(Time time);
 }
 

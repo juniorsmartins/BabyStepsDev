@@ -1,16 +1,18 @@
 package microservice.microtorneios.application.core.domain;
 
-import java.time.Instant;
+import microservice.microtorneios.application.core.domain.enums.ESagaStatus;
+
+import java.time.OffsetDateTime;
 
 public final class History {
 
     private String source;
 
-    private String status;
+    private ESagaStatus status;
 
     private String message;
 
-    private Instant createdAt;
+    private OffsetDateTime createdAt;
 
     public String getSource() {
         return source;
@@ -20,11 +22,11 @@ public final class History {
         this.source = source;
     }
 
-    public String getStatus() {
+    public ESagaStatus getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(ESagaStatus status) {
         this.status = status;
     }
 
@@ -36,12 +38,22 @@ public final class History {
         this.message = message;
     }
 
-    public Instant getCreatedAt() {
+    public OffsetDateTime getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Instant createdAt) {
+    public void setCreatedAt(OffsetDateTime createdAt) {
         this.createdAt = createdAt;
+    }
+
+    @Override
+    public String toString() {
+        return "History{" +
+                "source='" + source + '\'' +
+                ", status=" + status +
+                ", message='" + message + '\'' +
+                ", createdAt=" + createdAt +
+                '}';
     }
 }
 

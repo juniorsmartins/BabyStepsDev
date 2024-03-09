@@ -27,14 +27,14 @@ public class TorneioCreateUseCase implements TorneioCreateInputPort {
     @Override
     public Torneio create(Torneio torneio) {
 
-        log.info("Iniciado serviço para cadastrar novo Torneio.");
+        log.info("Iniciado serviço para criar novo Torneio.");
 
         var torneioSaved = Optional.ofNullable(torneio)
             .map(this.torneioSaveOutputPort::save)
             .map(this::notifyCreationOfNewTorneio)
             .orElseThrow();
 
-        log.info("Finalizado serviço para cadastrar novo torneio, com nome: {}.", torneioSaved.getNome());
+        log.info("Finalizado serviço para criar novo torneio: {}.", torneioSaved);
 
         return torneioSaved;
     }
