@@ -70,6 +70,7 @@ em construção.....
 3. Spring Web;
 4. Spring Cloud (versão 2022.0.4);
 5. Spring Data JPA;
+6. Teste Automatizados (JUnit, JUnit Params, Mockito Core, Mockito Jupiter, MockMvc e Testcontainers);
 
 #### MICROTORNEIOS
 1. Java (versão 21 LTS);
@@ -80,7 +81,16 @@ em construção.....
 6. Streaming de Eventos (Apache Kafka);
 7. Data e Hora (formato internacional - ISO 8601);
 8. Tratamento de Exceções (internacionalização de mensagens de erro e padrão Problem Details RFC 7807);
-9. Banco de Dados (MariaDB);
+9. Teste Automatizados (JUnit, JUnit Params, Mockito Core, Mockito Jupiter, Rest-Assured e Testcontainers);
+10. Banco de Dados (MariaDB);
+
+#### MICROPAGAMENTOS
+1. Java (versão 21 LTS);
+2. Spring Boot (versão 3.0.12);
+3. Spring Web;
+4. Spring Cloud (versão 2022.0.4);
+5. Spring Data JPA;
+6. Teste Automatizados ( ??? )
 
 #### MICROINSCRICOES
 1. Java (versão 21 LTS);
@@ -98,7 +108,6 @@ em construção.....
 13. MapStruct (versão 1.5.5.Final);
 14. Data Faker (versão 2.1.0);
 15. Banco de Dados (PostgreSQL).
-
 
 
 ### 6 - ARQUITETURA
