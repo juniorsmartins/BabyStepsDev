@@ -6,11 +6,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class TimeInventoryConfig {
+public class TimeConfig {
 
     @Bean
-    public TimeCreateUseCase timeInventoryCreateUseCase(TimeSaveAdapter timeInventorySaveAdapter) {
-        return new TimeCreateUseCase(timeInventorySaveAdapter);
+    public TimeCreateUseCase timeCreateUseCase(TimeSaveAdapter timeSaveAdapter) {
+        return new TimeCreateUseCase(timeSaveAdapter);
     }
 }
 

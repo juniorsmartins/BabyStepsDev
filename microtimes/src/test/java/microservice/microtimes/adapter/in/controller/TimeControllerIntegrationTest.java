@@ -23,7 +23,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 @ExtendWith(SpringExtension.class)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @DisplayName("Integration - TimeController")
-class TimeControllerTest extends AbstractTestcontainersTest {
+class TimeControllerIntegrationTest extends AbstractTestcontainersTest {
 
     public static final String BASE_PATH = "/api/v1/times";
 

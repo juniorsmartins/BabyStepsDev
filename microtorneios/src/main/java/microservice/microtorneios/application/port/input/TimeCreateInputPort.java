@@ -2,7 +2,7 @@ package microservice.microtorneios.application.port.input;
 
 import microservice.microtorneios.application.core.domain.Time;
 
-public interface TimeInventoryCreateInputPort {
+public interface TimeCreateInputPort {
 
     void create(Time time);
 }

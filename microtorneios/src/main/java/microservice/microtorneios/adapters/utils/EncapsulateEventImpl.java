@@ -2,8 +2,8 @@ package microservice.microtorneios.adapters.utils;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import microservice.microtorneios.adapters.out.producer.TorneioSaveDto;
-import microservice.microtorneios.adapters.out.producer.EventCreateTorneio;
+import microservice.microtorneios.adapters.out.producer.dto.TorneioSaveDto;
+import microservice.microtorneios.adapters.out.producer.event.EventCreateTorneio;
 import microservice.microtorneios.application.core.domain.Torneio;
 import org.springframework.stereotype.Component;
 

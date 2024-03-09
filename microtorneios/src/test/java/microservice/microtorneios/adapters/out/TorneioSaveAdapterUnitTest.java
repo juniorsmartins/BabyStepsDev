@@ -1,8 +1,8 @@
-package microservice.microtimes.adapter.out;
+package microservice.microtorneios.adapters.out;
 
-import microservice.microtimes.adapter.mapper.MapperOut;
-import microservice.microtimes.adapter.out.repository.TimeRepository;
-import microservice.microtimes.utility.AbstractTestcontainersTest;
+import microservice.microtorneios.adapters.mapper.MapperOut;
+import microservice.microtorneios.adapters.out.repository.TimeRepository;
+import microservice.microtorneios.adapters.out.repository.TorneioRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -19,8 +19,11 @@ import java.util.NoSuchElementException;
 
 @SpringBootTest
 @ExtendWith({SpringExtension.class, MockitoExtension.class})
-@DisplayName("Unit - TimeSaveAdapter")
-class TimeSaveAdapterTest extends AbstractTestcontainersTest {
+@DisplayName("Unit - TorneioSaveAdapter")
+class TorneioSaveAdapterUnitTest {
+
+    @Mock
+    private TorneioRepository torneioRepository;
 
     @Mock
     private TimeRepository timeRepository;
@@ -29,13 +32,14 @@ class TimeSaveAdapterTest extends AbstractTestcontainersTest {
     private MapperOut mapperOut;
 
     @InjectMocks
-    private TimeSaveAdapter timeSaveAdapter;
+    private TorneioSaveAdapter torneioSaveAdapter;
 
     @Test
     @DisplayName("nulo")
-    void dadoTimeNulo_quandoSave_entaoLancarException() {
-        Executable acao = () -> this.timeSaveAdapter.save(null);
+    void dadoTorneioNulo_quandoSave_entaoLancarException() {
+        Executable acao = () -> this.torneioSaveAdapter.save(null);
         Assertions.assertThrows(NoSuchElementException.class, acao);
+        Mockito.verifyNoInteractions(this.torneioRepository);
         Mockito.verifyNoInteractions(this.timeRepository);
         Mockito.verifyNoInteractions(this.mapperOut);
     }

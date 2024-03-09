@@ -24,7 +24,7 @@ public class TorneioSaveAdapter implements TorneioSaveOutputPort {
 
     private final TorneioRepository torneioRepository;
 
-    private final TimeRepository timeInventoryRepository;
+    private final TimeRepository timeRepository;
 
     private final MapperOut mapperOut;
 
@@ -52,7 +52,7 @@ public class TorneioSaveAdapter implements TorneioSaveOutputPort {
             Set<TimeEntity> timesEntity = new HashSet<>();
 
             torneio.getTimes().forEach(time -> {
-                var timeIntentoryEntity = this.timeInventoryRepository.findById(time.getId())
+                var timeIntentoryEntity = this.timeRepository.findById(time.getId())
                     .orElseThrow(() -> new TimeNotFoundException(time.getId()));
                 timesEntity.add(timeIntentoryEntity);
             });

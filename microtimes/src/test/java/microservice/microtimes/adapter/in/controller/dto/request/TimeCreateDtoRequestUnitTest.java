@@ -21,7 +21,7 @@ import java.util.Set;
 @SpringBootTest
 @ExtendWith({SpringExtension.class, MockitoExtension.class})
 @DisplayName("Unit - TimeCreateDtoRequest")
-class TimeCreateDtoRequestTest extends AbstractTestcontainersTest {
+class TimeCreateDtoRequestUnitTest extends AbstractTestcontainersTest {
 
     private final FactoryObjectMother factory = FactoryObjectMother.singleton();
 

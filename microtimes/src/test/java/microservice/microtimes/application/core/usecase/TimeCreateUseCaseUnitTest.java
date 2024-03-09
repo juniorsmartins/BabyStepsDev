@@ -19,7 +19,7 @@ import java.util.NoSuchElementException;
 @SpringBootTest
 @ExtendWith({SpringExtension.class, MockitoExtension.class})
 @DisplayName("Unit - TimeCreateUseCase")
-class TimeCreateUseCaseTest extends AbstractTestcontainersTest {
+class TimeCreateUseCaseUnitTest extends AbstractTestcontainersTest {
 
     @Mock
     private TimeSaveAdapter timeSaveAdapter;

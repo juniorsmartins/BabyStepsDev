@@ -1,14 +1,14 @@
 package microservice.microtorneios.application.core.usecase;
 
 import microservice.microtorneios.application.core.domain.Time;
-import microservice.microtorneios.application.port.input.TimeInventoryCreateInputPort;
-import microservice.microtorneios.application.port.output.TimeInventorySaveOutputPort;
+import microservice.microtorneios.application.port.input.TimeCreateInputPort;
+import microservice.microtorneios.application.port.output.TimeSaveOutputPort;
 
-public class TimeCreateUseCase implements TimeInventoryCreateInputPort {
+public class TimeCreateUseCase implements TimeCreateInputPort {
 
-    private final TimeInventorySaveOutputPort timeInventorySaveOutputPort;
+    private final TimeSaveOutputPort timeInventorySaveOutputPort;
 
-    public TimeCreateUseCase(TimeInventorySaveOutputPort timeInventorySaveOutputPort) {
+    public TimeCreateUseCase(TimeSaveOutputPort timeInventorySaveOutputPort) {
         this.timeInventorySaveOutputPort = timeInventorySaveOutputPort;
     }
 

@@ -890,3 +890,17 @@ umicrotorneios/src/main/java/microservice/microtorneios/adapters/in/controller/d
 bmicrotorneios/src/main/java/microservice/microtorneios/adapters/out/repository/TimeRepository.java,3/8/380eba161115d8dbce642e04c1e9bbdf935cafa1
 ¡
 qmicrotorneios/src/test/java/microservice/microtorneios/application/core/usecase/TorneioCreateUseCaseUnitTest.java,f/b/fb9356f332580817cd0a20d713babd9a6302e11d
+“
+cmicrotorneios/src/test/java/microservice/microtorneios/adapters/out/TorneioSaveAdapterUnitTest.java,6/3/6330c9a9b98bffb0a3a89e9bc4d21af1eb1659d2
+‰
+Ymicrotimes/src/test/java/microservice/microtimes/adapter/out/TimeSaveAdapterUnitTest.java,9/7/971ae58e88d7984aa7652284d7e09f8c8b2a2618
+˜
+hmicrotimes/src/test/java/microservice/microtimes/application/core/usecase/TimeCreateUseCaseUnitTest.java,f/0/f03d33c7b84b2cfb48fdaf74e88ac02f07bf57d8
+™
+imicrotimes/src/test/java/microservice/microtimes/adapter/in/controller/TimeControllerIntegrationTest.java,0/c/0c65ea1b81f3911d3383af7774fdf63684686ff9
+…
+Umicrotorneios/src/main/java/microservice/microtorneios/config/usecase/TimeConfig.java,0/2/029643405bd8e8c5e9a18aa9818a24e05aa86251
+¢
+rmicrotorneios/src/main/java/microservice/microtorneios/application/port/output/NotifyCreatedTorneioOutputPort.java,f/8/f86225aeba4af5844dcf2a7c0c051f9cc3961bb0
+£
+smicrotorneios/src/main/java/microservice/microtorneios/adapters/out/producer/NotifyCreatedTorneioKafkaProducer.java,e/8/e8cf9387e7ce050f7bfc2c0672d2a95558fcabfb

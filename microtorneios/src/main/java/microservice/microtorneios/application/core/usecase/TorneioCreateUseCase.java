@@ -16,12 +16,12 @@ public class TorneioCreateUseCase implements TorneioCreateInputPort {
 
     private final TorneioSaveOutputPort torneioSaveOutputPort;
 
-    private final NotifyCreatedTorneioOutputPort notifyCreationOfNewTorneioOutputPort;
+    private final NotifyCreatedTorneioOutputPort notifyCreatedTorneioOutputPort;
 
     public TorneioCreateUseCase(TorneioSaveOutputPort torneioSaveOutputPort,
-                                NotifyCreatedTorneioOutputPort notifyCreationOfNewTorneioOutputPort) {
+                                NotifyCreatedTorneioOutputPort notifyCreatedTorneioOutputPort) {
         this.torneioSaveOutputPort = torneioSaveOutputPort;
-        this.notifyCreationOfNewTorneioOutputPort = notifyCreationOfNewTorneioOutputPort;
+        this.notifyCreatedTorneioOutputPort = notifyCreatedTorneioOutputPort;
     }
 
     @Override
@@ -42,7 +42,7 @@ public class TorneioCreateUseCase implements TorneioCreateInputPort {
     private Torneio notifyCreationOfNewTorneio(Torneio torneio) {
 
         Optional.ofNullable(torneio)
-            .ifPresentOrElse(this.notifyCreationOfNewTorneioOutputPort::sendEvent,
+            .ifPresentOrElse(this.notifyCreatedTorneioOutputPort::sendEvent,
                 () -> {throw new NoSuchElementException();}
             );
 
