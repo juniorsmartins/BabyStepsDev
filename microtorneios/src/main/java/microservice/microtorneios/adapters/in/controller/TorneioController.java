@@ -69,7 +69,7 @@ public class TorneioController {
             .map(this.mapperIn::toTorneioCreateDtoResponse)
             .orElseThrow();
 
-        log.info("Concluída requisição para criar Torneio, com Id: {}", response.id());
+        log.info("Concluída requisição para criar Torneio: {}", response);
 
         return ResponseEntity
             .created(URI.create("/api/v1/torneios" + response.id()))

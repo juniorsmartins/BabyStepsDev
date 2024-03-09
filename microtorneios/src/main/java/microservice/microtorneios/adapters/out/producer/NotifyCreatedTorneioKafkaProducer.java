@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
 
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @Slf4j
@@ -32,7 +33,7 @@ public class NotifyCreatedTorneioKafkaProducer implements NotifyCreatedTorneioOu
         Optional.ofNullable(torneio)
             .map(this.encapsulateEvent::toEventCreateTorneio)
             .map(this.jsonUtil::toJson)
-            .map(payload -> {
+            .ifPresentOrElse(payload -> {
                 try {
                     log.info("Enviando evento para o tópico {}, com os dados {}", torneioSaveTopic, payload);
                     kafkaTemplate.send(torneioSaveTopic, payload);
@@ -40,9 +41,22 @@ public class NotifyCreatedTorneioKafkaProducer implements NotifyCreatedTorneioOu
                 } catch (Exception ex) {
                     log.error("Erro ao tentar enviar dados para o tópico {}, com o payload {}", torneioSaveTopic, payload, ex);
                 }
-                return payload;
-            })
-            .orElseThrow();
+            }, () -> {throw new NoSuchElementException();});
+
+//        Optional.ofNullable(torneio)
+//            .map(this.encapsulateEvent::toEventCreateTorneio)
+//            .map(this.jsonUtil::toJson)
+//            .map(payload -> {
+//                try {
+//                    log.info("Enviando evento para o tópico {}, com os dados {}", torneioSaveTopic, payload);
+//                    kafkaTemplate.send(torneioSaveTopic, payload);
+//
+//                } catch (Exception ex) {
+//                    log.error("Erro ao tentar enviar dados para o tópico {}, com o payload {}", torneioSaveTopic, payload, ex);
+//                }
+//                return payload;
+//            })
+//            .orElseThrow();
     }
 }
 

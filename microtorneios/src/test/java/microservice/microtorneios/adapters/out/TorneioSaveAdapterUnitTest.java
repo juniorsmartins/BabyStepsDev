@@ -14,13 +14,14 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+import utility.AbstractTestcontainersTest;
 
 import java.util.NoSuchElementException;
 
 @SpringBootTest
 @ExtendWith({SpringExtension.class, MockitoExtension.class})
 @DisplayName("Unit - TorneioSaveAdapter")
-class TorneioSaveAdapterUnitTest {
+class TorneioSaveAdapterUnitTest extends AbstractTestcontainersTest {
 
     @Mock
     private TorneioRepository torneioRepository;
