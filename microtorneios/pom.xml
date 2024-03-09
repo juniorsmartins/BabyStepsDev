@@ -21,7 +21,10 @@
 		<spring-cloud.version>2022.0.4</spring-cloud.version>
 		<mapstruct.version>1.5.5.Final</mapstruct.version>
 		<jackson.databind.version>2.16.1</jackson.databind.version>
-		<data.faker.version>2.0.2</data.faker.version>
+		<mockito.core.version>5.10.0</mockito.core.version>
+		<mockito.jupiter.version>5.10.0</mockito.jupiter.version>
+		<data.faker.version>2.1.0</data.faker.version>
+		<testcontainers.version>1.19.5</testcontainers.version>
 	</properties>
 
 	<dependencies>
@@ -128,14 +131,22 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-webflux</artifactId>
-		</dependency>
-
-		<dependency>
 			<groupId>org.springframework.kafka</groupId>
 			<artifactId>spring-kafka-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>rest-assured</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- Solução de compatibilidade do Byte Buddy com o Java 21 -->
+		<dependency>
+			<groupId>net.bytebuddy</groupId>
+			<artifactId>byte-buddy</artifactId>
+			<version>1.14.11</version>
 		</dependency>
 
 		<!-- Parametrização de Testes -->
@@ -149,8 +160,15 @@
 		<!-- Simular Objetos - Mocks -->
 		<dependency>
 			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>${mockito.core.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mockito</groupId>
 			<artifactId>mockito-junit-jupiter</artifactId>
-			<version>5.8.0</version>
+			<version>${mockito.jupiter.version}</version>
 			<scope>test</scope>
 		</dependency>
 
@@ -163,9 +181,9 @@
 
 		<!-- Banco de dados para testes -->
 		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<version>2.2.220</version>
+			<groupId>org.testcontainers</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>${testcontainers.version}</version>
 			<scope>test</scope>
 		</dependency>
 

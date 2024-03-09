@@ -37,6 +37,6 @@ public final class TorneioEntity implements Serializable {
         joinColumns = @JoinColumn(name = "torneio_id"),
         inverseJoinColumns = @JoinColumn(name = "time_id")
     )
-    private Set<TimeInventoryEntity> times;
+    private Set<TimeEntity> times;
 }
 

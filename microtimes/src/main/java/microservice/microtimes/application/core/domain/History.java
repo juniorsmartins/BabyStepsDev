@@ -45,5 +45,15 @@ public final class History {
     public void setCreatedAt(OffsetDateTime createdAt) {
         this.createdAt = createdAt;
     }
+
+    @Override
+    public String toString() {
+        return "History{" +
+                "source='" + source + '\'' +
+                ", status=" + status +
+                ", message='" + message + '\'' +
+                ", createdAt=" + createdAt +
+                '}';
+    }
 }
 

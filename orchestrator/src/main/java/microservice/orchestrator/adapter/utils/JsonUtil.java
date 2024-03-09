@@ -1,6 +1,6 @@
 package microservice.orchestrator.adapter.utils;
 
-import microservice.orchestrator.adapter.in.consumer.SagaEvent;
+import microservice.orchestrator.application.core.domain.SagaEvent;
 
 public interface JsonUtil {
 

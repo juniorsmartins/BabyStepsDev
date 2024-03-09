@@ -1,7 +1,6 @@
 package microservice.microtorneios.application.core.usecase;
 
 import microservice.microtorneios.application.core.domain.Time;
-import microservice.microtorneios.application.core.domain.TimeInventory;
 import microservice.microtorneios.application.port.input.TimeInventoryCreateInputPort;
 import microservice.microtorneios.application.port.output.TimeInventorySaveOutputPort;
 
@@ -20,15 +19,15 @@ public class TimeInventoryCreateUseCase implements TimeInventoryCreateInputPort 
         this.timeInventorySaveOutputPort.save(timeInventory);
     }
 
-    private TimeInventory convertToTimeInventory(Time time) {
+    private Time convertToTimeInventory(Time time) {
 
-        var timeInventory = new TimeInventory();
-        timeInventory.setId(time.getId());
-        timeInventory.setNomeFantasia(time.getNomeFantasia());
-        timeInventory.setEstado(time.getEstado());
-        timeInventory.setStatus(time.getStatus());
+        var newTime = new Time();
+        newTime.setId(time.getId());
+        newTime.setNomeFantasia(time.getNomeFantasia());
+        newTime.setEstado(time.getEstado());
+        newTime.setStatus(time.getStatus());
 
-        return timeInventory;
+        return newTime;
     }
 }
 

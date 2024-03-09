@@ -9,9 +9,9 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import microservice.microtorneios.adapters.in.dto.request.TorneioCreateDtoRequest;
-import microservice.microtorneios.adapters.in.dto.response.TorneioCreateDtoResponse;
-import microservice.microtorneios.adapters.in.mapper.TorneioMapperIn;
+import microservice.microtorneios.adapters.in.controller.dto.request.TorneioCreateDtoRequest;
+import microservice.microtorneios.adapters.in.controller.dto.response.TorneioCreateDtoResponse;
+import microservice.microtorneios.adapters.mapper.MapperIn;
 import microservice.microtorneios.application.port.input.TorneioCreateInputPort;
 import org.apache.kafka.common.requests.ApiError;
 import org.springframework.http.MediaType;
@@ -35,7 +35,7 @@ public class TorneioController {
 
     private final TorneioCreateInputPort torneioCreateInputPort;
 
-    private final TorneioMapperIn mapperIn;
+    private final MapperIn mapperIn;
 
     @PostMapping(
         consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_JSON_VALUE, APPLICATION_YAML_VALUE},
@@ -61,7 +61,7 @@ public class TorneioController {
         @Parameter(name = "TorneioCreateDtoRequest", description = "Objeto para Transporte de Dados de entrada.", required = true)
         @RequestBody @Valid TorneioCreateDtoRequest torneioCreateDtoRequest) {
 
-        log.info("Recebida requisição para cadastrar Torneio.");
+        log.info("Recebida requisição para criar Torneio.");
 
         var response = Optional.of(torneioCreateDtoRequest)
             .map(this.mapperIn::toTorneio)
@@ -69,7 +69,7 @@ public class TorneioController {
             .map(this.mapperIn::toTorneioCreateDtoResponse)
             .orElseThrow();
 
-        log.info("Concluída requisição para cadastrar Torneio, com Id: {}", response.id());
+        log.info("Concluída requisição para criar Torneio, com Id: {}", response.id());
 
         return ResponseEntity
             .created(URI.create("/api/v1/torneios" + response.id()))

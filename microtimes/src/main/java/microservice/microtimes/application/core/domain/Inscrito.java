@@ -1,6 +1,6 @@
 package microservice.microtimes.application.core.domain;
 
-import microservice.microtimes.adapter.in.controller.dto.enums.ETipoPagamento;
+import microservice.microtimes.application.core.domain.enums.ETipoPagamento;
 
 public final class Inscrito {
 
@@ -72,6 +72,19 @@ public final class Inscrito {
 
     public void setTipo(ETipoPagamento tipo) {
         this.tipo = tipo;
+    }
+
+    @Override
+    public String toString() {
+        return "Inscrito{" +
+                "id=" + id +
+                ", inscricaoId=" + inscricaoId +
+                ", time=" + time +
+                ", numeroBanco=" + numeroBanco +
+                ", numeroAgencia=" + numeroAgencia +
+                ", numeroCartao=" + numeroCartao +
+                ", tipo=" + tipo +
+                '}';
     }
 }
 

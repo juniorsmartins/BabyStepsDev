@@ -21,13 +21,13 @@ public class TimeCreateUseCase implements TimeCreateInputPort {
     @Override
     public Time save(Time time) {
 
-        log.info("Iniciado serviço para salvar Time.");
+        log.info("Iniciado serviço para criar Time.");
 
         var timeRegister = Optional.ofNullable(time)
             .map(this.timeSaveOutputPort::save)
             .orElseThrow();
 
-        log.info("Finalizado serviço para salvar Time {}.", timeRegister);
+        log.info("Finalizado serviço para criar Time {}.", timeRegister);
 
         return timeRegister;
     }

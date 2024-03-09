@@ -14,7 +14,7 @@ public final class Torneio {
 
     private Year ano;
 
-    private Set<TimeInventory> times;
+    private Set<Time> times;
 
     public Long getId() {
         return id;
@@ -40,12 +40,13 @@ public final class Torneio {
         this.ano = ano;
     }
 
-    public Set<TimeInventory> getTimes() {
+    public Set<Time> getTimes() {
         return times;
     }
 
-    public void setTimes(Set<TimeInventory> times) {
+    public void setTimes(Set<Time> times) {
         this.times = times;
     }
+
 }
 

@@ -34,8 +34,8 @@ public abstract class AbstractTestcontainersTest {
 
         private static Map<String, String> createConnectionConfiguration() {
             return Map.of("spring.datasource.url", mariadb.getJdbcUrl(),
-                    "spring.datasource.username", mariadb.getUsername(),
-                    "spring.datasource.password", mariadb.getPassword());
+                "spring.datasource.username", mariadb.getUsername(),
+                "spring.datasource.password", mariadb.getPassword());
         }
     }
 }

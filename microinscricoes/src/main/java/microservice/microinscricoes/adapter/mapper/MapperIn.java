@@ -12,7 +12,7 @@ import microservice.microinscricoes.adapter.in.consumer.dto.TorneioSaveDto;
 import microservice.microinscricoes.adapter.in.controller.dto.response.InscricaoOpenDtoOut;
 import microservice.microinscricoes.adapter.in.controller.dto.response.InscritoCreateDtoOut;
 import microservice.microinscricoes.adapter.in.controller.dto.response.SagaEventResponse;
-import microservice.microinscricoes.adapter.out.producer.dto.SagaEventRequest;
+import microservice.microinscricoes.adapter.out.producer.event.SagaEventRequest;
 import microservice.microinscricoes.application.core.domain.*;
 import microservice.microinscricoes.application.core.domain.filtro.FiltersEvent;
 import microservice.microinscricoes.application.core.domain.filtro.InscricaoFiltro;

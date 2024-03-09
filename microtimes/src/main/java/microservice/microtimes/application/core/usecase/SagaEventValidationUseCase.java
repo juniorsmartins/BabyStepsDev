@@ -12,7 +12,7 @@ import microservice.microtimes.application.port.output.SagaEventFindOutputPort;
 import microservice.microtimes.application.port.output.SagaEventSaveValidationOutputPort;
 import microservice.microtimes.application.port.output.SagaEventSendOrchestratorOutputPot;
 import microservice.microtimes.config.exception.http_409.SagaEventNullValueNotAllowedException;
-import microservice.microtimes.config.exception.http_409.SuccessValidationDuplicationException;
+import microservice.microtimes.config.exception.http_409.SagaEventValidationDuplicationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.ObjectUtils;
@@ -21,6 +21,8 @@ import java.time.OffsetDateTime;
 import java.util.Optional;
 
 public class SagaEventValidationUseCase implements SagaEventValidationInputPort {
+
+    private static final Logger log = LoggerFactory.getLogger(SagaEventValidationUseCase.class);
 
     private static final String CURRENT_SOURCE = "TIME-VALIDATION-SUCCESS";
 
@@ -50,10 +52,8 @@ public class SagaEventValidationUseCase implements SagaEventValidationInputPort 
         this.jsonUtil = jsonUtil;
     }
 
-    private static final Logger log = LoggerFactory.getLogger(SagaEventValidationUseCase.class);
-
     @Override
-    public void createValidation(SagaEvent sagaEvent) {
+    public SagaEvent createValidation(SagaEvent sagaEvent) {
 
         log.info("Iniciado serviço para criar Success-Validation.");
 
@@ -66,7 +66,7 @@ public class SagaEventValidationUseCase implements SagaEventValidationInputPort 
                     this.sagaEventSaveValidationOutputPort.save(model);
                     handleSuccess(event);
 
-                } catch (SagaEventNullValueNotAllowedException | SuccessValidationDuplicationException ex) {
+                } catch (SagaEventNullValueNotAllowedException | SagaEventValidationDuplicationException ex) {
                     log.error("Erro: {}", ex.getMessage(), ex);
                     handleFailCurrentNotExecuted(sagaEvent, ex.getMessage());
                 }
@@ -76,6 +76,8 @@ public class SagaEventValidationUseCase implements SagaEventValidationInputPort 
             .orElseThrow();
 
         log.info("Finalizado serviço para criar Success-Validation: {}.", validationCreated);
+
+        return sagaEvent;
     }
 
     private void checkExistenceMandatoryValues(SagaEvent event) {
@@ -87,7 +89,7 @@ public class SagaEventValidationUseCase implements SagaEventValidationInputPort 
     private void checkExistenceValidationDuplication(SagaEvent event) {
         var exists = this.sagaEventExistsOutputPort.existsDuplication(event.getSagaEventId(), event.getTransactionId());
         if (exists) {
-            throw new SuccessValidationDuplicationException();
+            throw new SagaEventValidationDuplicationException();
         }
     }
 
@@ -119,11 +121,11 @@ public class SagaEventValidationUseCase implements SagaEventValidationInputPort 
     private void handleFailCurrentNotExecuted(SagaEvent event, String message) {
         event.setStatus(ESagaStatus.ROLLBACK_PENDING);
         event.setSource(CURRENT_SOURCE);
-        addHistory(event, message);
+        addHistory(event, "Falha na validação: ".concat(message));
     }
 
     @Override
-    public void rollbackEvent(SagaEvent event) {
+    public SagaEvent rollbackEvent(SagaEvent event) {
         this.changeValidationToFail(event);
         event.setStatus(ESagaStatus.FAIL);
         event.setSource(CURRENT_SOURCE);
@@ -131,6 +133,7 @@ public class SagaEventValidationUseCase implements SagaEventValidationInputPort 
         var sagaEventRequest = this.mapperIn.toSagaEventRequest(event);
         var payload = this.jsonUtil.toJson(sagaEventRequest);
         this.sagaEventSendOrchestratorOutputPot.sendEvent(payload);
+        return event;
     }
 
     private void changeValidationToFail(SagaEvent event) {

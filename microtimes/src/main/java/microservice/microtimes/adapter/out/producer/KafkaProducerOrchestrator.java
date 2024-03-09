@@ -20,11 +20,11 @@ public class KafkaProducerOrchestrator implements SagaEventSendOrchestratorOutpu
     @Override
     public void sendEvent(String payload) {
         try {
-            log.info("Sending event to topic {} with data {}", orchestratorTopic, payload);
+            log.info("Enviando evento para tópico {} com dados {}", orchestratorTopic, payload);
             kafkaTemplate.send(orchestratorTopic, payload);
 
         } catch (Exception ex) {
-            log.error("Error trying to send data to topic {} with data {}", orchestratorTopic, payload, ex);
+            log.error("Erro ao tentar enviar dados para o tópico {} com dados {}", orchestratorTopic, payload, ex);
         }
     }
 }
