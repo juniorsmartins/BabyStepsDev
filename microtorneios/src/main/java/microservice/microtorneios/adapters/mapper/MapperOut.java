@@ -14,5 +14,7 @@ public interface MapperOut {
     Torneio toTorneio(TorneioEntity torneioEntity);
 
     TimeEntity toTimeEntity(Time time);
+
+    Time toTime(TimeEntity timeEntity);
 }
 

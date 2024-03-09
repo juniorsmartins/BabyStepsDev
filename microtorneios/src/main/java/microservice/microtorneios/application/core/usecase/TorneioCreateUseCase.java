@@ -2,7 +2,7 @@ package microservice.microtorneios.application.core.usecase;
 
 import microservice.microtorneios.application.core.domain.Torneio;
 import microservice.microtorneios.application.port.input.TorneioCreateInputPort;
-import microservice.microtorneios.application.port.output.NotifyCreationOfNewTorneioOutputPort;
+import microservice.microtorneios.application.port.output.NotifyCreatedTorneioOutputPort;
 import microservice.microtorneios.application.port.output.TorneioSaveOutputPort;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,10 +16,10 @@ public class TorneioCreateUseCase implements TorneioCreateInputPort {
 
     private final TorneioSaveOutputPort torneioSaveOutputPort;
 
-    private final NotifyCreationOfNewTorneioOutputPort notifyCreationOfNewTorneioOutputPort;
+    private final NotifyCreatedTorneioOutputPort notifyCreationOfNewTorneioOutputPort;
 
     public TorneioCreateUseCase(TorneioSaveOutputPort torneioSaveOutputPort,
-                                NotifyCreationOfNewTorneioOutputPort notifyCreationOfNewTorneioOutputPort) {
+                                NotifyCreatedTorneioOutputPort notifyCreationOfNewTorneioOutputPort) {
         this.torneioSaveOutputPort = torneioSaveOutputPort;
         this.notifyCreationOfNewTorneioOutputPort = notifyCreationOfNewTorneioOutputPort;
     }

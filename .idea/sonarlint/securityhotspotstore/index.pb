@@ -888,3 +888,5 @@ hmicrotorneios/src/main/java/microservice/microtorneios/adapters/in/controller/d
 umicrotorneios/src/main/java/microservice/microtorneios/adapters/in/controller/dto/response/TimeCreateDtoResponse.java,5/d/5ddc1f50f98375a348dc4cff1fa20213f26d1dcd
 ’
 bmicrotorneios/src/main/java/microservice/microtorneios/adapters/out/repository/TimeRepository.java,3/8/380eba161115d8dbce642e04c1e9bbdf935cafa1
+¡
+qmicrotorneios/src/test/java/microservice/microtorneios/application/core/usecase/TorneioCreateUseCaseUnitTest.java,f/b/fb9356f332580817cd0a20d713babd9a6302e11d

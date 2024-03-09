@@ -1,7 +1,7 @@
 package microservice.microtorneios.config.usecase;
 
-import microservice.microtorneios.adapters.out.TimeInventorySaveAdapter;
-import microservice.microtorneios.application.core.usecase.TimeInventoryCreateUseCase;
+import microservice.microtorneios.adapters.out.TimeSaveAdapter;
+import microservice.microtorneios.application.core.usecase.TimeCreateUseCase;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -9,8 +9,8 @@ import org.springframework.context.annotation.Configuration;
 public class TimeInventoryConfig {
 
     @Bean
-    public TimeInventoryCreateUseCase timeInventoryCreateUseCase(TimeInventorySaveAdapter timeInventorySaveAdapter) {
-        return new TimeInventoryCreateUseCase(timeInventorySaveAdapter);
+    public TimeCreateUseCase timeInventoryCreateUseCase(TimeSaveAdapter timeInventorySaveAdapter) {
+        return new TimeCreateUseCase(timeInventorySaveAdapter);
     }
 }
 

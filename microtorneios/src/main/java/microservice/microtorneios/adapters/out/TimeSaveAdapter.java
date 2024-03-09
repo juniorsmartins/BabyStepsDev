@@ -14,7 +14,7 @@ import java.util.Optional;
 @Slf4j
 @Component
 @RequiredArgsConstructor
-public class TimeInventorySaveAdapter implements TimeInventorySaveOutputPort {
+public class TimeSaveAdapter implements TimeInventorySaveOutputPort {
 
     private final TimeRepository timeInventoryRepository;
 

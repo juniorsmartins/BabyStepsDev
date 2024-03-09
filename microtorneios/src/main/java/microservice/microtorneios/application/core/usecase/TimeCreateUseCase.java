@@ -4,11 +4,11 @@ import microservice.microtorneios.application.core.domain.Time;
 import microservice.microtorneios.application.port.input.TimeInventoryCreateInputPort;
 import microservice.microtorneios.application.port.output.TimeInventorySaveOutputPort;
 
-public class TimeInventoryCreateUseCase implements TimeInventoryCreateInputPort {
+public class TimeCreateUseCase implements TimeInventoryCreateInputPort {
 
     private final TimeInventorySaveOutputPort timeInventorySaveOutputPort;
 
-    public TimeInventoryCreateUseCase(TimeInventorySaveOutputPort timeInventorySaveOutputPort) {
+    public TimeCreateUseCase(TimeInventorySaveOutputPort timeInventorySaveOutputPort) {
         this.timeInventorySaveOutputPort = timeInventorySaveOutputPort;
     }
 

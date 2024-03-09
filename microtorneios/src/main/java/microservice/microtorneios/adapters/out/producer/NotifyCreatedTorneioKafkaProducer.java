@@ -5,7 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import microservice.microtorneios.adapters.utils.EncapsulateEvent;
 import microservice.microtorneios.adapters.utils.JsonUtil;
 import microservice.microtorneios.application.core.domain.Torneio;
-import microservice.microtorneios.application.port.output.NotifyCreationOfNewTorneioOutputPort;
+import microservice.microtorneios.application.port.output.NotifyCreatedTorneioOutputPort;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
@@ -15,7 +15,7 @@ import java.util.Optional;
 @Slf4j
 @Component
 @RequiredArgsConstructor
-public class NotifyCreationOfNewTorneioKafkaProducer implements NotifyCreationOfNewTorneioOutputPort {
+public class NotifyCreatedTorneioKafkaProducer implements NotifyCreatedTorneioOutputPort {
 
     private final KafkaTemplate<String, String> kafkaTemplate;
 
