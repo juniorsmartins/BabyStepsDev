@@ -2,9 +2,9 @@ package microservice.microtorneios.adapters.out;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import microservice.microtorneios.adapters.mapper.MapperOut;
 import microservice.microtorneios.adapters.out.repository.TimeInventoryRepository;
-import microservice.microtorneios.adapters.out.repository.mapper.TimeInventoryMapperOut;
-import microservice.microtorneios.application.core.domain.TimeInventory;
+import microservice.microtorneios.application.core.domain.Time;
 import microservice.microtorneios.application.port.output.TimeInventorySaveOutputPort;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,20 +18,20 @@ public class TimeInventorySaveAdapter implements TimeInventorySaveOutputPort {
 
     private final TimeInventoryRepository timeInventoryRepository;
 
-    private final TimeInventoryMapperOut timeInventoryMapperOut;
+    private final MapperOut mapperOut;
 
     @Transactional
     @Override
-    public void save(TimeInventory timeInventory) {
+    public void save(Time time) {
 
-        log.info("Iniciado adaptador para salvar TimeInventory.");
+        log.info("Iniciado adaptador para salvar Time.");
 
-        var timeInventorySaved = Optional.ofNullable(timeInventory)
-            .map(this.timeInventoryMapperOut::toTimeInventoryEntity)
+        var timeSaved = Optional.ofNullable(time)
+            .map(this.mapperOut::toTimeEntity)
             .map(this.timeInventoryRepository::save)
             .orElseThrow();
 
-        log.info("Finalizado adaptador para salvar TimeInventory, com nomeFantasia: {}.", timeInventorySaved.getNomeFantasia());
+        log.info("Finalizado adaptador para salvar Time: {}.", timeSaved);
     }
 }
 

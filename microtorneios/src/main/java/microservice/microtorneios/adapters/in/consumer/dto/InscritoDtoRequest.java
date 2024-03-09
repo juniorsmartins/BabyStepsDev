@@ -2,6 +2,7 @@ package microservice.microtorneios.adapters.in.consumer.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import io.swagger.v3.oas.annotations.media.Schema;
+import microservice.microtorneios.adapters.in.controller.dto.TimeIdDto;
 import microservice.microtorneios.application.core.domain.enums.ETipoPagamento;
 
 import java.time.OffsetDateTime;
