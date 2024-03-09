@@ -15,17 +15,39 @@ public record TimeCreateDtoRequest(
 
     String cnpj,
 
+    LocalDate data,
+
+    String descricao,
+
+//    Set<String> categoriasEsportivas,
 
     // ---------- SEDE ----------
+
+//    String cep,
+
     String estado,
 
     String cidade,
 
+//    String bairro,
 
-    // ---------- Fundação ----------
-    LocalDate data,
+//    String logradouro,
 
-    String descricao,
+//    String numero,
+
+//    String complemento,
+
+
+    // ---------- Contato ----------
+//    String email,
+
+//    String telefone,
+
+//    String site,
+
+
+    // ---------- Redes Sociais ----------
+//    Set<String> redesSociais,
 
 
     // ---------- Staff ----------
@@ -34,6 +56,10 @@ public record TimeCreateDtoRequest(
     String vicePresidente,
 
     String headCoach
+
+
+    // ---------- Conquista ----------
+//    Set<ConquistaCreateDtoRequest> conquistas
 
 ) { }
 
