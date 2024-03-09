@@ -44,5 +44,7 @@ public interface MapperIn {
 
     Time toTime(TimeIdDto timeIdDto);
 
+    TimeIdDto toTimeIdDto(Time time);
+
 }
 

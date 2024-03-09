@@ -2,7 +2,7 @@ package microservice.microtorneios.adapters.out;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import microservice.microtorneios.adapters.out.repository.TimeInventoryRepository;
+import microservice.microtorneios.adapters.out.repository.TimeRepository;
 import microservice.microtorneios.adapters.out.repository.TorneioRepository;
 import microservice.microtorneios.adapters.out.repository.entity.TimeEntity;
 import microservice.microtorneios.adapters.out.repository.entity.TorneioEntity;
@@ -24,7 +24,7 @@ public class TorneioSaveAdapter implements TorneioSaveOutputPort {
 
     private final TorneioRepository torneioRepository;
 
-    private final TimeInventoryRepository timeInventoryRepository;
+    private final TimeRepository timeInventoryRepository;
 
     private final MapperOut mapperOut;
 
