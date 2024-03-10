@@ -61,7 +61,7 @@ public class TorneioController {
         @Parameter(name = "TorneioCreateDtoRequest", description = "Objeto para Transporte de Dados de entrada.", required = true)
         @RequestBody @Valid TorneioCreateDtoRequest torneioCreateDtoRequest) {
 
-        log.info("Recebida requisição para criar Torneio.");
+        log.info("Requisição recebida para criar novo Torneio.");
 
         var response = Optional.of(torneioCreateDtoRequest)
             .map(this.mapperIn::toTorneio)
@@ -69,7 +69,7 @@ public class TorneioController {
             .map(this.mapperIn::toTorneioCreateDtoResponse)
             .orElseThrow();
 
-        log.info("Concluída requisição para criar Torneio, com Id: {}", response.id());
+        log.info("Requisição bem-sucedida para criar novo Torneio: {}", response);
 
         return ResponseEntity
             .created(URI.create("/api/v1/torneios" + response.id()))

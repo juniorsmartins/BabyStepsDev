@@ -24,7 +24,7 @@ public class TorneioSaveAdapter implements TorneioSaveOutputPort {
 
     private final TorneioRepository torneioRepository;
 
-    private final TimeRepository timeInventoryRepository;
+    private final TimeRepository timeRepository;
 
     private final MapperOut mapperOut;
 
@@ -32,7 +32,7 @@ public class TorneioSaveAdapter implements TorneioSaveOutputPort {
     @Override
     public Torneio save(Torneio torneio) {
 
-        log.info("Iniciado adaptador para salvar Torneio.");
+        log.info("Adaptador iniciado para salvar Torneio.");
 
         var torneioSaved = Optional.ofNullable(torneio)
             .map(this.mapperOut::toTorneioEntity)
@@ -41,7 +41,7 @@ public class TorneioSaveAdapter implements TorneioSaveOutputPort {
             .map(this.mapperOut::toTorneio)
             .orElseThrow();
 
-        log.info("Finalizado adaptador para salvar Torneio: {}.", torneioSaved);
+        log.info("Adaptador finalizado para salvar Torneio: {}.", torneioSaved);
 
         return torneioSaved;
     }
@@ -52,7 +52,7 @@ public class TorneioSaveAdapter implements TorneioSaveOutputPort {
             Set<TimeEntity> timesEntity = new HashSet<>();
 
             torneio.getTimes().forEach(time -> {
-                var timeIntentoryEntity = this.timeInventoryRepository.findById(time.getId())
+                var timeIntentoryEntity = this.timeRepository.findById(time.getId())
                     .orElseThrow(() -> new TimeNotFoundException(time.getId()));
                 timesEntity.add(timeIntentoryEntity);
             });

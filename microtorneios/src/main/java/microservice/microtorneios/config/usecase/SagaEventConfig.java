@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 public class SagaEventConfig {
 
     @Bean
-    public SagaEventValidationUseCase sagaEventSuccessValidationUseCase(MapperIn mapperIn, JsonUtil jsonUtil) {
+    public SagaEventValidationUseCase sagaEventValidationUseCase(MapperIn mapperIn, JsonUtil jsonUtil) {
         return new SagaEventValidationUseCase(mapperIn, jsonUtil);
     }
 }
