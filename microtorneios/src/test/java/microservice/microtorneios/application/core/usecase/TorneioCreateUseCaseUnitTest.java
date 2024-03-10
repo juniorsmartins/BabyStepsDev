@@ -1,7 +1,7 @@
 package microservice.microtorneios.application.core.usecase;
 
 import microservice.microtorneios.adapters.out.TorneioSaveAdapter;
-import microservice.microtorneios.application.port.output.NotifyCreatedTorneioOutputPort;
+import microservice.microtorneios.application.port.output.CarteiroNotifyCreatedTorneioOutputPort;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -26,7 +26,7 @@ class TorneioCreateUseCaseUnitTest extends AbstractTestcontainersTest {
     private TorneioSaveAdapter torneioSaveAdapter;
 
     @Mock
-    private NotifyCreatedTorneioOutputPort notifyCreationOfNewTorneioOutputPort;
+    private CarteiroNotifyCreatedTorneioOutputPort notifyCreationOfNewTorneioOutputPort;
 
     @InjectMocks
     private TorneioCreateUseCase torneioCreateUseCase;

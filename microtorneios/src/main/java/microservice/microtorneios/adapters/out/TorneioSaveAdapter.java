@@ -32,7 +32,7 @@ public class TorneioSaveAdapter implements TorneioSaveOutputPort {
     @Override
     public Torneio save(Torneio torneio) {
 
-        log.info("Iniciado adaptador para salvar Torneio.");
+        log.info("Adaptador iniciado para salvar Torneio.");
 
         var torneioSaved = Optional.ofNullable(torneio)
             .map(this.mapperOut::toTorneioEntity)
@@ -41,7 +41,7 @@ public class TorneioSaveAdapter implements TorneioSaveOutputPort {
             .map(this.mapperOut::toTorneio)
             .orElseThrow();
 
-        log.info("Finalizado adaptador para salvar Torneio: {}.", torneioSaved);
+        log.info("Adaptador finalizado para salvar Torneio: {}.", torneioSaved);
 
         return torneioSaved;
     }

@@ -2,7 +2,7 @@ package microservice.microtorneios.application.core.usecase;
 
 import microservice.microtorneios.application.core.domain.Torneio;
 import microservice.microtorneios.application.port.input.TorneioCreateInputPort;
-import microservice.microtorneios.application.port.output.NotifyCreatedTorneioOutputPort;
+import microservice.microtorneios.application.port.output.CarteiroNotifyCreatedTorneioOutputPort;
 import microservice.microtorneios.application.port.output.TorneioSaveOutputPort;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,10 +16,10 @@ public class TorneioCreateUseCase implements TorneioCreateInputPort {
 
     private final TorneioSaveOutputPort torneioSaveOutputPort;
 
-    private final NotifyCreatedTorneioOutputPort notifyCreatedTorneioOutputPort;
+    private final CarteiroNotifyCreatedTorneioOutputPort notifyCreatedTorneioOutputPort;
 
     public TorneioCreateUseCase(TorneioSaveOutputPort torneioSaveOutputPort,
-                                NotifyCreatedTorneioOutputPort notifyCreatedTorneioOutputPort) {
+                                CarteiroNotifyCreatedTorneioOutputPort notifyCreatedTorneioOutputPort) {
         this.torneioSaveOutputPort = torneioSaveOutputPort;
         this.notifyCreatedTorneioOutputPort = notifyCreatedTorneioOutputPort;
     }
@@ -27,14 +27,14 @@ public class TorneioCreateUseCase implements TorneioCreateInputPort {
     @Override
     public Torneio create(Torneio torneio) {
 
-        log.info("Iniciado serviço para criar novo Torneio.");
+        log.info("Serviço iniciado para criar novo Torneio.");
 
         var torneioSaved = Optional.ofNullable(torneio)
             .map(this.torneioSaveOutputPort::save)
             .map(this::notifyCreationOfNewTorneio)
             .orElseThrow();
 
-        log.info("Finalizado serviço para criar novo torneio: {}.", torneioSaved);
+        log.info("Serviço finalizado para criar novo torneio: {}.", torneioSaved);
 
         return torneioSaved;
     }
