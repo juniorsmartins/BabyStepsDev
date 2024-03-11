@@ -2,7 +2,7 @@ package microservice.microtimes.adapter.out.producer;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import microservice.microtimes.adapter.out.producer.dto.TimeSaveDto;
+import microservice.microtimes.adapter.in.consumer.dto.TimeIdDto;
 import microservice.microtimes.adapter.out.producer.event.EventCreateTime;
 import microservice.microtimes.adapter.utils.JsonUtil;
 import microservice.microtimes.application.core.domain.Time;
@@ -38,7 +38,7 @@ public class CarteiroNotifyCreatedTimeProducer implements CarteiroNotifyCreatedT
     private EventCreateTime toEventCreateTime(final Time time) {
 
         return Optional.ofNullable(time)
-            .map(team -> new TimeSaveDto(team.getId(), team.getNomeFantasia()))
+            .map(team -> new TimeIdDto(team.getId()))
             .map(EventCreateTime::new)
             .orElseThrow();
     }

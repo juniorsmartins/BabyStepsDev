@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class TimeUseCaseConfig {
+public class TimeConfig {
 
     @Bean
     public TimeCreateUseCase timeCreateUseCase(TimeSaveAdapter timeSaveAdapter,
