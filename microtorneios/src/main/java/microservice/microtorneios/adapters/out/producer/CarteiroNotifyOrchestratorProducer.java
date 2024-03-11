@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @Component
 @RequiredArgsConstructor
-public class CarteiroNotifyOrchestrator {
+public class CarteiroNotifyOrchestratorProducer {
 
     private final KafkaTemplate<String, String> kafkaTemplate;
 

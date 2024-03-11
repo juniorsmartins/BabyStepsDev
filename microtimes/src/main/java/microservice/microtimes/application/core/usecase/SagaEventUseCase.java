@@ -6,11 +6,11 @@ import microservice.microtimes.application.core.domain.History;
 import microservice.microtimes.application.core.domain.SagaEvent;
 import microservice.microtimes.application.core.domain.ValidationModel;
 import microservice.microtimes.application.core.domain.enums.ESagaStatus;
-import microservice.microtimes.application.port.input.SagaEventValidationInputPort;
+import microservice.microtimes.application.port.input.SagaEventInputPort;
 import microservice.microtimes.application.port.output.SagaEventExistsOutputPort;
 import microservice.microtimes.application.port.output.SagaEventFindOutputPort;
-import microservice.microtimes.application.port.output.SagaEventSaveValidationOutputPort;
-import microservice.microtimes.application.port.output.SagaEventSendOrchestratorOutputPot;
+import microservice.microtimes.application.port.output.SagaEventSaveOutputPort;
+import microservice.microtimes.application.port.output.SagaEventOrchestratorOutputPort;
 import microservice.microtimes.config.exception.http_409.SagaEventNullValueNotAllowedException;
 import microservice.microtimes.config.exception.http_409.SagaEventValidationDuplicationException;
 import org.slf4j.Logger;
@@ -20,17 +20,17 @@ import org.springframework.util.ObjectUtils;
 import java.time.OffsetDateTime;
 import java.util.Optional;
 
-public class SagaEventValidationUseCase implements SagaEventValidationInputPort {
+public class SagaEventUseCase implements SagaEventInputPort {
 
-    private static final Logger log = LoggerFactory.getLogger(SagaEventValidationUseCase.class);
+    private static final Logger log = LoggerFactory.getLogger(SagaEventUseCase.class);
 
     private static final String CURRENT_SOURCE = "TIME-VALIDATION-SUCCESS";
 
     private final SagaEventExistsOutputPort sagaEventExistsOutputPort;
 
-    private final SagaEventSaveValidationOutputPort sagaEventSaveValidationOutputPort;
+    private final SagaEventSaveOutputPort sagaEventSaveOutputPort;
 
-    private final SagaEventSendOrchestratorOutputPot sagaEventSendOrchestratorOutputPot;
+    private final SagaEventOrchestratorOutputPort sagaEventOrchestratorOutputPort;
 
     private final SagaEventFindOutputPort sagaEventFindOutputPort;
 
@@ -38,15 +38,15 @@ public class SagaEventValidationUseCase implements SagaEventValidationInputPort 
 
     private final JsonUtil jsonUtil;
 
-    public SagaEventValidationUseCase(SagaEventExistsOutputPort sagaEventExistsOutputPort,
-                                      SagaEventSaveValidationOutputPort sagaEventSaveValidationOutputPort,
-                                      SagaEventSendOrchestratorOutputPot sagaEventSendOrchestratorOutputPot,
-                                      SagaEventFindOutputPort sagaEventFindOutputPort,
-                                      MapperIn mapperIn,
-                                      JsonUtil jsonUtil) {
+    public SagaEventUseCase(SagaEventExistsOutputPort sagaEventExistsOutputPort,
+                            SagaEventSaveOutputPort sagaEventSaveOutputPort,
+                            SagaEventOrchestratorOutputPort sagaEventOrchestratorOutputPort,
+                            SagaEventFindOutputPort sagaEventFindOutputPort,
+                            MapperIn mapperIn,
+                            JsonUtil jsonUtil) {
         this.sagaEventExistsOutputPort = sagaEventExistsOutputPort;
-        this.sagaEventSaveValidationOutputPort = sagaEventSaveValidationOutputPort;
-        this.sagaEventSendOrchestratorOutputPot = sagaEventSendOrchestratorOutputPot;
+        this.sagaEventSaveOutputPort = sagaEventSaveOutputPort;
+        this.sagaEventOrchestratorOutputPort = sagaEventOrchestratorOutputPort;
         this.sagaEventFindOutputPort = sagaEventFindOutputPort;
         this.mapperIn = mapperIn;
         this.jsonUtil = jsonUtil;
@@ -63,14 +63,14 @@ public class SagaEventValidationUseCase implements SagaEventValidationInputPort 
                     this.checkExistenceMandatoryValues(event);
                     this.checkExistenceValidationDuplication(event);
                     var model = this.createValidationModel(event, true);
-                    this.sagaEventSaveValidationOutputPort.save(model);
+                    this.sagaEventSaveOutputPort.save(model);
                     handleSuccess(event);
 
                 } catch (SagaEventNullValueNotAllowedException | SagaEventValidationDuplicationException ex) {
                     log.error("Erro: {}", ex.getMessage(), ex);
                     handleFailCurrentNotExecuted(sagaEvent, ex.getMessage());
                 }
-                this.sagaEventSendOrchestratorOutputPot.sendEvent(this.jsonUtil.toJson(event));
+                this.sagaEventOrchestratorOutputPort.sendEvent(this.jsonUtil.toJson(event));
                 return event;
             })
             .orElseThrow();
@@ -132,7 +132,7 @@ public class SagaEventValidationUseCase implements SagaEventValidationInputPort 
         addHistory(event, "Rollback executado na validação da Saga.");
         var sagaEventRequest = this.mapperIn.toSagaEventRequest(event);
         var payload = this.jsonUtil.toJson(sagaEventRequest);
-        this.sagaEventSendOrchestratorOutputPot.sendEvent(payload);
+        this.sagaEventOrchestratorOutputPort.sendEvent(payload);
         return event;
     }
 
@@ -141,10 +141,10 @@ public class SagaEventValidationUseCase implements SagaEventValidationInputPort 
             .findBySagaEventIdAndTransactionId(event.getSagaEventId(), event.getTransactionId())
             .ifPresentOrElse(validation -> {
                 validation.setSuccess(false);
-                this.sagaEventSaveValidationOutputPort.save(validation);
+                this.sagaEventSaveOutputPort.save(validation);
             }, () -> {
                 var validation = createValidationModel(event, false);
-                this.sagaEventSaveValidationOutputPort.save(validation);
+                this.sagaEventSaveOutputPort.save(validation);
             }
         );
     }

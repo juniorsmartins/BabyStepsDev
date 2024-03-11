@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import microservice.microtimes.adapter.mapper.MapperIn;
 import microservice.microtimes.adapter.utils.JsonUtil;
-import microservice.microtimes.application.port.input.SagaEventValidationInputPort;
+import microservice.microtimes.application.port.input.SagaEventInputPort;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
@@ -13,13 +13,13 @@ import java.util.Optional;
 @Slf4j
 @Component
 @AllArgsConstructor
-public class TimeConsumer {
+public class CaixaPostalSagaConsumer {
 
     private final JsonUtil jsonUtil;
 
     private final MapperIn mapperIn;
 
-    private final SagaEventValidationInputPort sagaEventValidationInputPort;
+    private final SagaEventInputPort sagaEventInputPort;
 
     @KafkaListener(
         groupId = "${spring.kafka.consumer.group-id}",
@@ -32,7 +32,7 @@ public class TimeConsumer {
         var sagaEventSuccess = Optional.ofNullable(payload)
             .map(this.jsonUtil::toSagaEventRequest)
             .map(this.mapperIn::toSagaEvent)
-            .map(this.sagaEventValidationInputPort::createValidation)
+            .map(this.sagaEventInputPort::createValidation)
             .orElseThrow();
 
         log.info("Finalizado evento no tópico de sucesso de validação de time: {}.", sagaEventSuccess);
@@ -49,7 +49,7 @@ public class TimeConsumer {
         var sagaEventFail = Optional.ofNullable(payload)
             .map(this.jsonUtil::toSagaEventRequest)
             .map(this.mapperIn::toSagaEvent)
-            .map(this.sagaEventValidationInputPort::rollbackEvent)
+            .map(this.sagaEventInputPort::rollbackEvent)
             .orElseThrow();
 
         log.info("Finalizado evento no tópico de falha de validação de time: {}.", sagaEventFail);

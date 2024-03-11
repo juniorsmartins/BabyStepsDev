@@ -2,7 +2,7 @@ package microservice.microtimes.application.port.output;
 
 import microservice.microtimes.application.core.domain.ValidationModel;
 
-public interface SagaEventSaveValidationOutputPort {
+public interface SagaEventSaveOutputPort {
 
     ValidationModel save(ValidationModel validationModel);
 }

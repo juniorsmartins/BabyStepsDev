@@ -17,7 +17,7 @@ import java.util.Optional;
 @Slf4j
 @Component
 @RequiredArgsConstructor
-public class CarteiroNotifyCreatedTorneio implements CarteiroNotifyCreatedTorneioOutputPort {
+public class CarteiroNotifyCreatedTorneioProducer implements CarteiroNotifyCreatedTorneioOutputPort {
 
     private final KafkaTemplate<String, String> kafkaTemplate;
 

@@ -15,7 +15,7 @@ import java.util.Optional;
 @Slf4j
 @Component
 @RequiredArgsConstructor
-public class NotifyCreateTimeKafkaProducer implements NotifyCreateTimeOutputPort {
+public class CarteiroNotifyCreatedTimeProducer implements NotifyCreateTimeOutputPort {
 
     private final KafkaTemplate<String, String> kafkaTemplate;
 

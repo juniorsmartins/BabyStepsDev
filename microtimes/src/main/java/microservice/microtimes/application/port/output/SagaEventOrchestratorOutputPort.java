@@ -1,6 +1,6 @@
 package microservice.microtimes.application.port.output;
 
-public interface SagaEventSendOrchestratorOutputPot {
+public interface SagaEventOrchestratorOutputPort {
 
     void sendEvent(String payload);
 }

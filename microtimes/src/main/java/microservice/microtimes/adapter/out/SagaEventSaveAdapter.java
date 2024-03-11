@@ -5,7 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import microservice.microtimes.adapter.mapper.MapperOut;
 import microservice.microtimes.adapter.out.repository.ValidationRepository;
 import microservice.microtimes.application.core.domain.ValidationModel;
-import microservice.microtimes.application.port.output.SagaEventSaveValidationOutputPort;
+import microservice.microtimes.application.port.output.SagaEventSaveOutputPort;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,7 +14,7 @@ import java.util.Optional;
 @Slf4j
 @Repository
 @RequiredArgsConstructor
-public class SagaEventSaveValidationAdapter implements SagaEventSaveValidationOutputPort {
+public class SagaEventSaveAdapter implements SagaEventSaveOutputPort {
 
     private final ValidationRepository validationRepository;
 
