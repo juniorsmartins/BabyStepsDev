@@ -1,15 +1,14 @@
 package microservice.microinscricoes.adapter.mapper;
 
 import microservice.microinscricoes.adapter.in.consumer.dto.TimeSaveDto;
+import microservice.microinscricoes.adapter.in.controller.dto.TorneioIdDto;
 import microservice.microinscricoes.adapter.in.controller.dto.InscricaoIdDto;
 import microservice.microinscricoes.adapter.in.controller.dto.TimeIdDto;
-import microservice.microinscricoes.adapter.in.controller.dto.TorneioIdDto;
 import microservice.microinscricoes.adapter.in.controller.dto.request.FiltersDtoEvent;
-import microservice.microinscricoes.adapter.in.controller.dto.request.InscricaoFiltroDto;
 import microservice.microinscricoes.adapter.in.controller.dto.request.InscricaoCreateDtoIn;
+import microservice.microinscricoes.adapter.in.controller.dto.request.InscricaoFiltroDto;
 import microservice.microinscricoes.adapter.in.controller.dto.request.InscritoCreateDtoIn;
-import microservice.microinscricoes.adapter.in.consumer.dto.TorneioSaveDto;
-import microservice.microinscricoes.adapter.in.controller.dto.response.InscricaoOpenDtoOut;
+import microservice.microinscricoes.adapter.in.controller.dto.response.InscricaoCreateDtoOut;
 import microservice.microinscricoes.adapter.in.controller.dto.response.InscritoCreateDtoOut;
 import microservice.microinscricoes.adapter.in.controller.dto.response.SagaEventResponse;
 import microservice.microinscricoes.adapter.out.producer.event.SagaEventRequest;
@@ -28,7 +27,7 @@ public interface MapperIn {
 
     @Mapping(source = "dataInicio", target = "dataInicio", qualifiedByName = "setDataStringParaLocalDate")
     @Mapping(source = "dataFim", target = "dataFim", qualifiedByName = "setDataStringParaLocalDate")
-    Inscricao toInscricao(InscricaoCreateDtoIn inscricaoOpenDtoIn);
+    Inscricao toInscricao(InscricaoCreateDtoIn inscricaoCreateDtoIn);
 
     @Named("setDataStringParaLocalDate")
     default LocalDate setDataStringParaLocalDate(String data) {
@@ -42,7 +41,7 @@ public interface MapperIn {
 
     @Mapping(source = "dataInicio", target = "dataInicio", qualifiedByName = "setDataString")
     @Mapping(source = "dataFim", target = "dataFim", qualifiedByName = "setDataString")
-    InscricaoOpenDtoOut toInscricaoOpenDtoOut(Inscricao inscricao);
+    InscricaoCreateDtoOut toInscricaoCreateDtoOut(Inscricao inscricao);
 
     @Named("setDataString")
     default String setDataString(LocalDate data) {
@@ -62,11 +61,9 @@ public interface MapperIn {
 
     InscricaoIdDto toInscricaoIdDto(Inscricao inscricao);
 
-    Torneio toTorneio(TorneioIdDto torneioIdDto);
-
     TorneioIdDto toTorneioIdDto(Torneio torneio);
 
-    Torneio toTorneio(TorneioSaveDto torneioSaveDto);
+    Torneio toTorneio(TorneioIdDto torneioIdDto);
 
     Time toTime(TimeSaveDto timeSaveDto);
 

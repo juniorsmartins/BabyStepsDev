@@ -11,7 +11,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import microservice.microinscricoes.adapter.in.controller.dto.request.InscricaoCreateDtoIn;
 import microservice.microinscricoes.adapter.in.controller.dto.request.InscricaoFiltroDto;
-import microservice.microinscricoes.adapter.in.controller.dto.response.InscricaoOpenDtoOut;
+import microservice.microinscricoes.adapter.in.controller.dto.response.InscricaoCreateDtoOut;
 import microservice.microinscricoes.adapter.mapper.MapperIn;
 import microservice.microinscricoes.application.port.input.InscricaoCreateInputPort;
 import microservice.microinscricoes.application.port.input.InscricaoDeleteInputPort;
@@ -52,7 +52,7 @@ public class InscricaoController {
     @Operation(summary = "Abrir Período", description = "Recurso para abrir período de inscrições.",
         responses = {
             @ApiResponse(responseCode = "201", description = "Created - Recurso cadastrado com sucesso.",
-                content = @Content(mediaType = "application/json", schema = @Schema(implementation = InscricaoOpenDtoOut.class))),
+                content = @Content(mediaType = "application/json", schema = @Schema(implementation = InscricaoCreateDtoOut.class))),
             @ApiResponse(responseCode = "400", description = "Bad Request - Requisição mal formulada.",
                 content = @Content(mediaType = "application/json", schema = @Schema(implementation = ApiError.class))),
             @ApiResponse(responseCode = "403", description = "Forbidden - Usuário sem permissão para acessar recurso.",
@@ -66,7 +66,7 @@ public class InscricaoController {
             @ApiResponse(responseCode = "500", description = "Internal Server Error - Situação inesperada no servidor.",
                 content = @Content(mediaType = "application/json", schema = @Schema(implementation = ApiError.class))),
         })
-    public ResponseEntity<InscricaoOpenDtoOut> create(
+    public ResponseEntity<InscricaoCreateDtoOut> create(
         @Parameter(name = "InscricaoOpenDtoIn", description = "Objeto para Transporte de Dados de entrada.", required = true)
         @RequestBody @Valid InscricaoCreateDtoIn inscricaoOpenDtoIn) {
 
@@ -75,7 +75,7 @@ public class InscricaoController {
         var response = Optional.of(inscricaoOpenDtoIn)
             .map(this.mapperIn::toInscricao)
             .map(this.inscricaoCreateInputPort::create)
-            .map(this.mapperIn::toInscricaoOpenDtoOut)
+            .map(this.mapperIn::toInscricaoCreateDtoOut)
             .orElseThrow();
 
         log.info("Período de Inscrições criado com sucesso, com Id: {}", response.getId());
@@ -90,7 +90,7 @@ public class InscricaoController {
 //        security = {@SecurityRequirement(name = "security")},
         responses = {
             @ApiResponse(responseCode = "200", description = "OK - Requisição bem sucedida e com retorno.",
-                content = @Content(mediaType = "application/json", schema = @Schema(implementation = InscricaoOpenDtoOut.class))),
+                content = @Content(mediaType = "application/json", schema = @Schema(implementation = InscricaoCreateDtoOut.class))),
             @ApiResponse(responseCode = "400", description = "Bad Request - Requisição mal formulada.",
                 content = {@Content(mediaType = "application/json", schema = @Schema(implementation = ApiError.class))}),
             @ApiResponse(responseCode = "403", description = "Forbidden - Usuário sem permissão para acessar recurso.",
@@ -100,7 +100,7 @@ public class InscricaoController {
             @ApiResponse(responseCode = "500", description = "Internal Server Error - Situação inesperada no servidor.",
                 content = @Content(mediaType = "application/json", schema = @Schema(implementation = ApiError.class))),
         })
-    public ResponseEntity<Page<InscricaoOpenDtoOut>> pesquisar(
+    public ResponseEntity<Page<InscricaoCreateDtoOut>> pesquisar(
         @Parameter(name = "InscricaoFiltroDto", description = "Objeto para transporte de dados usados como filtros de pesquisa", required = false)
         @Valid final InscricaoFiltroDto filtroDto,
         @PageableDefault(sort = "id", direction = Sort.Direction.ASC, page = 0, size = 5) final Pageable paginacao) {
@@ -110,7 +110,7 @@ public class InscricaoController {
         var response = Optional.of(filtroDto)
             .map(this.mapperIn::toInscricaoFiltro)
             .map(filtro -> this.inscricaoPesquisarInputPort.pesquisar(filtro, paginacao))
-            .map(page -> page.map(this.mapperIn::toInscricaoOpenDtoOut))
+            .map(page -> page.map(this.mapperIn::toInscricaoCreateDtoOut))
             .orElseThrow();
 
         log.info("Pesquisa por inscrições concluída com sucesso.");

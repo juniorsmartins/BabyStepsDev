@@ -17,7 +17,7 @@ import java.math.BigDecimal;
 @ToString
 @EqualsAndHashCode(of = {"id"})
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public final class InscricaoOpenDtoOut implements Serializable {
+public final class InscricaoCreateDtoOut implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 1L;

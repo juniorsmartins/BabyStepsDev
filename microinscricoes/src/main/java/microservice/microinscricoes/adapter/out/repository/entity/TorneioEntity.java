@@ -1,11 +1,12 @@
 package microservice.microinscricoes.adapter.out.repository.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.*;
 
 import java.io.Serial;
 import java.io.Serializable;
-import java.time.Year;
 
 @Entity
 @Table(name = "torneios")
@@ -23,12 +24,6 @@ public final class TorneioEntity implements Serializable {
 
     @Id
     private Long id;
-
-    @Column(name = "nome", nullable = false)
-    private String nome;
-
-    @Column(name = "ano", nullable = false)
-    private Year ano;
 
 }
 

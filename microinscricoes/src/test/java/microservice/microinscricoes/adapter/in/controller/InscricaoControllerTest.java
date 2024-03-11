@@ -7,7 +7,7 @@ import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.specification.RequestSpecification;
 import microservice.microinscricoes.adapter.in.controller.dto.TorneioIdDto;
-import microservice.microinscricoes.adapter.in.controller.dto.response.InscricaoOpenDtoOut;
+import microservice.microinscricoes.adapter.in.controller.dto.response.InscricaoCreateDtoOut;
 import microservice.microinscricoes.adapter.out.repository.InscricaoRepository;
 import microservice.microinscricoes.adapter.out.repository.TorneioRepository;
 import microservice.microinscricoes.adapter.out.repository.entity.InscricaoEntity;
@@ -89,17 +89,17 @@ class InscricaoControllerTest extends AbstractIntegrationTest {
 
         @Test
         @DisplayName("persistência")
-        void dadoInscricaoOpenDtoInValido_QuandoOpen_EntaoRetornarDadosPersistidos() throws IOException {
+        void dadoInscricaoCreateDtoInValido_QuandoCreate_EntaoRetornarDadosPersistidos() throws IOException {
 
             var torneioIdDto = new TorneioIdDto(1L);
-            var inscricaoOpenDtoIn = factory.gerarInscricaoCreateDtoInBuilder()
+            var inscricaoCreateDtoIn = factory.gerarInscricaoCreateDtoInBuilder()
                 .torneio(torneioIdDto)
                 .build();
 
             var response = RestAssured
                 .given().spec(requestSpecification)
                     .contentType(TestConfigs.CONTENT_TYPE_JSON)
-                    .body(inscricaoOpenDtoIn)
+                    .body(inscricaoCreateDtoIn)
                 .when()
                     .post()
                 .then()
@@ -109,7 +109,7 @@ class InscricaoControllerTest extends AbstractIntegrationTest {
                     .body()
                         .asString();
 
-            var dtoOut = objectMapper.readValue(response, InscricaoOpenDtoOut.class);
+            var dtoOut = objectMapper.readValue(response, InscricaoCreateDtoOut.class);
             var persistido = inscricaoRepository.findById(dtoOut.getId()).orElseThrow();
 
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");

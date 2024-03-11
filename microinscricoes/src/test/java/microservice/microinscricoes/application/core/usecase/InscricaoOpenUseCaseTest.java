@@ -28,7 +28,7 @@ class InscricaoOpenUseCaseTest extends AbstractIntegrationTest {
     private final FactoryObjectMother factory = FactoryObjectMother.singleton();
 
     @InjectMocks
-    private InscricaoCreateUseCase inscricaoOpenUseCase;
+    private InscricaoCreateUseCase inscricaoCreateUseCase;
 
     private InscricaoSaveOutputPort inscricaoSaveOutputPort;
 
@@ -42,7 +42,7 @@ class InscricaoOpenUseCaseTest extends AbstractIntegrationTest {
     void setUp() {
         this.inscricaoSaveOutputPort = Mockito.mock(InscricaoSaveAdapter.class);
         this.torneioFindByIdOutputPort = Mockito.mock(TorneioFindByIdAdapter.class);
-        this.inscricaoOpenUseCase = new InscricaoCreateUseCase(inscricaoSaveOutputPort, torneioFindByIdOutputPort);
+        this.inscricaoCreateUseCase = new InscricaoCreateUseCase(inscricaoSaveOutputPort, torneioFindByIdOutputPort);
 
         this.inscricao = this.factory.gerarInscricao();
         this.torneio = inscricao.getTorneio();
@@ -54,8 +54,8 @@ class InscricaoOpenUseCaseTest extends AbstractIntegrationTest {
 
         @Test
         @DisplayName("nulo")
-        void dadoInscricaoNula_QuandoOpen_EntaoLancarException() {
-            Executable acao = () -> inscricaoOpenUseCase.create(null);
+        void dadoInscricaoNula_QuandoCreate_EntaoLancarException() {
+            Executable acao = () -> inscricaoCreateUseCase.create(null);
             Assertions.assertThrows(NoSuchElementException.class, acao);
             Mockito.verifyNoInteractions(torneioFindByIdOutputPort);
             Mockito.verifyNoInteractions(inscricaoSaveOutputPort);
@@ -69,7 +69,7 @@ class InscricaoOpenUseCaseTest extends AbstractIntegrationTest {
 
         @Test
         @DisplayName("padrão")
-        void dadoInscricaoValida_QuandoOpen_EntaoRetornarInscricaoSalva() {
+        void dadoInscricaoValida_QuandoCreate_EntaoRetornarInscricaoSalva() {
             inscricao.setId(1L);
 
             Mockito.when(torneioFindByIdOutputPort.findById(Mockito.anyLong()))
@@ -78,7 +78,7 @@ class InscricaoOpenUseCaseTest extends AbstractIntegrationTest {
             Mockito.when(inscricaoSaveOutputPort.save(Mockito.any()))
                 .thenReturn(inscricao);
 
-            var result = inscricaoOpenUseCase.create(inscricao);
+            var result = inscricaoCreateUseCase.create(inscricao);
 
             Assertions.assertNotNull(result.getId());
         }
