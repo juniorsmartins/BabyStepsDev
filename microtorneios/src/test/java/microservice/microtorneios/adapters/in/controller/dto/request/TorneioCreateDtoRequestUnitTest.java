@@ -2,7 +2,6 @@ package microservice.microtorneios.adapters.in.controller.dto.request;
 
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validator;
-import microservice.microtorneios.adapters.in.controller.dto.TimeIdDto;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -85,32 +84,5 @@ class TorneioCreateDtoRequestUnitTest extends AbstractTestcontainersTest {
         }
     }
 
-    @Nested
-    @DisplayName("Times")
-    class Times {
-
-        @Test
-        @DisplayName("id nulo")
-        void dadoTimeComIdNulo_quandoInstanciar_entaoLancarException() {
-        var dtoRequest = factory.gerarTorneioCreateDtoRequestBuilder()
-            .times(Set.of(new TimeIdDto(null)))
-            .build();
-
-            Set<ConstraintViolation<TorneioCreateDtoRequest>> violations = validator.validate(dtoRequest);
-            Assertions.assertEquals(1, violations.size());
-        }
-
-        @ParameterizedTest
-        @ValueSource(longs = {-1, 0})
-        @DisplayName("negativo ou zero")
-        void dadoTimeComIdNegativoOuZero_quandoInstanciar_entaoLancarException(long valor) {
-            var dtoRequest = factory.gerarTorneioCreateDtoRequestBuilder()
-                .times(Set.of(new TimeIdDto(valor)))
-                .build();
-
-            Set<ConstraintViolation<TorneioCreateDtoRequest>> violations = validator.validate(dtoRequest);
-            Assertions.assertFalse(violations.isEmpty());
-        }
-    }
 }
 

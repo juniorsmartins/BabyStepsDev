@@ -1,7 +1,6 @@
 package microservice.microtorneios.adapters.out;
 
 import microservice.microtorneios.adapters.mapper.MapperOut;
-import microservice.microtorneios.adapters.out.repository.TimeRepository;
 import microservice.microtorneios.adapters.out.repository.TorneioRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -27,9 +26,6 @@ class TorneioSaveAdapterUnitTest extends AbstractTestcontainersTest {
     private TorneioRepository torneioRepository;
 
     @Mock
-    private TimeRepository timeRepository;
-
-    @Mock
     private MapperOut mapperOut;
 
     @InjectMocks
@@ -41,7 +37,6 @@ class TorneioSaveAdapterUnitTest extends AbstractTestcontainersTest {
         Executable acao = () -> this.torneioSaveAdapter.save(null);
         Assertions.assertThrows(NoSuchElementException.class, acao);
         Mockito.verifyNoInteractions(this.torneioRepository);
-        Mockito.verifyNoInteractions(this.timeRepository);
         Mockito.verifyNoInteractions(this.mapperOut);
     }
 }

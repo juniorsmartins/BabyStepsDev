@@ -39,13 +39,5 @@ class TorneioCreateUseCaseUnitTest extends AbstractTestcontainersTest {
         Mockito.verifyNoInteractions(this.notifyCreationOfNewTorneioOutputPort);
     }
 
-//    @Test
-//    @DisplayName("notificação nula")
-//    void dadoTorneioNulo_quandoNotifyCreationOfNewTorneio_entaoLancarException() {
-//        Mockito.when(this.torneioSaveAdapter.save(Mockito.any())).thenReturn(null);
-//
-//        Executable acao = () -> this.torneioCreateUseCase.create(new Torneio());
-//        Assertions.assertThrows(NullValueException.class, acao);
-//    }
 }
 
