@@ -2,6 +2,7 @@ package microservice.microtorneios.adapters.out.repository.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import microservice.microtorneios.adapters.out.repository.entity.value_object.TimeVo;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -32,11 +33,11 @@ public final class TorneioEntity implements Serializable {
     @Column(name = "ano", nullable = false)
     private Year ano;
 
-    @ManyToMany
-    @JoinTable(name = "torneio_time",
-        joinColumns = @JoinColumn(name = "torneio_id"),
-        inverseJoinColumns = @JoinColumn(name = "time_id")
-    )
-    private Set<TimeEntity> times;
+    @ElementCollection
+    @CollectionTable(name = "torneio_times",
+        joinColumns = @JoinColumn(name = "torneio_id"))
+    @Column(name = "times")
+    private Set<TimeVo> times;
+
 }
 

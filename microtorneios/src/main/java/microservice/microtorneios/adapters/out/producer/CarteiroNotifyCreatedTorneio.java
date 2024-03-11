@@ -2,7 +2,8 @@ package microservice.microtorneios.adapters.out.producer;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import microservice.microtorneios.adapters.utils.EncapsulateEvent;
+import microservice.microtorneios.adapters.out.producer.dto.TorneioIdDto;
+import microservice.microtorneios.adapters.out.producer.event.EventCreateTorneio;
 import microservice.microtorneios.adapters.utils.JsonUtil;
 import microservice.microtorneios.application.core.domain.Torneio;
 import microservice.microtorneios.application.port.output.CarteiroNotifyCreatedTorneioOutputPort;
@@ -20,8 +21,6 @@ public class CarteiroNotifyCreatedTorneio implements CarteiroNotifyCreatedTornei
 
     private final KafkaTemplate<String, String> kafkaTemplate;
 
-    private final EncapsulateEvent encapsulateEvent;
-
     private final JsonUtil jsonUtil;
 
     @Value("${spring.kafka.topic.torneio-save}")
@@ -31,9 +30,17 @@ public class CarteiroNotifyCreatedTorneio implements CarteiroNotifyCreatedTornei
     public void sendEvent(Torneio torneio) {
 
         Optional.ofNullable(torneio)
-            .map(this.encapsulateEvent::toEventCreateTorneio)
+            .map(this::toEventCreateTorneio)
             .map(this.jsonUtil::toJson)
             .ifPresentOrElse(this::dispatch, () -> {throw new CarteiroFailSendLetterException();});
+    }
+
+    public EventCreateTorneio toEventCreateTorneio(Torneio torneio) {
+
+        return Optional.ofNullable(torneio)
+            .map(tournament -> new TorneioIdDto(tournament.getId()))
+            .map(EventCreateTorneio::new)
+            .orElseThrow();
     }
 
     private void dispatch(String payload) {
@@ -45,5 +52,6 @@ public class CarteiroNotifyCreatedTorneio implements CarteiroNotifyCreatedTornei
             log.error("Carteiro falha na tentativa de despachar para o tópico {}, com o conteúdo {}", torneioSaveTopic, payload, ex);
         }
     }
+
 }
 

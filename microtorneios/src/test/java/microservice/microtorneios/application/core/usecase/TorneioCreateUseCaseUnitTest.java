@@ -2,6 +2,7 @@ package microservice.microtorneios.application.core.usecase;
 
 import microservice.microtorneios.adapters.out.TorneioSaveAdapter;
 import microservice.microtorneios.application.port.output.CarteiroNotifyCreatedTorneioOutputPort;
+import microservice.microtorneios.config.exception.http_500.NullValueException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -14,8 +15,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import utility.AbstractTestcontainersTest;
-
-import java.util.NoSuchElementException;
 
 @SpringBootTest
 @ExtendWith({SpringExtension.class, MockitoExtension.class})
@@ -35,9 +34,10 @@ class TorneioCreateUseCaseUnitTest extends AbstractTestcontainersTest {
     @DisplayName("nulo")
     void dadoTorneioNulo_quandoCreate_entaoLancarException() {
         Executable acao = () -> this.torneioCreateUseCase.create(null);
-        Assertions.assertThrows(NoSuchElementException.class, acao);
+        Assertions.assertThrows(NullValueException.class, acao);
         Mockito.verifyNoInteractions(this.torneioSaveAdapter);
         Mockito.verifyNoInteractions(this.notifyCreationOfNewTorneioOutputPort);
     }
+
 }
 

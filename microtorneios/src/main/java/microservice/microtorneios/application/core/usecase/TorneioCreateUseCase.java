@@ -4,10 +4,10 @@ import microservice.microtorneios.application.core.domain.Torneio;
 import microservice.microtorneios.application.port.input.TorneioCreateInputPort;
 import microservice.microtorneios.application.port.output.CarteiroNotifyCreatedTorneioOutputPort;
 import microservice.microtorneios.application.port.output.TorneioSaveOutputPort;
+import microservice.microtorneios.config.exception.http_500.NullValueException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.NoSuchElementException;
 import java.util.Optional;
 
 public class TorneioCreateUseCase implements TorneioCreateInputPort {
@@ -32,7 +32,7 @@ public class TorneioCreateUseCase implements TorneioCreateInputPort {
         var torneioSaved = Optional.ofNullable(torneio)
             .map(this.torneioSaveOutputPort::save)
             .map(this::notifyCreationOfNewTorneio)
-            .orElseThrow();
+            .orElseThrow(NullValueException::new);
 
         log.info("Serviço finalizado para criar novo torneio: {}.", torneioSaved);
 
@@ -43,7 +43,7 @@ public class TorneioCreateUseCase implements TorneioCreateInputPort {
 
         Optional.ofNullable(torneio)
             .ifPresentOrElse(this.notifyCreatedTorneioOutputPort::sendEvent,
-                () -> {throw new NoSuchElementException();}
+                () -> {throw new NullValueException();}
             );
 
         return torneio;
