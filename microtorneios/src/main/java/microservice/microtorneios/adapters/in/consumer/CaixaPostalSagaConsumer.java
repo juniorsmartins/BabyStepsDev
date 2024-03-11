@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import microservice.microtorneios.adapters.mapper.MapperIn;
 import microservice.microtorneios.adapters.utils.JsonUtil;
-import microservice.microtorneios.application.port.input.SagaEventValidationInputPort;
+import microservice.microtorneios.application.port.input.SagaEventInputPort;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
@@ -15,7 +15,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class CaixaPostalSagaConsumer {
 
-    private final SagaEventValidationInputPort sagaEventValidationInputPort;
+    private final SagaEventInputPort sagaEventValidationInputPort;
 
     private final JsonUtil jsonUtil;
 
@@ -42,7 +42,7 @@ public class CaixaPostalSagaConsumer {
         groupId = "${spring.kafka.consumer.group-id}",
         topics = "${spring.kafka.topic.torneio-fail}"
     )
-    public void consumeFailEvent(String payload) {
+    public void consumeFailSagaEvent(String payload) {
         log.info("Receiving rollback event {} from torneio-fail topic.", payload);
         var event = jsonUtil.toSagaEventRequest(payload);
         log.info(event.toString());

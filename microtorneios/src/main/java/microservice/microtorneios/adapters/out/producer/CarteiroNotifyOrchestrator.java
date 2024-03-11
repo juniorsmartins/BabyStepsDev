@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @Component
 @RequiredArgsConstructor
-public class KafkaProducer {
+public class CarteiroNotifyOrchestrator {
 
     private final KafkaTemplate<String, String> kafkaTemplate;
 
@@ -18,11 +18,11 @@ public class KafkaProducer {
 
     public void sendEvent(String payload) {
         try {
-            log.info("Sending event to topic {} with data {}", orchestratorTopic, payload);
+            log.info("Enviando evento para tópico {} com payload {}", orchestratorTopic, payload);
             kafkaTemplate.send(orchestratorTopic, payload);
 
         } catch (Exception ex) {
-            log.error("Error trying to send data to topic {} with data {}", orchestratorTopic, payload, ex);
+            log.error("Erro ao tentar enviar dados para o tópico {} com payload {}", orchestratorTopic, payload, ex);
         }
     }
 }

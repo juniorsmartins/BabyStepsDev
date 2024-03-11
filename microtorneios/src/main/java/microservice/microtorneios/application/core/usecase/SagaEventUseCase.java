@@ -3,18 +3,15 @@ package microservice.microtorneios.application.core.usecase;
 import microservice.microtorneios.adapters.mapper.MapperIn;
 import microservice.microtorneios.adapters.utils.JsonUtil;
 import microservice.microtorneios.application.core.domain.SagaEvent;
-import microservice.microtorneios.application.port.input.SagaEventValidationInputPort;
+import microservice.microtorneios.application.port.input.SagaEventInputPort;
 import microservice.microtorneios.config.exception.http_409.SagaEventNullValueNotAllowedException;
-import microservice.microtorneios.config.exception.http_409.SagaEventValidationDuplicationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.ObjectUtils;
 
-import java.util.Optional;
+public class SagaEventUseCase implements SagaEventInputPort {
 
-public class SagaEventValidationUseCase implements SagaEventValidationInputPort {
-
-    private static final Logger log = LoggerFactory.getLogger(SagaEventValidationUseCase.class);
+    private static final Logger log = LoggerFactory.getLogger(SagaEventUseCase.class);
 
     private static final String CURRENT_SOURCE = "TORNEIO-VALIDATION-SUCCESS";
 
@@ -22,7 +19,7 @@ public class SagaEventValidationUseCase implements SagaEventValidationInputPort 
 
     private final JsonUtil jsonUtil;
 
-    public SagaEventValidationUseCase(MapperIn mapperIn, JsonUtil jsonUtil) {
+    public SagaEventUseCase(MapperIn mapperIn, JsonUtil jsonUtil) {
         this.mapperIn = mapperIn;
         this.jsonUtil = jsonUtil;
     }
