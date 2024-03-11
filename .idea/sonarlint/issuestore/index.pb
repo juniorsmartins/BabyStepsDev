@@ -903,3 +903,7 @@ kmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/in/consumer/
 xmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/in/controller/dto/response/InscricaoCreateDtoOut.java,f/b/fbc5576ab564b96a9909add914a5c3bb5b183317
 “
 cmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/in/controller/dto/TimeIdDto.java,7/a/7a734b7f70f1c7805c78dc1682e71379e76e4c82
+›
+kmicrotorneios/src/main/java/microservice/microtorneios/adapters/in/consumer/CaixaPostalTorneioConsumer.java,5/d/5d01d332e21f0ac65dde1436a67384428c3f0e88
+˜
+hmicrotorneios/src/main/java/microservice/microtorneios/adapters/in/consumer/CaixaPostalSagaConsumer.java,b/2/b2814116769a4a52120b07bc56c5d0896c2a3232
