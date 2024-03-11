@@ -2,7 +2,7 @@ package microservice.microtimes.application.core.usecase;
 
 import microservice.microtimes.application.core.domain.Time;
 import microservice.microtimes.application.port.input.TimeCreateInputPort;
-import microservice.microtimes.application.port.output.NotifyCreateTimeOutputPort;
+import microservice.microtimes.application.port.output.CarteiroNotifyCreatedTimeOutputPort;
 import microservice.microtimes.application.port.output.TimeSaveOutputPort;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,10 +16,10 @@ public class TimeCreateUseCase implements TimeCreateInputPort {
 
     private final TimeSaveOutputPort timeSaveOutputPort;
 
-    private final NotifyCreateTimeOutputPort notifyCreateTimeOutputPort;
+    private final CarteiroNotifyCreatedTimeOutputPort notifyCreateTimeOutputPort;
 
     public TimeCreateUseCase(TimeSaveOutputPort timeSaveOutputPort,
-                             NotifyCreateTimeOutputPort notifyCreateTimeOutputPort) {
+                             CarteiroNotifyCreatedTimeOutputPort notifyCreateTimeOutputPort) {
         this.timeSaveOutputPort = timeSaveOutputPort;
         this.notifyCreateTimeOutputPort = notifyCreateTimeOutputPort;
     }

@@ -3,6 +3,7 @@ package microservice.microtimes.config.exception;
 import lombok.RequiredArgsConstructor;
 import microservice.microtimes.config.exception.http_404.RecursoNotFoundException;
 import microservice.microtimes.config.exception.http_409.BusinessRuleViolationException;
+import microservice.microtimes.config.exception.http_500.InternalServerFailureException;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.http.*;
@@ -90,17 +91,18 @@ public class ExceptionGlobalHandler extends ResponseEntityExceptionHandler {
             .body(problemDetail);
     }
 
-
-    @ExceptionHandler(ValidationException.class)
-    public ResponseEntity<ProblemDetail> handleValidationException(ValidationException ex) {
-
-        var problemDetail = ProblemDetail.forStatus(HttpStatus.BAD_REQUEST);
-        problemDetail.setTitle(ex.getMessage());
-        problemDetail.setType(URI.create("https://babystepsdev.com/erros/campos-invalidos"));
+    @ExceptionHandler(InternalServerFailureException.class)
+    public ResponseEntity<ProblemDetail> handleInternalServerFailure(InternalServerFailureException ex,
+                                                                     WebRequest webRequest) {
+        // ProblemDetail RFC 7807
+        ProblemDetail problemDetail = ProblemDetail.forStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+        problemDetail.setType(URI.create("https://babystepsdev.com/erros/erro-interno-servidor"));
+        problemDetail.setTitle(this.getMessage(ex.getMessageKey()));
 
         return ResponseEntity
-            .badRequest()
+            .status(HttpStatus.INTERNAL_SERVER_ERROR)
             .body(problemDetail);
     }
+
 }
 

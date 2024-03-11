@@ -35,7 +35,7 @@ public class CarteiroNotifyCreatedTorneioProducer implements CarteiroNotifyCreat
             .ifPresentOrElse(this::dispatch, () -> {throw new CarteiroFailSendLetterException();});
     }
 
-    public EventCreateTorneio toEventCreateTorneio(Torneio torneio) {
+    private EventCreateTorneio toEventCreateTorneio(final Torneio torneio) {
 
         return Optional.ofNullable(torneio)
             .map(tournament -> new TorneioIdDto(tournament.getId()))
@@ -46,7 +46,7 @@ public class CarteiroNotifyCreatedTorneioProducer implements CarteiroNotifyCreat
     private void dispatch(String payload) {
         try {
             log.info("Carteiro despacha para o tópico {}, com o conteúdo {}", torneioSaveTopic, payload);
-            kafkaTemplate.send(torneioSaveTopic, payload);
+            this.kafkaTemplate.send(torneioSaveTopic, payload);
 
         } catch (Exception ex) {
             log.error("Carteiro falha na tentativa de despachar para o tópico {}, com o conteúdo {}", torneioSaveTopic, payload, ex);
