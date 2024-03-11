@@ -6,7 +6,7 @@ import java.io.Serial;
 
 @Getter
 public abstract sealed class InternalServerFailureException extends RuntimeException permits
-    CarteiroFailSendLetterException {
+    CarteiroFailSendLetterException, NullValueException {
 
     @Serial
     private static final long serialVersionUID = 1L;
