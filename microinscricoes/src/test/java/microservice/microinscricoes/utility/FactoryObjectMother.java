@@ -73,19 +73,13 @@ public final class FactoryObjectMother {
     // Padrão JavaBeans
     public Torneio gerarTorneio() {
 
-        var torneio = new Torneio();
-        torneio.setNome(faker.lorem().characters(10, 30));
-        torneio.setAno(Year.of(faker.number().numberBetween(1900, 2024)));
-
-        return torneio;
+        return new Torneio();
     }
 
     // Padrão Builder
     public TorneioEntity.TorneioEntityBuilder gerarTorneioEntityBuilder() {
 
-        return TorneioEntity.builder()
-            .nome(faker.lorem().characters(10, 30))
-            .ano(Year.of(faker.number().numberBetween(1900, 2024)));
+        return TorneioEntity.builder();
     }
 
 }
