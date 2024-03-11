@@ -907,3 +907,9 @@ cmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/in/controlle
 kmicrotorneios/src/main/java/microservice/microtorneios/adapters/in/consumer/CaixaPostalTorneioConsumer.java,5/d/5d01d332e21f0ac65dde1436a67384428c3f0e88
 ˜
 hmicrotorneios/src/main/java/microservice/microtorneios/adapters/in/consumer/CaixaPostalSagaConsumer.java,b/2/b2814116769a4a52120b07bc56c5d0896c2a3232
+•
+emicrotorneios/src/main/java/microservice/microtorneios/application/core/usecase/SagaEventUseCase.java,3/2/32c3d26df107ac865242edb54b97a0edc90a323b
+•
+emicrotorneios/src/main/java/microservice/microtorneios/application/port/input/SagaEventInputPort.java,b/9/b9e5773a7b1d443fe0955af0053befc558f841e7
+œ
+lmicrotorneios/src/main/java/microservice/microtorneios/adapters/out/producer/CarteiroNotifyOrchestrator.java,e/d/ed100db97409a7446bc017905410e67ee25ac291
