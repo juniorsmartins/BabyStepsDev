@@ -27,6 +27,10 @@ public interface MapperIn {
 
     TorneioCreateDtoResponse toTorneioCreateDtoResponse(Torneio torneio);
 
+    Time toTime(TimeIdDto timeIdDto);
+
+    TimeIdDto toTimeIdDto(Time time);
+
     @Mapping(source = "id", target = "sagaEventId")
     @Mapping(source = "status", target = "status", qualifiedByName = "converterStringParaEnumSagaStatus")
     SagaEvent toSagaEvent(SagaEventRequest sagaEventRequest);
@@ -41,10 +45,6 @@ public interface MapperIn {
         }
         return ESagaStatus.fromValue(status);
     }
-
-    Time toTime(TimeIdDto timeIdDto);
-
-    TimeIdDto toTimeIdDto(Time time);
 
 }
 

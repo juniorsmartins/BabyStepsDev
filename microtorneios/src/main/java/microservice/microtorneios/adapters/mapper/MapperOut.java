@@ -1,7 +1,7 @@
 package microservice.microtorneios.adapters.mapper;
 
-import microservice.microtorneios.adapters.out.repository.entity.TimeEntity;
 import microservice.microtorneios.adapters.out.repository.entity.TorneioEntity;
+import microservice.microtorneios.adapters.out.repository.entity.value_object.TimeVo;
 import microservice.microtorneios.application.core.domain.Time;
 import microservice.microtorneios.application.core.domain.Torneio;
 import org.mapstruct.Mapper;
@@ -13,8 +13,8 @@ public interface MapperOut {
 
     Torneio toTorneio(TorneioEntity torneioEntity);
 
-    TimeEntity toTimeEntity(Time time);
+    TimeVo toTimeVo(Time time);
 
-    Time toTime(TimeEntity timeEntity);
+    Time toTime(TimeVo timeVo);
 }
 
