@@ -886,3 +886,5 @@ pmicrotorneios/src/main/java/microservice/microtorneios/config/exception/http_40
 ymicrotorneios/src/main/java/microservice/microtorneios/config/exception/http/SagaEventValidationDuplicationException.java,e/0/e053ebbada847989a58c1c81ec329ca7027ea4c6
 œ
 lmicrotorneios/src/main/java/microservice/microtorneios/config/exception/http/SagaEventNotFoundException.java,6/9/698fa147753dabbf53bd5b7a1cbe0f645e910ae2
+§
+wmicrotimes/src/main/java/microservice/microtimes/config/exception/http_409/SagaEventValidationDuplicationException.java,0/c/0c03d2c122b326280b0ee9d316c3e3f034ee1766

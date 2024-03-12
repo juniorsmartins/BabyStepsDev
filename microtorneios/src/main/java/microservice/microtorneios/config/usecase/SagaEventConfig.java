@@ -5,6 +5,7 @@ import microservice.microtorneios.adapters.out.TorneioFindAdapter;
 import microservice.microtorneios.adapters.out.TorneioSaveAdapter;
 import microservice.microtorneios.adapters.out.producer.CarteiroNotifyOrchestratorProducer;
 import microservice.microtorneios.adapters.utils.JsonUtil;
+import microservice.microtorneios.application.core.usecase.SagaEventUseCase;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
