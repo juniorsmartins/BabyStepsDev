@@ -1,6 +1,5 @@
 package microservice.microtorneios.application.core.usecase;
 
-import microservice.microtorneios.adapters.in.consumer.event.SagaEventRequest;
 import microservice.microtorneios.adapters.mapper.MapperIn;
 import microservice.microtorneios.adapters.utils.JsonUtil;
 import microservice.microtorneios.application.core.domain.History;
@@ -13,7 +12,6 @@ import microservice.microtorneios.application.port.output.TorneioFindOutputPort;
 import microservice.microtorneios.application.port.output.TorneioSaveOutputPort;
 import microservice.microtorneios.config.exception.http.SagaEventDuplicateException;
 import microservice.microtorneios.config.exception.http.SagaEventNullValueException;
-import microservice.microtorneios.config.exception.http_404.TimeNotFoundException;
 import microservice.microtorneios.config.exception.http_404.TorneioNotFoundException;
 import microservice.microtorneios.config.exception.http_500.NullValueException;
 import org.slf4j.Logger;
