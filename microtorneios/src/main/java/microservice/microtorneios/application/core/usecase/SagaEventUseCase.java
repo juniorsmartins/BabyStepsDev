@@ -14,6 +14,7 @@ import microservice.microtorneios.application.port.output.TorneioSaveOutputPort;
 import microservice.microtorneios.config.exception.http.SagaEventDuplicateException;
 import microservice.microtorneios.config.exception.http.SagaEventNullValueException;
 import microservice.microtorneios.config.exception.http_404.TimeNotFoundException;
+import microservice.microtorneios.config.exception.http_404.TorneioNotFoundException;
 import microservice.microtorneios.config.exception.http_500.NullValueException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -69,7 +70,7 @@ public class SagaEventUseCase implements SagaEventInputPort {
             this.addTime(event);
             this.handleSuccess(event);
 
-        } catch (SagaEventNullValueException | TimeNotFoundException | SagaEventDuplicateException ex) {
+        } catch (SagaEventNullValueException | TorneioNotFoundException | SagaEventDuplicateException ex) {
             log.error("Erro: {}", ex.getMessage(), ex);
             this.handleFail(event, ex.getMessage());
         }
