@@ -8,7 +8,7 @@ public final class SagaEventDuplicateException extends RuntimeException {
     private static final long serialVersionUID = 1L;
 
     public SagaEventDuplicateException(final Long id) {
-        super(String.format( "O SagaEvent tentou inscrever Time, com Id: %d, já inscrito no Torneio.", id));
+        super(String.format( "O SagaEvent cometeu duplicação ao tentar inscrever Time, com Id: %d, pela segunda vez no mesmo Torneio.", id));
     }
 }
 
