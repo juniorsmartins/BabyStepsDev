@@ -11,8 +11,8 @@ import microservice.microtimes.application.port.output.SagaEventExistsOutputPort
 import microservice.microtimes.application.port.output.SagaEventFindOutputPort;
 import microservice.microtimes.application.port.output.SagaEventSaveOutputPort;
 import microservice.microtimes.application.port.output.SagaEventOrchestratorOutputPort;
-import microservice.microtimes.config.exception.http_409.SagaEventNullValueNotAllowedException;
-import microservice.microtimes.config.exception.http_409.SagaEventValidationDuplicationException;
+import microservice.microtimes.config.exception.http.SagaEventNullValueException;
+import microservice.microtimes.config.exception.http.SagaEventDuplicationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.ObjectUtils;
@@ -66,7 +66,7 @@ public class SagaEventUseCase implements SagaEventInputPort {
                     this.sagaEventSaveOutputPort.save(model);
                     handleSuccess(event);
 
-                } catch (SagaEventNullValueNotAllowedException | SagaEventValidationDuplicationException ex) {
+                } catch (SagaEventNullValueException | SagaEventDuplicationException ex) {
                     log.error("Erro: {}", ex.getMessage(), ex);
                     handleFailCurrentNotExecuted(sagaEvent, ex.getMessage());
                 }
@@ -82,14 +82,14 @@ public class SagaEventUseCase implements SagaEventInputPort {
 
     private void checkExistenceMandatoryValues(SagaEvent event) {
         if (ObjectUtils.isEmpty(event.getSagaEventId()) || ObjectUtils.isEmpty(event.getTransactionId())) {
-            throw new SagaEventNullValueNotAllowedException();
+            throw new SagaEventNullValueException();
         }
     }
 
     private void checkExistenceValidationDuplication(SagaEvent event) {
         var exists = this.sagaEventExistsOutputPort.existsDuplication(event.getSagaEventId(), event.getTransactionId());
         if (exists) {
-            throw new SagaEventValidationDuplicationException();
+            throw new SagaEventDuplicationException();
         }
     }
 

@@ -4,7 +4,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import microservice.microtorneios.adapters.mapper.MapperIn;
 import microservice.microtorneios.adapters.utils.JsonUtil;
-import microservice.microtorneios.application.port.input.SagaEventInputPort;
+import microservice.microtorneios.application.port.input.SagaEventFailInputPort;
+import microservice.microtorneios.application.port.input.SagaEventSuccessInputPort;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
@@ -15,7 +16,9 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class CaixaPostalSagaConsumer {
 
-    private final SagaEventInputPort sagaEventInputPort;
+    private final SagaEventSuccessInputPort sagaEventSuccessInputPort;
+
+    private final SagaEventFailInputPort sagaEventFailInputPort;
 
     private final JsonUtil jsonUtil;
 
@@ -27,15 +30,15 @@ public class CaixaPostalSagaConsumer {
     )
     public void consumeSuccessSagaEvent(String payload) {
 
-        log.info("Recebendo evento no tópico de sucesso de validação de Torneio.");
+        log.info("Recebido evento no tópico Torneio-Success para inscrever Time no Torneio.");
 
         var sagaEventSuccess = Optional.ofNullable(payload)
             .map(this.jsonUtil::toSagaEventRequest)
             .map(this.mapperIn::toSagaEvent)
-            .map(this.sagaEventInputPort::addTimeInTorneio)
+            .map(this.sagaEventSuccessInputPort::addTimeInTorneio)
             .orElseThrow();
 
-        log.info("Finalizado evento no tópico de sucesso de validação de Torneio: {}.", sagaEventSuccess);
+        log.info("Finalizado evento no tópico Torneio-Success para inscrever Time no Torneio: {}.", sagaEventSuccess);
     }
 
     @KafkaListener(
@@ -43,9 +46,16 @@ public class CaixaPostalSagaConsumer {
         topics = "${spring.kafka.topic.torneio-fail}"
     )
     public void consumeFailSagaEvent(String payload) {
-        log.info("Receiving rollback event {} from torneio-fail topic.", payload);
-        var event = jsonUtil.toSagaEventRequest(payload);
-        log.info(event.toString());
+
+        log.info("Recebido evento no tópico Torneio-Fail para remover Time do Torneio.");
+
+        var sagaEventFail = Optional.ofNullable(payload)
+            .map(this.jsonUtil::toSagaEventRequest)
+            .map(this.mapperIn::toSagaEvent)
+            .map(this.sagaEventFailInputPort::rollbackEvent)
+            .orElseThrow();
+
+        log.info("Finalizado evento no tópico Torneio-Fail para remover Time do Torneio: {}.", sagaEventFail);
     }
 }
 
