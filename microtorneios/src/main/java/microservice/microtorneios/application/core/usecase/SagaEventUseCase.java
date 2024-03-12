@@ -52,14 +52,14 @@ public class SagaEventUseCase implements SagaEventInputPort {
     @Override
     public SagaEvent addTimeInTorneio(SagaEvent sagaEvent) {
 
-        log.info("Iniciado serviço para adicionar Time ao Torneio.");
+        log.info("Iniciado serviço para inscrever Time no Torneio.");
 
         var sagaEventConclusion = Optional.ofNullable(sagaEvent)
             .map(this::sagaProcess)
             .map(this::sagaResponseOrchestrator)
             .orElseThrow();
 
-        log.info("Finalizado serviço para adicionar Time ao Torneio. Veja o evento: {}", sagaEventConclusion);
+        log.info("Finalizado serviço para inscrever Time no Torneio. Veja o evento: {}", sagaEventConclusion);
 
         return sagaEventConclusion;
     }
@@ -122,7 +122,7 @@ public class SagaEventUseCase implements SagaEventInputPort {
     private void handleFail(SagaEvent event, String message) {
         event.setStatus(ESagaStatus.ROLLBACK_PENDING);
         event.setSource(CURRENT_SOURCE);
-        this.addHistory(event, "Falha na inscrever Time no Torneio: ".concat(message));
+        this.addHistory(event, "Falha ao inscrever Time no Torneio: ".concat(message));
     }
 
     private SagaEvent sagaResponseOrchestrator(SagaEvent event) {

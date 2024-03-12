@@ -663,8 +663,6 @@ Nmicrotimes/src/main/java/microservice/microtimes/adapter/mapper/MapperOut.java
 ]microtimes/src/main/java/microservice/microtimes/application/core/domain/ValidationModel.java,2/0/20f58865fbbeb0e588712fddefe8d7a99d6137ba
 Ñ
 Tmicrotimes/src/main/java/microservice/microtimes/config/usecase/SagaEventConfig.java,e/6/e6e141f251127ca3998f535bbc241a63b95fadfc
-•
-umicrotimes/src/main/java/microservice/microtimes/config/exception/http_409/SagaEventNullValueNotAllowedException.java,f/6/f6291d76dd6f0b2d32ab1af291f73734d9dd6161
 ó
 gmicrotimes/src/main/java/microservice/microtimes/application/port/output/SagaEventExistsOutputPort.java,f/c/fca40e53103959710b58933c96161326743c2d04
 à
@@ -777,10 +775,6 @@ emicrotorneios/src/main/java/microservice/microtorneios/application/core/domain/
 }microtorneios/src/main/java/microservice/microtorneios/config/exception/http_409/ConversionEnumSagaStatusFailedException.java,4/7/474b9ddedd4e50dda1bb0386a9f0dcb44410813d
 §
 tmicrotorneios/src/main/java/microservice/microtorneios/config/exception/http_409/BusinessRuleViolationException.java,6/4/6481079cc79e8e434adba6be27e04bc03eff4cd7
-´
-{microtorneios/src/main/java/microservice/microtorneios/config/exception/http_409/SagaEventNullValueNotAllowedException.java,2/1/210d0e516b7b8f83d77b9e47cd9ff921f37dae1d
-≠
-}microtorneios/src/main/java/microservice/microtorneios/config/exception/http_409/SagaEventValidationDuplicationException.java,8/b/8bf8cf41bec4f4efe360a1c3cc12b8067d39ad5d
 ®
 xmicrotorneios/src/main/java/microservice/microtorneios/adapters/in/controller/dto/response/TorneioCreateDtoResponse.java,2/f/2fe63eaaf09df121183d64eb74b264733c1c8538
 ¶
@@ -883,13 +877,7 @@ smicrotorneios/src/main/java/microservice/microtorneios/application/port/output/
 mmicrotimes/src/main/java/microservice/microtimes/application/port/output/SagaEventOrchestratorOutputPort.java,e/2/e23bbf90c9af68f639ee6c969384bf6fef569ad2
 ù
 mmicrotimes/src/main/java/microservice/microtimes/adapter/out/producer/CarteiroNotifyOrchestratorProducer.java,c/6/c607a5f6aa499b367da8534b2e4ebe3eaeba205e
-°
-qmicrotorneios/src/main/java/microservice/microtorneios/config/exception/http_400/InscricaoDuplicateException.java,1/d/1d71a53e0ee064f023ccfb4459678db622d23f27
-†
-pmicrotorneios/src/main/java/microservice/microtorneios/config/exception/http_400/InscritoDuplicateException.java,8/1/81bb357bedde7b17353e8aa4709787690105de63
-©
-ymicrotorneios/src/main/java/microservice/microtorneios/config/exception/http/SagaEventValidationDuplicationException.java,e/0/e053ebbada847989a58c1c81ec329ca7027ea4c6
 ú
 lmicrotorneios/src/main/java/microservice/microtorneios/config/exception/http/SagaEventNotFoundException.java,6/9/698fa147753dabbf53bd5b7a1cbe0f645e910ae2
-ß
-wmicrotimes/src/main/java/microservice/microtimes/config/exception/http_409/SagaEventValidationDuplicationException.java,0/c/0c03d2c122b326280b0ee9d316c3e3f034ee1766
+ù
+mmicrotorneios/src/main/java/microservice/microtorneios/config/exception/http/SagaEventDuplicateException.java,8/1/81833fdf2fbc767d84f818b7c3ca22a49262ac0f

@@ -27,7 +27,7 @@ public class CaixaPostalSagaConsumer {
     )
     public void consumeSuccessSagaEvent(String payload) {
 
-        log.info("Recebendo evento no tópico de sucesso de validação de Torneio.");
+        log.info("Recebido evento no tópico Torneio-Success para inscrever Time no Torneio.");
 
         var sagaEventSuccess = Optional.ofNullable(payload)
             .map(this.jsonUtil::toSagaEventRequest)
@@ -35,7 +35,7 @@ public class CaixaPostalSagaConsumer {
             .map(this.sagaEventInputPort::addTimeInTorneio)
             .orElseThrow();
 
-        log.info("Finalizado evento no tópico de sucesso de validação de Torneio: {}.", sagaEventSuccess);
+        log.info("Finalizado evento no tópico Torneio-Success para inscrever Time no Torneio: {}.", sagaEventSuccess);
     }
 
     @KafkaListener(
