@@ -1,11 +1,9 @@
 package microservice.microtorneios.application.core.domain;
 
-import lombok.ToString;
-
 import java.time.Year;
+import java.util.Objects;
 import java.util.Set;
 
-@ToString
 public final class Torneio {
 
     private Long id;
@@ -48,5 +46,27 @@ public final class Torneio {
         this.times = times;
     }
 
+    @Override
+    public String toString() {
+        return "Torneio{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", ano=" + ano +
+                ", times=" + times +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Torneio torneio = (Torneio) o;
+        return Objects.equals(getId(), torneio.getId());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId());
+    }
 }
 

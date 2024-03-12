@@ -13,6 +13,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @Getter
 @Setter
+@ToString
 @EqualsAndHashCode(of = {"id"})
 public final class TimeEntity implements Serializable {
 
@@ -22,9 +23,6 @@ public final class TimeEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(name = "nome_fantasia", nullable = false)
-    private String nomeFantasia;
 
 }
 

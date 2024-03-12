@@ -5,7 +5,8 @@ import lombok.Getter;
 import java.io.Serial;
 
 @Getter
-public abstract sealed class RecursoNotFoundException extends RuntimeException permits TimeNotFoundException {
+public abstract sealed class RecursoNotFoundException extends RuntimeException permits TimeNotFoundException,
+    TorneioNotFoundException {
 
     @Serial
     private static final long serialVersionUID = 1L;

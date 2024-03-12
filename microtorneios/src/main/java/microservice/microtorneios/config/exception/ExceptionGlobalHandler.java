@@ -3,6 +3,7 @@ package microservice.microtorneios.config.exception;
 import lombok.RequiredArgsConstructor;
 import microservice.microtorneios.config.exception.http_404.RecursoNotFoundException;
 import microservice.microtorneios.config.exception.http_409.BusinessRuleViolationException;
+import microservice.microtorneios.config.exception.http_500.InternalServerFailureException;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.http.*;
@@ -87,6 +88,19 @@ public class ExceptionGlobalHandler extends ResponseEntityExceptionHandler {
 
         return ResponseEntity
             .status(HttpStatus.CONFLICT)
+            .body(problemDetail);
+    }
+
+    @ExceptionHandler(InternalServerFailureException.class)
+    public ResponseEntity<ProblemDetail> handleInternalServerFailure(InternalServerFailureException ex,
+                                                                     WebRequest webRequest) {
+        // ProblemDetail RFC 7807
+        ProblemDetail problemDetail = ProblemDetail.forStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+        problemDetail.setType(URI.create("https://babystepsdev.com/erros/erro-interno-servidor"));
+        problemDetail.setTitle(this.getMessage(ex.getMessageKey()));
+
+        return ResponseEntity
+            .status(HttpStatus.INTERNAL_SERVER_ERROR)
             .body(problemDetail);
     }
 
