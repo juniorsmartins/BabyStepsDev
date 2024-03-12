@@ -15,7 +15,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class CaixaPostalSagaConsumer {
 
-    private final SagaEventInputPort sagaEventValidationInputPort;
+    private final SagaEventInputPort sagaEventInputPort;
 
     private final JsonUtil jsonUtil;
 
@@ -32,7 +32,7 @@ public class CaixaPostalSagaConsumer {
         var sagaEventSuccess = Optional.ofNullable(payload)
             .map(this.jsonUtil::toSagaEventRequest)
             .map(this.mapperIn::toSagaEvent)
-            .map(this.sagaEventValidationInputPort::createValidation)
+            .map(this.sagaEventInputPort::addTimeInTorneio)
             .orElseThrow();
 
         log.info("Finalizado evento no tópico de sucesso de validação de Torneio: {}.", sagaEventSuccess);

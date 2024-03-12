@@ -4,7 +4,7 @@ import microservice.microtorneios.application.core.domain.SagaEvent;
 
 public interface SagaEventInputPort {
 
-    SagaEvent createValidation(SagaEvent sagaEvent);
+    SagaEvent addTimeInTorneio(SagaEvent sagaEvent);
 
     SagaEvent rollbackEvent(SagaEvent event);
 }

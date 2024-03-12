@@ -1,9 +1,8 @@
 package microservice.microinscricoes.adapter.mapper;
 
-import microservice.microinscricoes.adapter.in.consumer.dto.TimeSaveDto;
-import microservice.microinscricoes.adapter.in.controller.dto.TorneioIdDto;
 import microservice.microinscricoes.adapter.in.controller.dto.InscricaoIdDto;
 import microservice.microinscricoes.adapter.in.controller.dto.TimeIdDto;
+import microservice.microinscricoes.adapter.in.controller.dto.TorneioIdDto;
 import microservice.microinscricoes.adapter.in.controller.dto.request.FiltersDtoEvent;
 import microservice.microinscricoes.adapter.in.controller.dto.request.InscricaoCreateDtoIn;
 import microservice.microinscricoes.adapter.in.controller.dto.request.InscricaoFiltroDto;
@@ -64,8 +63,6 @@ public interface MapperIn {
     TorneioIdDto toTorneioIdDto(Torneio torneio);
 
     Torneio toTorneio(TorneioIdDto torneioIdDto);
-
-    Time toTime(TimeSaveDto timeSaveDto);
 
     Time toTime(TimeIdDto timeIdDto);
 

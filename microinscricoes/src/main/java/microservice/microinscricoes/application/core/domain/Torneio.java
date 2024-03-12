@@ -12,5 +12,12 @@ public final class Torneio {
         this.id = id;
     }
 
+    @Override
+    public String toString() {
+        return "Torneio{" +
+                "id=" + id +
+                '}';
+    }
+
 }
 

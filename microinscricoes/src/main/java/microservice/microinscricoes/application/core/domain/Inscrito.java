@@ -85,5 +85,19 @@ public final class Inscrito {
     public void setCreatedAt(OffsetDateTime createdAt) {
         this.createdAt = createdAt;
     }
+
+    @Override
+    public String toString() {
+        return "Inscrito{" +
+                "id=" + id +
+                ", inscricao=" + inscricao +
+                ", time=" + time +
+                ", numeroBanco=" + numeroBanco +
+                ", numeroAgencia=" + numeroAgencia +
+                ", numeroCartao=" + numeroCartao +
+                ", tipo=" + tipo +
+                ", createdAt=" + createdAt +
+                '}';
+    }
 }
 
