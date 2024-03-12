@@ -6,11 +6,13 @@ import microservice.microtorneios.application.core.domain.History;
 import microservice.microtorneios.application.core.domain.SagaEvent;
 import microservice.microtorneios.application.core.domain.Time;
 import microservice.microtorneios.application.core.domain.enums.ESagaStatus;
-import microservice.microtorneios.application.port.input.SagaEventInputPort;
+import microservice.microtorneios.application.port.input.SagaEventFailInputPort;
+import microservice.microtorneios.application.port.input.SagaEventSuccessInputPort;
 import microservice.microtorneios.application.port.output.SagaEventOrchestratorOutputPort;
 import microservice.microtorneios.application.port.output.TorneioFindOutputPort;
 import microservice.microtorneios.application.port.output.TorneioSaveOutputPort;
 import microservice.microtorneios.config.exception.http.SagaEventDuplicateException;
+import microservice.microtorneios.config.exception.http.SagaEventNotFoundException;
 import microservice.microtorneios.config.exception.http.SagaEventNullValueException;
 import microservice.microtorneios.config.exception.http_404.TorneioNotFoundException;
 import microservice.microtorneios.config.exception.http_500.NullValueException;
@@ -21,9 +23,9 @@ import org.springframework.util.ObjectUtils;
 import java.time.OffsetDateTime;
 import java.util.Optional;
 
-public class SagaEventUseCase implements SagaEventInputPort {
+public class SagaEventFailUseCase implements SagaEventFailInputPort {
 
-    private static final Logger log = LoggerFactory.getLogger(SagaEventUseCase.class);
+    private static final Logger log = LoggerFactory.getLogger(SagaEventFailUseCase.class);
 
     private static final String CURRENT_SOURCE = "TORNEIO-VALIDATION-SUCCESS";
 
@@ -37,9 +39,9 @@ public class SagaEventUseCase implements SagaEventInputPort {
 
     private final SagaEventOrchestratorOutputPort sagaEventOrchestratorOutputPort;
 
-    public SagaEventUseCase(MapperIn mapperIn, JsonUtil jsonUtil, TorneioFindOutputPort torneioFindOutputPort,
-                            TorneioSaveOutputPort torneioSaveOutputPort,
-                            SagaEventOrchestratorOutputPort sagaEventOrchestratorOutputPort) {
+    public SagaEventFailUseCase(MapperIn mapperIn, JsonUtil jsonUtil, TorneioFindOutputPort torneioFindOutputPort,
+                                TorneioSaveOutputPort torneioSaveOutputPort,
+                                SagaEventOrchestratorOutputPort sagaEventOrchestratorOutputPort) {
         this.mapperIn = mapperIn;
         this.jsonUtil = jsonUtil;
         this.torneioFindOutputPort = torneioFindOutputPort;
@@ -48,33 +50,32 @@ public class SagaEventUseCase implements SagaEventInputPort {
     }
 
     @Override
-    public SagaEvent addTimeInTorneio(SagaEvent sagaEvent) {
+    public SagaEvent rollbackEvent(SagaEvent event) {
 
-        log.info("Iniciado serviço para inscrever Time no Torneio.");
+        log.info("Iniciado serviço para remover Time do Torneio.");
 
-        var sagaEventConclusion = Optional.ofNullable(sagaEvent)
-            .map(this::sagaProcess)
+        var sagaEventConclusion = Optional.ofNullable(event)
+            .map(this::sagaProcessFail)
             .map(this::sagaResponseOrchestrator)
             .orElseThrow();
 
-        log.info("Finalizado serviço para inscrever Time no Torneio. Veja o evento: {}", sagaEventConclusion);
+        log.info("Finalizado serviço para remover Time do Torneio. Veja o evento: {}", sagaEventConclusion);
 
         return sagaEventConclusion;
     }
 
-    private SagaEvent sagaProcess(SagaEvent event) {
+    private SagaEvent sagaProcessFail(SagaEvent event) {
         try {
             this.checkExistenceTimeIdAndTorneioId(event);
-            this.addTime(event);
+            this.removeTime(event);
             this.handleSuccess(event);
 
-        } catch (SagaEventNullValueException | TorneioNotFoundException | SagaEventDuplicateException ex) {
+        } catch (SagaEventNullValueException | TorneioNotFoundException | SagaEventNotFoundException ex) {
             log.error("Erro: {}", ex.getMessage(), ex);
             this.handleFail(event, ex.getMessage());
         }
         return event;
     }
-
 
     private void checkExistenceTimeIdAndTorneioId(SagaEvent event) {
         if (ObjectUtils.isEmpty(event.getTimeId()) || ObjectUtils.isEmpty(event.getTorneioId())) {
@@ -82,7 +83,7 @@ public class SagaEventUseCase implements SagaEventInputPort {
         }
     }
 
-    private void addTime(SagaEvent sagaEvent) {
+    private void removeTime(SagaEvent sagaEvent) {
 
         Optional.ofNullable(sagaEvent)
             .ifPresentOrElse(event -> {
@@ -90,11 +91,11 @@ public class SagaEventUseCase implements SagaEventInputPort {
                 var torneio = this.torneioFindOutputPort.find(event.getTorneioId());
                 var contain = torneio.getTimes().contains(time);
 
-                if (contain) {
-                    throw new SagaEventDuplicateException(event.getTimeId());
+                if (!contain) {
+                    throw new SagaEventNotFoundException(event.getTimeId(), "Time");
                 }
 
-                torneio.getTimes().add(time);
+                torneio.getTimes().remove(time);
                 this.torneioSaveOutputPort.save(torneio);
             },
             () -> {throw new NullValueException();}
@@ -104,7 +105,7 @@ public class SagaEventUseCase implements SagaEventInputPort {
     private void handleSuccess(SagaEvent event) {
         event.setStatus(ESagaStatus.SUCCESS);
         event.setSource(CURRENT_SOURCE);
-        this.addHistory(event, "Sucesso ao inscrever Time no Torneio.");
+        this.addHistory(event, "Rollback bem-sucedido ao remover Time do Torneio.");
     }
 
     private void addHistory(SagaEvent event, String message) {
@@ -118,9 +119,9 @@ public class SagaEventUseCase implements SagaEventInputPort {
     }
 
     private void handleFail(SagaEvent event, String message) {
-        event.setStatus(ESagaStatus.ROLLBACK_PENDING);
+        event.setStatus(ESagaStatus.FAIL);
         event.setSource(CURRENT_SOURCE);
-        this.addHistory(event, "Falha ao inscrever Time no Torneio: ".concat(message));
+        this.addHistory(event, "Rollback falha ao remover Time do Torneio: ".concat(message));
     }
 
     private SagaEvent sagaResponseOrchestrator(SagaEvent event) {
@@ -130,10 +131,5 @@ public class SagaEventUseCase implements SagaEventInputPort {
         return event;
     }
 
-    @Override
-    public SagaEvent rollbackEvent(SagaEvent event) {
-
-        return null;
-    }
 }
 

@@ -881,3 +881,11 @@ mmicrotimes/src/main/java/microservice/microtimes/adapter/out/producer/CarteiroN
 lmicrotorneios/src/main/java/microservice/microtorneios/config/exception/http/SagaEventNotFoundException.java,6/9/698fa147753dabbf53bd5b7a1cbe0f645e910ae2
 ù
 mmicrotorneios/src/main/java/microservice/microtorneios/config/exception/http/SagaEventDuplicateException.java,8/1/81833fdf2fbc767d84f818b7c3ca22a49262ac0f
+ú
+lmicrotorneios/src/main/java/microservice/microtorneios/application/port/input/SagaEventSuccessInputPort.java,2/8/28d2e13f7862babcb5c9fef9ac39e5e0b277c02d
+ú
+lmicrotorneios/src/main/java/microservice/microtorneios/application/core/usecase/SagaEventSuccessUseCase.java,6/6/660fbc5ca16c75bd4273095193fe006f87925d15
+ô
+imicrotorneios/src/main/java/microservice/microtorneios/application/port/input/SagaEventFailInputPort.java,1/8/187fff4a8ca63abf06a14ff12675b10d4e64adc0
+ô
+imicrotorneios/src/main/java/microservice/microtorneios/application/core/usecase/SagaEventFailUseCase.java,2/e/2e35642b48074b14b2a1ae40223a8634e6b24b90
