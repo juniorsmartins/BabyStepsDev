@@ -66,11 +66,11 @@ public class SagaEventFailUseCase implements SagaEventFailInputPort {
         try {
             this.checkExistenceTimeIdAndTorneioId(event);
             this.removeTime(event);
-            this.handleSuccess(event);
+            this.handleSuccessFail(event);
 
         } catch (SagaEventNullValueException | TorneioNotFoundException | SagaEventNotFoundException ex) {
             log.error("Erro: {}", ex.getMessage(), ex);
-            this.handleFail(event, ex.getMessage());
+            this.handleRollbackPending(event, ex.getMessage());
         }
         return event;
     }
@@ -100,8 +100,8 @@ public class SagaEventFailUseCase implements SagaEventFailInputPort {
         );
     }
 
-    private void handleSuccess(SagaEvent event) {
-        event.setStatus(ESagaStatus.SUCCESS);
+    private void handleSuccessFail(SagaEvent event) {
+        event.setStatus(ESagaStatus.FAIL);
         event.setSource(CURRENT_SOURCE);
         this.addHistory(event, "Rollback bem-sucedido ao remover Time do Torneio.");
     }
@@ -116,8 +116,8 @@ public class SagaEventFailUseCase implements SagaEventFailInputPort {
         event.addToHistory(history);
     }
 
-    private void handleFail(SagaEvent event, String message) {
-        event.setStatus(ESagaStatus.FAIL);
+    private void handleRollbackPending(SagaEvent event, String message) {
+        event.setStatus(ESagaStatus.ROLLBACK_PENDING);
         event.setSource(CURRENT_SOURCE);
         this.addHistory(event, "Rollback falha ao remover Time do Torneio: ".concat(message));
     }
