@@ -321,8 +321,6 @@ hmicrotorneios/src/main/java/microservice/microtorneios/adapters/out/repository/
 emicrotorneios/src/main/java/microservice/microtorneios/adapters/out/repository/TorneioRepository.java,b/9/b9f46dab384d2c5d365f472f5a5ad928cf744845
 à
 Xmicrotorneios/src/main/java/microservice/microtorneios/config/usecase/TorneioConfig.java,a/2/a290135368931c5f54b2afea2831e99c596967c8
-à
-Xmicrotorneios/src/main/java/microservice/microtorneios/application/core/domain/Time.java,f/e/fe89c753dcce3e461152f038e2bd0dd9b2e887fc
 G
 microinscricoes/pom.xml,c/5/c5de086e31eeb7b6662f939f56b82c0c6d8d43f0
 J
@@ -393,8 +391,6 @@ amicropagamentos/src/main/java/microservice/micropagamentos/application/core/dom
 `micropagamentos/src/main/java/microservice/micropagamentos/application/core/domain/Inscrito.java,1/e/1eea19854147bd47c56d217d3af11be14c8df776
 û
 nmicroinscricoes/src/main/java/microservice/microinscricoes/application/core/domain/enums/EInscricaoStatus.java,2/d/2da9e3b7ad0320438091fc9ebc0799f754956041
-ñ
-fmicrotorneios/src/main/java/microservice/microtorneios/application/core/domain/EventFindIdTorneio.java,4/a/4a518d64fe60d9b47d5fee6eec6700621314a3e0
 õ
 kmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/out/repository/entity/TorneioEntity.java,4/f/4f242ba2525e5871abe1b0b70c9e0c3d6e956cde
 è
@@ -821,8 +817,6 @@ hmicrotorneios/src/main/java/microservice/microtorneios/config/exception/http_50
 bmicrotorneios/src/main/java/microservice/microtorneios/adapters/out/producer/dto/TorneioIdDto.java,5/1/5164ffae3a9d33302467aa812a36171fe48d9835
 ö
 jmicrotorneios/src/main/java/microservice/microtorneios/adapters/out/producer/event/EventCreateTorneio.java,a/3/a3b7fb5b1cf276df71539a03d54ff88aa42ba4ff
-û
-nmicrotorneios/src/main/java/microservice/microtorneios/adapters/out/repository/entity/value_object/TimeVo.java,e/9/e986b10f8c3813ce6cc21b38b087d8ded019a744
 ñ
 fmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/in/controller/dto/TorneioIdDto.java,a/7/a7e29d3656508769ae280385fd1b7bad7eb08354
 û
