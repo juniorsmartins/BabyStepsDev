@@ -832,10 +832,6 @@ xmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/in/controlle
 cmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/in/controller/dto/TimeIdDto.java,7/a/7a734b7f70f1c7805c78dc1682e71379e76e4c82
 ò
 hmicrotorneios/src/main/java/microservice/microtorneios/adapters/in/consumer/CaixaPostalSagaConsumer.java,b/2/b2814116769a4a52120b07bc56c5d0896c2a3232
-ï
-emicrotorneios/src/main/java/microservice/microtorneios/application/core/usecase/SagaEventUseCase.java,3/2/32c3d26df107ac865242edb54b97a0edc90a323b
-ï
-emicrotorneios/src/main/java/microservice/microtorneios/application/port/input/SagaEventInputPort.java,b/9/b9e5773a7b1d443fe0955af0053befc558f841e7
 è
 _microtimes/src/main/java/microservice/microtimes/application/port/input/SagaEventInputPort.java,e/4/e47cdfa70bb8068a908fe87d2a3fca50f9a58593
 è
