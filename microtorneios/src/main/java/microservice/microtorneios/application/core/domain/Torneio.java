@@ -1,5 +1,7 @@
 package microservice.microtorneios.application.core.domain;
 
+import microservice.microtorneios.application.core.domain.value_object.Time;
+
 import java.time.Year;
 import java.util.Objects;
 import java.util.Set;

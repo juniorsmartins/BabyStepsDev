@@ -1,6 +1,7 @@
 package microservice.microtorneios.application.core.domain;
 
 import microservice.microtorneios.application.core.domain.enums.ETipoPagamento;
+import microservice.microtorneios.application.core.domain.value_object.Time;
 
 public final class Inscrito {
 

@@ -5,7 +5,7 @@ import microservice.microtorneios.adapters.in.consumer.event.SagaEventRequest;
 import microservice.microtorneios.adapters.in.controller.dto.request.TorneioCreateDtoRequest;
 import microservice.microtorneios.adapters.in.controller.dto.response.TorneioCreateDtoResponse;
 import microservice.microtorneios.application.core.domain.SagaEvent;
-import microservice.microtorneios.application.core.domain.Time;
+import microservice.microtorneios.application.core.domain.value_object.Time;
 import microservice.microtorneios.application.core.domain.Torneio;
 import microservice.microtorneios.application.core.domain.enums.ESagaStatus;
 import org.mapstruct.Mapper;

@@ -4,7 +4,7 @@ import microservice.microtorneios.adapters.mapper.MapperIn;
 import microservice.microtorneios.adapters.utils.JsonUtil;
 import microservice.microtorneios.application.core.domain.History;
 import microservice.microtorneios.application.core.domain.SagaEvent;
-import microservice.microtorneios.application.core.domain.Time;
+import microservice.microtorneios.application.core.domain.value_object.Time;
 import microservice.microtorneios.application.core.domain.enums.ESagaStatus;
 import microservice.microtorneios.application.port.input.SagaEventFailInputPort;
 import microservice.microtorneios.application.port.output.SagaEventOrchestratorOutputPort;

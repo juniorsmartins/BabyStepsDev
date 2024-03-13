@@ -1,4 +1,4 @@
-package microservice.microtorneios.application.core.domain;
+package microservice.microtorneios.application.core.domain.value_object;
 
 import java.util.Objects;
 
