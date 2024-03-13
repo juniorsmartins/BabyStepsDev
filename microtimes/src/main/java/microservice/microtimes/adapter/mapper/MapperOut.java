@@ -1,9 +1,9 @@
 package microservice.microtimes.adapter.mapper;
 
 import microservice.microtimes.adapter.out.repository.entity.TimeEntity;
-import microservice.microtimes.adapter.out.repository.entity.ValidationEntity;
+import microservice.microtimes.adapter.out.repository.entity.value_object.TorneioDb;
 import microservice.microtimes.application.core.domain.Time;
-import microservice.microtimes.application.core.domain.ValidationModel;
+import microservice.microtimes.application.core.domain.value_object.TorneioVo;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")
@@ -13,9 +13,9 @@ public interface MapperOut {
 
     Time toTime(TimeEntity timeEntity);
 
-    ValidationEntity toValidationEntity(ValidationModel validationModel);
+    TorneioDb toTorneioDb(TorneioVo torneioVo);
 
-    ValidationModel toValidationModel(ValidationEntity validationEntity);
+    TorneioVo toTorneioVo(TorneioDb torneioDb);
 
 }
 

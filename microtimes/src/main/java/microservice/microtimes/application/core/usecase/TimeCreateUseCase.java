@@ -27,14 +27,14 @@ public class TimeCreateUseCase implements TimeCreateInputPort {
     @Override
     public Time create(Time time) {
 
-        log.info("Iniciado serviço para cadastrar novo Time.");
+        log.info("Serviço iniciado para criar novo Time.");
 
         var response = Optional.ofNullable(time)
             .map(this.timeSaveOutputPort::save)
             .map(this::notifyCreateTime)
             .orElseThrow();
 
-        log.info("Finalizado serviço para cadastrar novo Time, com nome fantasia: {}.", response.getNomeFantasia());
+        log.info("Serviço finalizado para criar novo Time: {}.", response);
 
         return response;
     }

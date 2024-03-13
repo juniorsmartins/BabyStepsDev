@@ -2,10 +2,9 @@ package microservice.microtimes.application.port.input;
 
 import microservice.microtimes.application.core.domain.SagaEvent;
 
-public interface SagaEventInputPort {
-
-    SagaEvent createValidation(SagaEvent sagaEvent);
+public interface SagaEventFailInputPort {
 
     SagaEvent rollbackEvent(SagaEvent event);
+
 }
 

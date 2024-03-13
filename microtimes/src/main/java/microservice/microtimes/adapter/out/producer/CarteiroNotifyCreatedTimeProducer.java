@@ -2,7 +2,7 @@ package microservice.microtimes.adapter.out.producer;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import microservice.microtimes.adapter.in.consumer.dto.TimeIdDto;
+import microservice.microtimes.adapter.in.controller.dto.TimeIdDto;
 import microservice.microtimes.adapter.out.producer.event.EventCreateTime;
 import microservice.microtimes.adapter.utils.JsonUtil;
 import microservice.microtimes.application.core.domain.Time;
