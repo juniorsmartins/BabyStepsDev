@@ -1,6 +1,7 @@
 package microservice.microtorneios.application.core.domain;
 
 import microservice.microtorneios.application.core.domain.enums.ETipoPagamento;
+import microservice.microtorneios.application.core.domain.value_object.TimeVo;
 
 public final class Inscrito {
 
@@ -8,7 +9,7 @@ public final class Inscrito {
 
     private Long inscricaoId;
 
-    private Time time;
+    private TimeVo time;
 
     private Integer numeroBanco;
 
@@ -34,11 +35,11 @@ public final class Inscrito {
         this.inscricaoId = inscricaoId;
     }
 
-    public Time getTime() {
+    public TimeVo getTime() {
         return time;
     }
 
-    public void setTime(Time time) {
+    public void setTime(TimeVo time) {
         this.time = time;
     }
 

@@ -14,7 +14,7 @@ import java.io.Serializable;
 @Setter
 @Embeddable
 @EqualsAndHashCode(of = {"id"})
-public final class TimeVo implements Serializable {
+public final class TimeDb implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 1L;
