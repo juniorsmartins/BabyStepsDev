@@ -1,6 +1,6 @@
 package microservice.microtorneios.application.core.domain;
 
-import microservice.microtorneios.application.core.domain.value_object.Time;
+import microservice.microtorneios.application.core.domain.value_object.TimeVo;
 
 import java.time.Year;
 import java.util.Objects;
@@ -14,7 +14,7 @@ public final class Torneio {
 
     private Year ano;
 
-    private Set<Time> times;
+    private Set<TimeVo> times;
 
     public Long getId() {
         return id;
@@ -40,11 +40,11 @@ public final class Torneio {
         this.ano = ano;
     }
 
-    public Set<Time> getTimes() {
+    public Set<TimeVo> getTimes() {
         return times;
     }
 
-    public void setTimes(Set<Time> times) {
+    public void setTimes(Set<TimeVo> times) {
         this.times = times;
     }
 

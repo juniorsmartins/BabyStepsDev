@@ -4,7 +4,7 @@ import microservice.microtorneios.adapters.mapper.MapperIn;
 import microservice.microtorneios.adapters.utils.JsonUtil;
 import microservice.microtorneios.application.core.domain.History;
 import microservice.microtorneios.application.core.domain.SagaEvent;
-import microservice.microtorneios.application.core.domain.value_object.Time;
+import microservice.microtorneios.application.core.domain.value_object.TimeVo;
 import microservice.microtorneios.application.core.domain.enums.ESagaStatus;
 import microservice.microtorneios.application.port.input.SagaEventSuccessInputPort;
 import microservice.microtorneios.application.port.output.SagaEventOrchestratorOutputPort;
@@ -85,7 +85,7 @@ public class SagaEventSuccessUseCase implements SagaEventSuccessInputPort {
 
         Optional.ofNullable(sagaEvent)
             .ifPresentOrElse(event -> {
-                var time = new Time(event.getTimeId());
+                var time = new TimeVo(event.getTimeId());
                 var torneio = this.torneioFindOutputPort.find(event.getTorneioId());
                 var contain = torneio.getTimes().contains(time);
 

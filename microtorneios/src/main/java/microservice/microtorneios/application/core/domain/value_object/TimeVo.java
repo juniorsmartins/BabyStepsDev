@@ -2,13 +2,13 @@ package microservice.microtorneios.application.core.domain.value_object;
 
 import java.util.Objects;
 
-public final class Time {
+public final class TimeVo {
 
     private Long id;
 
-    public Time() { }
+    public TimeVo() { }
 
-    public Time(final Long id) {
+    public TimeVo(final Long id) {
         this.id = id;
     }
 
@@ -31,7 +31,7 @@ public final class Time {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Time time = (Time) o;
+        TimeVo time = (TimeVo) o;
         return Objects.equals(getId(), time.getId());
     }
 
