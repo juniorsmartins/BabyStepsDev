@@ -47,7 +47,7 @@ public class CaixaPostalSagaConsumer {
     )
     public void consumeFailSagaEvent(String payload) {
 
-        log.info("Recebido evento no tópico Torneio-Fail para remover Time do Torneio.");
+        log.info("Recebido evento no tópico Time-Validation-Fail para remover Time do Torneio.");
 
         var sagaEventFail = Optional.ofNullable(payload)
             .map(this.jsonUtil::toSagaEventRequest)
