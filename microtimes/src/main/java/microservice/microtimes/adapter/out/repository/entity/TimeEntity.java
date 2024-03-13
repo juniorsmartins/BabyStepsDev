@@ -2,11 +2,13 @@ package microservice.microtimes.adapter.out.repository.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import microservice.microtimes.adapter.out.repository.entity.value_object.TorneioDb;
 import org.hibernate.Length;
 
 import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Set;
 
 @Entity
 @Table(name = "times")
@@ -68,5 +70,13 @@ public final class TimeEntity implements Serializable {
 
     @Column(name = "head_coach", table = "time_staff")
     private String headCoach;
+
+
+    // ---------- Torneios ----------
+    @ElementCollection
+    @CollectionTable(name = "time_torneios",
+            joinColumns = @JoinColumn(name = "time_id"))
+    @Column(name = "torneios")
+    private Set<TorneioDb> torneios;
 }
 

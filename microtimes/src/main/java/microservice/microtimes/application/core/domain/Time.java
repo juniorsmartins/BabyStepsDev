@@ -1,7 +1,10 @@
 package microservice.microtimes.application.core.domain;
 
+import microservice.microtimes.application.core.domain.value_object.TorneioVo;
+
 import java.time.LocalDate;
 import java.util.Objects;
+import java.util.Set;
 
 public final class Time {
 
@@ -32,6 +35,10 @@ public final class Time {
     private String vicePresidente;
 
     private String headCoach;
+
+
+    // ---------- Torneios ----------
+    private Set<TorneioVo> torneios;
 
 
     public Long getId() {
@@ -122,6 +129,14 @@ public final class Time {
         this.headCoach = headCoach;
     }
 
+    public Set<TorneioVo> getTorneios() {
+        return torneios;
+    }
+
+    public void setTorneios(Set<TorneioVo> torneios) {
+        this.torneios = torneios;
+    }
+
     @Override
     public String toString() {
         return "Time{" +
@@ -136,6 +151,7 @@ public final class Time {
                 ", presidente='" + presidente + '\'' +
                 ", vicePresidente='" + vicePresidente + '\'' +
                 ", headCoach='" + headCoach + '\'' +
+                ", torneios=" + torneios +
                 '}';
     }
 
