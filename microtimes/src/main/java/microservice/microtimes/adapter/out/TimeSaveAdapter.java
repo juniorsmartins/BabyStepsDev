@@ -24,7 +24,7 @@ public class TimeSaveAdapter implements TimeSaveOutputPort {
     @Override
     public Time save(Time time) {
 
-        log.info("Iniciado adaptador para salvar Time.");
+        log.info("Adaptador iniciado para salvar Time.");
 
         var timeSave = Optional.ofNullable(time)
             .map(this.mapperOut::toTimeEntity)
@@ -32,7 +32,7 @@ public class TimeSaveAdapter implements TimeSaveOutputPort {
             .map(this.mapperOut::toTime)
             .orElseThrow();
 
-        log.info("Finalizado adaptador para salvar Time, com nome fantasia: {}.", timeSave.getNomeFantasia());
+        log.info("Adaptador finalizado para salvar Time: {}.", timeSave);
 
         return timeSave;
     }

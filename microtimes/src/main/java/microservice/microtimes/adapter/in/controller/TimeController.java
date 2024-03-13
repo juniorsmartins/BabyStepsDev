@@ -29,7 +29,7 @@ public class TimeController {
     @PostMapping
     public ResponseEntity<TimeCreateDtoResponse> create(@RequestBody @Valid TimeCreateDtoRequest timeCreateDtoRequest) {
 
-        log.info("Recebida requisição para criar Time.");
+        log.info("Recebida requisição para criar novo Time.");
 
         var response = Optional.of(timeCreateDtoRequest)
             .map(this.mapperIn::toTime)
@@ -37,7 +37,7 @@ public class TimeController {
             .map(this.mapperIn::toTimeCreateDtoResponse)
             .orElseThrow();
 
-        log.info("Time criado com sucesso, com nome fantasia: {}", response.nomeFantasia());
+        log.info("Requisição bem-sucedida para criar novo Time: {}", response);
 
         return ResponseEntity
             .created(URI.create("/api/v1/times" + response.id()))

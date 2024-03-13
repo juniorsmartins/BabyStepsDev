@@ -4,7 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import microservice.microtimes.adapter.mapper.MapperIn;
 import microservice.microtimes.adapter.utils.JsonUtil;
-import microservice.microtimes.application.port.input.SagaEventInputPort;
+import microservice.microtimes.application.port.input.SagaEventFailInputPort;
+import microservice.microtimes.application.port.input.SagaEventSuccessInputPort;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
@@ -15,11 +16,13 @@ import java.util.Optional;
 @AllArgsConstructor
 public class CaixaPostalSagaConsumer {
 
+    private final SagaEventSuccessInputPort sagaEventSuccessInputPort;
+
+    private final SagaEventFailInputPort sagaEventFailInputPort;
+
     private final JsonUtil jsonUtil;
 
     private final MapperIn mapperIn;
-
-    private final SagaEventInputPort sagaEventInputPort;
 
     @KafkaListener(
         groupId = "${spring.kafka.consumer.group-id}",
@@ -27,15 +30,15 @@ public class CaixaPostalSagaConsumer {
     )
     public void consumeSuccessSagaEvent(String payload) {
 
-        log.info("Recebendo evento no tópico de sucesso de validação de Time.");
+        log.info("Recebido evento no tópico Time-Validation-Success para inscrever Torneio no Time.");
 
         var sagaEventSuccess = Optional.ofNullable(payload)
             .map(this.jsonUtil::toSagaEventRequest)
             .map(this.mapperIn::toSagaEvent)
-            .map(this.sagaEventInputPort::createValidation)
+            .map(this.sagaEventSuccessInputPort::addTorneioInTime)
             .orElseThrow();
 
-        log.info("Finalizado evento no tópico de sucesso de validação de time: {}.", sagaEventSuccess);
+        log.info("Finalizado evento no tópico Time-Validation-Success para inscrever Torneio no Time: {}.", sagaEventSuccess);
     }
 
     @KafkaListener(
@@ -44,15 +47,15 @@ public class CaixaPostalSagaConsumer {
     )
     public void consumeFailSagaEvent(String payload) {
 
-        log.info("Recebendo evento no tópico de falha na validação de time.");
+        log.info("Recebido evento no tópico Time-Validation-Fail para remover Torneio do Time.");
 
         var sagaEventFail = Optional.ofNullable(payload)
             .map(this.jsonUtil::toSagaEventRequest)
             .map(this.mapperIn::toSagaEvent)
-            .map(this.sagaEventInputPort::rollbackEvent)
+            .map(this.sagaEventFailInputPort::rollbackEvent)
             .orElseThrow();
 
-        log.info("Finalizado evento no tópico de falha de validação de time: {}.", sagaEventFail);
+        log.info("Finalizado evento no tópico Torneio-Fail para remover Torneio do Time: {}.", sagaEventFail);
     }
 }
 

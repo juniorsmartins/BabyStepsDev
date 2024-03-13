@@ -1,6 +1,10 @@
 package microservice.microtimes.adapter.in.controller.dto.response;
 
+import microservice.microtimes.adapter.in.controller.dto.TorneioIdDto;
+import microservice.microtimes.application.core.domain.value_object.TorneioVo;
+
 import java.time.LocalDate;
+import java.util.Set;
 
 public record TimeCreateDtoResponse(
 
@@ -30,7 +34,11 @@ public record TimeCreateDtoResponse(
 
     String vicePresidente,
 
-    String headCoach
+    String headCoach,
+
+
+    // ---------- Torneios ----------
+    Set<TorneioIdDto> torneios
 
 ) { }
 
