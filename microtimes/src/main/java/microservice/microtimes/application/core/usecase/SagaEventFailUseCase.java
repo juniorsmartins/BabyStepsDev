@@ -8,7 +8,7 @@ import microservice.microtimes.application.core.domain.enums.ESagaStatus;
 import microservice.microtimes.application.core.domain.value_object.TorneioVo;
 import microservice.microtimes.application.port.input.SagaEventFailInputPort;
 import microservice.microtimes.application.port.output.TimeFindOutputPort;
-import microservice.microtimes.application.port.output.SagaEventOrchestratorOutputPort;
+import microservice.microtimes.application.port.output.CarteiroNotifyOrchestratorOutputPort;
 import microservice.microtimes.application.port.output.TimeSaveOutputPort;
 import microservice.microtimes.config.exception.http.SagaEventNotFoundException;
 import microservice.microtimes.config.exception.http.SagaEventNullValueException;
@@ -31,7 +31,7 @@ public class SagaEventFailUseCase implements SagaEventFailInputPort {
 
     private final TimeSaveOutputPort timeSaveOutputPort;
 
-    private final SagaEventOrchestratorOutputPort sagaEventOrchestratorOutputPort;
+    private final CarteiroNotifyOrchestratorOutputPort sagaEventOrchestratorOutputPort;
 
     private final MapperIn mapperIn;
 
@@ -40,7 +40,7 @@ public class SagaEventFailUseCase implements SagaEventFailInputPort {
     public SagaEventFailUseCase(
             TimeFindOutputPort timeFindOutputPort,
             TimeSaveOutputPort timeSaveOutputPort,
-            SagaEventOrchestratorOutputPort sagaEventOrchestratorOutputPort,
+            CarteiroNotifyOrchestratorOutputPort sagaEventOrchestratorOutputPort,
             MapperIn mapperIn,
             JsonUtil jsonUtil
     ) {

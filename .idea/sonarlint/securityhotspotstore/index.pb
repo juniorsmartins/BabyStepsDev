@@ -898,3 +898,9 @@ qmicropagamentos/src/main/java/microservice/micropagamentos/application/port/out
 bmicropagamentos/src/main/java/microservice/micropagamentos/adapter/out/PagamentoDeleteAdapter.java,f/9/f9dd90c44f3f5536106b881bf07946fb2f2f81d7
 ¬
 |micropagamentos/src/main/java/microservice/micropagamentos/application/port/output/CarteiroNotifyOrchestratorOutputPort.java,e/a/eaff154c33bce6da8059865f8b5532984a9f1f8e
+‘
+amicropagamentos/src/main/java/microservice/micropagamentos/adapter/in/consumer/dto/TimeIdDto.java,d/6/d69350fdaa4d521923a8d4de514369930ce61c46
+–
+fmicropagamentos/src/main/java/microservice/micropagamentos/adapter/in/consumer/dto/InscricaoIdDto.java,9/c/9c3e826efa2f67a7296e0507c586054e7e2e3737
+™
+imicropagamentos/src/main/java/microservice/micropagamentos/adapter/in/consumer/dto/HistoryDtoRequest.java,0/7/077982f430eb49445d8267306a10b18c7d2b4137
