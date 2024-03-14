@@ -30,7 +30,7 @@ public class SagaEventSuccessUseCase implements SagaEventSuccessInputPort {
 
     private final TimeSaveOutputPort timeSaveOutputPort;
 
-    private final SagaEventOrchestratorOutputPort sagaEventOrchestratorOutputPort;
+    private final CarteiroNotifyOrchestratorOutputPort sagaEventOrchestratorOutputPort;
 
     private final MapperIn mapperIn;
 
@@ -38,7 +38,7 @@ public class SagaEventSuccessUseCase implements SagaEventSuccessInputPort {
 
     public SagaEventSuccessUseCase(TimeFindOutputPort timeFindOutputPort,
                                    TimeSaveOutputPort timeSaveOutputPort,
-                                   SagaEventOrchestratorOutputPort sagaEventOrchestratorOutputPort,
+                                   CarteiroNotifyOrchestratorOutputPort sagaEventOrchestratorOutputPort,
                                    MapperIn mapperIn,
                                    JsonUtil jsonUtil) {
         this.timeFindOutputPort = timeFindOutputPort;

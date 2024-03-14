@@ -2,6 +2,8 @@ package microservice.micropagamentos.application.core.domain;
 
 import microservice.micropagamentos.application.core.domain.enums.ETipoPagamento;
 
+import java.util.Objects;
+
 public final class Inscrito {
 
     private Long id;
@@ -86,5 +88,19 @@ public final class Inscrito {
                 ", tipo=" + tipo +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Inscrito inscrito = (Inscrito) o;
+        return Objects.equals(getId(), inscrito.getId());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId());
+    }
+
 }
 

@@ -1,19 +1,10 @@
 package microservice.micropagamentos.application.core.domain;
 
-import java.math.BigDecimal;
-import java.time.LocalDate;
+import java.util.Objects;
 
 public final class Inscricao {
 
     private Long id;
-
-    private Long torneioId;
-
-    private LocalDate dataInicio;
-
-    private LocalDate dataFim;
-
-    private BigDecimal valor;
 
     public Long getId() {
         return id;
@@ -23,36 +14,26 @@ public final class Inscricao {
         this.id = id;
     }
 
-    public Long getTorneioId() {
-        return torneioId;
+    @Override
+    public String toString() {
+        return "Inscricao{" +
+            "id=" + id +
+            '}';
     }
 
-    public void setTorneioId(Long torneioId) {
-        this.torneioId = torneioId;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Inscricao inscricao = (Inscricao) o;
+        return Objects.equals(getId(), inscricao.getId());
     }
 
-    public LocalDate getDataInicio() {
-        return dataInicio;
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId());
     }
 
-    public void setDataInicio(LocalDate dataInicio) {
-        this.dataInicio = dataInicio;
-    }
-
-    public LocalDate getDataFim() {
-        return dataFim;
-    }
-
-    public void setDataFim(LocalDate dataFim) {
-        this.dataFim = dataFim;
-    }
-
-    public BigDecimal getValor() {
-        return valor;
-    }
-
-    public void setValor(BigDecimal valor) {
-        this.valor = valor;
-    }
 }
+
 
