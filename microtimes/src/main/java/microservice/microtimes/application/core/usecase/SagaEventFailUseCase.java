@@ -54,14 +54,14 @@ public class SagaEventFailUseCase implements SagaEventFailInputPort {
     @Override
     public SagaEvent rollbackEvent(SagaEvent event) {
 
-        log.info("Iniciado serviço para remover Torneio do Time.");
+        log.info("Serviço iniciado para remover Torneio do Time.");
 
         var sagaEventConclusion = Optional.ofNullable(event)
             .map(this::sagaProcessFail)
             .map(this::sagaResponseOrchestrator)
             .orElseThrow();
 
-        log.info("Finalizado serviço para remover Torneio do Time. Veja o evento: {}", sagaEventConclusion);
+        log.info("Serviço finalizado para remover Torneio do Time. Veja o evento: {}", sagaEventConclusion);
 
         return sagaEventConclusion;
     }

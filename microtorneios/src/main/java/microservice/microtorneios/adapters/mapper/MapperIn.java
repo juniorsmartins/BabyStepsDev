@@ -29,7 +29,7 @@ public interface MapperIn {
 
     TimeVo toTime(TimeIdDto timeIdDto);
 
-    TimeIdDto toTimeIdDto(TimeVo time);
+    TimeIdDto toTimeIdDto(TimeVo timeVo);
 
     @Mapping(source = "id", target = "sagaEventId")
     @Mapping(source = "status", target = "status", qualifiedByName = "converterStringParaEnumSagaStatus")

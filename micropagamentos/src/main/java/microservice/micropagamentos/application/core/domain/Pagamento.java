@@ -4,6 +4,7 @@ import microservice.micropagamentos.application.core.domain.enums.EPagamentoStat
 import microservice.micropagamentos.application.core.domain.enums.ETipoPagamento;
 
 import java.time.OffsetDateTime;
+import java.util.Objects;
 
 public final class Pagamento {
 
@@ -12,6 +13,10 @@ public final class Pagamento {
     private Long sagaEventId;
 
     private String transactionId;
+
+    private Long torneioId;
+
+    private Long timeId;
 
     private Integer numeroBanco;
 
@@ -49,6 +54,22 @@ public final class Pagamento {
 
     public void setTransactionId(String transactionId) {
         this.transactionId = transactionId;
+    }
+
+    public Long getTorneioId() {
+        return torneioId;
+    }
+
+    public void setTorneioId(Long torneioId) {
+        this.torneioId = torneioId;
+    }
+
+    public Long getTimeId() {
+        return timeId;
+    }
+
+    public void setTimeId(Long timeId) {
+        this.timeId = timeId;
     }
 
     public Integer getNumeroBanco() {
@@ -110,17 +131,33 @@ public final class Pagamento {
     @Override
     public String toString() {
         return "Pagamento{" +
-                "id=" + id +
-                ", sagaEventId=" + sagaEventId +
-                ", transactionId='" + transactionId + '\'' +
-                ", numeroBanco=" + numeroBanco +
-                ", numeroAgencia=" + numeroAgencia +
-                ", numeroCartao=" + numeroCartao +
-                ", tipo=" + tipo +
-                ", status=" + status +
-                ", createdAt=" + createdAt +
-                ", updatedAt=" + updatedAt +
-                '}';
+            "id=" + id +
+            ", sagaEventId=" + sagaEventId +
+            ", transactionId='" + transactionId + '\'' +
+            ", torneioId=" + torneioId +
+            ", timeId=" + timeId +
+            ", numeroBanco=" + numeroBanco +
+            ", numeroAgencia=" + numeroAgencia +
+            ", numeroCartao=" + numeroCartao +
+            ", tipo=" + tipo +
+            ", status=" + status +
+            ", createdAt=" + createdAt +
+            ", updatedAt=" + updatedAt +
+            '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Pagamento pagamento = (Pagamento) o;
+        return Objects.equals(getId(), pagamento.getId());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId());
+    }
+
 }
 

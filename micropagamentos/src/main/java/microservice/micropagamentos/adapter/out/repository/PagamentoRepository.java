@@ -9,8 +9,9 @@ import java.util.Optional;
 @Repository
 public interface PagamentoRepository extends JpaRepository<PagamentoEntity, Long> {
 
-    Boolean existsBySagaEventIdAndTransactionId(Long sagaEventId, String transactionId);
+    Boolean existsByTorneioIdAndTimeId(Long torneioId, Long timeId);
 
-    Optional<PagamentoEntity> findBySagaEventIdAndTransactionId(Long sagaEventId, String transactionId);
+    Optional<PagamentoEntity> findByTorneioIdAndTimeId(Long torneioId, Long timeId);
+
 }
 

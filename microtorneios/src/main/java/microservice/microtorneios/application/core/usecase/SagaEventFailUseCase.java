@@ -4,8 +4,8 @@ import microservice.microtorneios.adapters.mapper.MapperIn;
 import microservice.microtorneios.adapters.utils.JsonUtil;
 import microservice.microtorneios.application.core.domain.History;
 import microservice.microtorneios.application.core.domain.SagaEvent;
-import microservice.microtorneios.application.core.domain.value_object.TimeVo;
 import microservice.microtorneios.application.core.domain.enums.ESagaStatus;
+import microservice.microtorneios.application.core.domain.value_object.TimeVo;
 import microservice.microtorneios.application.port.input.SagaEventFailInputPort;
 import microservice.microtorneios.application.port.output.SagaEventOrchestratorOutputPort;
 import microservice.microtorneios.application.port.output.TorneioFindOutputPort;
@@ -27,15 +27,15 @@ public class SagaEventFailUseCase implements SagaEventFailInputPort {
 
     private static final String CURRENT_SOURCE = "TORNEIO-VALIDATION-SUCCESS";
 
-    private final MapperIn mapperIn;
-
-    private final JsonUtil jsonUtil;
-
     private final TorneioFindOutputPort torneioFindOutputPort;
 
     private final TorneioSaveOutputPort torneioSaveOutputPort;
 
     private final SagaEventOrchestratorOutputPort sagaEventOrchestratorOutputPort;
+
+    private final MapperIn mapperIn;
+
+    private final JsonUtil jsonUtil;
 
     public SagaEventFailUseCase(MapperIn mapperIn, JsonUtil jsonUtil, TorneioFindOutputPort torneioFindOutputPort,
                                 TorneioSaveOutputPort torneioSaveOutputPort,
@@ -85,15 +85,15 @@ public class SagaEventFailUseCase implements SagaEventFailInputPort {
 
         Optional.ofNullable(sagaEvent)
             .ifPresentOrElse(event -> {
-                var time = new TimeVo(event.getTimeId());
+                var timeVo = new TimeVo(event.getTimeId());
                 var torneio = this.torneioFindOutputPort.find(event.getTorneioId());
-                var contain = torneio.getTimes().contains(time);
+                var contain = torneio.getTimes().contains(timeVo);
 
                 if (!contain) {
                     throw new SagaEventNotFoundException(event.getTimeId(), "Time");
                 }
 
-                torneio.getTimes().remove(time);
+                torneio.getTimes().remove(timeVo);
                 this.torneioSaveOutputPort.save(torneio);
             },
             () -> {throw new NullValueException();}
