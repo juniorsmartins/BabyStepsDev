@@ -1,12 +1,11 @@
 package microservice.micropagamentos.config.usecase;
 
 import microservice.micropagamentos.adapter.mapper.MapperIn;
-import microservice.micropagamentos.adapter.out.SagaEventExistsAdapter;
-import microservice.micropagamentos.adapter.out.SagaEventFindAdapter;
-import microservice.micropagamentos.adapter.out.SagaEventSavePagamentoAdapter;
-import microservice.micropagamentos.adapter.out.producer.KafkaProducerOrchestrator;
+import microservice.micropagamentos.adapter.out.*;
+import microservice.micropagamentos.adapter.out.producer.CarteiroNotifyOrchestratorProducer;
 import microservice.micropagamentos.adapter.utils.JsonUtil;
-import microservice.micropagamentos.application.core.usecase.SagaEventPagamentoUseCase;
+import microservice.micropagamentos.application.core.usecase.SagaEventFailUseCase;
+import microservice.micropagamentos.application.core.usecase.SagaEventSuccessUseCase;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -14,14 +13,29 @@ import org.springframework.context.annotation.Configuration;
 public class SagaEventConfig {
 
     @Bean
-    public SagaEventPagamentoUseCase sagaEventPagamentoUseCase(SagaEventSavePagamentoAdapter sagaEventSavePagamentoAdapter,
-                                                               KafkaProducerOrchestrator kafkaProducerOrchestrator,
-                                                               SagaEventExistsAdapter sagaEventExistsAdapter,
-                                                               SagaEventFindAdapter sagaEventFindAdapter,
-                                                               MapperIn mapperIn,
-                                                               JsonUtil jsonUtil) {
-        return new SagaEventPagamentoUseCase(sagaEventSavePagamentoAdapter, kafkaProducerOrchestrator,
-                sagaEventExistsAdapter, sagaEventFindAdapter, mapperIn, jsonUtil);
+    public SagaEventSuccessUseCase sagaEventSuccessUseCase(
+            PagamentoExistsAdapter pagamentoExistsAdapter,
+            PagamentoSaveAdapter pagamentoSaveAdapter,
+            PagamentoFindAdapter pagamentoFindAdapter,
+            CarteiroNotifyOrchestratorProducer carteiroNotifyOrchestratorProducer,
+            MapperIn mapperIn,
+            JsonUtil jsonUtil
+    ) {
+        return new SagaEventSuccessUseCase(pagamentoExistsAdapter, pagamentoSaveAdapter, pagamentoFindAdapter,
+                carteiroNotifyOrchestratorProducer, mapperIn, jsonUtil);
     }
+
+    @Bean
+    public SagaEventFailUseCase sagaEventFailUseCase(
+            PagamentoFindAdapter pagamentoFindAdapter,
+            PagamentoDeleteAdapter pagamentoDeleteAdapter,
+            CarteiroNotifyOrchestratorProducer carteiroNotifyOrchestratorProducer,
+            MapperIn mapperIn,
+            JsonUtil jsonUtil
+    ) {
+        return new SagaEventFailUseCase(pagamentoFindAdapter, pagamentoDeleteAdapter, carteiroNotifyOrchestratorProducer,
+                mapperIn, jsonUtil);
+    }
+
 }
 

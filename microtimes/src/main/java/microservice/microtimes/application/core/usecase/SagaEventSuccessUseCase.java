@@ -51,14 +51,14 @@ public class SagaEventSuccessUseCase implements SagaEventSuccessInputPort {
     @Override
     public SagaEvent addTorneioInTime(SagaEvent sagaEvent) {
 
-        log.info("Iniciado serviço para inscrever Torneio no Time.");
+        log.info("Serviço iniciado para inscrever Torneio no Time.");
 
         var sagaEventConclusion = Optional.ofNullable(sagaEvent)
             .map(this::sagaProcessSuccess)
             .map(this::sagaResponseOrchestrator)
             .orElseThrow();
 
-        log.info("Finalizado serviço para inscrever Torneio no Time. Veja o evento: {}", sagaEventConclusion);
+        log.info("Serviço finalizado para inscrever Torneio no Time. Veja o evento: {}", sagaEventConclusion);
 
         return sagaEventConclusion;
     }

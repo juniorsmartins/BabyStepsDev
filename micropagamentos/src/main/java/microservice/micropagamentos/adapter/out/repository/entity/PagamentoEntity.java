@@ -33,6 +33,12 @@ public final class PagamentoEntity implements Serializable {
     @Column(name = "transaction_id", nullable = false)
     private String transactionId;
 
+    @Column(name = "torneio_id", nullable = false)
+    private Long torneioId;
+
+    @Column(name = "time_id", nullable = false)
+    private Long timeId;
+
     @Column(name = "numero_banco", nullable = false)
     private Integer numeroBanco;
 
