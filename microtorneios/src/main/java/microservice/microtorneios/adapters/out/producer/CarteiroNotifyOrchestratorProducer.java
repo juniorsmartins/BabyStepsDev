@@ -2,7 +2,7 @@ package microservice.microtorneios.adapters.out.producer;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import microservice.microtorneios.application.port.output.SagaEventOrchestratorOutputPort;
+import microservice.microtorneios.application.port.output.CarteiroNotifyOrchestratorOutputPort;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @Component
 @RequiredArgsConstructor
-public class CarteiroNotifyOrchestratorProducer implements SagaEventOrchestratorOutputPort {
+public class CarteiroNotifyOrchestratorProducer implements CarteiroNotifyOrchestratorOutputPort {
 
     private final KafkaTemplate<String, String> kafkaTemplate;
 

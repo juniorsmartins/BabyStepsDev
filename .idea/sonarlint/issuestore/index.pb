@@ -703,14 +703,8 @@ _micropagamentos/src/main/java/microservice/micropagamentos/application/core/dom
 amicropagamentos/src/main/java/microservice/micropagamentos/application/core/domain/SagaEvent.java,1/f/1f6d71aa7c97290f8e0ed06acf7b279e7ee6736a
 å
 \micropagamentos/src/main/java/microservice/micropagamentos/application/core/domain/Time.java,f/b/fb852f86e2227813e5768a3b8893feb894250c03
-¢
-rmicropagamentos/src/main/java/microservice/micropagamentos/application/core/usecase/SagaEventPagamentoUseCase.java,6/8/681f8d84aca2cb0a599143ceb8111613facc670d
 á
 Wmicropagamentos/src/main/java/microservice/micropagamentos/adapter/mapper/MapperIn.java,a/e/aeda6e1cd623da8641e3c6747353d61b1e3fec4a
-®
-xmicropagamentos/src/main/java/microservice/micropagamentos/application/port/output/SagaEventSavePagamentoOutputPort.java,2/9/29820fb097327de43e9a7a7f43ffc7255afbe79f
-ô
-imicropagamentos/src/main/java/microservice/micropagamentos/adapter/out/SagaEventSavePagamentoAdapter.java,0/b/0b3d9e9b8e0e6790ce1437422fe0e4142cbde3c5
 ë
 amicropagamentos/src/main/java/microservice/micropagamentos/application/core/domain/Pagamento.java,2/e/2e5b077bb30fdfc0a693728f4e13beb5249b2411
 à
@@ -871,10 +865,6 @@ Ymicrotimes/src/main/java/microservice/microtimes/adapter/in/controller/dto/Time
 fmicropagamentos/src/main/java/microservice/micropagamentos/config/beans/InternacionalizacaoConfig.java,b/3/b31c30c4824ceecfdc02216ab546b58c98b09db3
 ¢
 rmicropagamentos/src/main/java/microservice/micropagamentos/config/exception/http_404/RecursoNotFoundException.java,1/7/17ca3fc1d43743561cefca2b5ba2b09e71d9c8ee
-´
-{micropagamentos/src/main/java/microservice/micropagamentos/config/exception/http/SagaEventNullValueNotAllowedException.java,4/c/4cb9693ce654b1ddc114262e43574981a21a9e97
-¨
-|micropagamentos/src/main/java/microservice/micropagamentos/config/exception/http/SagaEventPagamentoDuplicationException.java,f/6/f69af2c80188443e02879bc57a2a31d36b3c9a2d
 °
 qmicropagamentos/src/main/java/microservice/micropagamentos/config/exception/http/SagaEventDuplicateException.java,a/3/a343b0cfa05eccbc792f0d8b4863dd8deb8515ba
 †
@@ -904,8 +894,6 @@ omicropagamentos/src/main/java/microservice/micropagamentos/application/port/out
 §
 tmicropagamentos/src/main/java/microservice/micropagamentos/config/exception/http_404/PagamentoNotFoundException.java,7/b/7bf6fd6a6429acc031dc6c93c5efaa757bad886c
 ß
-wmicropagamentos/src/main/java/microservice/micropagamentos/application/port/output/SagaEventOrchestratorOutputPort.java,7/e/7e97dbf7c0098359c16ec6b4f162c2ede2e59d18
-ß
 wmicropagamentos/src/main/java/microservice/micropagamentos/adapter/out/producer/CarteiroNotifyOrchestratorProducer.java,e/d/edb3013913c4d3790dc5ca9250fb36aaa798e6c7
 ù
 mmicropagamentos/src/main/java/microservice/micropagamentos/application/core/usecase/SagaEventFailUseCase.java,0/7/07a712d1acde6c5056eeeeb739fa8c6c20df6558
@@ -915,3 +903,9 @@ qmicropagamentos/src/main/java/microservice/micropagamentos/application/port/out
 bmicropagamentos/src/main/java/microservice/micropagamentos/adapter/out/PagamentoDeleteAdapter.java,f/9/f9dd90c44f3f5536106b881bf07946fb2f2f81d7
 ¨
 |micropagamentos/src/main/java/microservice/micropagamentos/application/port/output/CarteiroNotifyOrchestratorOutputPort.java,e/a/eaff154c33bce6da8059865f8b5532984a9f1f8e
+ë
+amicropagamentos/src/main/java/microservice/micropagamentos/adapter/in/consumer/dto/TimeIdDto.java,d/6/d69350fdaa4d521923a8d4de514369930ce61c46
+ñ
+fmicropagamentos/src/main/java/microservice/micropagamentos/adapter/in/consumer/dto/InscricaoIdDto.java,9/c/9c3e826efa2f67a7296e0507c586054e7e2e3737
+ô
+imicropagamentos/src/main/java/microservice/micropagamentos/adapter/in/consumer/dto/HistoryDtoRequest.java,0/7/077982f430eb49445d8267306a10b18c7d2b4137

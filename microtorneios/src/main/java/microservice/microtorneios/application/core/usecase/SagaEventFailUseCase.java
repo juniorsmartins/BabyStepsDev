@@ -7,7 +7,7 @@ import microservice.microtorneios.application.core.domain.SagaEvent;
 import microservice.microtorneios.application.core.domain.enums.ESagaStatus;
 import microservice.microtorneios.application.core.domain.value_object.TimeVo;
 import microservice.microtorneios.application.port.input.SagaEventFailInputPort;
-import microservice.microtorneios.application.port.output.SagaEventOrchestratorOutputPort;
+import microservice.microtorneios.application.port.output.CarteiroNotifyOrchestratorOutputPort;
 import microservice.microtorneios.application.port.output.TorneioFindOutputPort;
 import microservice.microtorneios.application.port.output.TorneioSaveOutputPort;
 import microservice.microtorneios.config.exception.http.SagaEventNotFoundException;
@@ -31,7 +31,7 @@ public class SagaEventFailUseCase implements SagaEventFailInputPort {
 
     private final TorneioSaveOutputPort torneioSaveOutputPort;
 
-    private final SagaEventOrchestratorOutputPort sagaEventOrchestratorOutputPort;
+    private final CarteiroNotifyOrchestratorOutputPort sagaEventOrchestratorOutputPort;
 
     private final MapperIn mapperIn;
 
@@ -39,7 +39,7 @@ public class SagaEventFailUseCase implements SagaEventFailInputPort {
 
     public SagaEventFailUseCase(MapperIn mapperIn, JsonUtil jsonUtil, TorneioFindOutputPort torneioFindOutputPort,
                                 TorneioSaveOutputPort torneioSaveOutputPort,
-                                SagaEventOrchestratorOutputPort sagaEventOrchestratorOutputPort) {
+                                CarteiroNotifyOrchestratorOutputPort sagaEventOrchestratorOutputPort) {
         this.mapperIn = mapperIn;
         this.jsonUtil = jsonUtil;
         this.torneioFindOutputPort = torneioFindOutputPort;
