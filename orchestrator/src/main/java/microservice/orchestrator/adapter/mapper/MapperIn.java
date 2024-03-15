@@ -38,22 +38,13 @@ public interface MapperIn {
         return ESagaStatus.fromValue(status);
     }
 
-
-
     @Mapping(source = "inscricao.id", target = "inscricaoId")
     Inscrito toInscrito(InscritoDtoRequest inscritoDtoRequest);
 
-    @Mapping(source = "inscricaoId", target = "inscricao.id")
-    InscritoDtoRequest toInscritoDtoRequest(Inscrito inscrito);
-
     Time toTime(TimeIdDto timeIdDto);
-
-    TimeIdDto toTimeIdDto(Time time);
 
     @Mapping(source = "status", target = "status", qualifiedByName = "converterStringParaEnumSagaStatus")
     History toHistory(HistoryDtoRequest historyDtoRequest);
-
-    HistoryDtoRequest toHistoryDtoRequest(History history);
 
 }
 

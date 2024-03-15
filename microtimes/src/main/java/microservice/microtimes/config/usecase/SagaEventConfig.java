@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Configuration;
 public class SagaEventConfig {
 
     @Bean
-    public SagaEventSuccessUseCase sagaEventSuccessValidationUseCase(
+    public SagaEventSuccessUseCase sagaEventSuccessUseCase(
             TimeFindAdapter timeFindAdapter,
             TimeSaveAdapter timeSaveAdapter,
             CarteiroNotifyOrchestratorProducer kafkaProducerOrchestrator,

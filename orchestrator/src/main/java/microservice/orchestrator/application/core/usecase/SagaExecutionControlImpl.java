@@ -1,20 +1,19 @@
-package microservice.orchestrator.saga;
+package microservice.orchestrator.application.core.usecase;
 
-import lombok.AllArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import microservice.orchestrator.application.core.domain.SagaEvent;
+import microservice.orchestrator.application.core.usecase.utils.SagaHandler;
 import microservice.orchestrator.application.port.SagaExecutionControl;
 import microservice.orchestrator.config.exception.ValidationException;
 import microservice.orchestrator.config.kafka.ETopics;
-import org.springframework.stereotype.Component;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.util.ObjectUtils;
 
 import java.util.Arrays;
 
-@Slf4j
-@Component
-@AllArgsConstructor
 public class SagaExecutionControlImpl implements SagaExecutionControl {
+
+    private static final Logger log = LoggerFactory.getLogger(SagaExecutionControlImpl.class);
 
     @Override
     public ETopics getNextTopic(SagaEvent event) {
