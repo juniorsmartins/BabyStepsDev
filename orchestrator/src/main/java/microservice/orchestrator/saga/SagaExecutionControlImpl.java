@@ -3,6 +3,7 @@ package microservice.orchestrator.saga;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import microservice.orchestrator.application.core.domain.SagaEvent;
+import microservice.orchestrator.application.port.SagaExecutionControl;
 import microservice.orchestrator.config.exception.ValidationException;
 import microservice.orchestrator.config.kafka.ETopics;
 import org.springframework.stereotype.Component;
@@ -13,8 +14,9 @@ import java.util.Arrays;
 @Slf4j
 @Component
 @AllArgsConstructor
-public class SagaExecutionControl {
+public class SagaExecutionControlImpl implements SagaExecutionControl {
 
+    @Override
     public ETopics getNextTopic(SagaEvent event) {
         if (ObjectUtils.isEmpty(event.getSource()) || ObjectUtils.isEmpty(event.getStatus())) {
             throw new ValidationException("Source ou Status não informado.");
