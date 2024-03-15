@@ -8,7 +8,6 @@ import microservice.orchestrator.application.port.input.SagaEventContinueInputPo
 import microservice.orchestrator.application.port.input.SagaEventFinishFailInputPort;
 import microservice.orchestrator.application.port.input.SagaEventFinishSuccessInputPort;
 import microservice.orchestrator.application.port.input.SagaEventStartInputPort;
-import microservice.orchestrator.saga.OrchestratorService;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
@@ -17,9 +16,7 @@ import java.util.Optional;
 @Slf4j
 @Component
 @RequiredArgsConstructor
-public class SagaOrchestratorConsumer {
-
-    private final OrchestratorService orchestratorService;
+public class CaixaPostalSagaConsumer {
 
     private final SagaEventStartInputPort sagaEventStartInputPort;
 

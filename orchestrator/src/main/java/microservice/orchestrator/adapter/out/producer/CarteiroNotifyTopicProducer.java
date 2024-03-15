@@ -6,6 +6,7 @@ import microservice.orchestrator.adapter.mapper.MapperOut;
 import microservice.orchestrator.adapter.utils.JsonUtil;
 import microservice.orchestrator.application.core.domain.SagaEvent;
 import microservice.orchestrator.application.port.output.CarteiroNotifyTopicOutputPort;
+import microservice.orchestrator.config.exception.http_500.CarteiroFailSendLetterException;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
 
@@ -29,17 +30,17 @@ public class CarteiroNotifyTopicProducer implements CarteiroNotifyTopicOutputPor
             .map(this.mapperOut::toSagaEventRequest)
             .map(this.jsonUtil::toJson)
             .ifPresentOrElse(payload -> this.dispatcher(topic, payload),
-                () -> {}
+                () -> {throw new CarteiroFailSendLetterException();}
             );
     }
 
     private void dispatcher(String topic, String payload) {
         try {
-            log.info("Sending event to topic {} with data {}", topic, payload);
+            log.info("Carteiro despacha para o tópico {}, com o conteúdo {}", topic, payload);
             kafkaTemplate.send(topic, payload);
 
         } catch (Exception ex) {
-            log.error("Error trying to send data to topic {} with data {}", topic, payload, ex);
+            log.error("Carteiro falha na tentativa de despachar para o tópico {}, com o conteúdo {}", topic, payload, ex);
         }
     }
 }

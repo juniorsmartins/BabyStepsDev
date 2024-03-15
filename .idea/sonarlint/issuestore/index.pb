@@ -949,3 +949,11 @@ korchestrator/src/main/java/microservice/orchestrator/application/core/usecase/S
 porchestrator/src/main/java/microservice/orchestrator/application/core/usecase/SagaEventFinishSuccessUseCase.java,0/b/0be40ec626cbbae585f931ddae517eb09b807e14
 ù
 morchestrator/src/main/java/microservice/orchestrator/application/core/usecase/SagaEventFinishFailUseCase.java,6/c/6c7170977c10541bb12d197f14933d8baa035af5
+ï
+eorchestrator/src/main/java/microservice/orchestrator/adapter/in/consumer/CaixaPostalSagaConsumer.java,1/6/1687a17a520671af1f7780006514230d5ef2ec35
+ç
+]orchestrator/src/main/java/microservice/orchestrator/application/core/domain/SagaHandler.java,5/8/58720446387f9bb5612a81cf19193ad1d60da26e
+î
+dorchestrator/src/main/java/microservice/orchestrator/application/core/usecase/utils/SagaHandler.java,e/5/e544f47bf0e9b2d1107716f7f8e011f80af89033
+õ
+korchestrator/src/main/java/microservice/orchestrator/application/core/usecase/SagaExecutionControlImpl.java,f/0/f089100ffc5bd2b2dc8fabe705642e2ed6c827ac

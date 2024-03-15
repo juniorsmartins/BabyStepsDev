@@ -35,7 +35,6 @@ public class SagaEventStartUseCase implements SagaEventStartInputPort {
 
         event.setSource(EEventSource.ORCHESTRATOR);
         event.setStatus(ESagaStatus.SUCCESS);
-
         this.addHistory(event, "Saga iniciada!");
 
         var topic = this.getTopic(event);
