@@ -952,3 +952,5 @@ eorchestrator/src/main/java/microservice/orchestrator/adapter/in/consumer/CaixaP
 dorchestrator/src/main/java/microservice/orchestrator/application/core/usecase/utils/SagaHandler.java,e/5/e544f47bf0e9b2d1107716f7f8e011f80af89033
 ›
 korchestrator/src/main/java/microservice/orchestrator/application/core/usecase/SagaExecutionControlImpl.java,f/0/f089100ffc5bd2b2dc8fabe705642e2ed6c827ac
+ˆ
+Xorchestrator/src/main/java/microservice/orchestrator/config/usecase/SagaEventConfig.java,f/5/f5af5b371786ef5b1bdcb951c2c543696df30371
