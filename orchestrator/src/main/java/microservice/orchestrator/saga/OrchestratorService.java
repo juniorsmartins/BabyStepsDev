@@ -2,12 +2,13 @@ package microservice.orchestrator.saga;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import microservice.orchestrator.adapter.out.producer.SagaOrchestratorProducer;
+import microservice.orchestrator.adapter.out.producer.CarteiroNotifyTopicProducer;
 import microservice.orchestrator.adapter.utils.JsonUtil;
 import microservice.orchestrator.application.core.domain.History;
 import microservice.orchestrator.application.core.domain.SagaEvent;
 import microservice.orchestrator.application.core.domain.enums.EEventSource;
 import microservice.orchestrator.application.core.domain.enums.ESagaStatus;
+import microservice.orchestrator.application.port.SagaExecutionControl;
 import microservice.orchestrator.config.kafka.ETopics;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +19,7 @@ import java.time.OffsetDateTime;
 @AllArgsConstructor
 public class OrchestratorService {
 
-    private final SagaOrchestratorProducer sagaOrchestratorProducer;
+    private final CarteiroNotifyTopicProducer sagaOrchestratorProducer;
 
     private final SagaExecutionControl sagaExecutionControl;
 

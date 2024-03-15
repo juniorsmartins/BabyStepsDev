@@ -38,8 +38,7 @@ public interface MapperIn {
         return ESagaStatus.fromValue(status);
     }
 
-    @Mapping(source = "sagaEventId", target = "id")
-    SagaEventRequest toSagaEventRequest(SagaEvent sagaEvent);
+
 
     @Mapping(source = "inscricao.id", target = "inscricaoId")
     Inscrito toInscrito(InscritoDtoRequest inscritoDtoRequest);
