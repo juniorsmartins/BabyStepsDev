@@ -26,8 +26,9 @@ public class SagaEventContinueUseCase implements SagaEventContinueInputPort {
     @Override
     public SagaEvent continueSaga(SagaEvent event) {
 
-        var topico = this.getTopic(event);
         log.info("SAGA CONTINUA PARA O EVENTO: {}", event.getSagaEventId());
+
+        var topico = this.getTopic(event);
         this.sendToProducerWithTopic(event, topico);
 
         return event;

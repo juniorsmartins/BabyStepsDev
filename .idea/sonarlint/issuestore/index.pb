@@ -945,3 +945,7 @@ oorchestrator/src/main/java/microservice/orchestrator/application/port/output/Ca
 jorchestrator/src/main/java/microservice/orchestrator/adapter/out/producer/CarteiroNotifyTopicProducer.java,e/3/e39e3d0b93b77cb448d80dfd399c496ce66d902e
 õ
 korchestrator/src/main/java/microservice/orchestrator/application/core/usecase/SagaEventContinueUseCase.java,b/8/b8a93616a4f12d7bdb2f91a6221dca91a72dcd3e
+†
+porchestrator/src/main/java/microservice/orchestrator/application/core/usecase/SagaEventFinishSuccessUseCase.java,0/b/0be40ec626cbbae585f931ddae517eb09b807e14
+ù
+morchestrator/src/main/java/microservice/orchestrator/application/core/usecase/SagaEventFinishFailUseCase.java,6/c/6c7170977c10541bb12d197f14933d8baa035af5

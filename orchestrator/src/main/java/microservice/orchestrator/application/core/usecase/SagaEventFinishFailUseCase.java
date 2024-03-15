@@ -4,8 +4,7 @@ import microservice.orchestrator.application.core.domain.History;
 import microservice.orchestrator.application.core.domain.SagaEvent;
 import microservice.orchestrator.application.core.domain.enums.EEventSource;
 import microservice.orchestrator.application.core.domain.enums.ESagaStatus;
-import microservice.orchestrator.application.port.SagaExecutionControl;
-import microservice.orchestrator.application.port.input.SagaEventStartInputPort;
+import microservice.orchestrator.application.port.input.SagaEventFinishFailInputPort;
 import microservice.orchestrator.application.port.output.CarteiroNotifyTopicOutputPort;
 import microservice.orchestrator.config.kafka.ETopics;
 import org.slf4j.Logger;
@@ -13,39 +12,29 @@ import org.slf4j.LoggerFactory;
 
 import java.time.OffsetDateTime;
 
-public class SagaEventStartUseCase implements SagaEventStartInputPort {
+public class SagaEventFinishFailUseCase implements SagaEventFinishFailInputPort {
 
-    private static final Logger log = LoggerFactory.getLogger(SagaEventStartUseCase.class);
-
-    private final SagaExecutionControl sagaExecutionControl;
+    private static final Logger log = LoggerFactory.getLogger(SagaEventFinishFailUseCase.class);
 
     private final CarteiroNotifyTopicOutputPort carteiroNotifyTopicOutputPort;
 
-    public SagaEventStartUseCase(
-            SagaExecutionControl sagaExecutionControl,
+    public SagaEventFinishFailUseCase(
             CarteiroNotifyTopicOutputPort carteiroNotifyTopicOutputPort) {
-        this.sagaExecutionControl = sagaExecutionControl;
         this.carteiroNotifyTopicOutputPort = carteiroNotifyTopicOutputPort;
     }
 
     @Override
-    public SagaEvent startSaga(SagaEvent event) {
+    public SagaEvent finishFail(SagaEvent event) {
 
-        log.info("SAGA INICIADA");
+        log.info("SAGA FINALIZADA COM ERRO PARA O EVENTO: {}", event.getSagaEventId());
 
         event.setSource(EEventSource.ORCHESTRATOR);
-        event.setStatus(ESagaStatus.SUCCESS);
+        event.setStatus(ESagaStatus.FAIL);
 
-        this.addHistory(event, "Saga iniciada!");
-
-        var topic = this.getTopic(event);
-        this.sendToProducerWithTopic(event, topic);
+        this.addHistory(event, "Saga finalizada com erro!");
+        this.notifyFinishedSaga(event);
 
         return event;
-    }
-
-    private ETopics getTopic(SagaEvent event) {
-        return this.sagaExecutionControl.getNextTopic(event);
     }
 
     private void addHistory(SagaEvent event, String message) {
@@ -58,8 +47,8 @@ public class SagaEventStartUseCase implements SagaEventStartInputPort {
         event.addToHistory(history);
     }
 
-    private void sendToProducerWithTopic(SagaEvent event, ETopics topics) {
-        this.carteiroNotifyTopicOutputPort.sendEvent(topics.getTopic(), event);
+    private void notifyFinishedSaga(SagaEvent event) {
+        this.carteiroNotifyTopicOutputPort.sendEvent(ETopics.NOTIFY_ENDING.getTopic(), event);
     }
 
 }
