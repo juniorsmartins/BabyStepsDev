@@ -17,9 +17,9 @@ import org.mapstruct.Named;
 @Mapper(componentModel = "spring")
 public interface MapperOut {
 
-    @Mapping(source = "sagaEventId", target = "id")
-    @Mapping(source = "source", target = "source", qualifiedByName = "converterEnumEventSourceParaString")
-    @Mapping(source = "status", target = "status", qualifiedByName = "converterEnumSagaStatusParaString")
+    @Mapping(target = "id", source = "sagaEventId")
+    @Mapping(target = "source", source = "source", qualifiedByName = "converterEnumEventSourceParaString")
+    @Mapping(target = "status", source = "status", qualifiedByName = "converterEnumSagaStatusParaString")
     SagaEventRequest toSagaEventRequest(SagaEvent sagaEvent);
 
     @Named("converterEnumEventSourceParaString")
@@ -38,12 +38,12 @@ public interface MapperOut {
         return status.getValue();
     }
 
-    @Mapping(source = "inscricaoId", target = "inscricao.id")
+    @Mapping(target = "inscricao.id", source = "inscricaoId")
     InscritoDtoRequest toInscritoDtoRequest(Inscrito inscrito);
 
     TimeIdDto toTimeIdDto(Time time);
 
-    @Mapping(source = "status", target = "status", qualifiedByName = "converterEnumSagaStatusParaString")
+    @Mapping(target = "status", source = "status", qualifiedByName = "converterEnumSagaStatusParaString")
     HistoryDtoRequest toHistoryDtoRequest(History history);
 
 }
