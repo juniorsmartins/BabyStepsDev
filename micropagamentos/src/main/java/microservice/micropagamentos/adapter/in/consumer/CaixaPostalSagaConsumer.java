@@ -36,6 +36,7 @@ public class CaixaPostalSagaConsumer {
             .map(this.jsonUtil::toSagaEventRequest)
             .map(this.mapperIn::toSagaEvent)
             .map(this.sagaEventSuccessInputPort::realizePayment)
+            .map(this.mapperIn::toSagaEventRequest)
             .orElseThrow();
 
         log.info("Finalizado evento no tópico Pagamento-Success para efetuar Pagamento de inscrito: {}.", sagaEventSuccess);
@@ -53,6 +54,7 @@ public class CaixaPostalSagaConsumer {
             .map(this.jsonUtil::toSagaEventRequest)
             .map(this.mapperIn::toSagaEvent)
             .map(this.sagaEventFailInputPort::realizeRefund)
+            .map(this.mapperIn::toSagaEventRequest)
             .orElseThrow();
 
         log.info("Finalizado evento no tópico Pagamento-Success para efetuar Pagamento de inscrito: {}.", sagaEventFail);
