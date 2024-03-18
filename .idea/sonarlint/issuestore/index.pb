@@ -941,17 +941,3 @@ korchestrator/src/main/java/microservice/orchestrator/application/core/usecase/S
 Xorchestrator/src/main/java/microservice/orchestrator/config/usecase/SagaEventConfig.java,f/5/f5af5b371786ef5b1bdcb951c2c543696df30371
 –
 forchestrator/src/main/java/microservice/orchestrator/application/core/domain/enums/ETipoPagamento.java,c/1/c100909540a61406db3a84f365a5f292aaeb12be
-™
-iorchestrator/src/main/java/microservice/orchestrator/application/port/input/SagaEventCreateInputPort.java,6/f/6f1ab04aee29dbd87ca4de7903074f8a8da6f0ba
-™
-iorchestrator/src/main/java/microservice/orchestrator/application/core/usecase/SagaEventCreateUseCase.java,8/2/8281fbd829e1a15e113c40ccc827de3cc693dbfe
-™
-iorchestrator/src/main/java/microservice/orchestrator/application/port/output/SagaEventSaveOutputPort.java,5/1/51365ddfdd938ea8b3b6b8c10c8d0f95ffbc0112
-Š
-Zorchestrator/src/main/java/microservice/orchestrator/adapter/out/SagaEventSaveAdapter.java,4/1/41ed4e8f940860e461e2a76c4845a89d6aa3b85e
-”
-dorchestrator/src/main/java/microservice/orchestrator/adapter/out/repository/SagaEventRepository.java,8/e/8ee3cc74ba1759b2970a545b61c04a21456fdfd9
-—
-gorchestrator/src/main/java/microservice/orchestrator/adapter/out/repository/entity/SagaEventEntity.java,5/4/5483363e4507b57b5bd797a83932c26d89c136fa
-A
-orchestrator/.env,d/4/d45af4e2a0753697e23429e448073b417d8f313d

@@ -36,6 +36,7 @@ public class CaixaPostalSagaConsumer {
             .map(this.jsonUtil::toSagaEventRequest)
             .map(this.mapperIn::toSagaEvent)
             .map(this.sagaEventSuccessInputPort::addTorneioInTime)
+            .map(this.mapperIn::toSagaEventRequest)
             .orElseThrow();
 
         log.info("Finalizado evento no tópico Time-Validation-Success para inscrever Torneio no Time: {}.", sagaEventSuccess);
@@ -53,6 +54,7 @@ public class CaixaPostalSagaConsumer {
             .map(this.jsonUtil::toSagaEventRequest)
             .map(this.mapperIn::toSagaEvent)
             .map(this.sagaEventFailInputPort::rollbackEvent)
+            .map(this.mapperIn::toSagaEventRequest)
             .orElseThrow();
 
         log.info("Finalizado evento no tópico Torneio-Fail para remover Torneio do Time: {}.", sagaEventFail);
