@@ -1,27 +1,5 @@
 
 K
-java:S1948")Make "payload" transient or serializable.(î€çûÿÿÿÿ8äŸÊä1
+java:S19481")Make "payload" transient or serializable.(î€çûÿÿÿÿ8äŸÊä1
 M
-java:S1948$"0Make "eventHistories" transient or serializable.(ˆ ¹É8äŸÊä1
-K
-java:S1068"/Remove this unused "sagaEventId" private field.(…ÆØY8Õ±Êä1
-N
-java:S1068"1Remove this unused "transactionId" private field.(ÇÚ¡8Ö±Êä1
-Q
-java:S1068"/Remove this unused "inscricaoId" private field.(œŞù¹ûÿÿÿÿ8Ö±Êä1
-K
-java:S1068".Remove this unused "inscritoId" private field.(öµô8Ö±Êä1
-O
-java:S1068"-Remove this unused "torneioId" private field.(€ÇëÊşÿÿÿÿ8Ö±Êä1
-L
-java:S1068"*Remove this unused "timeId" private field.(üˆü¨şÿÿÿÿ8Ö±Êä1
-M
-java:S1068"+Remove this unused "payload" private field.(î€çûÿÿÿÿ8Ö±Êä1
-G
-java:S1068 "*Remove this unused "source" private field.(“ºÕ›8Ö±Êä1
-G
-java:S1068""*Remove this unused "status" private field.(‚°îÃ8Ö±Êä1
-O
-java:S1068$"2Remove this unused "eventHistories" private field.(ˆ ¹É8×±Êä1
-J
-java:S1068&"-Remove this unused "createdAt" private field.(­Ê­´8×±Êä1
+java:S1948<"0Make "eventHistories" transient or serializable.(ˆ ¹É8äŸÊä1
