@@ -11,6 +11,7 @@ import microservice.microinscricoes.application.port.output.CarteiroNotifyStartO
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -53,9 +54,20 @@ public class StartSagaEventUseCase implements StartSagaEventPort {
         sagaEvent.setPayload(inscrito);
         sagaEvent.setSource(EEventSource.INSCRICAO_SERVICE);
         sagaEvent.setStatus(ESagaStatus.SUCCESS);
-        sagaEvent.setEventHistories(List.of(new History()));
+
+        this.addHistory(sagaEvent, "Pré-Saga iniciada!");
 
         return sagaEvent;
+    }
+
+    private void addHistory(SagaEvent event, String message) {
+        var history = new History();
+        history.setMessage(message);
+        history.setSource(event.getSource());
+        history.setStatus(event.getStatus());
+        history.setCreatedAt(OffsetDateTime.now());
+
+        event.addToHistory(history);
     }
 
     private SagaEvent send(SagaEvent sagaEvent) {

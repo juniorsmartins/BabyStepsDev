@@ -3,8 +3,10 @@ package microservice.microinscricoes.application.core.domain;
 import microservice.microinscricoes.application.core.domain.enums.EEventSource;
 import microservice.microinscricoes.application.core.domain.enums.ESagaStatus;
 import microservice.microinscricoes.application.core.domain.value_object.History;
+import org.springframework.util.ObjectUtils;
 
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -36,6 +38,13 @@ public final class SagaEvent {
         if (this.transactionId == null) {
             this.transactionId = String.format("%s_%s", OffsetDateTime.now().toEpochSecond(), UUID.randomUUID());
         }
+    }
+
+    public void addToHistory(History history) {
+        if (ObjectUtils.isEmpty(this.eventHistories)) {
+            this.eventHistories = new ArrayList<>();
+        }
+        this.eventHistories.add(history);
     }
 
     public Long getId() {
