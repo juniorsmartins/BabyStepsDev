@@ -7,6 +7,7 @@ import org.springframework.util.ObjectUtils;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public final class SagaEvent {
 
@@ -143,5 +144,19 @@ public final class SagaEvent {
             ", createdAt=" + createdAt +
             '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        SagaEvent sagaEvent = (SagaEvent) o;
+        return Objects.equals(getSagaEventId(), sagaEvent.getSagaEventId());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getSagaEventId());
+    }
+
 }
 

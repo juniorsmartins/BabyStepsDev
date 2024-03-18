@@ -4,6 +4,7 @@ import microservice.micropagamentos.adapter.mapper.MapperIn;
 import microservice.micropagamentos.adapter.utils.JsonUtil;
 import microservice.micropagamentos.application.core.domain.History;
 import microservice.micropagamentos.application.core.domain.SagaEvent;
+import microservice.micropagamentos.application.core.domain.enums.EEventSource;
 import microservice.micropagamentos.application.core.domain.enums.ESagaStatus;
 import microservice.micropagamentos.application.port.input.SagaEventFailInputPort;
 import microservice.micropagamentos.application.port.output.PagamentoDeleteOutputPort;
@@ -22,8 +23,6 @@ import java.util.Optional;
 public class SagaEventFailUseCase implements SagaEventFailInputPort {
 
     private static final Logger log = LoggerFactory.getLogger(SagaEventFailUseCase.class);
-
-    private static final String CURRENT_SOURCE = "PAGAMENTO-SERVICE";
 
     private final PagamentoFindOutputPort pagamentoFindOutputPort;
 
@@ -97,7 +96,7 @@ public class SagaEventFailUseCase implements SagaEventFailInputPort {
 
     private void handleSuccessFail(SagaEvent event) {
         event.setStatus(ESagaStatus.FAIL);
-        event.setSource(CURRENT_SOURCE);
+        event.setSource(EEventSource.PAGAMENTO_SERVICE);
         this.addHistory(event, "Rollback bem-sucedido ao remover operação de Pagamento.");
     }
 
@@ -113,7 +112,7 @@ public class SagaEventFailUseCase implements SagaEventFailInputPort {
 
     private void handleRollbackPending(SagaEvent event, String message) {
         event.setStatus(ESagaStatus.ROLLBACK_PENDING);
-        event.setSource(CURRENT_SOURCE);
+        event.setSource(EEventSource.PAGAMENTO_SERVICE);
         this.addHistory(event, "Rollback falha ao remover operação de Pagamento: ".concat(message));
     }
 

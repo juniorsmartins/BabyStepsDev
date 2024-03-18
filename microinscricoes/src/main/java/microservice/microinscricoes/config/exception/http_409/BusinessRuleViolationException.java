@@ -5,7 +5,8 @@ import lombok.Getter;
 import java.io.Serial;
 
 @Getter
-public abstract sealed class BusinessRuleViolationException extends RuntimeException permits FiltersEventEmptyException {
+public abstract sealed class BusinessRuleViolationException extends RuntimeException
+        permits FiltersEventEmptyException, ConversionEnumSagaStatusFailedException {
 
   @Serial
   private static final long serialVersionUID = 1L;

@@ -42,6 +42,7 @@ public class CaixaPostalSagaConsumer {
             .map(this.jsonUtil::toSagaEventRequest)
             .map(this.mapperIn::toSagaEvent)
             .map(this.sagaEventStartInputPort::startSaga)
+            .map(this.mapperIn::toSagaEventRequest)
             .orElseThrow();
 
         log.info("Finalizado evento no tópico Start-Saga para inscrever Time no Torneio: {}.", response);
@@ -59,6 +60,7 @@ public class CaixaPostalSagaConsumer {
             .map(this.jsonUtil::toSagaEventRequest)
             .map(this.mapperIn::toSagaEvent)
             .map(this.sagaEventContinueInputPort::continueSaga)
+            .map(this.mapperIn::toSagaEventRequest)
             .orElseThrow();
 
         log.info("Finalizado evento no tópico Orchestrator para inscrever Time no Torneio: {}.", response);
@@ -76,6 +78,7 @@ public class CaixaPostalSagaConsumer {
             .map(this.jsonUtil::toSagaEventRequest)
             .map(this.mapperIn::toSagaEvent)
             .map(this.sagaEventFinishSuccessInputPort::finishSagaSuccess)
+            .map(this.mapperIn::toSagaEventRequest)
             .orElseThrow();
 
         log.info("Finalizado evento no tópico Finish-Success para inscrever Time no Torneio: {}.", response);
@@ -93,6 +96,7 @@ public class CaixaPostalSagaConsumer {
             .map(this.jsonUtil::toSagaEventRequest)
             .map(this.mapperIn::toSagaEvent)
             .map(this.sagaEventFinishFailInputPort::finishFail)
+            .map(this.mapperIn::toSagaEventRequest)
             .orElseThrow();
 
         log.info("Finalizado evento no tópico Finish-Fail para inscrever Time no Torneio: {}.", response);

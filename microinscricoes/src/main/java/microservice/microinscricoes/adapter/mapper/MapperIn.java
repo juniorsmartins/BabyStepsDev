@@ -75,5 +75,6 @@ public interface MapperIn {
     SagaEventResponse toSagaEventResponse(SagaEvent sagaEvent);
 
     FiltersEvent toFiltersEvent(FiltersDtoEvent  filtersDtoEvent);
+
 }
 

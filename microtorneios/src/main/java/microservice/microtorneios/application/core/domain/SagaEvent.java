@@ -1,5 +1,6 @@
 package microservice.microtorneios.application.core.domain;
 
+import microservice.microtorneios.application.core.domain.enums.EEventSource;
 import microservice.microtorneios.application.core.domain.enums.ESagaStatus;
 import org.springframework.util.ObjectUtils;
 
@@ -23,7 +24,7 @@ public final class SagaEvent {
 
     private Inscrito payload;
 
-    private String source;
+    private EEventSource source;
 
     private ESagaStatus status;
 
@@ -94,11 +95,11 @@ public final class SagaEvent {
         this.payload = payload;
     }
 
-    public String getSource() {
+    public EEventSource getSource() {
         return source;
     }
 
-    public void setSource(String source) {
+    public void setSource(EEventSource source) {
         this.source = source;
     }
 
@@ -142,5 +143,6 @@ public final class SagaEvent {
             ", createdAt=" + createdAt +
             '}';
     }
+
 }
 
