@@ -1,12 +1,13 @@
 package microservice.microtimes.application.core.domain;
 
+import microservice.microtimes.application.core.domain.enums.EEventSource;
 import microservice.microtimes.application.core.domain.enums.ESagaStatus;
 
 import java.time.OffsetDateTime;
 
 public final class History {
 
-    private String source;
+    private EEventSource source;
 
     private ESagaStatus status;
 
@@ -14,11 +15,11 @@ public final class History {
 
     private OffsetDateTime createdAt;
 
-    public String getSource() {
+    public EEventSource getSource() {
         return source;
     }
 
-    public void setSource(String source) {
+    public void setSource(EEventSource source) {
         this.source = source;
     }
 
@@ -55,5 +56,6 @@ public final class History {
                 ", createdAt=" + createdAt +
                 '}';
     }
+
 }
 

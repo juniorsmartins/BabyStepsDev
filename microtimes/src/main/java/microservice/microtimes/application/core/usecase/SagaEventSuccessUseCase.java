@@ -4,6 +4,7 @@ import microservice.microtimes.adapter.mapper.MapperIn;
 import microservice.microtimes.adapter.utils.JsonUtil;
 import microservice.microtimes.application.core.domain.History;
 import microservice.microtimes.application.core.domain.SagaEvent;
+import microservice.microtimes.application.core.domain.enums.EEventSource;
 import microservice.microtimes.application.core.domain.enums.ESagaStatus;
 import microservice.microtimes.application.core.domain.value_object.TorneioVo;
 import microservice.microtimes.application.port.input.SagaEventSuccessInputPort;
@@ -23,8 +24,6 @@ import java.util.Optional;
 public class SagaEventSuccessUseCase implements SagaEventSuccessInputPort {
 
     private static final Logger log = LoggerFactory.getLogger(SagaEventSuccessUseCase.class);
-
-    private static final String CURRENT_SOURCE = "TIME-VALIDATION-SUCCESS";
 
     private final TimeFindOutputPort timeFindOutputPort;
 
@@ -103,7 +102,7 @@ public class SagaEventSuccessUseCase implements SagaEventSuccessInputPort {
 
     private void handleSuccess(SagaEvent event) {
         event.setStatus(ESagaStatus.SUCCESS);
-        event.setSource(CURRENT_SOURCE);
+        event.setSource(EEventSource.TIME_VALIDATION_SERVICE);
         this.addHistory(event, "Sucesso ao inscrever Torneio no Time.");
     }
 
@@ -119,7 +118,7 @@ public class SagaEventSuccessUseCase implements SagaEventSuccessInputPort {
 
     private void handleFail(SagaEvent event, String message) {
         event.setStatus(ESagaStatus.ROLLBACK_PENDING);
-        event.setSource(CURRENT_SOURCE);
+        event.setSource(EEventSource.TIME_VALIDATION_SERVICE);
         this.addHistory(event, "Falha ao inscrever Torneio no Time: ".concat(message));
     }
 

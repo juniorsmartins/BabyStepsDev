@@ -5,6 +5,7 @@ import microservice.micropagamentos.adapter.utils.JsonUtil;
 import microservice.micropagamentos.application.core.domain.History;
 import microservice.micropagamentos.application.core.domain.Pagamento;
 import microservice.micropagamentos.application.core.domain.SagaEvent;
+import microservice.micropagamentos.application.core.domain.enums.EEventSource;
 import microservice.micropagamentos.application.core.domain.enums.EPagamentoStatus;
 import microservice.micropagamentos.application.core.domain.enums.ESagaStatus;
 import microservice.micropagamentos.application.port.input.SagaEventSuccessInputPort;
@@ -25,8 +26,6 @@ import java.util.Optional;
 public class SagaEventSuccessUseCase implements SagaEventSuccessInputPort {
 
     private static final Logger log = LoggerFactory.getLogger(SagaEventSuccessUseCase.class);
-
-    private static final String CURRENT_SOURCE = "PAGAMENTO-SERVICE";
 
     private final PagamentoExistsOutputPort pagamentoExistsOutputPort;
 
@@ -138,7 +137,7 @@ public class SagaEventSuccessUseCase implements SagaEventSuccessInputPort {
 
     private void handleSuccess(SagaEvent event) {
         event.setStatus(ESagaStatus.SUCCESS);
-        event.setSource(CURRENT_SOURCE);
+        event.setSource(EEventSource.PAGAMENTO_SERVICE);
         addHistory(event, "Pagamento bem-sucedido!");
     }
 
@@ -154,7 +153,7 @@ public class SagaEventSuccessUseCase implements SagaEventSuccessInputPort {
 
     private void handleFail(SagaEvent event, String message) {
         event.setStatus(ESagaStatus.ROLLBACK_PENDING);
-        event.setSource(CURRENT_SOURCE);
+        event.setSource(EEventSource.PAGAMENTO_SERVICE);
         this.addHistory(event, "Falha ao realizar pagamento: ".concat(message));
     }
 

@@ -1,5 +1,7 @@
 package microservice.microinscricoes.application.core.domain;
 
+import microservice.microinscricoes.application.core.domain.enums.EEventSource;
+import microservice.microinscricoes.application.core.domain.enums.ESagaStatus;
 import microservice.microinscricoes.application.core.domain.value_object.History;
 
 import java.time.OffsetDateTime;
@@ -22,9 +24,9 @@ public final class SagaEvent {
 
     private Inscrito payload;
 
-    private String source;
+    private EEventSource source;
 
-    private String status;
+    private ESagaStatus status;
 
     private List<History> eventHistories;
 
@@ -92,19 +94,19 @@ public final class SagaEvent {
         this.payload = payload;
     }
 
-    public String getSource() {
+    public EEventSource getSource() {
         return source;
     }
 
-    public void setSource(String source) {
+    public void setSource(EEventSource source) {
         this.source = source;
     }
 
-    public String getStatus() {
+    public ESagaStatus getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(ESagaStatus status) {
         this.status = status;
     }
 
@@ -123,5 +125,6 @@ public final class SagaEvent {
     public void setCreatedAt(OffsetDateTime createdAt) {
         this.createdAt = createdAt;
     }
+
 }
 

@@ -11,7 +11,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.ObjectUtils;
 
-import java.util.List;
 import java.util.Optional;
 
 public class SagaEventFindByFiltersUseCase implements SagaEventFindByFiltersInputPort {
@@ -45,5 +44,6 @@ public class SagaEventFindByFiltersUseCase implements SagaEventFindByFiltersInpu
         }
         return filtersEvent;
     }
+
 }
 

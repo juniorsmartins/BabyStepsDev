@@ -2,10 +2,12 @@ package microservice.microinscricoes.application.core.usecase;
 
 import microservice.microinscricoes.application.core.domain.Inscrito;
 import microservice.microinscricoes.application.core.domain.SagaEvent;
+import microservice.microinscricoes.application.core.domain.enums.EEventSource;
+import microservice.microinscricoes.application.core.domain.enums.ESagaStatus;
 import microservice.microinscricoes.application.core.domain.value_object.History;
 import microservice.microinscricoes.application.port.StartSagaEventPort;
 import microservice.microinscricoes.application.port.output.SagaEventSaveOutputPort;
-import microservice.microinscricoes.application.port.output.StartSagaProducerOutputPort;
+import microservice.microinscricoes.application.port.output.CarteiroNotifyStartOutputPort;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -18,10 +20,10 @@ public class StartSagaEventUseCase implements StartSagaEventPort {
 
     private final SagaEventSaveOutputPort sagaEventSaveOutputPort;
 
-    private final StartSagaProducerOutputPort startSagaProducerOutputPort;
+    private final CarteiroNotifyStartOutputPort startSagaProducerOutputPort;
 
     public StartSagaEventUseCase(SagaEventSaveOutputPort sagaEventSaveOutputPort,
-                                 StartSagaProducerOutputPort startSagaProducerOutputPort) {
+                                 CarteiroNotifyStartOutputPort startSagaProducerOutputPort) {
         this.sagaEventSaveOutputPort = sagaEventSaveOutputPort;
         this.startSagaProducerOutputPort = startSagaProducerOutputPort;
     }
@@ -49,8 +51,8 @@ public class StartSagaEventUseCase implements StartSagaEventPort {
         sagaEvent.setTorneioId(inscrito.getInscricao().getTorneio().getId());
         sagaEvent.setTimeId(inscrito.getTime().getId());
         sagaEvent.setPayload(inscrito);
-//        sagaEvent.setSource();
-//        sagaEvent.setStatus();
+        sagaEvent.setSource(EEventSource.INSCRICAO_SERVICE);
+        sagaEvent.setStatus(ESagaStatus.SUCCESS);
         sagaEvent.setEventHistories(List.of(new History()));
 
         return sagaEvent;
@@ -60,5 +62,6 @@ public class StartSagaEventUseCase implements StartSagaEventPort {
         this.startSagaProducerOutputPort.sendEvent(sagaEvent);
         return sagaEvent;
     }
+
 }
 

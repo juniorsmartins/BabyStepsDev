@@ -2,6 +2,8 @@ package microservice.microinscricoes.adapter.out.producer.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
+import microservice.microinscricoes.application.core.domain.enums.EEventSource;
+import microservice.microinscricoes.application.core.domain.enums.ESagaStatus;
 
 import java.time.OffsetDateTime;
 
@@ -13,9 +15,9 @@ import java.time.OffsetDateTime;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public final class HistoryDtoRequest {
 
-    private String source;
+    private EEventSource source;
 
-    private String status;
+    private ESagaStatus status;
 
     private String message;
 

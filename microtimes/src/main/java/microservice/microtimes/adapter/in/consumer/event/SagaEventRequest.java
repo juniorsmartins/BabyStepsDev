@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 import microservice.microtimes.adapter.in.consumer.dto.HistoryDtoRequest;
 import microservice.microtimes.adapter.in.consumer.dto.InscritoDtoRequest;
+import microservice.microtimes.application.core.domain.enums.EEventSource;
+import microservice.microtimes.application.core.domain.enums.ESagaStatus;
 
 import java.time.OffsetDateTime;
 import java.util.List;
@@ -30,12 +32,13 @@ public final class SagaEventRequest {
 
     private InscritoDtoRequest payload;
 
-    private String source;
+    private EEventSource source;
 
-    private String status;
+    private ESagaStatus status;
 
     private List<HistoryDtoRequest> eventHistories;
 
     private OffsetDateTime createdAt;
+
 }
 

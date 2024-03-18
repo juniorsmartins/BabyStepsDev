@@ -27,7 +27,7 @@ public class CaixaPostalSagaConsumer {
     )
     public void consumeNotifyEndingEvent(String payload) {
 
-        log.info("Recebido evento de conclusão da saga, via tópico notify-ending, no ConsumerEvent.");
+        log.info("Recebido evento de conclusão da saga, via tópico Notify-Ending, no ConsumerEvent.");
 
         var sagaEvent = Optional.ofNullable(payload)
             .map(this.jsonUtil::toSagaEventRequest)
@@ -35,7 +35,7 @@ public class CaixaPostalSagaConsumer {
             .map(this.sagaEventSaveOutputPort::save)
             .orElseThrow();
 
-        log.info("Saga salva e finalizada com sucesso, com os dados: {}", sagaEvent);
+        log.info("Saga concluída com sucesso, via tópico Notify-Ending, com o conteúdo: {}", sagaEvent);
     }
 
 }

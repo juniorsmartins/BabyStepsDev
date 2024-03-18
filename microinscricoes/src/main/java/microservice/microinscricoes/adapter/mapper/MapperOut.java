@@ -46,5 +46,6 @@ public interface MapperOut {
     InscritoEntity toInscritoEntity(Inscrito inscrito);
 
     Inscrito toInscrito(InscritoEntity inscritoEntity);
+
 }
 

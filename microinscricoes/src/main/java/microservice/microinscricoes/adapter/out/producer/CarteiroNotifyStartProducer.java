@@ -5,7 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import microservice.microinscricoes.adapter.mapper.MapperOut;
 import microservice.microinscricoes.adapter.utils.JsonUtil;
 import microservice.microinscricoes.application.core.domain.SagaEvent;
-import microservice.microinscricoes.application.port.output.StartSagaProducerOutputPort;
+import microservice.microinscricoes.application.port.output.CarteiroNotifyStartOutputPort;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
@@ -15,7 +15,7 @@ import java.util.Optional;
 @Slf4j
 @Component
 @RequiredArgsConstructor
-public class SagaProducer implements StartSagaProducerOutputPort {
+public class CarteiroNotifyStartProducer implements CarteiroNotifyStartOutputPort {
 
     private final KafkaTemplate<String, String> kafkaTemplate;
 
@@ -28,11 +28,11 @@ public class SagaProducer implements StartSagaProducerOutputPort {
 
     public String send(String payload) {
         try {
-            log.info("Enviar evento para tópico {} com os dados {}", startSagaTopic, payload);
+            log.info("Enviar evento para tópico Start-Saga, com o conteúdo: {}", payload);
             kafkaTemplate.send(startSagaTopic, payload);
 
         } catch (Exception ex) {
-            log.error("Erro ao tentar enviar dados para o tópico {} com os dados {}", startSagaTopic, payload, ex);
+            log.error("Erro ao tentar enviar dados para o tópico Start-Saga, com o conteúdo: {}", payload, ex);
         }
         return payload;
     }

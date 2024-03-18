@@ -4,6 +4,7 @@ import microservice.microtimes.adapter.mapper.MapperIn;
 import microservice.microtimes.adapter.utils.JsonUtil;
 import microservice.microtimes.application.core.domain.History;
 import microservice.microtimes.application.core.domain.SagaEvent;
+import microservice.microtimes.application.core.domain.enums.EEventSource;
 import microservice.microtimes.application.core.domain.enums.ESagaStatus;
 import microservice.microtimes.application.core.domain.value_object.TorneioVo;
 import microservice.microtimes.application.port.input.SagaEventFailInputPort;
@@ -24,8 +25,6 @@ import java.util.Optional;
 public class SagaEventFailUseCase implements SagaEventFailInputPort {
 
     private static final Logger log = LoggerFactory.getLogger(SagaEventFailUseCase.class);
-
-    private static final String CURRENT_SOURCE = "TIME-VALIDATION-SUCCESS";
 
     private final TimeFindOutputPort timeFindOutputPort;
 
@@ -106,7 +105,7 @@ public class SagaEventFailUseCase implements SagaEventFailInputPort {
 
     private void handleSuccessFail(SagaEvent event) {
         event.setStatus(ESagaStatus.FAIL);
-        event.setSource(CURRENT_SOURCE);
+        event.setSource(EEventSource.TIME_VALIDATION_SERVICE);
         this.addHistory(event, "Rollback bem-sucedido ao remover Torneio do Time.");
     }
 
@@ -122,7 +121,7 @@ public class SagaEventFailUseCase implements SagaEventFailInputPort {
 
     private void handleRollbackPending(SagaEvent event, String message) {
         event.setStatus(ESagaStatus.ROLLBACK_PENDING);
-        event.setSource(CURRENT_SOURCE);
+        event.setSource(EEventSource.TIME_VALIDATION_SERVICE);
         this.addHistory(event, "Rollback falha ao remover Torneio do Time: ".concat(message));
     }
 

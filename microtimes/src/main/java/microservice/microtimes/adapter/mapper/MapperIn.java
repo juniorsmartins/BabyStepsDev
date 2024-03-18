@@ -10,11 +10,9 @@ import microservice.microtimes.application.core.domain.History;
 import microservice.microtimes.application.core.domain.Inscrito;
 import microservice.microtimes.application.core.domain.SagaEvent;
 import microservice.microtimes.application.core.domain.Time;
-import microservice.microtimes.application.core.domain.enums.ESagaStatus;
 import microservice.microtimes.application.core.domain.value_object.TorneioVo;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-import org.mapstruct.Named;
 
 @Mapper(componentModel = "spring")
 public interface MapperIn {
@@ -24,7 +22,6 @@ public interface MapperIn {
     TimeCreateDtoResponse toTimeCreateDtoResponse(Time time);
 
     @Mapping(source = "id", target = "sagaEventId")
-    @Mapping(source = "status", target = "status", qualifiedByName = "converterStringParaEnumSagaStatus")
     SagaEvent toSagaEvent(SagaEventRequest sagaEventRequest);
 
     @Mapping(source = "sagaEventId", target = "id")
@@ -37,16 +34,7 @@ public interface MapperIn {
     @Mapping(source = "inscricao.id", target = "inscricaoId")
     Inscrito toInscrito(InscritoDtoRequest inscritoDtoRequest);
 
-    @Mapping(source = "status", target = "status", qualifiedByName = "converterStringParaEnumSagaStatus")
     History toHistory(HistoryDtoRequest historyDtoRequest);
-
-    @Named("converterStringParaEnumSagaStatus")
-    default ESagaStatus converterStringParaEnumSagaStatus(String status) {
-        if (status == null) {
-            return null;
-        }
-        return ESagaStatus.fromValue(status);
-    }
 
 }
 

@@ -1,8 +1,8 @@
 package microservice.orchestrator.application.core.domain.enums;
 
-import microservice.orchestrator.config.exception.http_409.ConversionEnumSagaStatusFailedException;
-
 public enum EEventSource {
+
+    INSCRICAO_SERVICE("INSCRICAO_SERVICE"),
 
     ORCHESTRATOR("ORCHESTRATOR"),
 
@@ -22,13 +22,5 @@ public enum EEventSource {
         return value;
     }
 
-    public static EEventSource fromValue(String value) {
-        for (EEventSource source : values()) {
-            if (source.value.equalsIgnoreCase(value)) {
-                return source;
-            }
-        }
-        throw new ConversionEnumSagaStatusFailedException();
-    }
 }
 

@@ -1,31 +1,33 @@
 package microservice.microinscricoes.application.core.domain.value_object;
 
-import java.time.LocalDateTime;
+import microservice.microinscricoes.application.core.domain.enums.EEventSource;
+import microservice.microinscricoes.application.core.domain.enums.ESagaStatus;
+
 import java.time.OffsetDateTime;
 
 public final class History {
 
-    private String source;
+    private EEventSource source;
 
-    private String status;
+    private ESagaStatus status;
 
     private String message;
 
     private OffsetDateTime createdAt;
 
-    public String getSource() {
+    public EEventSource getSource() {
         return source;
     }
 
-    public void setSource(String source) {
+    public void setSource(EEventSource source) {
         this.source = source;
     }
 
-    public String getStatus() {
+    public ESagaStatus getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(ESagaStatus status) {
         this.status = status;
     }
 
@@ -44,5 +46,6 @@ public final class History {
     public void setCreatedAt(OffsetDateTime createdAt) {
         this.createdAt = createdAt;
     }
+
 }
 
