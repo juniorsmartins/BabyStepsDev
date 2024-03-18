@@ -51,8 +51,8 @@ public class StartSagaEventUseCase implements StartSagaEventPort {
         sagaEvent.setTorneioId(inscrito.getInscricao().getTorneio().getId());
         sagaEvent.setTimeId(inscrito.getTime().getId());
         sagaEvent.setPayload(inscrito);
-        sagaEvent.setSource(EEventSource.INSCRITO_SERVICE.getValue());
-        sagaEvent.setStatus(ESagaStatus.SUCCESS.getValue());
+        sagaEvent.setSource(EEventSource.INSCRICAO_SERVICE);
+        sagaEvent.setStatus(ESagaStatus.SUCCESS);
         sagaEvent.setEventHistories(List.of(new History()));
 
         return sagaEvent;
@@ -62,5 +62,6 @@ public class StartSagaEventUseCase implements StartSagaEventPort {
         this.startSagaProducerOutputPort.sendEvent(sagaEvent);
         return sagaEvent;
     }
+
 }
 

@@ -1,13 +1,12 @@
 package microservice.microtorneios.adapters.mapper;
 
-import microservice.microtorneios.adapters.in.controller.dto.TimeIdDto;
 import microservice.microtorneios.adapters.in.consumer.event.SagaEventRequest;
+import microservice.microtorneios.adapters.in.controller.dto.TimeIdDto;
 import microservice.microtorneios.adapters.in.controller.dto.request.TorneioCreateDtoRequest;
 import microservice.microtorneios.adapters.in.controller.dto.response.TorneioCreateDtoResponse;
 import microservice.microtorneios.application.core.domain.SagaEvent;
-import microservice.microtorneios.application.core.domain.value_object.TimeVo;
 import microservice.microtorneios.application.core.domain.Torneio;
-import microservice.microtorneios.application.core.domain.enums.ESagaStatus;
+import microservice.microtorneios.application.core.domain.value_object.TimeVo;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Named;
@@ -32,19 +31,10 @@ public interface MapperIn {
     TimeIdDto toTimeIdDto(TimeVo timeVo);
 
     @Mapping(source = "id", target = "sagaEventId")
-    @Mapping(source = "status", target = "status", qualifiedByName = "converterStringParaEnumSagaStatus")
     SagaEvent toSagaEvent(SagaEventRequest sagaEventRequest);
 
     @Mapping(source = "sagaEventId", target = "id")
     SagaEventRequest toSagaEventRequest(SagaEvent sagaEvent);
-
-    @Named("converterStringParaEnumSagaStatus")
-    default ESagaStatus converterStringParaEnumSagaStatus(String status) {
-        if (status == null) {
-            return null;
-        }
-        return ESagaStatus.fromValue(status);
-    }
 
 }
 

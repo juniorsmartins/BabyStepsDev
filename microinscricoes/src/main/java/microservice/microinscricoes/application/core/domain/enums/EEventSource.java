@@ -4,7 +4,7 @@ import microservice.microinscricoes.config.exception.http_409.ConversionEnumSaga
 
 public enum EEventSource {
 
-    INSCRITO_SERVICE("INSCRITO_SERVICE"),
+    INSCRICAO_SERVICE("INSCRICAO_SERVICE"),
 
     ORCHESTRATOR("ORCHESTRATOR"),
 
@@ -24,13 +24,13 @@ public enum EEventSource {
         return value;
     }
 
-    public static EEventSource fromValue(String value) {
-        for (EEventSource source : values()) {
-            if (source.value.equalsIgnoreCase(value)) {
-                return source;
-            }
-        }
-        throw new ConversionEnumSagaStatusFailedException();
-    }
+//    public static EEventSource fromValue(String value) {
+//        for (EEventSource source : values()) {
+//            if (source.value.equalsIgnoreCase(value)) {
+//                return source;
+//            }
+//        }
+//        throw new ConversionEnumSagaStatusFailedException();
+//    }
 }
 

@@ -40,7 +40,7 @@ public class SagaEventFinishSuccessUseCase implements SagaEventFinishSuccessInpu
     private void addHistory(SagaEvent event, String message) {
         var history = new History();
         history.setMessage(message);
-        history.setSource(event.getSource().getValue());
+        history.setSource(event.getSource());
         history.setStatus(event.getStatus());
         history.setCreatedAt(OffsetDateTime.now());
 

@@ -16,5 +16,6 @@ public interface MapperOut {
     TimeDb toTimeDb(TimeVo timeVo);
 
     TimeVo toTimeVo(TimeDb timeDb);
+
 }
 

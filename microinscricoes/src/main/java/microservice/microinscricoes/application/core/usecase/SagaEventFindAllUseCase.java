@@ -29,5 +29,6 @@ public class SagaEventFindAllUseCase implements SagaEventFindAllInputPort {
 
         return sagaList;
     }
+
 }
 

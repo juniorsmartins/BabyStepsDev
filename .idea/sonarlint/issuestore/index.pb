@@ -953,3 +953,9 @@ jmicroinscricoes/src/main/java/microservice/microinscricoes/application/core/dom
 Åmicroinscricoes/src/main/java/microservice/microinscricoes/config/exception/http_409/ConversionEnumSagaStatusFailedException.java,0/a/0a8a3636de83466f53c2333c70c38bd4931ca300
 ô
 imicroinscricoes/src/main/java/microservice/microinscricoes/application/core/domain/enums/ESagaStatus.java,9/1/91107e94f1c094a77d9a7b3dc3acdb0d7dba0d86
+ñ
+fmicrotorneios/src/main/java/microservice/microtorneios/application/core/domain/enums/EEventSource.java,4/5/45d69d23927583240637290366e9dbafcce4484e
+ê
+`microtimes/src/main/java/microservice/microtimes/application/core/domain/enums/EEventSource.java,8/f/8f5da412d94ae28cad735d4dcdcaad598818df04
+ö
+jmicropagamentos/src/main/java/microservice/micropagamentos/application/core/domain/enums/EEventSource.java,0/1/01e6fcc6663e86cfe28e5695379271fa0985f7ca
