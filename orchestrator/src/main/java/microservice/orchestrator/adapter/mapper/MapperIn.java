@@ -17,23 +17,10 @@ import org.mapstruct.Named;
 @Mapper(componentModel = "spring")
 public interface MapperIn {
 
-    Time toTime(TimeIdDto timeIdDto);
-
-    TimeIdDto toTimeIdDto(Time time);
-
     @Mapping(source = "id", target = "sagaEventId")
     @Mapping(source = "source", target = "source", qualifiedByName = "converterStringParaEnumEventSource")
     @Mapping(source = "status", target = "status", qualifiedByName = "converterStringParaEnumSagaStatus")
     SagaEvent toSagaEvent(SagaEventRequest sagaEventRequest);
-
-    @Mapping(source = "sagaEventId", target = "id")
-    SagaEventRequest toSagaEventRequest(SagaEvent sagaEvent);
-
-    @Mapping(source = "inscricao.id", target = "inscricaoId")
-    Inscrito toInscrito(InscritoDtoRequest inscritoDtoRequest);
-
-    @Mapping(source = "status", target = "status", qualifiedByName = "converterStringParaEnumSagaStatus")
-    History toHistory(HistoryDtoRequest historyDtoRequest);
 
     @Named("converterStringParaEnumEventSource")
     default EEventSource converterStringParaEnumEventSource(String source) {
@@ -50,6 +37,19 @@ public interface MapperIn {
         }
         return ESagaStatus.fromValue(status);
     }
+
+    @Mapping(source = "sagaEventId", target = "id")
+    SagaEventRequest toSagaEventRequest(SagaEvent sagaEvent);
+
+    @Mapping(source = "inscricao.id", target = "inscricaoId")
+    Inscrito toInscrito(InscritoDtoRequest inscritoDtoRequest);
+
+    @Mapping(source = "status", target = "status", qualifiedByName = "converterStringParaEnumSagaStatus")
+    History toHistory(HistoryDtoRequest historyDtoRequest);
+
+    Time toTime(TimeIdDto timeIdDto);
+
+    TimeIdDto toTimeIdDto(Time time);
 
 }
 

@@ -1,6 +1,6 @@
-package microservice.orchestrator.application.core.domain.enums;
+package microservice.microinscricoes.application.core.domain.enums;
 
-import microservice.orchestrator.config.exception.http_409.ConversionEnumSagaStatusFailedException;
+import microservice.microinscricoes.config.exception.http_409.ConversionEnumSagaStatusFailedException;
 
 public enum EEventSource {
 

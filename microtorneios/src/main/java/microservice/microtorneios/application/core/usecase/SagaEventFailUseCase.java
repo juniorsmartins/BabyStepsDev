@@ -25,7 +25,7 @@ public class SagaEventFailUseCase implements SagaEventFailInputPort {
 
     private static final Logger log = LoggerFactory.getLogger(SagaEventFailUseCase.class);
 
-    private static final String CURRENT_SOURCE = "TORNEIO-VALIDATION-SUCCESS";
+    private static final String CURRENT_SOURCE = "TORNEIO_SERVICE";
 
     private final TorneioFindOutputPort torneioFindOutputPort;
 

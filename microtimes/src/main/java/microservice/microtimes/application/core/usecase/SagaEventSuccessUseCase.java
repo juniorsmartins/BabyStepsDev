@@ -24,7 +24,7 @@ public class SagaEventSuccessUseCase implements SagaEventSuccessInputPort {
 
     private static final Logger log = LoggerFactory.getLogger(SagaEventSuccessUseCase.class);
 
-    private static final String CURRENT_SOURCE = "TIME-VALIDATION-SUCCESS";
+    private static final String CURRENT_SOURCE = "TIME_VALIDATION_SERVICE";
 
     private final TimeFindOutputPort timeFindOutputPort;
 

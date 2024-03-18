@@ -936,3 +936,15 @@ korchestrator/src/main/java/microservice/orchestrator/application/core/usecase/S
 Xorchestrator/src/main/java/microservice/orchestrator/config/usecase/SagaEventConfig.java,f/5/f5af5b371786ef5b1bdcb951c2c543696df30371
 ñ
 forchestrator/src/main/java/microservice/orchestrator/application/core/domain/enums/ETipoPagamento.java,c/1/c100909540a61406db3a84f365a5f292aaeb12be
+•
+umicroinscricoes/src/main/java/microservice/microinscricoes/application/port/output/CarteiroNotifyStartOutputPort.java,c/a/ca8ebbcae5c7f972719853634c9d6445f524a589
+ì
+cmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/out/producer/CarteiroNotify.java,9/f/9fea30443ed9bf0c140b608726c98e59dc6a3661
+†
+pmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/out/producer/CarteiroNotifyStartProducer.java,4/a/4aa0b9e2969bea2d14431c09c445df93a4604317
+ö
+jmicroinscricoes/src/main/java/microservice/microinscricoes/application/core/domain/enums/EEventSource.java,9/4/9428922f04d8bfaa0b9f5bdd2661e8093e66f086
+≤
+Åmicroinscricoes/src/main/java/microservice/microinscricoes/config/exception/http_409/ConversionEnumSagaStatusFailedException.java,0/a/0a8a3636de83466f53c2333c70c38bd4931ca300
+ô
+imicroinscricoes/src/main/java/microservice/microinscricoes/application/core/domain/enums/ESagaStatus.java,9/1/91107e94f1c094a77d9a7b3dc3acdb0d7dba0d86
