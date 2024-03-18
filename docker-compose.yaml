@@ -75,6 +75,20 @@ services:
     volumes:
       - data-mariadb:/var/lib/mysql
 
+  orchestrator16postgres:
+    container_name: orchestrator16postgres
+    image: postgres:16.0
+    restart: always
+    networks:
+      - babystepsnet
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: orchestrator
+    ports:
+      - "5537:5432"
+    volumes:
+      - data-post:/var/lib/postgresql/data
+
   micronoticias16postgres:
     container_name: micronoticias16postgres
     image: postgres:16.0
@@ -164,8 +178,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.4'
-          memory: 1G
+          cpus: '0.3'
+          memory: 512M
     restart: always
     networks:
       - babystepsnet
@@ -184,8 +198,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.4'
-          memory: 1G
+          cpus: '0.3'
+          memory: 512M
     restart: always
     networks:
       - babystepsnet
@@ -205,8 +219,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.4'
-          memory: 1G
+          cpus: '0.3'
+          memory: 512M
     restart: always
     networks:
       - babystepsnet
@@ -226,8 +240,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.4'
-          memory: 1G
+          cpus: '0.3'
+          memory: 512M
     restart: always
     networks:
       - babystepsnet
@@ -247,8 +261,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.4'
-          memory: 1G
+          cpus: '0.3'
+          memory: 512M
     restart: always
     networks:
       - babystepsnet
@@ -265,6 +279,11 @@ services:
     build:
       context: ./
       dockerfile: ./orchestrator/Dockerfile
+    deploy:
+      resources:
+        limits:
+          cpus: '0.3'
+          memory: 512M
     restart: always
     networks:
       - babystepsnet
@@ -273,6 +292,7 @@ services:
     depends_on:
       - eurekaserver
       - gateway
+      - orchestrator16postgres
       - microinscricoes
       - microtimes
       - micropagamentos
@@ -287,8 +307,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.4'
-          memory: 1G
+          cpus: '0.3'
+          memory: 512M
     restart: always
     networks:
       - babystepsnet
@@ -327,6 +347,8 @@ volumes:
     name: data-postgresq
   data-mariadb:
     name: data-mariadb
+  data-post:
+    name: data-post
   data-postgres:
     name: data-postgres
   data-docker:

@@ -666,8 +666,6 @@ Yorchestrator/src/main/java/microservice/orchestrator/application/core/domain/Hi
 Zorchestrator/src/main/java/microservice/orchestrator/application/core/domain/Inscrito.java,d/0/d0804b5921819f07c0d4befa5832b0a8c2663f2d
 ã
 [orchestrator/src/main/java/microservice/orchestrator/application/core/domain/SagaEvent.java,3/1/31b4504cb7a06dcdd70c8a0d9fea3d465f6934ad
-â
-Yorchestrator/src/main/java/microservice/orchestrator/application/core/domain/Torneio.java,9/a/9a68267f4e086b15bda66e8b04a239313472fa64
 î
 dorchestrator/src/main/java/microservice/orchestrator/adapter/in/consumer/event/SagaEventRequest.java,b/f/bf71ef55f6397ce4c12ef231ca92ba501d7d63ad
 ´
@@ -900,8 +898,6 @@ imicropagamentos/src/main/java/microservice/micropagamentos/adapter/in/consumer/
 hmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/in/controller/dto/InscricaoIdDto.java,4/3/436b962502b1d5b5c306fbd484bbc08ed70864dc
 ö
 jorchestrator/src/main/java/microservice/orchestrator/application/core/domain/enums/ActivityStatusEnum.java,a/b/ab28c06f9cd0d536ebff87fe92c21391b1f0ca5a
-ò
-horchestrator/src/main/java/microservice/orchestrator/application/core/domain/enums/EInscricaoStatus.java,b/b/bb5f5ddab7f989018d8f99e43c6473487b2cabe6
 õ
 kmicroinscricoes/src/main/java/microservice/microinscricoes/adapter/out/producer/event/SagaEventRequest.java,9/e/9e3101a69d8fb464c68668d7e97439b86298d00d
 Å
@@ -938,12 +934,8 @@ dorchestrator/src/main/java/microservice/orchestrator/application/core/usecase/u
 korchestrator/src/main/java/microservice/orchestrator/application/core/usecase/SagaExecutionControlImpl.java,f/0/f089100ffc5bd2b2dc8fabe705642e2ed6c827ac
 à
 Xorchestrator/src/main/java/microservice/orchestrator/config/usecase/SagaEventConfig.java,f/5/f5af5b371786ef5b1bdcb951c2c543696df30371
-Ñ
-Torchestrator/src/main/java/microservice/orchestrator/adapter/mapper/oi/MapperIn.java,f/0/f0a79d0101ca23002ce6935930eeb51943df6898
 ñ
 forchestrator/src/main/java/microservice/orchestrator/application/core/domain/enums/ETipoPagamento.java,c/1/c100909540a61406db3a84f365a5f292aaeb12be
-Ö
-Uorchestrator/src/main/java/microservice/orchestrator/adapter/mapper/oi/MapperOut.java,c/8/c842be238bdd9470cbe7495c3535eb26ff8fd4ad
 ô
 iorchestrator/src/main/java/microservice/orchestrator/application/port/input/SagaEventCreateInputPort.java,6/f/6f1ab04aee29dbd87ca4de7903074f8a8da6f0ba
 ô
@@ -956,5 +948,5 @@ Zorchestrator/src/main/java/microservice/orchestrator/adapter/out/SagaEventSaveA
 dorchestrator/src/main/java/microservice/orchestrator/adapter/out/repository/SagaEventRepository.java,8/e/8ee3cc74ba1759b2970a545b61c04a21456fdfd9
 ó
 gorchestrator/src/main/java/microservice/orchestrator/adapter/out/repository/entity/SagaEventEntity.java,5/4/5483363e4507b57b5bd797a83932c26d89c136fa
-õ
-korchestrator/src/main/java/microservice/orchestrator/adapter/out/repository/entity/SagaEventRepository.java,8/d/8dd3d937ced91e5f3106486f4ac9502425f64dbc
+A
+orchestrator/.env,d/4/d45af4e2a0753697e23429e448073b417d8f313d
