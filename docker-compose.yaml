@@ -164,8 +164,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.4'
-          memory: 1G
+          cpus: '0.3'
+          memory: 512M
     restart: always
     networks:
       - babystepsnet
@@ -184,8 +184,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.4'
-          memory: 1G
+          cpus: '0.3'
+          memory: 512M
     restart: always
     networks:
       - babystepsnet
@@ -205,8 +205,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.4'
-          memory: 1G
+          cpus: '0.3'
+          memory: 512M
     restart: always
     networks:
       - babystepsnet
@@ -226,8 +226,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.4'
-          memory: 1G
+          cpus: '0.3'
+          memory: 512M
     restart: always
     networks:
       - babystepsnet
@@ -247,8 +247,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.4'
-          memory: 1G
+          cpus: '0.3'
+          memory: 512M
     restart: always
     networks:
       - babystepsnet
@@ -265,6 +265,11 @@ services:
     build:
       context: ./
       dockerfile: ./orchestrator/Dockerfile
+    deploy:
+      resources:
+        limits:
+          cpus: '0.3'
+          memory: 512M
     restart: always
     networks:
       - babystepsnet
@@ -287,8 +292,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.4'
-          memory: 1G
+          cpus: '0.3'
+          memory: 512M
     restart: always
     networks:
       - babystepsnet
