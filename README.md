@@ -121,7 +121,4 @@ Em construção...
 
 ### 8 - DIAGRAMA ENTIDADE-RELACIONAMENTO
 
-Em construção...
-<img width=800 src=https://github.com/juniorsmartins/BabyStepsDev/blob/master/documentacao/DiagramaEntidadeRelacionamento-07-02-24.png>
-
 
